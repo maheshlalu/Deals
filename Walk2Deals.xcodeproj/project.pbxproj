@@ -14,6 +14,15 @@
 		1841397D1F6FF7EA00B73595 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1841397B1F6FF7EA00B73595 /* LaunchScreen.storyboard */; };
 		184139881F6FF7EA00B73595 /* Walk2DealsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184139871F6FF7EA00B73595 /* Walk2DealsTests.swift */; };
 		184139931F6FF7EA00B73595 /* Walk2DealsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184139921F6FF7EA00B73595 /* Walk2DealsUITests.swift */; };
+		184139A11F6FFCDF00B73595 /* CXDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184139A01F6FFCDF00B73595 /* CXDataService.swift */; };
+		184139A41F70004200B73595 /* CXLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184139A31F70004200B73595 /* CXLog.swift */; };
+		184139AB1F70070D00B73595 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184139A71F70070D00B73595 /* CreateAccountViewController.swift */; };
+		184139AC1F70070D00B73595 /* VerificationCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184139A81F70070D00B73595 /* VerificationCodeViewController.swift */; };
+		184139AD1F70070D00B73595 /* EnterMobileNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184139A91F70070D00B73595 /* EnterMobileNumberViewController.swift */; };
+		184139AE1F70070D00B73595 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184139AA1F70070D00B73595 /* LaunchViewController.swift */; };
+		45FEB2C6DF34E4D5BBC8FF78 /* Pods_Walk2Deals.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C9FA8110221974AAFF3FEE1 /* Pods_Walk2Deals.framework */; };
+		732625FDD40822DCDD9FB0C6 /* Pods_Walk2DealsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D0FBCC8FB9FCE874BA10192 /* Pods_Walk2DealsUITests.framework */; };
+		C437F54E9B33DF342F8BD1D0 /* Pods_Walk2DealsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F388D68C956295A0A27D28 /* Pods_Walk2DealsTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +43,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		03F388D68C956295A0A27D28 /* Pods_Walk2DealsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Walk2DealsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		094D1CED68723E0DE3C41B5E /* Pods-Walk2Deals.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Walk2Deals.release.xcconfig"; path = "Pods/Target Support Files/Pods-Walk2Deals/Pods-Walk2Deals.release.xcconfig"; sourceTree = "<group>"; };
+		0D0FBCC8FB9FCE874BA10192 /* Pods_Walk2DealsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Walk2DealsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1841396F1F6FF7E900B73595 /* Walk2Deals.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Walk2Deals.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		184139721F6FF7E900B73595 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		184139741F6FF7EA00B73595 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +59,18 @@
 		1841398E1F6FF7EA00B73595 /* Walk2DealsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Walk2DealsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		184139921F6FF7EA00B73595 /* Walk2DealsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Walk2DealsUITests.swift; sourceTree = "<group>"; };
 		184139941F6FF7EA00B73595 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		184139A01F6FFCDF00B73595 /* CXDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CXDataService.swift; sourceTree = "<group>"; };
+		184139A31F70004200B73595 /* CXLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CXLog.swift; sourceTree = "<group>"; };
+		184139A71F70070D00B73595 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		184139A81F70070D00B73595 /* VerificationCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerificationCodeViewController.swift; sourceTree = "<group>"; };
+		184139A91F70070D00B73595 /* EnterMobileNumberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterMobileNumberViewController.swift; sourceTree = "<group>"; };
+		184139AA1F70070D00B73595 /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		2C9FA8110221974AAFF3FEE1 /* Pods_Walk2Deals.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Walk2Deals.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		513194D07A79E0872A50E4E1 /* Pods-Walk2Deals.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Walk2Deals.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Walk2Deals/Pods-Walk2Deals.debug.xcconfig"; sourceTree = "<group>"; };
+		93E02FF06837F95D0027841B /* Pods-Walk2DealsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Walk2DealsUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Walk2DealsUITests/Pods-Walk2DealsUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		AD6DB2711D3E21BEF474A903 /* Pods-Walk2DealsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Walk2DealsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Walk2DealsTests/Pods-Walk2DealsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D09F227503B92FB17082B3CB /* Pods-Walk2DealsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Walk2DealsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Walk2DealsTests/Pods-Walk2DealsTests.release.xcconfig"; sourceTree = "<group>"; };
+		ECD70C951A49E23B6115ABE8 /* Pods-Walk2DealsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Walk2DealsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Walk2DealsUITests/Pods-Walk2DealsUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45FEB2C6DF34E4D5BBC8FF78 /* Pods_Walk2Deals.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C437F54E9B33DF342F8BD1D0 /* Pods_Walk2DealsTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				732625FDD40822DCDD9FB0C6 /* Pods_Walk2DealsUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +108,8 @@
 				184139861F6FF7EA00B73595 /* Walk2DealsTests */,
 				184139911F6FF7EA00B73595 /* Walk2DealsUITests */,
 				184139701F6FF7E900B73595 /* Products */,
+				F3AAE232D72640C18CD25227 /* Pods */,
+				77B703CC46946E871D7824DB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,8 +126,13 @@
 		184139711F6FF7E900B73595 /* Walk2Deals */ = {
 			isa = PBXGroup;
 			children = (
+				184139AF1F70071100B73595 /* Controllers */,
+				184139A21F6FFCE200B73595 /* DataService */,
 				184139721F6FF7E900B73595 /* AppDelegate.swift */,
 				184139741F6FF7EA00B73595 /* ViewController.swift */,
+				184139A01F6FFCDF00B73595 /* CXDataService.swift */,
+				184139A31F70004200B73595 /* CXLog.swift */,
+				184139AA1F70070D00B73595 /* LaunchViewController.swift */,
 				184139761F6FF7EA00B73595 /* Main.storyboard */,
 				184139791F6FF7EA00B73595 /* Assets.xcassets */,
 				1841397B1F6FF7EA00B73595 /* LaunchScreen.storyboard */,
@@ -125,6 +159,46 @@
 			path = Walk2DealsUITests;
 			sourceTree = "<group>";
 		};
+		184139A21F6FFCE200B73595 /* DataService */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = DataService;
+			sourceTree = "<group>";
+		};
+		184139AF1F70071100B73595 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				184139A71F70070D00B73595 /* CreateAccountViewController.swift */,
+				184139A81F70070D00B73595 /* VerificationCodeViewController.swift */,
+				184139A91F70070D00B73595 /* EnterMobileNumberViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		77B703CC46946E871D7824DB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2C9FA8110221974AAFF3FEE1 /* Pods_Walk2Deals.framework */,
+				03F388D68C956295A0A27D28 /* Pods_Walk2DealsTests.framework */,
+				0D0FBCC8FB9FCE874BA10192 /* Pods_Walk2DealsUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F3AAE232D72640C18CD25227 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				513194D07A79E0872A50E4E1 /* Pods-Walk2Deals.debug.xcconfig */,
+				094D1CED68723E0DE3C41B5E /* Pods-Walk2Deals.release.xcconfig */,
+				AD6DB2711D3E21BEF474A903 /* Pods-Walk2DealsTests.debug.xcconfig */,
+				D09F227503B92FB17082B3CB /* Pods-Walk2DealsTests.release.xcconfig */,
+				93E02FF06837F95D0027841B /* Pods-Walk2DealsUITests.debug.xcconfig */,
+				ECD70C951A49E23B6115ABE8 /* Pods-Walk2DealsUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +206,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 184139971F6FF7EA00B73595 /* Build configuration list for PBXNativeTarget "Walk2Deals" */;
 			buildPhases = (
+				292F64C75E608421043B86A4 /* [CP] Check Pods Manifest.lock */,
 				1841396B1F6FF7E900B73595 /* Sources */,
 				1841396C1F6FF7E900B73595 /* Frameworks */,
 				1841396D1F6FF7E900B73595 /* Resources */,
+				E1FE8422EE5A3D3322D39DE1 /* [CP] Embed Pods Frameworks */,
+				3BBEFED3F67D9ACA12F92993 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -149,9 +226,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1841399A1F6FF7EA00B73595 /* Build configuration list for PBXNativeTarget "Walk2DealsTests" */;
 			buildPhases = (
+				DB6E6259D4C30C572695EC4D /* [CP] Check Pods Manifest.lock */,
 				1841397F1F6FF7EA00B73595 /* Sources */,
 				184139801F6FF7EA00B73595 /* Frameworks */,
 				184139811F6FF7EA00B73595 /* Resources */,
+				5187825AA58FF5FA78B78AE4 /* [CP] Embed Pods Frameworks */,
+				29687829576BDCC3D392D689 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -167,9 +247,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1841399D1F6FF7EA00B73595 /* Build configuration list for PBXNativeTarget "Walk2DealsUITests" */;
 			buildPhases = (
+				945ED9BFBB48059AB2052675 /* [CP] Check Pods Manifest.lock */,
 				1841398A1F6FF7EA00B73595 /* Sources */,
 				1841398B1F6FF7EA00B73595 /* Frameworks */,
 				1841398C1F6FF7EA00B73595 /* Resources */,
+				36816D7C8D5368508D6BD022 /* [CP] Embed Pods Frameworks */,
+				07F6D326E16DA4113B9DD5EF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -254,13 +337,157 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		07F6D326E16DA4113B9DD5EF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Walk2DealsUITests/Pods-Walk2DealsUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		292F64C75E608421043B86A4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		29687829576BDCC3D392D689 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Walk2DealsTests/Pods-Walk2DealsTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		36816D7C8D5368508D6BD022 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Walk2DealsUITests/Pods-Walk2DealsUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3BBEFED3F67D9ACA12F92993 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Walk2Deals/Pods-Walk2Deals-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5187825AA58FF5FA78B78AE4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Walk2DealsTests/Pods-Walk2DealsTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		945ED9BFBB48059AB2052675 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DB6E6259D4C30C572695EC4D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E1FE8422EE5A3D3322D39DE1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Walk2Deals/Pods-Walk2Deals-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1841396B1F6FF7E900B73595 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				184139AC1F70070D00B73595 /* VerificationCodeViewController.swift in Sources */,
+				184139AB1F70070D00B73595 /* CreateAccountViewController.swift in Sources */,
 				184139751F6FF7EA00B73595 /* ViewController.swift in Sources */,
+				184139A11F6FFCDF00B73595 /* CXDataService.swift in Sources */,
 				184139731F6FF7E900B73595 /* AppDelegate.swift in Sources */,
+				184139AD1F70070D00B73595 /* EnterMobileNumberViewController.swift in Sources */,
+				184139A41F70004200B73595 /* CXLog.swift in Sources */,
+				184139AE1F70070D00B73595 /* LaunchViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,6 +637,7 @@
 		};
 		184139981F6FF7EA00B73595 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 513194D07A79E0872A50E4E1 /* Pods-Walk2Deals.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Walk2Deals/Info.plist;
@@ -422,6 +650,7 @@
 		};
 		184139991F6FF7EA00B73595 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 094D1CED68723E0DE3C41B5E /* Pods-Walk2Deals.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Walk2Deals/Info.plist;
@@ -434,6 +663,7 @@
 		};
 		1841399B1F6FF7EA00B73595 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD6DB2711D3E21BEF474A903 /* Pods-Walk2DealsTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -448,6 +678,7 @@
 		};
 		1841399C1F6FF7EA00B73595 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D09F227503B92FB17082B3CB /* Pods-Walk2DealsTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -462,6 +693,7 @@
 		};
 		1841399E1F6FF7EA00B73595 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 93E02FF06837F95D0027841B /* Pods-Walk2DealsUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = Walk2DealsUITests/Info.plist;
@@ -475,6 +707,7 @@
 		};
 		1841399F1F6FF7EA00B73595 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ECD70C951A49E23B6115ABE8 /* Pods-Walk2DealsUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = Walk2DealsUITests/Info.plist;
@@ -505,6 +738,7 @@
 				184139991F6FF7EA00B73595 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1841399A1F6FF7EA00B73595 /* Build configuration list for PBXNativeTarget "Walk2DealsTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +747,7 @@
 				1841399C1F6FF7EA00B73595 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1841399D1F6FF7EA00B73595 /* Build configuration list for PBXNativeTarget "Walk2DealsUITests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +756,7 @@
 				1841399F1F6FF7EA00B73595 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
