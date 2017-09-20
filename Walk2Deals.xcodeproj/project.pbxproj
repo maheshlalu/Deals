@@ -20,6 +20,8 @@
 		184139AC1F70070D00B73595 /* VerificationCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184139A81F70070D00B73595 /* VerificationCodeViewController.swift */; };
 		184139AD1F70070D00B73595 /* EnterMobileNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184139A91F70070D00B73595 /* EnterMobileNumberViewController.swift */; };
 		184139AE1F70070D00B73595 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184139AA1F70070D00B73595 /* LaunchViewController.swift */; };
+		18BD79D61F72A70100BB1A83 /* Configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18BD79D51F72A70100BB1A83 /* Configuration.plist */; };
+		18BD79D81F72A74800BB1A83 /* CXAppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BD79D71F72A74800BB1A83 /* CXAppConfig.swift */; };
 		45FEB2C6DF34E4D5BBC8FF78 /* Pods_Walk2Deals.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C9FA8110221974AAFF3FEE1 /* Pods_Walk2Deals.framework */; };
 		732625FDD40822DCDD9FB0C6 /* Pods_Walk2DealsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D0FBCC8FB9FCE874BA10192 /* Pods_Walk2DealsUITests.framework */; };
 		C437F54E9B33DF342F8BD1D0 /* Pods_Walk2DealsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F388D68C956295A0A27D28 /* Pods_Walk2DealsTests.framework */; };
@@ -65,6 +67,8 @@
 		184139A81F70070D00B73595 /* VerificationCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerificationCodeViewController.swift; sourceTree = "<group>"; };
 		184139A91F70070D00B73595 /* EnterMobileNumberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterMobileNumberViewController.swift; sourceTree = "<group>"; };
 		184139AA1F70070D00B73595 /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		18BD79D51F72A70100BB1A83 /* Configuration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Configuration.plist; sourceTree = "<group>"; };
+		18BD79D71F72A74800BB1A83 /* CXAppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CXAppConfig.swift; sourceTree = "<group>"; };
 		2C9FA8110221974AAFF3FEE1 /* Pods_Walk2Deals.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Walk2Deals.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		513194D07A79E0872A50E4E1 /* Pods-Walk2Deals.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Walk2Deals.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Walk2Deals/Pods-Walk2Deals.debug.xcconfig"; sourceTree = "<group>"; };
 		93E02FF06837F95D0027841B /* Pods-Walk2DealsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Walk2DealsUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Walk2DealsUITests/Pods-Walk2DealsUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -130,6 +134,8 @@
 				184139A21F6FFCE200B73595 /* DataService */,
 				184139721F6FF7E900B73595 /* AppDelegate.swift */,
 				184139741F6FF7EA00B73595 /* ViewController.swift */,
+				18BD79D51F72A70100BB1A83 /* Configuration.plist */,
+				18BD79D71F72A74800BB1A83 /* CXAppConfig.swift */,
 				184139A01F6FFCDF00B73595 /* CXDataService.swift */,
 				184139A31F70004200B73595 /* CXLog.swift */,
 				184139AA1F70070D00B73595 /* LaunchViewController.swift */,
@@ -316,6 +322,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1841397D1F6FF7EA00B73595 /* LaunchScreen.storyboard in Resources */,
+				18BD79D61F72A70100BB1A83 /* Configuration.plist in Resources */,
 				1841397A1F6FF7EA00B73595 /* Assets.xcassets in Resources */,
 				184139781F6FF7EA00B73595 /* Main.storyboard in Resources */,
 			);
@@ -483,6 +490,7 @@
 				184139AC1F70070D00B73595 /* VerificationCodeViewController.swift in Sources */,
 				184139AB1F70070D00B73595 /* CreateAccountViewController.swift in Sources */,
 				184139751F6FF7EA00B73595 /* ViewController.swift in Sources */,
+				18BD79D81F72A74800BB1A83 /* CXAppConfig.swift in Sources */,
 				184139A11F6FFCDF00B73595 /* CXDataService.swift in Sources */,
 				184139731F6FF7E900B73595 /* AppDelegate.swift in Sources */,
 				184139AD1F70070D00B73595 /* EnterMobileNumberViewController.swift in Sources */,

@@ -30,6 +30,21 @@ open class CXDataService: NSObject {
     }
    
     
+    func constructHttpHeader() -> HTTPHeaders{
+        var headers: HTTPHeaders = [
+            "Content-Type": "application/json"
+        ]
+        
+        let user = "ae632c7fb300455c8e72fe0ae05ef283"
+        let password = "F15E9DA4E0EDAEC"
+        
+        if let authorizationHeader = Request.authorizationHeader(user: user, password: password) {
+            headers[authorizationHeader.key] = authorizationHeader.value
+        }
+        
+        return headers
+    }
+    
     open func getTheAppDataFromServer(_ parameters:[String: AnyObject]? = nil ,completion:@escaping (_ responseDict:NSDictionary) -> Void){
         if Bool(1) {
             if !Connectivity.isConnectedToInternet() {
@@ -38,26 +53,10 @@ open class CXDataService: NSObject {
                 return
                 // do some tasks..
             }
-            
-           
-            var headers: HTTPHeaders = [
-                "Content-Type": "application/json"
-            ]
-            
-            let user = "ae632c7fb300455c8e72fe0ae05ef283"
-            let password = "F15E9DA4E0EDAEC"
-            
-            if let authorizationHeader = Request.authorizationHeader(user: user, password: password) {
-                headers[authorizationHeader.key] = authorizationHeader.value
-            }
-            
+     
             let url = "http://api.walk2deals.com/api/User/VerifyMobileNumber/8096380038"
-            
-            
-            Alamofire.request(url, headers:headers).responseJSON{ response in
-                
+            Alamofire.request(url, headers:self.constructHttpHeader()).responseJSON{ response in
                 CXLog.print(response)
-
                 switch response.result {
                 case .success: break
                     CXLog.print(response)
@@ -65,7 +64,30 @@ open class CXDataService: NSObject {
                 case .failure(let error):
                     print(error)
                 }}
-        
+            
+            
+            let headers: HTTPHeaders = [
+                "Authorization": "key=AIzaSyDL0UKlnPC5s8hvAB65qOvEXYzp0jwxXoM",
+                "Accept": "application/json"
+            ]
+            
+            /*
+             title = App Name
+             body = message
+             "message": "tesing from postman",
+             "notification":{"message":"tesing from postman","title":"lefoodie noty IOS",    "body" : "This week's edition is now available.",
+             }}
+             */
+            //"message": CXAppConfig.sharedInstance.convertDictionayToString(dictionary: notificationMesDic),
+            let parameters : [String : NSString] = ["":""]
+            ///["to","notification"]
+            Alamofire.request("https://fcm.googleapis.com/fcm/send", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: self.constructHttpHeader()).responseJSON { response in
+                switch response.result {
+                case .success: break
+                default :
+                    break
+                }
+            }
             
          /*   Alamofire.request("", method: .post, parameters: parameters, encoding: URLEncoding.`default`)
                 .responseJSON { response in

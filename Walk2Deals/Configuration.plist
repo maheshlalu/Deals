@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>register</key>
+	<string>api/User/Register</string>
+	<key>loginUrl</key>
+	<string></string>
+	<key>BaseUrl</key>
+	<string> http://api.walk2deals.com/</string>
+	<key>New item</key>
+	<string></string>
+</dict>
+</plist>

@@ -13,13 +13,22 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-
+    }/*
+     
+     http://api.walk2deals.com/api/User/Register
+     
+     "{""FirstName"":""Jyoshna"",""LastName"":""Madhuri',""EmailAddress"":""jyoshnasaimadhuri@gmail.com"",""MobileNumber"":""7989298353"",
+     ""Password"":""1234"",
+     ""DeviceId"":""1""}
+     "
+     */
 
 }
 
