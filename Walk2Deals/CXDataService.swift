@@ -51,20 +51,23 @@ open class CXDataService: NSObject {
                 headers[authorizationHeader.key] = authorizationHeader.value
             }
             
-            let url = "http://myurl.com"
+            let url = "http://api.walk2deals.com/api/User/VerifyMobileNumber/8096380038"
             
             
             Alamofire.request(url, headers:headers).responseJSON{ response in
                 
+                CXLog.print(response)
+
                 switch response.result {
                 case .success: break
+                    CXLog.print(response)
                 // Do stuff
                 case .failure(let error):
                     print(error)
                 }}
         
             
-            Alamofire.request("", method: .post, parameters: parameters, encoding: URLEncoding.`default`)
+         /*   Alamofire.request("", method: .post, parameters: parameters, encoding: URLEncoding.`default`)
                 .responseJSON { response in
                     //to get status code
                     switch (response.result) {
@@ -83,7 +86,7 @@ open class CXDataService: NSObject {
                         }
                         break
                     }
-            }
+            }*/
         }
     }
     
