@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,SWRevealViewControllerDele
         navigationBarAppearace.titleTextAttributes = myAttributeTxtColor
         
         
-       // self.setUpSidePanl()
+        self.setUpSidePanl()
         return true
     }
 

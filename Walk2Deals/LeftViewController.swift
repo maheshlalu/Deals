@@ -17,8 +17,6 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.red
-        
         let nib = UINib(nibName: "TableViewCell", bundle: nil)
         self.leftTableview.register(nib, forCellReuseIdentifier: "TableViewCell")
         self.leftTableview.dataSource = self
@@ -47,12 +45,13 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
         cell.textLabel?.text = nameArray[indexPath.row]
        // cell.textLabel?.font = CXAppConfig.sharedInstance.appMediumFont()
         //cell.imageView?.image = UIImage(named: imageArray[indexPath.row])
-        
+        cell.imageView?.image = UIImage(named: "home")
+
         leftTableview.allowsSelection = true
         
         //[cell setBackgroundColor:[UIColor clearColor]];
         cell .backgroundColor = UIColor.clear
-        cell.textLabel?.textColor = UIColor.white
+        cell.textLabel?.textColor = UIColor.darkGray
         leftTableview.separatorStyle = .none
         return cell
         
