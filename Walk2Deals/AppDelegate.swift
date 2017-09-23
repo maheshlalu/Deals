@@ -9,7 +9,7 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate,SWRevealViewControllerDelegate {
 
     var window: UIWindow?
 
@@ -20,6 +20,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        CXDataService.sharedInstance.getTheAppDataFromServer(["":"" as AnyObject]) { (dict) in
 //            
 //        }
+        
+        let navigationBarAppearace = UINavigationBar.appearance()
+        navigationBarAppearace.tintColor = UIColor.white
+        navigationBarAppearace.barTintColor = UIColor(colorLiteralRed: 51.0/255.0, green: 51.0/255.0, blue: 51.0/255.0, alpha: 1.0)
+        
+        let myAttributeTxtColor = [NSForegroundColorAttributeName: UIColor.white]
+        let myAttribute = [ NSFontAttributeName: UIFont(name: "Roboto-Regular", size: 18.0)!]
+        navigationBarAppearace.titleTextAttributes = myAttribute
+        navigationBarAppearace.titleTextAttributes = myAttributeTxtColor
+        
+        
+       // self.setUpSidePanl()
         return true
     }
 
@@ -44,6 +56,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+    func setUpSidePanl(){
+        
+        let wFrame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
+        self.window = UIWindow.init(frame: wFrame)
+        
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let homeView = storyBoard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+        let menuVC = storyBoard.instantiateViewController(withIdentifier: "LeftViewController") as! LeftViewController
+        
+        let menuVCNav = UINavigationController(rootViewController: menuVC)
+        //menuVCNav.isNavigationBarHidden = true
+        
+        let navHome = UINavigationController(rootViewController: homeView)
+       // navHome.isNavigationBarHidden = true
+        
+        let revealVC = SWRevealViewController(rearViewController: menuVCNav, frontViewController: navHome)
+        revealVC?.delegate = self
+        self.window?.rootViewController = revealVC
+        self.window?.makeKeyAndVisible()
+        
+        
+        //        let drawer : ICSDrawerController = ICSDrawerController(leftViewController: menuVC, centerViewController: homeView)
+        //        self.window?.rootViewController = drawer
+        //        self.window?.makeKeyAndVisible()
+        
+    }
+    
 
 
 }
