@@ -21,15 +21,77 @@ class EnterMobileNumberViewController: UIViewController, UITextFieldDelegate {
         // Do any additional setup after loading the view.
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     @IBAction func numberNextBtn(_ sender: UIButton) {
-        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let verification : VerificationCodeViewController = (storyboard.instantiateViewController(withIdentifier: "Verification") as? VerificationCodeViewController)!
-        self.navigationController?.pushViewController(verification, animated: true)
+        
+        if CXDataService.sharedInstance.validatePhoneNuber(value: self.enterNumberTxt.text!) {
+            
+            //            let url = "http://api.walk2deals.com/api/User/VerifyMobileNumber/8096380038"
+            
+            CXDataService.sharedInstance.showLoader(view: self.view, message: "OTP Sending...")
+
+            let otpUrlString = CXAppConfig.sharedInstance.getBaseUrl() + CXAppConfig.sharedInstance.getOtpUrl() + "\(self.enterNumberTxt.text!)"
+
+            CXDataService.sharedInstance.getTheDataFromServer(urlString: otpUrlString, completion: { (responceDic) in
+                
+                CXLog.print(responceDic)
+                let responceDic = responceDic as? NSDictionary
+                
+                //Errors
+                let error = responceDic?.value(forKey: "Errors") as? NSArray
+                let errorDict = error?.lastObject as? NSDictionary
+                let errorcode = errorDict?.value(forKey: "ErrorCode") as? String
+                if errorcode == "0"{
+                    let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                    let verification : VerificationCodeViewController = (storyboard.instantiateViewController(withIdentifier: "Verification") as? VerificationCodeViewController)!
+                    verification.mobileNumber = self.enterNumberTxt.text
+                    self.navigationController?.pushViewController(verification, animated: true)
+                }
+                CXDataService.sharedInstance.hideLoader()
+
+            })
+            
+            /*
+             {
+             "Id": 10,
+             "MobileNumber": "8096380038",
+             "OTP": "597143",
+             "MessageText": "W2D Login OTP:597143",
+             "Password": null,
+             "UserId": 0,
+             "ErrorCode": null,
+             "ErrorMessage": null,
+             "MessageId": null,
+             "CreatedById": 0,
+             "CreatedByName": null,
+             "CreatedDate": "0001-01-01T00:00:00",
+             "ModifiedById": 0,
+             "ModifiedByName": null,
+             "ModifiedDate": null,
+             "IsActive": false,
+             "Errors": [
+             {
+             "ErrorCode": "0",
+             "ErrorText": "No errors found"
+             }
+             ]
+             }
+             */
+            
+            
+            
+       
+        }else{
+            CXDataService.sharedInstance.showAlert(message: "Please Enter Valid Phone Number", viewController: self)
+        }
     }
     public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
        textField.resignFirstResponder()

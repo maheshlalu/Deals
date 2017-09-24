@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate,SWRevealViewControllerDelegate {
@@ -20,7 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,SWRevealViewControllerDele
 //        CXDataService.sharedInstance.getTheAppDataFromServer(["":"" as AnyObject]) { (dict) in
 //            
 //        }
-        
+        IQKeyboardManager.sharedManager().enable = true
+
         let navigationBarAppearace = UINavigationBar.appearance()
         navigationBarAppearace.tintColor = UIColor.white
         navigationBarAppearace.barTintColor = UIColor(colorLiteralRed: 51.0/255.0, green: 51.0/255.0, blue: 51.0/255.0, alpha: 1.0)
@@ -31,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,SWRevealViewControllerDele
         navigationBarAppearace.titleTextAttributes = myAttributeTxtColor
         
         
-        self.setUpSidePanl()
+        //self.setUpSidePanl()
         return true
     }
 

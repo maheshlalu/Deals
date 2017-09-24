@@ -28,13 +28,16 @@ class LaunchViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
+    }
+    
 
     @IBAction func launchBtn(_ sender: UIButton) {
-        
-      self.dealsBtn.isHidden = false
+        self.dealsBtn.isHidden = false
         self.launchBtn.isHidden = true
         self.launchLbl.text = "Don't My Your Great Deals!"
-       
         
     }
 

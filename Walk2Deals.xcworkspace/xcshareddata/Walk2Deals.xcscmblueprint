@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "A00C81229EB6331509719F1C60446C53AC8E1E12",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "6F19E99DCC8091D5A4A2447194EA3307B783BA2D" : 9223372036854775807,
+    "A00C81229EB6331509719F1C60446C53AC8E1E12" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "06645468-7095-4D0F-9478-73AA5F3C1D8D",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "6F19E99DCC8091D5A4A2447194EA3307B783BA2D" : "",
+    "A00C81229EB6331509719F1C60446C53AC8E1E12" : "WalkDeals\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Walk2Deals",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Walk2Deals.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "ssh:\/\/bitbucket.org:maheshyios\/lefoodie.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "6F19E99DCC8091D5A4A2447194EA3307B783BA2D"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/bitbucket.org\/maheshyiphone\/walk2deals.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "A00C81229EB6331509719F1C60446C53AC8E1E12"
+    }
+  ]
+}

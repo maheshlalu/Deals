@@ -8,9 +8,13 @@
 
 import UIKit
 import Alamofire
+import MBProgressHUD
+
 private var _SingletonSharedInstance:CXDataService! = CXDataService()
 
 open class CXDataService: NSObject {
+    var progress : MBProgressHUD!
+
     class var sharedInstance : CXDataService {
         return _SingletonSharedInstance
     }
@@ -45,6 +49,54 @@ open class CXDataService: NSObject {
         return headers
     }
     
+    open func getTheDataFromServer(urlString:String,completion:@escaping (_ responseDict:NSDictionary) -> Void){
+        if Bool(1) {
+            if !Connectivity.isConnectedToInternet() {
+                CXLog.print("Yes! internet is Not available.")
+                self.showAlertView(status: 0)
+                return
+            }
+            
+            Alamofire.request(urlString, headers:self.constructHttpHeader()).responseJSON{ response in
+                CXLog.print(response)
+                switch response.result {
+                case .success:
+                if let result = response.result.value {
+                    let JSON = result as! NSDictionary
+                    //completion((response.result.value as? NSDictionary)!)
+                    completion(JSON)
+                    break
+                }
+                CXLog.print(response)
+                // Do stuff
+                case .failure(let error):
+                    print(error)
+                }}
+        
+    }
+    
+    }
+    
+    open func postTheDataToServer(urlString:String,parameters:[String : String],completion:@escaping (_ responseDict:NSDictionary) -> Void){
+        
+        Alamofire.request(urlString, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: self.constructHttpHeader()).responseJSON { response in
+            switch response.result {
+            case .success:
+                if let result = response.result.value {
+                    let JSON = result as! NSDictionary
+                    //completion((response.result.value as? NSDictionary)!)
+                    completion(JSON)
+                    break
+                }
+                CXLog.print(response)
+                break
+            default :
+                break
+            }
+        }
+
+        
+    }
     open func getTheAppDataFromServer(_ parameters:[String: AnyObject]? = nil ,completion:@escaping (_ responseDict:NSDictionary) -> Void){
         if Bool(1) {
             if !Connectivity.isConnectedToInternet() {
@@ -170,15 +222,7 @@ open class CXDataService: NSObject {
         }
         return jsonDict
     }
-    func showAlert(message:String,viewController:UIViewController)
-    {
-        let alert = UIAlertController.init(title: "YVOLV", message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction.init(title: "Ok", style: .default) { (okAction) in
-            
-        }
-        alert.addAction(okAction)
-        viewController.present(alert, animated: true, completion: nil)
-    }
+
     
     func showAlertView(status:Int) {
         self.hideLoader()
@@ -198,11 +242,19 @@ open class CXDataService: NSObject {
     }
     
     func showLoader(view:UIView,message:String){
-       // LoadingView.show(true)
+     
+        self.progress = MBProgressHUD.showAdded(to: view, animated: true)
+        self.progress.mode = MBProgressHUDMode.indeterminate
+        self.progress.labelText = message
+        self.progress.show(animated: true)
+
     }
     
     func hideLoader(){
       //  LoadingView.hide()
+        if let progress = self.progress {
+            progress.hide(animated: true)
+        }
     }
 
     
@@ -252,4 +304,45 @@ open class CXDataService: NSObject {
                 }
         }
     }
+    
+    func showAlert(message:String,viewController:UIViewController)
+    {
+        let alert = UIAlertController.init(title: "WalkDeals", message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction.init(title: "Ok", style: .default) { (okAction) in
+            
+        }
+        alert.addAction(okAction)
+        viewController.present(alert, animated: true, completion: nil)
+    }
+    
+    
+}
+
+
+//MARK: Validations
+extension CXDataService{
+    
+   
+    func validatePhoneNuber(value: String) -> Bool {
+        let types:NSTextCheckingResult.CheckingType = [.phoneNumber]
+        guard let detector = try? NSDataDetector(types: types.rawValue) else { return false }
+        
+        if let match = detector.matches(in: value, options: [], range: NSMakeRange(0, value.characters.count)).first?.phoneNumber {
+            return match == value
+        }else{
+            return false
+        }
+    }
+    
+    
+    func isValidEmail(testStr:String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        if emailTest.evaluate(with: testStr) {
+            return true
+        }
+        return false
+
+    }
+    
 }

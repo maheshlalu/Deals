@@ -45,6 +45,11 @@ class CXAppConfig {
         return config!.value(forKey: "register") as! String
     }
     
+    func getOtpUrl() -> String {
+        return config!.value(forKey: "getOtpUlr") as! String
+    }
+    //getOtpUlr
+    
     
     func getTheDataInDictionaryFromKey(sourceDic:NSDictionary,sourceKey:NSString) ->String{
         let keyExists = sourceDic[sourceKey] != nil

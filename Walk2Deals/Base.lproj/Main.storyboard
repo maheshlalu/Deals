@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="MIl-D0-oa9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Vcl-3I-EW4">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -71,7 +71,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="verificationImage" translatesAutoresizingMaskIntoConstraints="NO" id="UoX-QR-3Qt">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="verification-code" translatesAutoresizingMaskIntoConstraints="NO" id="UoX-QR-3Qt">
                                 <rect key="frame" x="94" y="50" width="187.5" height="200"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="764-Cm-Py1">
@@ -83,7 +83,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please type the verification code sent to +91 123 456 1890" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hGK-sm-MbH">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hGK-sm-MbH">
                                         <rect key="frame" x="0.0" y="52.5" width="300" height="47.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -195,10 +195,17 @@
                             <constraint firstItem="764-Cm-Py1" firstAttribute="centerX" secondItem="s3a-VE-Rp2" secondAttribute="centerX" id="pDN-97-EMB"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="msgDisplayLbl" destination="hGK-sm-MbH" id="tfw-ik-dcx"/>
+                        <outlet property="otpText1" destination="AfL-ZI-uaN" id="k4w-ll-bal"/>
+                        <outlet property="otpText2" destination="oul-Iz-3iG" id="VAn-fF-V8f"/>
+                        <outlet property="otpText3" destination="oul-Iz-3iG" id="QEH-pt-Fc6"/>
+                        <outlet property="otpText4" destination="htN-KP-H4F" id="Qjh-Z5-kda"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EvT-Ko-Oew" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3156" y="-10.344827586206897"/>
+            <point key="canvasLocation" x="2969" y="-3"/>
         </scene>
         <!--Enter Mobile Number View Controller-->
         <scene sceneID="Hec-hZ-wht">
@@ -212,7 +219,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MonileNumberImage" highlightedImage="MonileNumberImage" translatesAutoresizingMaskIntoConstraints="NO" id="XLv-pd-VUd">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="enter-mobile-no" highlightedImage="MonileNumberImage" translatesAutoresizingMaskIntoConstraints="NO" id="XLv-pd-VUd">
                                 <rect key="frame" x="94" y="103" width="187.5" height="200"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uKs-HS-oeK">
@@ -297,7 +304,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DealsImageOne" translatesAutoresizingMaskIntoConstraints="NO" id="qqr-w8-18J">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="qqr-w8-18J">
                                 <rect key="frame" x="86" y="168" width="203" height="200"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Browse online and discover the best Deals in your city..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MsT-SZ-umk">
@@ -307,9 +314,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lU7-CX-u60">
-                                <rect key="frame" x="141" y="467" width="99.5" height="94"/>
+                                <rect key="frame" x="141.5" y="466.5" width="99" height="93.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <state key="normal" backgroundImage="GlobeImage"/>
+                                <state key="normal" image="step1"/>
                                 <state key="selected" backgroundImage="GlobeImage"/>
                                 <connections>
                                     <action selector="launchBtn:" destination="eiV-Ke-YqD" eventType="touchUpInside" id="VRl-Gb-ZJM"/>
@@ -317,7 +324,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e4a-CL-CO8">
                                 <rect key="frame" x="143" y="467" width="99.5" height="93.5"/>
-                                <state key="normal" image="DealsImage"/>
+                                <state key="normal" image="step2"/>
                                 <connections>
                                     <action selector="dealsBtnAction:" destination="eiV-Ke-YqD" eventType="touchUpInside" id="0oN-DX-5yh"/>
                                 </connections>
@@ -492,8 +499,11 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="confirmPasswordTxt" destination="WM9-GS-B21" id="Htp-9x-sUv"/>
                         <outlet property="createImage" destination="Tx7-Jo-Vtb" id="bYc-OQ-RZQ"/>
                         <outlet property="createLbl" destination="wfl-Jm-4lq" id="V0l-4S-yOk"/>
+                        <outlet property="emailTxt" destination="jDI-qs-VHT" id="KjO-HW-uy7"/>
+                        <outlet property="passwordTxt" destination="k2i-hv-2e9" id="DcA-bb-cid"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VNq-VJ-D0B" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -693,11 +703,14 @@
         </scene>
     </scenes>
     <resources>
-        <image name="DealsImage" width="80" height="77"/>
-        <image name="DealsImageOne" width="150" height="150"/>
         <image name="GlobeImage" width="80" height="77"/>
         <image name="MonileNumberImage" width="225" height="225"/>
+        <image name="enter-mobile-no" width="150" height="150"/>
+        <image name="logo" width="150" height="150"/>
         <image name="placeholder" width="16" height="16"/>
+        <image name="step1" width="80" height="77"/>
+        <image name="step2" width="80" height="77"/>
+        <image name="verification-code" width="150" height="150"/>
         <image name="verificationImage" width="150" height="150"/>
     </resources>
 </document>
