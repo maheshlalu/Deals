@@ -54,13 +54,23 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
             CXDataService.sharedInstance.showAlert(message: "Password and Confirm Password Not matched", viewController: self)
 
         }else{
-            
             CXDataService.sharedInstance.showLoader(view: self.view, message: "Creating Account...")
-
             if let email = self.emailTxt.text ,let password = self.passwordTxt.text {
             let parameters = ["EmailAddress":email,"MobileNumber":self.phoneNumber,"Password":password,"DeviceId":"1"]
                 
-            CXDataService.sharedInstance.postTheDataToServer(urlString: CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getRegisterUrl(), parameters: parameters as! [String : String]) { (responceDict) in
+            CXDataService.sharedInstance.postTheDataToServer(urlString: CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getRegisterUrl(), parameters: parameters as! [String : String]) { (responceDic) in
+                CXLog.print("responce dict \(responceDic)")
+                
+                let error = responceDic.value(forKey: "Errors") as? NSArray
+                let errorDict = error?.lastObject as? NSDictionary
+                let errorcode = errorDict?.value(forKey: "ErrorCode") as? String
+                if errorcode == "0"{
+                    let appDelegate = UIApplication.shared.delegate as? AppDelegate
+                    appDelegate?.setUpSidePanl()
+                }else{
+                    CXDataService.sharedInstance.showAlert(message: "Something went Wrong!!!", viewController: self)
+                }
+             
             }
 
         }

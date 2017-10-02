@@ -52,7 +52,18 @@ class EnterMobileNumberViewController: UIViewController, UITextFieldDelegate {
                 if errorcode == "0"{
                     let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                     let verification : VerificationCodeViewController = (storyboard.instantiateViewController(withIdentifier: "Verification") as? VerificationCodeViewController)!
-                    verification.mobileNumber = self.enterNumberTxt.text
+                    CXLog.print(CXAppConfig.sharedInstance.getTheDataInDictionaryFromKey(sourceDic: errorDict!, sourceKey: "OTP"))
+                    verification.otpNumber = CXAppConfig.sharedInstance.getTheDataInDictionaryFromKey(sourceDic: responceDic!, sourceKey: "OTP")
+                    if let number = self.enterNumberTxt.text{
+                         verification.mobileNumber = number
+                    }
+                    //verification.mobileNumber = CXAppConfig.sharedInstance.getTheDataInDictionaryFromKey(sourceDic: errorDict!, sourceKey: "MobileNumber")
+
+                    /*
+ "MobileNumber": "8096380038",
+ "OTP": "597143",
+ */
+                   // verification.mobileNumber = self.enterNumberTxt.text
                     self.navigationController?.pushViewController(verification, animated: true)
                 }
                 CXDataService.sharedInstance.hideLoader()
