@@ -43,28 +43,37 @@ class EnterMobileNumberViewController: UIViewController, UITextFieldDelegate {
             CXDataService.sharedInstance.getTheDataFromServer(urlString: otpUrlString, completion: { (responceDic) in
                 
                 CXLog.print(responceDic)
-                let responceDic = responceDic as? NSDictionary
+                let responceDic = responceDic
                 
                 //Errors
-                let error = responceDic?.value(forKey: "Errors") as? NSArray
+                let error = responceDic.value(forKey: "Errors") as? NSArray
                 let errorDict = error?.lastObject as? NSDictionary
                 let errorcode = errorDict?.value(forKey: "ErrorCode") as? String
                 if errorcode == "0"{
                     let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                    let verification : VerificationCodeViewController = (storyboard.instantiateViewController(withIdentifier: "Verification") as? VerificationCodeViewController)!
+                    
                     CXLog.print(CXAppConfig.sharedInstance.getTheDataInDictionaryFromKey(sourceDic: errorDict!, sourceKey: "OTP"))
-                    verification.otpNumber = CXAppConfig.sharedInstance.getTheDataInDictionaryFromKey(sourceDic: responceDic!, sourceKey: "OTP")
-                    if let number = self.enterNumberTxt.text{
-                         verification.mobileNumber = number
+                    
+                    if CXAppConfig.sharedInstance.getTheDataInDictionaryFromKey(sourceDic: errorDict!, sourceKey: "OTP").isEmpty{
+                        let loginVc : LoginViewController = (storyboard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController)!
+                        self.navigationController?.pushViewController(loginVc, animated: true)
+                        
+                    }else{
+                        let verification : VerificationCodeViewController = (storyboard.instantiateViewController(withIdentifier: "Verification") as? VerificationCodeViewController)!
+                        
+                        verification.otpNumber = CXAppConfig.sharedInstance.getTheDataInDictionaryFromKey(sourceDic: responceDic, sourceKey: "OTP")
+                        if let number = self.enterNumberTxt.text{
+                            verification.mobileNumber = number
+                        }
+                        //verification.mobileNumber = CXAppConfig.sharedInstance.getTheDataInDictionaryFromKey(sourceDic: errorDict!, sourceKey: "MobileNumber")
+                        
+                        /*
+                         "MobileNumber": "8096380038",
+                         "OTP": "597143",
+                         */
+                        // verification.mobileNumber = self.enterNumberTxt.text
+                        self.navigationController?.pushViewController(verification, animated: true)
                     }
-                    //verification.mobileNumber = CXAppConfig.sharedInstance.getTheDataInDictionaryFromKey(sourceDic: errorDict!, sourceKey: "MobileNumber")
-
-                    /*
- "MobileNumber": "8096380038",
- "OTP": "597143",
- */
-                   // verification.mobileNumber = self.enterNumberTxt.text
-                    self.navigationController?.pushViewController(verification, animated: true)
                 }
                 CXDataService.sharedInstance.hideLoader()
 
