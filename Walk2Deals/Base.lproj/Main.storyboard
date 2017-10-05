@@ -543,7 +543,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MIl-D0-oa9" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="eHd-Sn-F8F">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="eHd-Sn-F8F">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -901,6 +901,78 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Y8-X3-aOn" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="29304.799999999999" y="946.77661169415296"/>
+        </scene>
+        <!--Deals Details View Controller-->
+        <scene sceneID="hcb-p6-XjF">
+            <objects>
+                <viewController storyboardIdentifier="DealsDetailsViewController" id="lvn-s9-ZaU" customClass="DealsDetailsViewController" customModule="Walk2Deals" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JRR-BZ-JS4"/>
+                        <viewControllerLayoutGuide type="bottom" id="IME-DV-NZw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Uum-mT-dSO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.3848517904" green="0.74641100890000001" blue="0.38981205200000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vEU-MG-Gf7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="29908" y="1312"/>
+        </scene>
+        <!--Review List View Controller-->
+        <scene sceneID="4v7-87-gQA">
+            <objects>
+                <viewController storyboardIdentifier="ReviewListViewController" id="RdF-2U-n8s" customClass="ReviewListViewController" customModule="Walk2Deals" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ToQ-NC-DQL"/>
+                        <viewControllerLayoutGuide type="bottom" id="tXN-ky-OI1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YRl-c9-HId">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="0.76862745099999996" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FY2-DR-mTl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="30148" y="1001"/>
+        </scene>
+        <!--Write Review View Controller-->
+        <scene sceneID="qKL-0y-wb0">
+            <objects>
+                <viewController storyboardIdentifier="WriteReviewViewController" id="507-sy-OAf" customClass="WriteReviewViewController" customModule="Walk2Deals" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Zoz-1W-ghx"/>
+                        <viewControllerLayoutGuide type="bottom" id="zQy-rF-cj7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yNY-bW-t2H">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XcJ-mD-0gP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="30636" y="493"/>
+        </scene>
+        <!--About Deail View Controller-->
+        <scene sceneID="dW1-y2-Jy2">
+            <objects>
+                <viewController storyboardIdentifier="AboutDeailViewController" id="XPl-8i-le6" customClass="AboutDeailViewController" customModule="Walk2Deals" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="soJ-WP-nJr"/>
+                        <viewControllerLayoutGuide type="bottom" id="rKY-j9-9gt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XzV-Mx-qfW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.094117647060000004" green="0.47450980390000003" blue="0.63529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vjV-7b-men" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="30633" y="957"/>
         </scene>
     </scenes>
     <resources>

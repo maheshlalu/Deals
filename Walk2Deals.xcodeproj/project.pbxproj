@@ -12,6 +12,10 @@
 		12355DD81F86624A0053A5F5 /* PostAddOneTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12355DD61F86624A0053A5F5 /* PostAddOneTableViewCell.swift */; };
 		12355DD91F86624A0053A5F5 /* PostAddOneTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12355DD71F86624A0053A5F5 /* PostAddOneTableViewCell.xib */; };
 		12389F6A1F8558E400CE790C /* PostAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12389F691F8558E400CE790C /* PostAddViewController.swift */; };
+		126CEAA61F86A68500B32BD5 /* DealsDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126CEAA51F86A68500B32BD5 /* DealsDetailsViewController.swift */; };
+		126CEAA81F86A6D300B32BD5 /* ReviewListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126CEAA71F86A6D300B32BD5 /* ReviewListViewController.swift */; };
+		126CEAAA1F86A71200B32BD5 /* AboutDeailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126CEAA91F86A71200B32BD5 /* AboutDeailViewController.swift */; };
+		126CEAAC1F86A72C00B32BD5 /* WriteReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126CEAAB1F86A72C00B32BD5 /* WriteReviewViewController.swift */; };
 		12E8878E1F83EC4E00335823 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E8878D1F83EC4E00335823 /* LoginViewController.swift */; };
 		184139731F6FF7E900B73595 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184139721F6FF7E900B73595 /* AppDelegate.swift */; };
 		184139751F6FF7EA00B73595 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184139741F6FF7EA00B73595 /* ViewController.swift */; };
@@ -76,6 +80,10 @@
 		12355DD61F86624A0053A5F5 /* PostAddOneTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostAddOneTableViewCell.swift; sourceTree = "<group>"; };
 		12355DD71F86624A0053A5F5 /* PostAddOneTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostAddOneTableViewCell.xib; sourceTree = "<group>"; };
 		12389F691F8558E400CE790C /* PostAddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostAddViewController.swift; sourceTree = "<group>"; };
+		126CEAA51F86A68500B32BD5 /* DealsDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealsDetailsViewController.swift; sourceTree = "<group>"; };
+		126CEAA71F86A6D300B32BD5 /* ReviewListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewListViewController.swift; sourceTree = "<group>"; };
+		126CEAA91F86A71200B32BD5 /* AboutDeailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutDeailViewController.swift; sourceTree = "<group>"; };
+		126CEAAB1F86A72C00B32BD5 /* WriteReviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriteReviewViewController.swift; sourceTree = "<group>"; };
 		12E8878D1F83EC4E00335823 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1841396F1F6FF7E900B73595 /* Walk2Deals.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Walk2Deals.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		184139721F6FF7E900B73595 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -163,6 +171,17 @@
 				12355DD71F86624A0053A5F5 /* PostAddOneTableViewCell.xib */,
 			);
 			name = PostAdd;
+			sourceTree = "<group>";
+		};
+		126CEAA41F86A66A00B32BD5 /* DealsDetails */ = {
+			isa = PBXGroup;
+			children = (
+				126CEAA51F86A68500B32BD5 /* DealsDetailsViewController.swift */,
+				126CEAA71F86A6D300B32BD5 /* ReviewListViewController.swift */,
+				126CEAA91F86A71200B32BD5 /* AboutDeailViewController.swift */,
+				126CEAAB1F86A72C00B32BD5 /* WriteReviewViewController.swift */,
+			);
+			name = DealsDetails;
 			sourceTree = "<group>";
 		};
 		12E8878C1F83EC1300335823 /* Login */ = {
@@ -286,6 +305,7 @@
 		187D5B3A1F76642C00A5E250 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				126CEAA41F86A66A00B32BD5 /* DealsDetails */,
 				187D5B3B1F76643F00A5E250 /* HomeCollectionViewCell.swift */,
 				187D5B3C1F76643F00A5E250 /* HomeCollectionViewCell.xib */,
 				187D5B211F764F1B00A5E250 /* HomeViewController.swift */,
@@ -639,12 +659,16 @@
 				12E8878E1F83EC4E00335823 /* LoginViewController.swift in Sources */,
 				12389F6A1F8558E400CE790C /* PostAddViewController.swift in Sources */,
 				18BD79D81F72A74800BB1A83 /* CXAppConfig.swift in Sources */,
+				126CEAA81F86A6D300B32BD5 /* ReviewListViewController.swift in Sources */,
 				12355DD41F8661D50053A5F5 /* PostAddTableViewCell.swift in Sources */,
 				184139A11F6FFCDF00B73595 /* CXDataService.swift in Sources */,
 				187D5B411F76774800A5E250 /* TableViewCell.swift in Sources */,
+				126CEAAA1F86A71200B32BD5 /* AboutDeailViewController.swift in Sources */,
 				187D5B3D1F76643F00A5E250 /* HomeCollectionViewCell.swift in Sources */,
 				184139731F6FF7E900B73595 /* AppDelegate.swift in Sources */,
 				184139AD1F70070D00B73595 /* EnterMobileNumberViewController.swift in Sources */,
+				126CEAAC1F86A72C00B32BD5 /* WriteReviewViewController.swift in Sources */,
+				126CEAA61F86A68500B32BD5 /* DealsDetailsViewController.swift in Sources */,
 				187D5B221F764F1B00A5E250 /* HomeViewController.swift in Sources */,
 				187D5B1D1F764DE900A5E250 /* SWRevealViewController.m in Sources */,
 				187D5B241F764F2C00A5E250 /* LeftViewController.swift in Sources */,

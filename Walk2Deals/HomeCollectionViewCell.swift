@@ -13,6 +13,9 @@ class HomeCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var totalSubCategoryLbl: UILabel!
     @IBOutlet weak var subCategoryLbl: UILabel!
     @IBOutlet weak var categoryImageView: UIImageView!
+    
+    @IBOutlet weak var shareBtn: UIButton!
+    @IBOutlet weak var favBtn: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
