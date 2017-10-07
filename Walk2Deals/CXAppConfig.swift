@@ -48,9 +48,28 @@ class CXAppConfig {
     func getOtpUrl() -> String {
         return config!.value(forKey: "getOtpUlr") as! String
     }
+    
+    func getDealsUrl() -> String {
+        return config!.value(forKey: "getDealsUlr") as! String
+    }
     //getOtpUlr
+    //saveFavourite
     
+    func getSaveFavouriteUrl() -> String {
+        return config!.value(forKey: "saveFavourite") as! String
+    }
     
+    //loginUrl
+    
+    func getLoginUrl() -> String {
+        return config!.value(forKey: "loginUrl") as! String
+    }
+    
+    //forgotPasswordUrl
+    
+    func getforgotPasswordUrl() -> String {
+        return config!.value(forKey: "forgotPasswordUrl") as! String
+    }
     func getTheDataInDictionaryFromKey(sourceDic:NSDictionary,sourceKey:NSString) ->String{
         let keyExists = sourceDic[sourceKey] != nil
         if keyExists {

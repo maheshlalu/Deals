@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="QKL-Uw-swT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="MIl-D0-oa9">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -813,7 +813,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="33" id="emt-A7-Brh"/>
                                         </constraints>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
@@ -829,7 +829,6 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="Jb0-DE-06c"/>
                                         </constraints>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
@@ -848,16 +847,19 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cv9-kZ-z88">
-                                        <rect key="frame" x="213.5" y="158" width="136.5" height="22.5"/>
-                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="13"/>
+                                        <rect key="frame" x="170" y="174" width="180" height="23"/>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="19"/>
                                         <state key="normal" title="Forgot Password">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" red="0.086274509799999996" green="0.46274509800000002" blue="0.73725490199999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="forgotPasswordAction:" destination="IfX-Cj-VIk" eventType="touchUpInside" id="m0S-Aq-vcR"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="Cv9-kZ-z88" firstAttribute="top" secondItem="Owo-JW-Qhl" secondAttribute="bottom" constant="-6" id="18J-Pg-FVr"/>
+                                    <constraint firstItem="Cv9-kZ-z88" firstAttribute="top" secondItem="Owo-JW-Qhl" secondAttribute="bottom" constant="10" id="18J-Pg-FVr"/>
                                     <constraint firstAttribute="trailing" secondItem="XpB-9n-8MT" secondAttribute="trailing" constant="20" id="ARt-7U-3MG"/>
                                     <constraint firstItem="tI4-Zh-eId" firstAttribute="leading" secondItem="UcY-yL-ZjV" secondAttribute="leading" constant="35" id="BhK-xh-qR1"/>
                                     <constraint firstItem="tI4-Zh-eId" firstAttribute="top" secondItem="UcY-yL-ZjV" secondAttribute="top" constant="20" id="D96-xp-jgX"/>
@@ -870,7 +872,7 @@
                                     <constraint firstAttribute="trailing" secondItem="Owo-JW-Qhl" secondAttribute="trailing" constant="25" id="bj6-J5-1me"/>
                                     <constraint firstAttribute="trailing" secondItem="tI4-Zh-eId" secondAttribute="trailing" constant="20" id="fsN-3l-fYH"/>
                                     <constraint firstItem="bij-OB-fWk" firstAttribute="top" secondItem="tI4-Zh-eId" secondAttribute="bottom" constant="5" id="lT3-6M-HCo"/>
-                                    <constraint firstItem="Cv9-kZ-z88" firstAttribute="width" secondItem="UcY-yL-ZjV" secondAttribute="width" multiplier="0.4" constant="-14" id="our-OJ-VHd"/>
+                                    <constraint firstItem="Cv9-kZ-z88" firstAttribute="width" secondItem="UcY-yL-ZjV" secondAttribute="width" multiplier="0.4" constant="30" id="our-OJ-VHd"/>
                                     <constraint firstAttribute="trailing" secondItem="bij-OB-fWk" secondAttribute="trailing" constant="25" id="pfk-8G-uoB"/>
                                     <constraint firstItem="Owo-JW-Qhl" firstAttribute="leading" secondItem="UcY-yL-ZjV" secondAttribute="leading" constant="25" id="tHm-KL-g8P"/>
                                 </constraints>

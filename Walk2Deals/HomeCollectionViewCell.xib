@@ -27,13 +27,11 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="MoC-m8-CUk">
                                 <rect key="frame" x="175" y="0.0" width="120" height="42"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5nc-AM-FFs">
-                                        <rect key="frame" x="0.0" y="6" width="60" height="30"/>
-                                        <state key="normal" title="Button"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5nc-AM-FFs">
+                                        <rect key="frame" x="0.0" y="4" width="60" height="34"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="efP-sp-Fcv">
                                         <rect key="frame" x="60" y="6" width="60" height="30"/>
-                                        <state key="normal" title="Button"/>
                                     </button>
                                 </subviews>
                                 <constraints>

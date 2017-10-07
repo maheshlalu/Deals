@@ -2,12 +2,18 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>forgotPasswordUrl</key>
+	<string>api/User/User/ForgotPassword</string>
 	<key>register</key>
 	<string>api/User/Register</string>
 	<key>loginUrl</key>
-	<string></string>
+	<string>api/User/UserLogin</string>
 	<key>BaseUrl</key>
 	<string>http://api.walk2deals.com/</string>
+	<key>getDealsUlr</key>
+	<string>api/Deal/GetCurrentDeals</string>
+	<key>saveFavourite</key>
+	<string>api/User/DealsFavSave</string>
 	<key>getOtpUlr</key>
 	<string>api/User/VerifyMobileNumber/</string>
 </dict>

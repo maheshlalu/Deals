@@ -52,9 +52,14 @@ class EnterMobileNumberViewController: UIViewController, UITextFieldDelegate {
                 if errorcode == "0"{
                     let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                     
-                    CXLog.print(CXAppConfig.sharedInstance.getTheDataInDictionaryFromKey(sourceDic: errorDict!, sourceKey: "OTP"))
+                    CXLog.print(CXAppConfig.sharedInstance.getTheDataInDictionaryFromKey(sourceDic: responceDic, sourceKey: "Password"))
                     
-                    if CXAppConfig.sharedInstance.getTheDataInDictionaryFromKey(sourceDic: errorDict!, sourceKey: "OTP").isEmpty{
+                    /*
+                     If password is null screen navigate to otp verification 
+                     
+                     */
+                    
+                    if !CXAppConfig.sharedInstance.getTheDataInDictionaryFromKey(sourceDic: responceDic, sourceKey: "Password").isEmpty{
                         let loginVc : LoginViewController = (storyboard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController)!
                         self.navigationController?.pushViewController(loginVc, animated: true)
                         
