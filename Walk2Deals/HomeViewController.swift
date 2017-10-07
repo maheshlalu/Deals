@@ -16,10 +16,8 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.gray
         self.homeCollectionView.backgroundColor = UIColor.clear
         self.setUpSideMenu()
-        
         let nib = UINib(nibName: "HomeCollectionViewCell", bundle: nil)
         
         self.homeCollectionView.register(nib, forCellWithReuseIdentifier: "HomeCollectionViewCell")
@@ -137,6 +135,10 @@ extension HomeViewController:UICollectionViewDataSource,UICollectionViewDelegate
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.bounds.width, height: 250)
+    }
+    
     func shareButtonAction(sender:UIButton){
         
     }
@@ -152,7 +154,19 @@ extension HomeViewController:UICollectionViewDataSource,UICollectionViewDelegate
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
+        let dataDict = self.dealsArray[indexPath.row] as? NSDictionary
+        //Id
         
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let dealDetail = storyBoard.instantiateViewController(withIdentifier: "DealsDetailsViewController") as? DealsDetailsViewController
+        
+        if let dealID = dataDict?.value(forKey: "Id") as? Int{
+            dealDetail?.deailId = String(dealID)
+        }
+        
+            self.navigationController?.pushViewController(dealDetail!, animated: true)
+
     }
     
 }

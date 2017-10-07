@@ -10,8 +10,11 @@ import UIKit
 
 class DealsDetailsViewController: UIViewController {
 
+    var deailId :String?
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        CXLog.print(deailId)
 
         // Do any additional setup after loading the view.
     }
