@@ -73,6 +73,7 @@
             <connections>
                 <outlet property="categoryImageView" destination="Ibm-XE-1JL" id="gWI-Xg-Gam"/>
                 <outlet property="favBtn" destination="5nc-AM-FFs" id="LKl-Fg-ri0"/>
+                <outlet property="offerTitleLbl" destination="Hls-hX-ox4" id="SBY-bn-Ah5"/>
                 <outlet property="shareBtn" destination="efP-sp-Fcv" id="M7W-JD-SSf"/>
             </connections>
             <point key="canvasLocation" x="-49" y="-102"/>

@@ -106,11 +106,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Walk2Deals/HomeViewController.swift"
-            timestampString = "529067896.208071"
+            timestampString = "529341466.280763"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "124"
-            endingLineNumber = "124"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
             landmarkName = "favButtonAction(sender:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -122,11 +122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Walk2Deals/HomeViewController.swift"
-            timestampString = "529067896.208071"
+            timestampString = "529341466.280763"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "114"
-            endingLineNumber = "114"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
             landmarkName = "favButtonAction(sender:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -282,7 +282,7 @@
                   moduleName = "Walk2Deals"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ramakuppa/BitBucket/WalkDeals/Walk2Deals/CXDataService.swift"
-                  timestampString = "529069882.417039"
+                  timestampString = "529071582.829568"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "82"
@@ -297,7 +297,7 @@
                   moduleName = "Walk2Deals"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ramakuppa/BitBucket/WalkDeals/Walk2Deals/CXDataService.swift"
-                  timestampString = "529069882.419241"
+                  timestampString = "529071582.83447"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "83"
@@ -314,12 +314,44 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Walk2Deals/DealsDetailsViewController.swift"
-            timestampString = "529069523.142659"
+            timestampString = "529071443.232788"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
             landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Walk2Deals/DealsDetailsViewController.swift"
+            timestampString = "529071394.069842"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "getDealDataByID()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Walk2Deals/DealsDetailsViewController.swift"
+            timestampString = "529071486.911662"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "getDealDataByID()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -10,15 +10,26 @@ import UIKit
 
 class DealsDetailsViewController: UIViewController {
 
-    var deailId :String?
+    var dealId :String?
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.getDealDataByID()
         
-        CXLog.print(deailId)
+        CXLog.print(dealId)
 
         // Do any additional setup after loading the view.
     }
 
+    
+    func getDealDataByID(){
+       // http://api.walk2deals.com/api/Deal/GetById/2
+        let otpUrlString = CXAppConfig.sharedInstance.getBaseUrl() + CXAppConfig.sharedInstance.getDealByIDUrl() + "\(self.dealId!)"
+        CXDataService.sharedInstance.getTheDataFromServer(urlString: otpUrlString, completion: { (responceDic) in
+            CXLog.print(" deail deatil dic\(responceDic)")
+        })
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

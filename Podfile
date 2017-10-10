@@ -10,6 +10,8 @@ target 'Walk2Deals' do
     pod 'Alamofire', '~> 4.0'
     pod 'SDWebImage', '~> 3.8'
 pod 'MBProgressHUD', '~> 1.0'
+pod 'ActionSheetPicker-3.0'
+
 
   target 'Walk2DealsTests' do
     inherit! :search_paths

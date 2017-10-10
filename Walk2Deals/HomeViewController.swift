@@ -90,7 +90,7 @@ extension HomeViewController:UICollectionViewDataSource,UICollectionViewDelegate
     {
         let cell : HomeCollectionViewCell = (collectionView.dequeueReusableCell(withReuseIdentifier: "HomeCollectionViewCell", for: indexPath)as? HomeCollectionViewCell)!
         
-        let dataDict = self.dealsArray[indexPath.row]
+        let dataDict = self.dealsArray[indexPath.row] as? NSDictionary
         
         //cell.categoryImageView.image = UIImage(named: "sampleDeal")
         // cell.categoryImageView.setImageWithURL(NSURL(string:CXAppConfig.sharedInstance.getTheDataInDictionaryFromKey(categoryDic, sourceKey: "Image_URL")), usingActivityIndicatorStyle: .Gray)
@@ -98,6 +98,17 @@ extension HomeViewController:UICollectionViewDataSource,UICollectionViewDelegate
         // cell.subCategoryLbl.text = categoryDic
         
         //cell.favBtn.addTarget(self, action: #, for: .touchUpInside)
+        //ImageCDNUrls
+        
+        if let imageUrlArray = dataDict?.value(forKey: "ImageCDNUrls") as? NSArray{
+            let imgStr = imageUrlArray.lastObject as? String
+            let img_Url1 = NSURL(string: imgStr! )
+            cell.categoryImageView.setImageWith(img_Url1 as URL!, usingActivityIndicatorStyle: .white)
+        }
+        //OfferTitle
+        if  let offerTitle = dataDict?.value(forKey: "OfferTitle") as? String{
+            cell.offerTitleLbl.text = offerTitle
+        }
         
         cell.favBtn.addTarget(self, action:#selector(favButtonAction(sender:)), for: .touchUpInside)
         cell.favBtn.tag = indexPath.row
@@ -162,7 +173,7 @@ extension HomeViewController:UICollectionViewDataSource,UICollectionViewDelegate
         let dealDetail = storyBoard.instantiateViewController(withIdentifier: "DealsDetailsViewController") as? DealsDetailsViewController
         
         if let dealID = dataDict?.value(forKey: "Id") as? Int{
-            dealDetail?.deailId = String(dealID)
+            dealDetail?.dealId = String(dealID)
         }
         
             self.navigationController?.pushViewController(dealDetail!, animated: true)

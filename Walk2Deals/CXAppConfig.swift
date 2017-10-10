@@ -70,6 +70,12 @@ class CXAppConfig {
     func getforgotPasswordUrl() -> String {
         return config!.value(forKey: "forgotPasswordUrl") as! String
     }
+    
+    //getDeailByID
+    func getDealByIDUrl() -> String {
+        return config!.value(forKey: "getDeailByID") as! String
+    }
+    
     func getTheDataInDictionaryFromKey(sourceDic:NSDictionary,sourceKey:NSString) ->String{
         let keyExists = sourceDic[sourceKey] != nil
         if keyExists {

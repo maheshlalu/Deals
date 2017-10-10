@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ActionSheetPicker_3_0
 
 class PostAddViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
@@ -42,25 +43,21 @@ class PostAddViewController: UIViewController,UITableViewDelegate,UITableViewDat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if indexPath.row == 4{
-            
-            
             let cell = tableView.dequeueReusableCell(withIdentifier: "PostAddOneTableViewCell", for: indexPath)as? PostAddOneTableViewCell
             cell?.selectionStyle = .none
             return cell!
-            
-            
         }else{
-            
-            
             let cell1 = tableView.dequeueReusableCell(withIdentifier: "PostAddTableViewCell", for: indexPath)as? PostAddTableViewCell
-            
             if indexPath.row == 0{
-                
-                
-                
+                let tapgestures : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(selectLocation(_:)))
+                tapgestures.numberOfTapsRequired = 1
+                cell1?.postAddTextField.addGestureRecognizer(tapgestures)
                 cell1?.postAddTextField.placeholder = "Location"
             }else if indexPath.row == 1{
                 
+                let tapgestures : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(selectLocation(_:)))
+                tapgestures.numberOfTapsRequired = 1
+                cell1?.postAddTextField.addGestureRecognizer(tapgestures)
                 
                 cell1?.postAddTextField.placeholder = "Storename"
             }else if indexPath.row == 2{
@@ -76,13 +73,39 @@ class PostAddViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 
                 cell1?.postAddTextField.placeholder = "EndDate"
             }else if indexPath.row == 7{
-                
                 cell1?.postAddTextField.placeholder = "UploadImage"
             }
             
             cell1?.selectionStyle = .none
             return cell1!
         }
+    }
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        return false
+    }
+    
+    
+    func selectLocation(_ sender: UITapGestureRecognizer){
+        
+       /* self.showPicker(title: "Select Member Type", rows: ["Doctor"], initialSelection: 0) { (value,index) in
+            self.selectionDict["Member Type"] = value
+            CXLog.print(value)
+            CXLog.print(index)
+        }*/
+        
+    }
+    
+    func showPicker(title:String,rows:[String],initialSelection:Int,completionPicking:@escaping (_ value:String,_ index:Int)->Void){
+        
+        ActionSheetStringPicker.show(withTitle: title, rows: rows, initialSelection: initialSelection, doneBlock: { ( picker, indexes, values) in
+            if let key = values as? String {
+                completionPicking(key,indexes)
+            }
+            
+        }, cancel: { (picker) in
+            
+        }, origin: self.view)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -94,6 +117,12 @@ class PostAddViewController: UIViewController,UITableViewDelegate,UITableViewDat
             return 53
             
         }
+    }
+    
+    
+    func postAddAction(){
+        
+        
     }
     
 }

@@ -14,6 +14,8 @@
 	<string>api/Deal/GetCurrentDeals</string>
 	<key>saveFavourite</key>
 	<string>api/User/DealsFavSave</string>
+	<key>getDeailByID</key>
+	<string>api/Deal/GetById/</string>
 	<key>getOtpUlr</key>
 	<string>api/User/VerifyMobileNumber/</string>
 </dict>

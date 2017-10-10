@@ -44,8 +44,8 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath)
         cell.textLabel?.text = nameArray[indexPath.row]
        // cell.textLabel?.font = CXAppConfig.sharedInstance.appMediumFont()
-        //cell.imageView?.image = UIImage(named: imageArray[indexPath.row])
-        cell.imageView?.image = UIImage(named: "home")
+        cell.imageView?.image = UIImage(named: imageArray[indexPath.row])
+        //cell.imageView?.image = UIImage(named: "home")
 
         leftTableview.allowsSelection = true
         
