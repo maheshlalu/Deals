@@ -22,9 +22,20 @@ class LoginViewController: UIViewController {
         
        // CXDataService.sharedInstance.showLoader(view: self.view, message: "Loading...")
         
-        let parameters = ["EmailAddress":emailStr]
         
-        CXDataService.sharedInstance.postTheDataToServer(urlString: CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getforgotPasswordUrl(), parameters: parameters as! [String : String]) { (responceDic) in
+        var parameter = ["":""]
+        if CXDataService.sharedInstance.isValidEmail(testStr: emailStr) {
+             parameter = ["EmailAddress":emailStr]
+
+        } else if CXDataService.sharedInstance.validatePhoneNuber(value: emailStr){
+            parameter = ["MobileNumber":emailStr]
+
+        }else{
+            CXDataService.sharedInstance.showAlert(message: "Please Enter Valid Input", viewController: self)
+            return
+        }
+
+        CXDataService.sharedInstance.postTheDataToServer(urlString: CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getforgotPasswordUrl(), parameters: parameter as! [String : String]) { (responceDic) in
             CXLog.print("responce dict \(responceDic)")
             
             CXDataService.sharedInstance.hideLoader()
@@ -32,7 +43,6 @@ class LoginViewController: UIViewController {
             let errorDict = error?.lastObject as? NSDictionary
             let errorcode = errorDict?.value(forKey: "ErrorCode") as? String
             if errorcode == "0"{
-                
                 let appDelegate = UIApplication.shared.delegate as? AppDelegate
                 appDelegate?.setUpSidePanl()
                 
@@ -47,7 +57,7 @@ class LoginViewController: UIViewController {
 
     @IBAction func forgotPasswordAction(_ sender: UIButton) {
         
-        let alertController = UIAlertController(title: "Email?", message: "Please input your email:", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "WalkDeals", message: "", preferredStyle: .alert)
         
         let confirmAction = UIAlertAction(title: "Confirm", style: .default) { (_) in
             if let field = alertController.textFields?[0] {
@@ -63,7 +73,7 @@ class LoginViewController: UIViewController {
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
         
         alertController.addTextField { (textField) in
-            textField.placeholder = "Enter Email"
+            textField.placeholder = "Enter email/Phone Number"
         }
         
         alertController.addAction(confirmAction)

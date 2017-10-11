@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		122670E01F8D168100FED033 /* UIImageView+UIActivityIndicatorForSDWebImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 122670DF1F8D168100FED033 /* UIImageView+UIActivityIndicatorForSDWebImage.m */; };
+		122670E31F8E85D600FED033 /* KIImagePager.m in Sources */ = {isa = PBXBuildFile; fileRef = 122670E21F8E85D600FED033 /* KIImagePager.m */; };
 		12355DD41F8661D50053A5F5 /* PostAddTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12355DD21F8661D50053A5F5 /* PostAddTableViewCell.swift */; };
 		12355DD51F8661D50053A5F5 /* PostAddTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12355DD31F8661D50053A5F5 /* PostAddTableViewCell.xib */; };
 		12355DD81F86624A0053A5F5 /* PostAddOneTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12355DD61F86624A0053A5F5 /* PostAddOneTableViewCell.swift */; };
@@ -78,6 +79,8 @@
 		0D0FBCC8FB9FCE874BA10192 /* Pods_Walk2DealsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Walk2DealsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		122670DE1F8D168100FED033 /* UIImageView+UIActivityIndicatorForSDWebImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+UIActivityIndicatorForSDWebImage.h"; sourceTree = "<group>"; };
 		122670DF1F8D168100FED033 /* UIImageView+UIActivityIndicatorForSDWebImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+UIActivityIndicatorForSDWebImage.m"; sourceTree = "<group>"; };
+		122670E11F8E85D600FED033 /* KIImagePager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIImagePager.h; sourceTree = "<group>"; };
+		122670E21F8E85D600FED033 /* KIImagePager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIImagePager.m; sourceTree = "<group>"; };
 		12355DD21F8661D50053A5F5 /* PostAddTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostAddTableViewCell.swift; sourceTree = "<group>"; };
 		12355DD31F8661D50053A5F5 /* PostAddTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostAddTableViewCell.xib; sourceTree = "<group>"; };
 		12355DD61F86624A0053A5F5 /* PostAddOneTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostAddOneTableViewCell.swift; sourceTree = "<group>"; };
@@ -229,6 +232,8 @@
 		184139711F6FF7E900B73595 /* Walk2Deals */ = {
 			isa = PBXGroup;
 			children = (
+				122670E11F8E85D600FED033 /* KIImagePager.h */,
+				122670E21F8E85D600FED033 /* KIImagePager.m */,
 				122670DD1F8D166700FED033 /* SdWebImage */,
 				12389F681F8558C400CE790C /* PostAdd */,
 				187D5B3A1F76642C00A5E250 /* Home */,
@@ -691,6 +696,7 @@
 				184139A41F70004200B73595 /* CXLog.swift in Sources */,
 				12355DD81F86624A0053A5F5 /* PostAddOneTableViewCell.swift in Sources */,
 				184139AE1F70070D00B73595 /* LaunchViewController.swift in Sources */,
+				122670E31F8E85D600FED033 /* KIImagePager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
