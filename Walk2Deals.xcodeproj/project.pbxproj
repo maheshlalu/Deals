@@ -42,6 +42,7 @@
 		18437E6D1F90B6E0003B9631 /* StarbucksAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18437E6C1F90B6E0003B9631 /* StarbucksAnnotation.swift */; };
 		18437E701F90B6EE003B9631 /* CustomCalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18437E6E1F90B6EE003B9631 /* CustomCalloutView.swift */; };
 		18437E711F90B6EE003B9631 /* CustomCalloutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18437E6F1F90B6EE003B9631 /* CustomCalloutView.xib */; };
+		18437E741F90E842003B9631 /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18437E731F90E842003B9631 /* ReviewTableViewCell.swift */; };
 		187D5B1D1F764DE900A5E250 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187D5B1C1F764DE900A5E250 /* SWRevealViewController.m */; };
 		187D5B221F764F1B00A5E250 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D5B211F764F1B00A5E250 /* HomeViewController.swift */; };
 		187D5B241F764F2C00A5E250 /* LeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D5B231F764F2C00A5E250 /* LeftViewController.swift */; };
@@ -130,6 +131,7 @@
 		18437E6C1F90B6E0003B9631 /* StarbucksAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarbucksAnnotation.swift; sourceTree = "<group>"; };
 		18437E6E1F90B6EE003B9631 /* CustomCalloutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCalloutView.swift; sourceTree = "<group>"; };
 		18437E6F1F90B6EE003B9631 /* CustomCalloutView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCalloutView.xib; sourceTree = "<group>"; };
+		18437E731F90E842003B9631 /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCell.swift; sourceTree = "<group>"; };
 		187D5B1A1F764DE900A5E250 /* Walk2Deals-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Walk2Deals-Bridging-Header.h"; sourceTree = "<group>"; };
 		187D5B1B1F764DE900A5E250 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		187D5B1C1F764DE900A5E250 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 		126CEAA41F86A66A00B32BD5 /* DealsDetails */ = {
 			isa = PBXGroup;
 			children = (
+				18437E721F90E81E003B9631 /* ReviewCell */,
 				18437E691F90B13E003B9631 /* LFLocationService.swift */,
 				126CEAA51F86A68500B32BD5 /* DealsDetailsViewController.swift */,
 				126CEAA71F86A6D300B32BD5 /* ReviewListViewController.swift */,
@@ -334,6 +337,14 @@
 				18437E6C1F90B6E0003B9631 /* StarbucksAnnotation.swift */,
 			);
 			name = NearByDeals;
+			sourceTree = "<group>";
+		};
+		18437E721F90E81E003B9631 /* ReviewCell */ = {
+			isa = PBXGroup;
+			children = (
+				18437E731F90E842003B9631 /* ReviewTableViewCell.swift */,
+			);
+			name = ReviewCell;
 			sourceTree = "<group>";
 		};
 		187D5B191F76495100A5E250 /* SidePanel */ = {
@@ -752,6 +763,7 @@
 				18437E661F9094AB003B9631 /* FloatRatingView.swift in Sources */,
 				12355DD81F86624A0053A5F5 /* PostAddOneTableViewCell.swift in Sources */,
 				18437E631F909465003B9631 /* CXCommentRatingViewController.swift in Sources */,
+				18437E741F90E842003B9631 /* ReviewTableViewCell.swift in Sources */,
 				18437E701F90B6EE003B9631 /* CustomCalloutView.swift in Sources */,
 				18437E5F1F908C90003B9631 /* NearByDealsViewController.swift in Sources */,
 				184139AE1F70070D00B73595 /* LaunchViewController.swift in Sources */,

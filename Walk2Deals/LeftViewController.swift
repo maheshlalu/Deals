@@ -22,7 +22,6 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
         self.leftTableview.register(nib, forCellReuseIdentifier: "TableViewCell")
         self.leftTableview.dataSource = self
         self.leftTableview.delegate = self
-
         // Do any additional setup after loading the view.
     }
 

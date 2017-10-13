@@ -16,10 +16,19 @@ class NearByDealsViewController: UIViewController,MKMapViewDelegate {
     var isGetNearFeeds = false
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setUpSideMenu()
 
         // Do any additional setup after loading the view.
     }
 
+    func setUpSideMenu(){
+        let menuItem = UIBarButtonItem(image: UIImage(named: "sidePanelMenu"), style: .plain, target: self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)))
+        self.navigationItem.leftBarButtonItem = menuItem
+        self.navigationItem.leftBarButtonItem?.tintColor = UIColor.white
+        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

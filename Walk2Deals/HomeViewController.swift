@@ -34,7 +34,6 @@ class HomeViewController: UIViewController {
         let parameters = ["CurrentDate":"","Latitude":"","Longitude":"","Location":"1","LocationId":""]
         
         CXDataService.sharedInstance.showLoader(view: self.view, message: "Loading...")
-        
         CXDataService.sharedInstance.postTheDataToServer(urlString: CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getDealsUrl(), parameters: parameters as! [String : String]) { (responceDic) in
             CXLog.print("responce dict \(responceDic)")
             CXDataService.sharedInstance.hideLoader()

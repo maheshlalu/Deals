@@ -76,6 +76,12 @@ class CXAppConfig {
         return config!.value(forKey: "getDeailByID") as! String
     }
     
+    //getReviews
+    
+    func getByReviewUrl() -> String {
+        return config!.value(forKey: "getReviews") as! String
+    }
+    
     func getTheDataInDictionaryFromKey(sourceDic:NSDictionary,sourceKey:NSString) ->String{
         let keyExists = sourceDic[sourceKey] != nil
         if keyExists {

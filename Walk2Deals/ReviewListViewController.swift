@@ -13,8 +13,33 @@ class ReviewListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.getReviews()
 
         // Do any additional setup after loading the view.
+    }
+    
+    func getReviews(){
+        
+        CXDataService.sharedInstance.showLoader(view: self.view, message: "Loading...")
+        
+        let otpUrlString = CXAppConfig.sharedInstance.getBaseUrl() + CXAppConfig.sharedInstance.getByReviewUrl() + "\("")"
+        
+        CXDataService.sharedInstance.getTheDataFromServer(urlString: otpUrlString, completion: { (responceDic) in
+            
+            CXLog.print(responceDic)
+            let responceDic = responceDic
+            
+            //Errors
+            let error = responceDic.value(forKey: "Errors") as? NSArray
+            let errorDict = error?.lastObject as? NSDictionary
+            let errorcode = errorDict?.value(forKey: "ErrorCode") as? String
+            if errorcode == "0"{
+         
+                }
+            
+            CXDataService.sharedInstance.hideLoader()
+            
+        })
     }
 
     override func didReceiveMemoryWarning() {
