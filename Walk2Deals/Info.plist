@@ -50,5 +50,15 @@
 		<string>RobotoCondensed-Bold.ttf</string>
 		<string>RobotoCondensed-Light.ttf</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>This app requires access to the camera.</string>
+	<key>NSLocationUsageDescription</key>
+	<string> $(PRODUCT_NAME) To get latitude and longitude of the current location for searching local restaurants.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Your location is used to get NearbyOffers.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Your location is used to get NearbyOffers.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>This app requires access to the photo library.</string>
 </dict>
 </plist>

@@ -545,7 +545,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MIl-D0-oa9" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="eHd-Sn-F8F">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="eHd-Sn-F8F">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -573,7 +573,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="euV-IK-a51">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="195"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="8VK-jI-lAt">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userDefaultIcon" translatesAutoresizingMaskIntoConstraints="NO" id="8VK-jI-lAt">
                                         <rect key="frame" x="81" y="15" width="120" height="100"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="120" id="vn4-PZ-5ws"/>
@@ -1290,9 +1290,9 @@
         <image name="logo" width="150" height="150"/>
         <image name="mapIcon" width="16" height="16"/>
         <image name="phoneCallImg" width="16" height="16"/>
-        <image name="placeholder" width="16" height="16"/>
         <image name="step1" width="80" height="77"/>
         <image name="step2" width="80" height="77"/>
+        <image name="userDefaultIcon" width="48" height="48"/>
         <image name="verificationImage" width="150" height="150"/>
     </resources>
 </document>

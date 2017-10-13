@@ -10,10 +10,11 @@ import UIKit
 
 class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     @IBOutlet weak var leftTableview: UITableView!
-    var nameArray = ["Home","Near By Stours","My Deals","Rewards Points","Favourites","Invite your friends","Settings","Give us Feedback","Sign Out"]
+    var nameArray = ["Home","Near By Stores","My Deals","Rewards Points","Favourites","Invite your friends","Settings","Give us Feedback","Sign Out"]
     
-    var imageArray = ["HomeImage","favourites","Profile & membershipImage","sidePanelRedeem20","bthDayOffer","whiteNotification","HowtoUseImage","Helpimage","PowerBtn"]
+    var imageArray = ["home","nearby","my-deal","rewards-points","fav-menu","invite-fnds","settings","feedBack","logout"]
     @IBOutlet weak var userImage: UIImageView!
+    var previousSelectedIndex  : IndexPath = IndexPath()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,10 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
         // Do any additional setup after loading the view.
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = true
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -45,7 +50,6 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
         cell.textLabel?.text = nameArray[indexPath.row]
        // cell.textLabel?.font = CXAppConfig.sharedInstance.appMediumFont()
         cell.imageView?.image = UIImage(named: imageArray[indexPath.row])
-        //cell.imageView?.image = UIImage(named: "home")
 
         leftTableview.allowsSelection = true
         
@@ -59,6 +63,27 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let revealController : SWRevealViewController  = self.revealViewController()
+        
+        if indexPath == previousSelectedIndex {
+            revealController.revealToggle(animated: true)
+            return
+        }
+        previousSelectedIndex = indexPath
+        //self.navController.drawerToggle()
+        let storyBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let itemName : String =  nameArray[indexPath.row]
+        
+        if itemName == "Home"{
+            let homeView = storyBoard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+            let navCntl = UINavigationController(rootViewController: homeView)
+            revealController.pushFrontViewController(navCntl, animated: true)
+            
+        }else if itemName == "Near By Stores"{
+            let nearByVc = storyBoard.instantiateViewController(withIdentifier: "NearByDealsViewController") as! NearByDealsViewController
+            let navCntl = UINavigationController(rootViewController: nearByVc)
+            revealController.pushFrontViewController(navCntl, animated: true)
+        }
         
     }
     
