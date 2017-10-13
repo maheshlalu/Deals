@@ -32,6 +32,16 @@
 		184139AC1F70070D00B73595 /* VerificationCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184139A81F70070D00B73595 /* VerificationCodeViewController.swift */; };
 		184139AD1F70070D00B73595 /* EnterMobileNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184139A91F70070D00B73595 /* EnterMobileNumberViewController.swift */; };
 		184139AE1F70070D00B73595 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184139AA1F70070D00B73595 /* LaunchViewController.swift */; };
+		18437E5D1F90880D003B9631 /* CAPSPageMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18437E5C1F90880D003B9631 /* CAPSPageMenu.swift */; };
+		18437E5F1F908C90003B9631 /* NearByDealsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18437E5E1F908C90003B9631 /* NearByDealsViewController.swift */; };
+		18437E631F909465003B9631 /* CXCommentRatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18437E611F909465003B9631 /* CXCommentRatingViewController.swift */; };
+		18437E641F909465003B9631 /* CXCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18437E621F909465003B9631 /* CXCommentViewController.swift */; };
+		18437E661F9094AB003B9631 /* FloatRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18437E651F9094AB003B9631 /* FloatRatingView.swift */; };
+		18437E681F90B072003B9631 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18437E671F90B072003B9631 /* MapKit.framework */; };
+		18437E6A1F90B13E003B9631 /* LFLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18437E691F90B13E003B9631 /* LFLocationService.swift */; };
+		18437E6D1F90B6E0003B9631 /* StarbucksAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18437E6C1F90B6E0003B9631 /* StarbucksAnnotation.swift */; };
+		18437E701F90B6EE003B9631 /* CustomCalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18437E6E1F90B6EE003B9631 /* CustomCalloutView.swift */; };
+		18437E711F90B6EE003B9631 /* CustomCalloutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18437E6F1F90B6EE003B9631 /* CustomCalloutView.xib */; };
 		187D5B1D1F764DE900A5E250 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187D5B1C1F764DE900A5E250 /* SWRevealViewController.m */; };
 		187D5B221F764F1B00A5E250 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D5B211F764F1B00A5E250 /* HomeViewController.swift */; };
 		187D5B241F764F2C00A5E250 /* LeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D5B231F764F2C00A5E250 /* LeftViewController.swift */; };
@@ -110,6 +120,16 @@
 		184139A81F70070D00B73595 /* VerificationCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerificationCodeViewController.swift; sourceTree = "<group>"; };
 		184139A91F70070D00B73595 /* EnterMobileNumberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterMobileNumberViewController.swift; sourceTree = "<group>"; };
 		184139AA1F70070D00B73595 /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		18437E5C1F90880D003B9631 /* CAPSPageMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAPSPageMenu.swift; sourceTree = "<group>"; };
+		18437E5E1F908C90003B9631 /* NearByDealsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearByDealsViewController.swift; sourceTree = "<group>"; };
+		18437E611F909465003B9631 /* CXCommentRatingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CXCommentRatingViewController.swift; sourceTree = "<group>"; };
+		18437E621F909465003B9631 /* CXCommentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CXCommentViewController.swift; sourceTree = "<group>"; };
+		18437E651F9094AB003B9631 /* FloatRatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatRatingView.swift; sourceTree = "<group>"; };
+		18437E671F90B072003B9631 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		18437E691F90B13E003B9631 /* LFLocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LFLocationService.swift; sourceTree = "<group>"; };
+		18437E6C1F90B6E0003B9631 /* StarbucksAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarbucksAnnotation.swift; sourceTree = "<group>"; };
+		18437E6E1F90B6EE003B9631 /* CustomCalloutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCalloutView.swift; sourceTree = "<group>"; };
+		18437E6F1F90B6EE003B9631 /* CustomCalloutView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCalloutView.xib; sourceTree = "<group>"; };
 		187D5B1A1F764DE900A5E250 /* Walk2Deals-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Walk2Deals-Bridging-Header.h"; sourceTree = "<group>"; };
 		187D5B1B1F764DE900A5E250 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		187D5B1C1F764DE900A5E250 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
@@ -144,6 +164,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18437E681F90B072003B9631 /* MapKit.framework in Frameworks */,
 				45FEB2C6DF34E4D5BBC8FF78 /* Pods_Walk2Deals.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -191,6 +212,7 @@
 		126CEAA41F86A66A00B32BD5 /* DealsDetails */ = {
 			isa = PBXGroup;
 			children = (
+				18437E691F90B13E003B9631 /* LFLocationService.swift */,
 				126CEAA51F86A68500B32BD5 /* DealsDetailsViewController.swift */,
 				126CEAA71F86A6D300B32BD5 /* ReviewListViewController.swift */,
 				126CEAA91F86A71200B32BD5 /* AboutDeailViewController.swift */,
@@ -232,7 +254,9 @@
 		184139711F6FF7E900B73595 /* Walk2Deals */ = {
 			isa = PBXGroup;
 			children = (
+				18437E601F909458003B9631 /* Comment */,
 				122670E11F8E85D600FED033 /* KIImagePager.h */,
+				18437E5C1F90880D003B9631 /* CAPSPageMenu.swift */,
 				122670E21F8E85D600FED033 /* KIImagePager.m */,
 				122670DD1F8D166700FED033 /* SdWebImage */,
 				12389F681F8558C400CE790C /* PostAdd */,
@@ -292,6 +316,26 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
+		18437E601F909458003B9631 /* Comment */ = {
+			isa = PBXGroup;
+			children = (
+				18437E651F9094AB003B9631 /* FloatRatingView.swift */,
+				18437E611F909465003B9631 /* CXCommentRatingViewController.swift */,
+				18437E621F909465003B9631 /* CXCommentViewController.swift */,
+			);
+			name = Comment;
+			sourceTree = "<group>";
+		};
+		18437E6B1F90B6D2003B9631 /* NearByDeals */ = {
+			isa = PBXGroup;
+			children = (
+				18437E6E1F90B6EE003B9631 /* CustomCalloutView.swift */,
+				18437E6F1F90B6EE003B9631 /* CustomCalloutView.xib */,
+				18437E6C1F90B6E0003B9631 /* StarbucksAnnotation.swift */,
+			);
+			name = NearByDeals;
+			sourceTree = "<group>";
+		};
 		187D5B191F76495100A5E250 /* SidePanel */ = {
 			isa = PBXGroup;
 			children = (
@@ -301,6 +345,7 @@
 				187D5B1C1F764DE900A5E250 /* SWRevealViewController.m */,
 				187D5B1A1F764DE900A5E250 /* Walk2Deals-Bridging-Header.h */,
 				187D5B231F764F2C00A5E250 /* LeftViewController.swift */,
+				18437E5E1F908C90003B9631 /* NearByDealsViewController.swift */,
 			);
 			name = SidePanel;
 			sourceTree = "<group>";
@@ -323,6 +368,7 @@
 		187D5B3A1F76642C00A5E250 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				18437E6B1F90B6D2003B9631 /* NearByDeals */,
 				126CEAA41F86A66A00B32BD5 /* DealsDetails */,
 				187D5B3B1F76643F00A5E250 /* HomeCollectionViewCell.swift */,
 				187D5B3C1F76643F00A5E250 /* HomeCollectionViewCell.xib */,
@@ -336,6 +382,7 @@
 		77B703CC46946E871D7824DB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				18437E671F90B072003B9631 /* MapKit.framework */,
 				2C9FA8110221974AAFF3FEE1 /* Pods_Walk2Deals.framework */,
 				03F388D68C956295A0A27D28 /* Pods_Walk2DealsTests.framework */,
 				0D0FBCC8FB9FCE874BA10192 /* Pods_Walk2DealsUITests.framework */,
@@ -435,6 +482,11 @@
 						CreatedOnToolsVersion = 8.3.3;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					184139821F6FF7EA00B73595 = {
 						CreatedOnToolsVersion = 8.3.3;
@@ -478,6 +530,7 @@
 				187D5B341F76578C00A5E250 /* Roboto-Italic.ttf in Resources */,
 				187D5B351F76578C00A5E250 /* Roboto-Light.ttf in Resources */,
 				187D5B361F76578C00A5E250 /* Roboto-Medium.ttf in Resources */,
+				18437E711F90B6EE003B9631 /* CustomCalloutView.xib in Resources */,
 				187D5B421F76774800A5E250 /* TableViewCell.xib in Resources */,
 				187D5B371F76578C00A5E250 /* Roboto-Regular.ttf in Resources */,
 				187D5B381F76578C00A5E250 /* RobotoCondensed-Bold.ttf in Resources */,
@@ -649,7 +702,6 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Walk2Deals/Pods-Walk2Deals-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ActionSheetPicker-3.0/ActionSheetPicker_3_0.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
@@ -657,7 +709,6 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ActionSheetPicker_3_0.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
@@ -677,14 +728,18 @@
 				184139AB1F70070D00B73595 /* CreateAccountViewController.swift in Sources */,
 				184139751F6FF7EA00B73595 /* ViewController.swift in Sources */,
 				12E8878E1F83EC4E00335823 /* LoginViewController.swift in Sources */,
+				18437E6A1F90B13E003B9631 /* LFLocationService.swift in Sources */,
 				12389F6A1F8558E400CE790C /* PostAddViewController.swift in Sources */,
 				18BD79D81F72A74800BB1A83 /* CXAppConfig.swift in Sources */,
 				126CEAA81F86A6D300B32BD5 /* ReviewListViewController.swift in Sources */,
+				18437E5D1F90880D003B9631 /* CAPSPageMenu.swift in Sources */,
 				12355DD41F8661D50053A5F5 /* PostAddTableViewCell.swift in Sources */,
 				184139A11F6FFCDF00B73595 /* CXDataService.swift in Sources */,
 				187D5B411F76774800A5E250 /* TableViewCell.swift in Sources */,
 				126CEAAA1F86A71200B32BD5 /* AboutDeailViewController.swift in Sources */,
+				18437E6D1F90B6E0003B9631 /* StarbucksAnnotation.swift in Sources */,
 				187D5B3D1F76643F00A5E250 /* HomeCollectionViewCell.swift in Sources */,
+				18437E641F909465003B9631 /* CXCommentViewController.swift in Sources */,
 				184139731F6FF7E900B73595 /* AppDelegate.swift in Sources */,
 				184139AD1F70070D00B73595 /* EnterMobileNumberViewController.swift in Sources */,
 				126CEAAC1F86A72C00B32BD5 /* WriteReviewViewController.swift in Sources */,
@@ -694,7 +749,11 @@
 				187D5B1D1F764DE900A5E250 /* SWRevealViewController.m in Sources */,
 				187D5B241F764F2C00A5E250 /* LeftViewController.swift in Sources */,
 				184139A41F70004200B73595 /* CXLog.swift in Sources */,
+				18437E661F9094AB003B9631 /* FloatRatingView.swift in Sources */,
 				12355DD81F86624A0053A5F5 /* PostAddOneTableViewCell.swift in Sources */,
+				18437E631F909465003B9631 /* CXCommentRatingViewController.swift in Sources */,
+				18437E701F90B6EE003B9631 /* CustomCalloutView.swift in Sources */,
+				18437E5F1F908C90003B9631 /* NearByDealsViewController.swift in Sources */,
 				184139AE1F70070D00B73595 /* LaunchViewController.swift in Sources */,
 				122670E31F8E85D600FED033 /* KIImagePager.m in Sources */,
 			);

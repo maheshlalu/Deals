@@ -9,10 +9,29 @@
 import UIKit
 
 class AboutDeailViewController: UIViewController {
+    var dealDetailDict : NSDictionary!
 
+    @IBOutlet weak var dealStartLbl: UILabel!
+    @IBOutlet weak var dealTitle: UILabel!
+    @IBOutlet weak var dealEndLbl: UILabel!
+    @IBOutlet weak var addressLbl: UILabel!
+    
+    var dealLocatinDict : NSArray!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        CXLog.print("\(dealDetailDict)")
+        //DealLocations
+        self.dealTitle.text = dealDetailDict.value(forKey: "OfferTitle") as? String
+        self.dealLocatinDict = dealDetailDict.value(forKey: "DealLocations") as! NSArray
+        if self.dealLocatinDict.count != 0 {
+            let dealLocation =  self.dealLocatinDict.lastObject as? NSDictionary
+            self.addressLbl.text = dealLocation?.value(forKey: "StoreLocationAddress") as? String
+            //StoreLocationAddress
+            //Latitude
+            //Longitude
+        }
+    
         // Do any additional setup after loading the view.
     }
 
@@ -21,6 +40,14 @@ class AboutDeailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func locationBtnAction(_ sender: UIButton) {
+        let dealLocation =  self.dealLocatinDict.lastObject as? NSDictionary
+        let destinationLatitude = Double(dealLocation?.value(forKey: "Latitude")! as! String)
+        let destinationLongtitude = Double(dealLocation?.value(forKey: "Longitude")! as! String)
+        let googleMapUrlString = String.localizedStringWithFormat("http://maps.google.com/?daddr=%f,%f", destinationLatitude!, destinationLongtitude!)
+        UIApplication.shared.openURL(NSURL(string:
+            googleMapUrlString)! as URL)
+    }
 
     /*
     // MARK: - Navigation

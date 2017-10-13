@@ -7,23 +7,23 @@
 //
 
 import UIKit
-
+import MapKit
 class HomeViewController: UIViewController {
 
     @IBOutlet weak var homeCollectionView: UICollectionView!
-    
+    var currentLocation: CLLocation!
     var dealsArray : NSMutableArray = NSMutableArray()
+    var isGetNearFeeds = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.checklocationAuthentication()
         self.homeCollectionView.backgroundColor = UIColor.clear
         self.setUpSideMenu()
         let nib = UINib(nibName: "HomeCollectionViewCell", bundle: nil)
-        
         self.homeCollectionView.register(nib, forCellWithReuseIdentifier: "HomeCollectionViewCell")
         self.homeCollectionView.delegate = self
         self.homeCollectionView.dataSource = self
-        self.getDeails()
         // Do any additional setup after loading the view.
     }
     
@@ -33,9 +33,11 @@ class HomeViewController: UIViewController {
         
         let parameters = ["CurrentDate":"","Latitude":"","Longitude":"","Location":"1","LocationId":""]
         
+        CXDataService.sharedInstance.showLoader(view: self.view, message: "Loading...")
+        
         CXDataService.sharedInstance.postTheDataToServer(urlString: CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getDealsUrl(), parameters: parameters as! [String : String]) { (responceDic) in
             CXLog.print("responce dict \(responceDic)")
-            
+            CXDataService.sharedInstance.hideLoader()
             let error =  responceDic.value(forKey: "Errors") as? NSArray
             let errorDict = error?.lastObject as? NSDictionary
             let errorcode = errorDict?.value(forKey: "ErrorCode") as? String
@@ -178,6 +180,35 @@ extension HomeViewController:UICollectionViewDataSource,UICollectionViewDelegate
         
             self.navigationController?.pushViewController(dealDetail!, animated: true)
 
+    }
+    
+}
+
+//MARK: FIRBASE Listener
+extension HomeViewController : LocationServiceDelegate,CLLocationManagerDelegate{
+    
+    //MARK: Checking location authentication
+    func checklocationAuthentication(){
+        LFLocationService.sharedInstance.delegate = self
+        LFLocationService.sharedInstance.startUpdatingLocation()
+    }
+
+    
+    func tracingLocation( _ currentLocation: CLLocation,  _ locationManager: CLLocationManager){
+        
+        self.currentLocation = locationManager.location
+        
+        if !isGetNearFeeds {
+            self.getDeails()
+            isGetNearFeeds = true
+        }
+    }
+    
+    func tracingLocationDidFailWithError(_ error: NSError){
+        
+    }
+    func tracingLocationDetails(_ currentLocationDetails: CLPlacemark){
+        
     }
     
 }

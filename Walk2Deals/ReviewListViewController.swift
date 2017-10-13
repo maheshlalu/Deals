@@ -9,6 +9,7 @@
 import UIKit
 
 class ReviewListViewController: UIViewController {
+    var dealDetailDict : NSDictionary!
 
     override func viewDidLoad() {
         super.viewDidLoad()

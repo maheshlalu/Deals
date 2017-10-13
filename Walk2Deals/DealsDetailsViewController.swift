@@ -18,23 +18,51 @@ class DealsDetailsViewController: UIViewController {
     weak var currentViewController: UIViewController?
     @IBOutlet weak var pagerView: KIImagePager!
     var coverPageImagesList: NSMutableArray!
-
+    var pageMenu : CAPSPageMenu?
     var dealId :String?
+    @IBOutlet weak var pagerHeight: NSLayoutConstraint!
+    @IBOutlet weak var writeReviewHeight: NSLayoutConstraint!
+    
+    var dealDetailDict : NSDictionary!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.getDealDataByID()
-        CXLog.print(dealId)
+        //CXLog.print(dealId)
+        
         // Do any additional setup after loading the view.
     }
     
     
+    func setUpTabPager(){
+        let parameters: [CAPSPageMenuOption] = [
+            .selectionIndicatorColor(UIColor.gray),
+            .selectedMenuItemLabelColor(UIColor.red),
+            .menuHeight(40),
+            .scrollMenuBackgroundColor(UIColor.gray),
+            .menuItemWidth(self.view.frame.size.width/2-16)
+        ]
+        let aboutDeal : AboutDeailViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AboutDeailViewController") as! AboutDeailViewController
+        aboutDeal.title = "About"
+        aboutDeal.dealDetailDict = self.dealDetailDict
+        let reviewsVc : ReviewListViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ReviewListViewController") as! ReviewListViewController
+        reviewsVc.title = "Reviews"
+        reviewsVc.dealDetailDict = self.dealDetailDict
+        ///ReviewListViewController
+        let pagerHeight = UIScreen.main.bounds.size.height - (self.pagerHeight.constant + self.writeReviewHeight.constant + 70)
+        self.pageMenu = CAPSPageMenu(viewControllers: [aboutDeal,reviewsVc], frame: CGRect(x: 0, y: self.pagerHeight.constant+1, width: self.view.frame.width, height: pagerHeight), pageMenuOptions: parameters)
+        self.view.addSubview((self.pageMenu?.view)!)
+    }
+    
     
     func getDealDataByID(){
+        CXDataService.sharedInstance.showLoader(view: self.view, message: "Loading...")
        // http://api.walk2deals.com/api/Deal/GetById/2
         let otpUrlString = CXAppConfig.sharedInstance.getBaseUrl() + CXAppConfig.sharedInstance.getDealByIDUrl() + "\(self.dealId!)"
         CXDataService.sharedInstance.getTheDataFromServer(urlString: otpUrlString, completion: { (responceDic) in
             CXLog.print(" deail deatil dic\(responceDic)")
-            self.aboutButtonAction(UIButton())
+            self.dealDetailDict = responceDic
+            CXDataService.sharedInstance.hideLoader()
+            self.setUpTabPager()
             self.imageViewAimations(dealsDic: responceDic)
         })
     }
@@ -67,60 +95,11 @@ class DealsDetailsViewController: UIViewController {
         
     }
 
-    
-    @IBAction func reviewButtonAction(_ sender: UIButton) {
-
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        let reviews : ReviewListViewController = (storyBoard.instantiateViewController(withIdentifier: "ReviewListViewController") as? ReviewListViewController)!
-        reviews.view.translatesAutoresizingMaskIntoConstraints = false
-        self.currentViewController = reviews
-        self.cycleFromViewController(self.currentViewController!, toViewController: reviews)
-        self.currentViewController!.view.translatesAutoresizingMaskIntoConstraints = false
-
+   
+    @IBAction func writeReviewBtnAction(_ sender: UIButton) {
+        let review : CXCommentRatingViewController = CXCommentRatingViewController()
+        self.navigationController?.pushViewController(review, animated: true)
     }
-    
-    @IBAction func aboutButtonAction(_ sender: UIButton) {
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        let reviews : AboutDeailViewController = (storyBoard.instantiateViewController(withIdentifier: "AboutDeailViewController") as? AboutDeailViewController)!
-        reviews.view.translatesAutoresizingMaskIntoConstraints = false
-        self.currentViewController = reviews
-        self.cycleFromViewController(self.currentViewController!, toViewController: reviews)
-        self.currentViewController!.view.translatesAutoresizingMaskIntoConstraints = false
-        self.addChildViewController(self.currentViewController!)
-        self.addSubview(self.currentViewController!.view, toView: self.containerView)
-
-        
-    }
-    
-    
-    func cycleFromViewController(_ oldViewController: UIViewController, toViewController newViewController: UIViewController) {
-        oldViewController.willMove(toParentViewController: nil)
-        self.addChildViewController(newViewController)
-        self.addSubview(newViewController.view, toView:self.containerView!)
-        newViewController.view.alpha = 0
-        newViewController.view.layoutIfNeeded()
-        UIView.animate(withDuration: 0.5, animations: {
-            newViewController.view.alpha = 1
-            oldViewController.view.alpha = 0
-        },
-                       completion: { finished in
-                        oldViewController.view.removeFromSuperview()
-                        oldViewController.removeFromParentViewController()
-                        newViewController.didMove(toParentViewController: self)
-        })
-    }
-    
-    func addSubview(_ subView:UIView, toView parentView:UIView) {
-        parentView.addSubview(subView)
-        
-        var viewBindingsDict = [String: AnyObject]()
-        viewBindingsDict["subView"] = subView
-        parentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[subView]|",
-                                                                 options: [], metrics: nil, views: viewBindingsDict))
-        parentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[subView]|",
-                                                                 options: [], metrics: nil, views: viewBindingsDict))
-    }
-
     /*
     // MARK: - Navigation
 
@@ -135,8 +114,8 @@ class DealsDetailsViewController: UIViewController {
 
 extension DealsDetailsViewController:KIImagePagerDelegate,KIImagePagerDataSource {
     func array(withImages pager: KIImagePager!) -> [Any]! {
-        
-        return ["" as AnyObject,"" as AnyObject,"" as AnyObject,"" as AnyObject,"" as AnyObject]
+        return self.coverPageImagesList as! [Any]!
+        //return ["" as AnyObject,"" as AnyObject,"" as AnyObject,"" as AnyObject,"" as AnyObject]
     }
     
     
@@ -146,14 +125,5 @@ extension DealsDetailsViewController:KIImagePagerDelegate,KIImagePagerDataSource
         
         return .scaleAspectFill
     }
-    //    public func array(withImages pager: KIImagePager!) -> [Any]! {
-    //        return ["" as AnyObject,"" as AnyObject,"" as AnyObject,"" as AnyObject,"" as AnyObject]
-    //    }
     
-    
-    
-    //    func array(withImages pager: KIImagePager!) -> [AnyObject]! {
-    //        return self.coverPageImagesList as [AnyObject]
-    //    }
-    //    
 }
