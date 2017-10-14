@@ -21,6 +21,9 @@
 		12E8878E1F83EC4E00335823 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E8878D1F83EC4E00335823 /* LoginViewController.swift */; };
 		182B9BF01F91F82200109B15 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182B9BEF1F91F82200109B15 /* UserProfile.swift */; };
 		182B9BF21F91F9F900109B15 /* CXDataSaveManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182B9BF11F91F9F900109B15 /* CXDataSaveManager.swift */; };
+		182B9BF71F92409900109B15 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182B9BF41F92409900109B15 /* UserProfileViewController.swift */; };
+		182B9BF81F92409900109B15 /* UserProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182B9BF51F92409900109B15 /* UserProfileTableViewCell.swift */; };
+		182B9BF91F92409900109B15 /* UserProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 182B9BF61F92409900109B15 /* UserProfileTableViewCell.xib */; };
 		184139731F6FF7E900B73595 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184139721F6FF7E900B73595 /* AppDelegate.swift */; };
 		184139751F6FF7EA00B73595 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184139741F6FF7EA00B73595 /* ViewController.swift */; };
 		184139781F6FF7EA00B73595 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 184139761F6FF7EA00B73595 /* Main.storyboard */; };
@@ -106,6 +109,9 @@
 		12E8878D1F83EC4E00335823 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		182B9BEF1F91F82200109B15 /* UserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		182B9BF11F91F9F900109B15 /* CXDataSaveManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CXDataSaveManager.swift; sourceTree = "<group>"; };
+		182B9BF41F92409900109B15 /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		182B9BF51F92409900109B15 /* UserProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileTableViewCell.swift; sourceTree = "<group>"; };
+		182B9BF61F92409900109B15 /* UserProfileTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserProfileTableViewCell.xib; sourceTree = "<group>"; };
 		1841396F1F6FF7E900B73595 /* Walk2Deals.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Walk2Deals.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		184139721F6FF7E900B73595 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		184139741F6FF7EA00B73595 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -245,6 +251,16 @@
 			name = Database;
 			sourceTree = "<group>";
 		};
+		182B9BF31F92408E00109B15 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				182B9BF41F92409900109B15 /* UserProfileViewController.swift */,
+				182B9BF51F92409900109B15 /* UserProfileTableViewCell.swift */,
+				182B9BF61F92409900109B15 /* UserProfileTableViewCell.xib */,
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
 		184139661F6FF7E800B73595 = {
 			isa = PBXGroup;
 			children = (
@@ -270,6 +286,7 @@
 		184139711F6FF7E900B73595 /* Walk2Deals */ = {
 			isa = PBXGroup;
 			children = (
+				182B9BF31F92408E00109B15 /* Profile */,
 				182B9BEE1F91F80100109B15 /* Database */,
 				18437E601F909458003B9631 /* Comment */,
 				122670E11F8E85D600FED033 /* KIImagePager.h */,
@@ -554,6 +571,7 @@
 				187D5B331F76578C00A5E250 /* Roboto-Bold.ttf in Resources */,
 				187D5B341F76578C00A5E250 /* Roboto-Italic.ttf in Resources */,
 				187D5B351F76578C00A5E250 /* Roboto-Light.ttf in Resources */,
+				182B9BF91F92409900109B15 /* UserProfileTableViewCell.xib in Resources */,
 				187D5B361F76578C00A5E250 /* Roboto-Medium.ttf in Resources */,
 				18437E711F90B6EE003B9631 /* CustomCalloutView.xib in Resources */,
 				187D5B421F76774800A5E250 /* TableViewCell.xib in Resources */,
@@ -761,6 +779,7 @@
 				12E8878E1F83EC4E00335823 /* LoginViewController.swift in Sources */,
 				18437E6A1F90B13E003B9631 /* LFLocationService.swift in Sources */,
 				12389F6A1F8558E400CE790C /* PostAddViewController.swift in Sources */,
+				182B9BF81F92409900109B15 /* UserProfileTableViewCell.swift in Sources */,
 				18BD79D81F72A74800BB1A83 /* CXAppConfig.swift in Sources */,
 				126CEAA81F86A6D300B32BD5 /* ReviewListViewController.swift in Sources */,
 				18437E5D1F90880D003B9631 /* CAPSPageMenu.swift in Sources */,
@@ -780,6 +799,7 @@
 				187D5B221F764F1B00A5E250 /* HomeViewController.swift in Sources */,
 				122670E01F8D168100FED033 /* UIImageView+UIActivityIndicatorForSDWebImage.m in Sources */,
 				187D5B1D1F764DE900A5E250 /* SWRevealViewController.m in Sources */,
+				182B9BF71F92409900109B15 /* UserProfileViewController.swift in Sources */,
 				187D5B241F764F2C00A5E250 /* LeftViewController.swift in Sources */,
 				184139A41F70004200B73595 /* CXLog.swift in Sources */,
 				18437E661F9094AB003B9631 /* FloatRatingView.swift in Sources */,
