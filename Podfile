@@ -11,7 +11,8 @@ target 'Walk2Deals' do
     pod 'SDWebImage', '~> 3.8'
 pod 'MBProgressHUD', '~> 1.0'
 pod 'ActionSheetPicker-3.0'
-
+pod 'RealmSwift'
+pod 'SwiftyJSON'
 
   target 'Walk2DealsTests' do
     inherit! :search_paths

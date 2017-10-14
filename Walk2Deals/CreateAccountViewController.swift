@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SwiftyJSON
 class CreateAccountViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var createImage: UIImageView!
     var phoneNumber :String!
@@ -65,6 +65,7 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
                 let errorDict = error?.lastObject as? NSDictionary
                 let errorcode = errorDict?.value(forKey: "ErrorCode") as? String
                 if errorcode == "0"{
+                    CXDataSaveManager.sharedInstance.saveTheUserDetailsInDB(userDataDic: JSON(responceDic))
                     let appDelegate = UIApplication.shared.delegate as? AppDelegate
                     appDelegate?.setUpSidePanl()
                 }else{

@@ -126,29 +126,30 @@ extension HomeViewController:UICollectionViewDataSource,UICollectionViewDelegate
     func favButtonAction(sender:UIButton){
         //http://api.walk2deals.com/api/User/DealsFavSave
         let dataDict = self.dealsArray[sender.tag]
-        
-
-        let parameters = ["DealId":"2","UserId":"2"]
-        
-        //{"DealId":"2","UserId":"2"}
-        CXDataService.sharedInstance.postTheDataToServer(urlString: CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getSaveFavouriteUrl(), parameters: parameters as! [String : String]) { (responceDic) in
-            CXLog.print("responce dict \(responceDic)")
+        if let dealID = (dataDict as AnyObject).value(forKey: "Id") as? Int{
+            let parameters = ["DealId":String(dealID),"UserId":CXAppConfig.sharedInstance.getUserID()]
             
-            let error =  responceDic.value(forKey: "Errors") as? NSArray
-            let errorDict = error?.lastObject as? NSDictionary
-            let errorcode = errorDict?.value(forKey: "ErrorCode") as? String
-            if errorcode == "0"{
-                //let deals =  responceDic.value(forKey: "Deals") as? NSArray
-               // self.dealsArray = NSMutableArray(array: deals!)
-            }else{
-                CXDataService.sharedInstance.showAlert(message: "Something went Wrong!!!", viewController: self)
+            //{"DealId":"2","UserId":"2"}
+            CXDataService.sharedInstance.postTheDataToServer(urlString: CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getSaveFavouriteUrl(), parameters: parameters) { (responceDic) in
+                CXLog.print("responce dict \(responceDic)")
+                
+                let error =  responceDic.value(forKey: "Errors") as? NSArray
+                let errorDict = error?.lastObject as? NSDictionary
+                let errorcode = errorDict?.value(forKey: "ErrorCode") as? String
+                if errorcode == "0"{
+                    //let deals =  responceDic.value(forKey: "Deals") as? NSArray
+                    // self.dealsArray = NSMutableArray(array: deals!)
+                }else{
+                    CXDataService.sharedInstance.showAlert(message: "Something went Wrong!!!", viewController: self)
+                }
+                
             }
-            
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.bounds.width, height: 250)
+        //return CGSize(width: collectionView.bounds.width/1-9, height: 200)
+        return CGSize(width: self.view.frame.size.width, height: 250)
     }
     
     func shareButtonAction(sender:UIButton){

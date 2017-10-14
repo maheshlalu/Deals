@@ -8,6 +8,7 @@
 
 import UIKit
 //import IQKeyboardManagerSwift
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate,SWRevealViewControllerDelegate {
@@ -18,11 +19,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate,SWRevealViewControllerDele
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-//        CXDataService.sharedInstance.getTheAppDataFromServer(["":"" as AnyObject]) { (dict) in
-//            
-//        }
+        //        CXDataService.sharedInstance.getTheAppDataFromServer(["":"" as AnyObject]) { (dict) in
+        //
+        //        }
         //IQKeyboardManager.sharedManager().enable = true
-
+        
         let navigationBarAppearace = UINavigationBar.appearance()
         navigationBarAppearace.tintColor = UIColor.white
         navigationBarAppearace.barTintColor = UIColor(colorLiteralRed: 51.0/255.0, green: 51.0/255.0, blue: 51.0/255.0, alpha: 1.0)
@@ -32,8 +33,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate,SWRevealViewControllerDele
         navigationBarAppearace.titleTextAttributes = myAttribute
         navigationBarAppearace.titleTextAttributes = myAttributeTxtColor
         
+        if CXAppConfig.sharedInstance.getUserID().isEmpty {
+            
+        }else{
+            self.setUpSidePanl()
+        }
+        CXLog.print("Realm DB path \(Realm.Configuration.defaultConfiguration.fileURL!)")
         
-        self.setUpSidePanl()
         return true
     }
 

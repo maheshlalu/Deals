@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SwiftyJSON
 class LoginViewController: UIViewController {
     @IBOutlet weak var enterEmailTxt: UITextField!
 
@@ -98,7 +98,8 @@ class LoginViewController: UIViewController {
             let errorDict = error?.lastObject as? NSDictionary
             let errorcode = errorDict?.value(forKey: "ErrorCode") as? String
             if errorcode == "0"{
-                
+                //CXAppConfig.sharedInstance.saveUserID(userID: "")
+                CXDataSaveManager.sharedInstance.saveTheUserDetailsInDB(userDataDic: JSON(responceDic))
                 let appDelegate = UIApplication.shared.delegate as? AppDelegate
                 appDelegate?.setUpSidePanl()
                 

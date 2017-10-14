@@ -148,6 +148,7 @@ class CXCommentRatingViewController: UIViewController,FloatRatingViewDelegate,UI
     func submitTheComments(){
 
         
+        
        /* if UserDefaults.standard.value(forKey: "USER_ID") != nil{
             
             let userId =  "\(UserDefaults.standard.value(forKey: "USER_ID")!)"

@@ -91,6 +91,18 @@ class CXAppConfig {
         return ""
         
     }
+    func getUserID() -> String{
+        if(UserDefaults.standard.object(forKey: "USER_ID") == nil){
+            return ""
+        }else{
+            return UserDefaults.standard.value(forKey: "USER_ID") as! String
+        }
+    }
+    
+    func saveUserID(userID:String){
+        UserDefaults.standard.set(userID, forKey: "USER_ID")
+
+    }
     
     func setDeviceToken(deviceToken:String){
         

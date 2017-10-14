@@ -20,26 +20,22 @@ class ReviewListViewController: UIViewController {
     
     func getReviews(){
         
-        CXDataService.sharedInstance.showLoader(view: self.view, message: "Loading...")
-        
-        let otpUrlString = CXAppConfig.sharedInstance.getBaseUrl() + CXAppConfig.sharedInstance.getByReviewUrl() + "\("")"
-        
-        CXDataService.sharedInstance.getTheDataFromServer(urlString: otpUrlString, completion: { (responceDic) in
-            
-            CXLog.print(responceDic)
-            let responceDic = responceDic
-            
-            //Errors
-            let error = responceDic.value(forKey: "Errors") as? NSArray
-            let errorDict = error?.lastObject as? NSDictionary
-            let errorcode = errorDict?.value(forKey: "ErrorCode") as? String
-            if errorcode == "0"{
-         
+        if let dealID = dealDetailDict?.value(forKey: "Id") as? Int{
+            CXDataService.sharedInstance.showLoader(view: self.view, message: "Loading...")
+            let otpUrlString = CXAppConfig.sharedInstance.getBaseUrl() + CXAppConfig.sharedInstance.getByReviewUrl() + "\(dealID)"
+            CXDataService.sharedInstance.getTheDataFromServer(urlString: otpUrlString, completion: { (responceDic) in
+                CXLog.print(responceDic)
+                let responceDic = responceDic
+                //Errors
+                let error = responceDic.value(forKey: "Errors") as? NSArray
+                let errorDict = error?.lastObject as? NSDictionary
+                let errorcode = errorDict?.value(forKey: "ErrorCode") as? String
+                if errorcode == "0"{
+                    
                 }
-            
-            CXDataService.sharedInstance.hideLoader()
-            
-        })
+                CXDataService.sharedInstance.hideLoader()
+            })
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -58,4 +54,15 @@ class ReviewListViewController: UIViewController {
     }
     */
 
+}
+
+extension ReviewListViewController: UITableViewDelegate,UITableViewDataSource{
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
+    }
 }
