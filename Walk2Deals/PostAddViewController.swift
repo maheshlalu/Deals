@@ -121,7 +121,42 @@ class PostAddViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
     
     func postAddAction(){
+        let parameters = ["OfferTitle":"","OfferDescription":"","StartDate":"","EndDate":"","UserId":"","IsActive":""]
         
+        //yyyy-MM-dd HH:mm:ss.S
+        
+        
+        /*
+         {
+         "OfferTitle": "sampledsfssdgfhfh789fsfringdsf2",
+         "OfferDescription": "reste87fghfgh9sdfsdfrt",
+         "StartDate": "2017-10-15T04:25:25.6619455-04:00",
+         "EndDate": "2017-10-15T04:25:25.6619455-04:00",
+         "UserId": 2,
+         "DealCategories":[
+         {
+         
+         "CategoryId": 6,
+         
+         }
+         
+         ],
+         "DealLocations": [
+         {
+         "StoreLocationId": 1,
+         "FileContentCoreEntityList": [
+         {
+         "FileName": "fdgdgfdg",
+         "CDNFilePath": "dfgdfgdfg",
+         "FileContent": "00000000000000000000000001100100"
+         }
+         
+         ],     
+         "IsActive": true,
+         
+         }
+         }
+        api/Deal/Save*/
         
     }
     

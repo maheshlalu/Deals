@@ -11,6 +11,7 @@ import UIKit
 class DealsDetailsViewController: UIViewController {
 
     
+    @IBOutlet weak var rattingView: FloatRatingView!
     @IBOutlet weak var mapBtn: UIButton!
     @IBOutlet weak var offerBtn: UIButton!
     @IBOutlet weak var aboutBtn: UIButton!
@@ -35,8 +36,8 @@ class DealsDetailsViewController: UIViewController {
     
     func setUpTabPager(){
         let parameters: [CAPSPageMenuOption] = [
-            .selectionIndicatorColor(UIColor.gray),
-            .selectedMenuItemLabelColor(UIColor.red),
+            .selectionIndicatorColor(UIColor.white),
+            .selectedMenuItemLabelColor(UIColor.white),
             .menuHeight(40),
             .scrollMenuBackgroundColor(UIColor.gray),
             .menuItemWidth(self.view.frame.size.width/2-16)
@@ -48,8 +49,11 @@ class DealsDetailsViewController: UIViewController {
         reviewsVc.title = "Reviews"
         reviewsVc.dealDetailDict = self.dealDetailDict
         ///ReviewListViewController
+        
         let pagerHeight = UIScreen.main.bounds.size.height - (self.pagerHeight.constant + self.writeReviewHeight.constant + 70)
-        self.pageMenu = CAPSPageMenu(viewControllers: [aboutDeal,reviewsVc], frame: CGRect(x: 0, y: self.pagerHeight.constant+1, width: self.view.frame.width, height: pagerHeight), pageMenuOptions: parameters)
+        
+        
+        self.pageMenu = CAPSPageMenu(viewControllers: [aboutDeal,reviewsVc], frame: CGRect(x: 0, y: self.pagerHeight.constant+1+50, width: self.view.frame.width, height: pagerHeight-50), pageMenuOptions: parameters)
         self.view.addSubview((self.pageMenu?.view)!)
     }
     
@@ -127,3 +131,19 @@ extension DealsDetailsViewController:KIImagePagerDelegate,KIImagePagerDataSource
     }
     
 }
+
+/*
+extension DealsDetailsViewController: FloatRatingViewDelegate {
+    
+    // MARK: FloatRatingViewDelegate
+    
+    func floatRatingView(_ ratingView: FloatRatingView, isUpdating rating: Double) {
+       // liveLabel.text = String(format: "%.2f", self.floatRatingView.rating)
+    }
+    
+    func floatRatingView(_ ratingView: FloatRatingView, didUpdate rating: Double) {
+     //   updatedLabel.text = String(format: "%.2f", self.floatRatingView.rating)
+    }
+    
+}
+*/

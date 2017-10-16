@@ -79,7 +79,7 @@ class HomeViewController: UIViewController {
     
 }
 
-extension HomeViewController:UICollectionViewDataSource,UICollectionViewDelegate {
+extension HomeViewController:UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
@@ -125,6 +125,8 @@ extension HomeViewController:UICollectionViewDataSource,UICollectionViewDelegate
     
     func favButtonAction(sender:UIButton){
         //http://api.walk2deals.com/api/User/DealsFavSave
+        
+        sender.isSelected = !sender.isSelected
         let dataDict = self.dealsArray[sender.tag]
         if let dealID = (dataDict as AnyObject).value(forKey: "Id") as? Int{
             let parameters = ["DealId":String(dealID),"UserId":CXAppConfig.sharedInstance.getUserID()]
@@ -149,12 +151,17 @@ extension HomeViewController:UICollectionViewDataSource,UICollectionViewDelegate
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         //return CGSize(width: collectionView.bounds.width/1-9, height: 200)
-        return CGSize(width: self.view.frame.size.width, height: 250)
+        return CGSize(width: collectionView.bounds.width-10, height: 250)
     }
     
+    
     func shareButtonAction(sender:UIButton){
-        
+     
+        let activityViewController = UIActivityViewController(activityItems: ["" as NSString], applicationActivities: nil)
+        self.present(activityViewController, animated: true, completion: {})
     }
+    
+    
     
     
     func numberOfSections(in collectionView: UICollectionView) -> Int

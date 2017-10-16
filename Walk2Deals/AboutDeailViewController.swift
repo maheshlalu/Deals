@@ -24,13 +24,25 @@ class AboutDeailViewController: UIViewController {
         //DealLocations
         self.dealTitle.text = dealDetailDict.value(forKey: "OfferTitle") as? String
         self.dealLocatinDict = dealDetailDict.value(forKey: "DealLocations") as! NSArray
+        
+        if let strdDate = dealDetailDict.value(forKey: "StartDate") as? String , let endDate = dealDetailDict.value(forKey: "StartDate") as? String {
+            self.dealStartLbl.text = "Start Date:  " + strdDate
+            self.dealEndLbl.text = "End Date:  " + endDate
+        }
+        
+
         if self.dealLocatinDict.count != 0 {
             let dealLocation =  self.dealLocatinDict.lastObject as? NSDictionary
             self.addressLbl.text = dealLocation?.value(forKey: "StoreLocationAddress") as? String
+            
+            CXLog.print(dealLocation?.value(forKey: "StoreLocationAddress") as? String)
+
             //StoreLocationAddress
             //Latitude
             //Longitude
         }
+        //StartDate
+        //EndDate
     
         // Do any additional setup after loading the view.
     }
