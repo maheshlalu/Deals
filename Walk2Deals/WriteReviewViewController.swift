@@ -14,8 +14,14 @@ class WriteReviewViewController: UIViewController {
     @IBOutlet weak var userNameLbl: UILabel!
     @IBOutlet weak var rattingView: FloatRatingView!
     @IBOutlet weak var commentTextView: UITextView!
+    
+    var dealID : String!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.commentTextView.layer.borderWidth = 2.0
+        self.commentTextView.layer.borderColor = UIColor.gray.cgColor
+        self.commentTextView.layer.masksToBounds = true
 
         // Do any additional setup after loading the view.
     }
@@ -37,5 +43,28 @@ class WriteReviewViewController: UIViewController {
     */
 
     @IBAction func submitReviewAction(_ sender: UIButton) {
+        //Dealid,user ID,reviewstar,reviewcomments
+        
+            CXDataService.sharedInstance.showLoader(view: self.view, message: "Creating Account...")
+        
+                let parameters = ["Dealid":self.dealID,"user ID":CXAppConfig.sharedInstance.getUserID(),"reviewstar":"\(self.rattingView.rating)","reviewcomments":self.commentTextView.text] as [String : Any]
+                
+                CXDataService.sharedInstance.postTheDataToServer(urlString: CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.saveReviewUrl(), parameters: parameters as! [String : String]) { (responceDic) in
+                    CXLog.print("responce dict \(responceDic)")
+                    
+                    let error = responceDic.value(forKey: "Errors") as? NSArray
+                    let errorDict = error?.lastObject as? NSDictionary
+                    let errorcode = errorDict?.value(forKey: "ErrorCode") as? String
+                    
+                    if errorcode == "0"{
+                    }else{
+                        
+                        CXDataService.sharedInstance.showAlert(message: "Something went Wrong!!!", viewController: self)
+                    }
+                    
+                }
+                
+            
+        
     }
 }

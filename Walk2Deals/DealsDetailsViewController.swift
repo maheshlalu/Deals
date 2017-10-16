@@ -102,8 +102,10 @@ class DealsDetailsViewController: UIViewController {
    
     @IBAction func writeReviewBtnAction(_ sender: UIButton) {
         let storyBaord = UIStoryboard(name: "Main", bundle: nil)
-        let writeReviewVc = storyBaord.instantiateViewController(withIdentifier: "WriteReviewViewController")
-        self.navigationController?.pushViewController(writeReviewVc, animated: true)
+        let writeReviewVc = storyBaord.instantiateViewController(withIdentifier: "WriteReviewViewController") as? WriteReviewViewController
+        writeReviewVc?.dealID = self.dealId
+        
+        self.navigationController?.pushViewController(writeReviewVc!, animated: true)
     }
     /*
     // MARK: - Navigation

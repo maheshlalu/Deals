@@ -81,6 +81,9 @@ class CXAppConfig {
     func getByReviewUrl() -> String {
         return config!.value(forKey: "getReviews") as! String
     }
+    func saveReviewUrl() -> String {
+        return config!.value(forKey: "reviewSave") as! String
+    }
     
     func getTheDataInDictionaryFromKey(sourceDic:NSDictionary,sourceKey:NSString) ->String{
         let keyExists = sourceDic[sourceKey] != nil
@@ -117,6 +120,9 @@ class CXAppConfig {
             return UserDefaults.standard.value(forKey: "deviceToken") as! String
         }
     }
+    
+    //reviewSave
+    
     
     static func resultString(input: AnyObject) -> String{
         if let value: AnyObject = input {
