@@ -130,11 +130,9 @@ extension HomeViewController:UICollectionViewDataSource,UICollectionViewDelegate
         let dataDict = self.dealsArray[sender.tag]
         if let dealID = (dataDict as AnyObject).value(forKey: "Id") as? Int{
             let parameters = ["DealId":String(dealID),"UserId":CXAppConfig.sharedInstance.getUserID()]
-            
             //{"DealId":"2","UserId":"2"}
             CXDataService.sharedInstance.postTheDataToServer(urlString: CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getSaveFavouriteUrl(), parameters: parameters) { (responceDic) in
                 CXLog.print("responce dict \(responceDic)")
-                
                 let error =  responceDic.value(forKey: "Errors") as? NSArray
                 let errorDict = error?.lastObject as? NSDictionary
                 let errorcode = errorDict?.value(forKey: "ErrorCode") as? String
@@ -144,7 +142,6 @@ extension HomeViewController:UICollectionViewDataSource,UICollectionViewDelegate
                 }else{
                     CXDataService.sharedInstance.showAlert(message: "Something went Wrong!!!", viewController: self)
                 }
-                
             }
         }
     }
@@ -166,8 +163,6 @@ extension HomeViewController:UICollectionViewDataSource,UICollectionViewDelegate
     
     func numberOfSections(in collectionView: UICollectionView) -> Int
     {
-        
-        
         return 1
         
     }

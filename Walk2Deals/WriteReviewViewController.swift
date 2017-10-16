@@ -10,6 +10,10 @@ import UIKit
 
 class WriteReviewViewController: UIViewController {
 
+    @IBOutlet weak var userImgView: UIImageView!
+    @IBOutlet weak var userNameLbl: UILabel!
+    @IBOutlet weak var rattingView: FloatRatingView!
+    @IBOutlet weak var commentTextView: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,4 +36,6 @@ class WriteReviewViewController: UIViewController {
     }
     */
 
+    @IBAction func submitReviewAction(_ sender: UIButton) {
+    }
 }

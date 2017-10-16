@@ -48,6 +48,7 @@
 		18437E701F90B6EE003B9631 /* CustomCalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18437E6E1F90B6EE003B9631 /* CustomCalloutView.swift */; };
 		18437E711F90B6EE003B9631 /* CustomCalloutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18437E6F1F90B6EE003B9631 /* CustomCalloutView.xib */; };
 		18437E741F90E842003B9631 /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18437E731F90E842003B9631 /* ReviewTableViewCell.swift */; };
+		1843A23B1F94E60C00ACD476 /* AnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1843A23A1F94E60C00ACD476 /* AnnotationView.swift */; };
 		187D5B1D1F764DE900A5E250 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187D5B1C1F764DE900A5E250 /* SWRevealViewController.m */; };
 		187D5B221F764F1B00A5E250 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D5B211F764F1B00A5E250 /* HomeViewController.swift */; };
 		187D5B241F764F2C00A5E250 /* LeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D5B231F764F2C00A5E250 /* LeftViewController.swift */; };
@@ -142,6 +143,7 @@
 		18437E6E1F90B6EE003B9631 /* CustomCalloutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCalloutView.swift; sourceTree = "<group>"; };
 		18437E6F1F90B6EE003B9631 /* CustomCalloutView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCalloutView.xib; sourceTree = "<group>"; };
 		18437E731F90E842003B9631 /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCell.swift; sourceTree = "<group>"; };
+		1843A23A1F94E60C00ACD476 /* AnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationView.swift; sourceTree = "<group>"; };
 		187D5B1A1F764DE900A5E250 /* Walk2Deals-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Walk2Deals-Bridging-Header.h"; sourceTree = "<group>"; };
 		187D5B1B1F764DE900A5E250 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		187D5B1C1F764DE900A5E250 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 		182B9BF31F92408E00109B15 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				1843A23A1F94E60C00ACD476 /* AnnotationView.swift */,
 				182B9BF41F92409900109B15 /* UserProfileViewController.swift */,
 				182B9BF51F92409900109B15 /* UserProfileTableViewCell.swift */,
 				182B9BF61F92409900109B15 /* UserProfileTableViewCell.xib */,
@@ -788,6 +791,7 @@
 				184139A11F6FFCDF00B73595 /* CXDataService.swift in Sources */,
 				187D5B411F76774800A5E250 /* TableViewCell.swift in Sources */,
 				126CEAAA1F86A71200B32BD5 /* AboutDeailViewController.swift in Sources */,
+				1843A23B1F94E60C00ACD476 /* AnnotationView.swift in Sources */,
 				18437E6D1F90B6E0003B9631 /* StarbucksAnnotation.swift in Sources */,
 				187D5B3D1F76643F00A5E250 /* HomeCollectionViewCell.swift in Sources */,
 				18437E641F909465003B9631 /* CXCommentViewController.swift in Sources */,

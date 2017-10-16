@@ -117,12 +117,10 @@ open class CXDataService: NSObject {
                     print(error)
                 }}
             
-            
             let headers: HTTPHeaders = [
                 "Authorization": "key=AIzaSyDL0UKlnPC5s8hvAB65qOvEXYzp0jwxXoM",
                 "Accept": "application/json"
             ]
-            
             /*
              title = App Name
              body = message

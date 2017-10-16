@@ -12,7 +12,7 @@ import ActionSheetPicker_3_0
 class PostAddViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     
-    let nameArray = ["Location","Storename","Category","Other Title","StartDate","EndDate","UploadImage"]
+    let nameArray = ["Location","Category","Other Title","StartDate","EndDate","UploadImage"]
     
     @IBOutlet weak var postAddTableVIew: UITableView!
     override func viewDidLoad() {
@@ -54,31 +54,29 @@ class PostAddViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 cell1?.postAddTextField.addGestureRecognizer(tapgestures)
                 cell1?.postAddTextField.placeholder = "Location"
             }else if indexPath.row == 1{
-                
-                let tapgestures : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(selectLocation(_:)))
-                tapgestures.numberOfTapsRequired = 1
-                cell1?.postAddTextField.addGestureRecognizer(tapgestures)
-                
-                cell1?.postAddTextField.placeholder = "Storename"
-            }else if indexPath.row == 2{
-                
                 cell1?.postAddTextField.placeholder = "Category"
-            }else if indexPath.row == 3{
-                
+            }else if indexPath.row == 2{
                 cell1?.postAddTextField.placeholder = "Other Title"
-            }else if indexPath.row == 5{
-                
+            }else if indexPath.row == 3{
                 cell1?.postAddTextField.placeholder = "StartDate"
-            }else if indexPath.row == 6{
-                
+            }else if indexPath.row == 4{
                 cell1?.postAddTextField.placeholder = "EndDate"
-            }else if indexPath.row == 7{
+            }else if indexPath.row == 5{
                 cell1?.postAddTextField.placeholder = "UploadImage"
             }
-            
             cell1?.selectionStyle = .none
             return cell1!
         }
+        /*
+         
+         else if indexPath.row == 1{
+         
+         let tapgestures : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(selectLocation(_:)))
+         tapgestures.numberOfTapsRequired = 1
+         cell1?.postAddTextField.addGestureRecognizer(tapgestures)
+         
+         cell1?.postAddTextField.placeholder = "Storename"
+         }*/
     }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {

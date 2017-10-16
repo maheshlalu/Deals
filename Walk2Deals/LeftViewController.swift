@@ -82,6 +82,8 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
             let nearByVc = storyBoard.instantiateViewController(withIdentifier: "NearByDealsViewController") as! NearByDealsViewController
             let navCntl = UINavigationController(rootViewController: nearByVc)
             revealController.pushFrontViewController(navCntl, animated: true)
+        }else if itemName == "Near By Stores"{
+           
         }
         
     }
@@ -96,6 +98,13 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
     }
 
 
+    @IBAction func postAddAction(_ sender: UIButton) {
+        let revealController : SWRevealViewController  = self.revealViewController()
+        let storyBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let postAddVc = storyBoard.instantiateViewController(withIdentifier: "PostAddViewController") as! PostAddViewController
+        let navCntl = UINavigationController(rootViewController: postAddVc)
+        revealController.pushFrontViewController(navCntl, animated: true)
+    }
     /*
     // MARK: - Navigation
 
