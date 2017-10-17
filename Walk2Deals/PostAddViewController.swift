@@ -131,6 +131,8 @@ class PostAddViewController: UIViewController,UITableViewDelegate,UITableViewDat
          "StartDate": "2017-10-15T04:25:25.6619455-04:00",
          "EndDate": "2017-10-15T04:25:25.6619455-04:00",
          "UserId": 2,
+         "IsActive": true,
+
          "DealCategories":[
          {
          
@@ -150,9 +152,8 @@ class PostAddViewController: UIViewController,UITableViewDelegate,UITableViewDat
          }
          
          ],     
-         "IsActive": true,
          
-         }
+         }]
          }
         api/Deal/Save*/
         

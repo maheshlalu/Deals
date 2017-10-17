@@ -45,13 +45,13 @@ class WriteReviewViewController: UIViewController {
     @IBAction func submitReviewAction(_ sender: UIButton) {
         //Dealid,user ID,reviewstar,reviewcomments
         
-            CXDataService.sharedInstance.showLoader(view: self.view, message: "Creating Account...")
+            CXDataService.sharedInstance.showLoader(view: self.view, message: "Submitting...")
         
                 let parameters = ["Dealid":self.dealID,"user ID":CXAppConfig.sharedInstance.getUserID(),"reviewstar":"\(self.rattingView.rating)","reviewcomments":self.commentTextView.text] as [String : Any]
                 
                 CXDataService.sharedInstance.postTheDataToServer(urlString: CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.saveReviewUrl(), parameters: parameters as! [String : String]) { (responceDic) in
                     CXLog.print("responce dict \(responceDic)")
-                    
+                    CXDataService.sharedInstance.hideLoader()
                     let error = responceDic.value(forKey: "Errors") as? NSArray
                     let errorDict = error?.lastObject as? NSDictionary
                     let errorcode = errorDict?.value(forKey: "ErrorCode") as? String
