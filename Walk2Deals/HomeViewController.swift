@@ -24,6 +24,8 @@ class HomeViewController: UIViewController {
         self.homeCollectionView.register(nib, forCellWithReuseIdentifier: "HomeCollectionViewCell")
         self.homeCollectionView.delegate = self
         self.homeCollectionView.dataSource = self
+        self.homeCollectionView.contentInset = UIEdgeInsetsMake(5, 10, 10, 10)
+        self.automaticallyAdjustsScrollViewInsets = false
         // Do any additional setup after loading the view.
     }
     
@@ -80,31 +82,20 @@ class HomeViewController: UIViewController {
 }
 
 extension HomeViewController:UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
-    
+     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
     {
         return self.dealsArray.count
-        
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
     {
         let cell : HomeCollectionViewCell = (collectionView.dequeueReusableCell(withReuseIdentifier: "HomeCollectionViewCell", for: indexPath)as? HomeCollectionViewCell)!
-        
         let dataDict = self.dealsArray[indexPath.row] as? NSDictionary
-        
-        //cell.categoryImageView.image = UIImage(named: "sampleDeal")
-        // cell.categoryImageView.setImageWithURL(NSURL(string:CXAppConfig.sharedInstance.getTheDataInDictionaryFromKey(categoryDic, sourceKey: "Image_URL")), usingActivityIndicatorStyle: .Gray)
-    //  dealsArraydealsArray  cell.subCategoryLbl.text =  categoryDic.value(forKey: "Name") as? String
-        // cell.subCategoryLbl.text = categoryDic
-        
-        //cell.favBtn.addTarget(self, action: #, for: .touchUpInside)
-        //ImageCDNUrls
-        
-        if let imageUrlArray = dataDict?.value(forKey: "ImageCDNUrls") as? NSArray{
+        if let imageUrlArray = dataDict?.value(forKey: "ImageCDNUrls") as? NSArray , imageUrlArray.count != 0{
             let imgStr = imageUrlArray.lastObject as? String
             let img_Url1 = NSURL(string: imgStr! )
-            cell.categoryImageView.setImageWith(img_Url1 as URL!, usingActivityIndicatorStyle: .white)
+           // cell.categoryImageView.setImageWith(img_Url1 as URL!, usingActivityIndicatorStyle: .white)
         }
         //OfferTitle
         if  let offerTitle = dataDict?.value(forKey: "OfferTitle") as? String{
@@ -125,7 +116,6 @@ extension HomeViewController:UICollectionViewDataSource,UICollectionViewDelegate
     
     func favButtonAction(sender:UIButton){
         //http://api.walk2deals.com/api/User/DealsFavSave
-        
         sender.isSelected = !sender.isSelected
         let dataDict = self.dealsArray[sender.tag]
         if let dealID = (dataDict as AnyObject).value(forKey: "Id") as? Int{
@@ -148,7 +138,7 @@ extension HomeViewController:UICollectionViewDataSource,UICollectionViewDelegate
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         //return CGSize(width: collectionView.bounds.width/1-9, height: 200)
-        return CGSize(width: collectionView.bounds.width-10, height: 250)
+        return CGSize(width: collectionView.bounds.width-20, height: 250)
     }
     
     

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -18,14 +18,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sampleDeal" translatesAutoresizingMaskIntoConstraints="NO" id="Ibm-XE-1JL">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ibm-XE-1JL">
                         <rect key="frame" x="0.0" y="0.0" width="300" height="158"/>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="99y-jU-bi3">
                         <rect key="frame" x="0.0" y="158" width="300" height="42"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hls-hX-ox4">
-                                <rect key="frame" x="8" y="21" width="185" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hls-hX-ox4">
+                                <rect key="frame" x="10" y="13" width="172" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="hus-Di-XlT"/>
                                 </constraints>
@@ -33,35 +33,35 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="pwx-fz-KJV">
-                                <rect key="frame" x="232" y="9" width="60" height="25"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="pwx-fz-KJV">
+                                <rect key="frame" x="220" y="8" width="70" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fgi-bg-3yV">
-                                        <rect key="frame" x="0.0" y="0.0" width="27" height="25"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="30.5" height="30"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <state key="normal" backgroundImage="unLike"/>
                                         <state key="selected" backgroundImage="like"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HOH-x5-gdP">
-                                        <rect key="frame" x="33" y="0.0" width="27" height="25"/>
+                                        <rect key="frame" x="39.5" y="0.0" width="30.5" height="30"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <state key="normal" image="share"/>
+                                        <state key="normal" backgroundImage="share"/>
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="9YP-fH-pcd"/>
-                                    <constraint firstAttribute="width" constant="60" id="J83-tO-D1W"/>
+                                    <constraint firstAttribute="height" constant="30" id="9YP-fH-pcd"/>
+                                    <constraint firstAttribute="width" constant="70" id="J83-tO-D1W"/>
                                 </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Hls-hX-ox4" firstAttribute="top" secondItem="99y-jU-bi3" secondAttribute="top" constant="21" id="GzC-gr-70y"/>
+                            <constraint firstItem="Hls-hX-ox4" firstAttribute="top" secondItem="99y-jU-bi3" secondAttribute="top" constant="13" id="GzC-gr-70y"/>
                             <constraint firstAttribute="height" constant="42" id="MOO-Uk-UdR"/>
-                            <constraint firstItem="pwx-fz-KJV" firstAttribute="top" secondItem="99y-jU-bi3" secondAttribute="top" constant="9" id="YMJ-Ty-oD5"/>
-                            <constraint firstAttribute="trailing" secondItem="pwx-fz-KJV" secondAttribute="trailing" constant="8" id="kHY-lw-s6T"/>
-                            <constraint firstItem="pwx-fz-KJV" firstAttribute="leading" secondItem="Hls-hX-ox4" secondAttribute="trailing" constant="39" id="le5-sO-z4b"/>
-                            <constraint firstItem="Hls-hX-ox4" firstAttribute="leading" secondItem="99y-jU-bi3" secondAttribute="leading" constant="8" id="sxx-Cz-AXa"/>
+                            <constraint firstItem="pwx-fz-KJV" firstAttribute="top" secondItem="99y-jU-bi3" secondAttribute="top" constant="8" id="YMJ-Ty-oD5"/>
+                            <constraint firstAttribute="trailing" secondItem="pwx-fz-KJV" secondAttribute="trailing" constant="10" id="kHY-lw-s6T"/>
+                            <constraint firstItem="pwx-fz-KJV" firstAttribute="leading" secondItem="Hls-hX-ox4" secondAttribute="trailing" constant="38" id="le5-sO-z4b"/>
+                            <constraint firstItem="Hls-hX-ox4" firstAttribute="leading" secondItem="99y-jU-bi3" secondAttribute="leading" constant="10" id="sxx-Cz-AXa"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -87,9 +87,8 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="like" width="24" height="24"/>
-        <image name="sampleDeal" width="266" height="136"/>
-        <image name="share" width="24" height="24"/>
-        <image name="unLike" width="25" height="25"/>
+        <image name="like" width="35" height="32"/>
+        <image name="share" width="40" height="40"/>
+        <image name="unLike" width="35" height="32"/>
     </resources>
 </document>

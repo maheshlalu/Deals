@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="MIl-D0-oa9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="QKL-Uw-swT">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -24,7 +24,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="13E-wD-lPY">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="LF1-14-sf3">
                                     <size key="itemSize" width="300" height="200"/>
@@ -50,7 +50,7 @@
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="13E-wD-lPY" firstAttribute="top" secondItem="k3F-OS-aSH" secondAttribute="bottom" constant="-20" id="1CK-gL-vnv"/>
+                            <constraint firstItem="13E-wD-lPY" firstAttribute="top" secondItem="k3F-OS-aSH" secondAttribute="bottom" id="1CK-gL-vnv"/>
                             <constraint firstAttribute="trailing" secondItem="13E-wD-lPY" secondAttribute="trailing" id="BvC-nT-2EK"/>
                             <constraint firstItem="bN2-Wn-7vU" firstAttribute="top" secondItem="13E-wD-lPY" secondAttribute="bottom" id="Roi-tO-psU"/>
                             <constraint firstItem="13E-wD-lPY" firstAttribute="leading" secondItem="q2r-93-0yE" secondAttribute="leading" id="UfB-xW-ucF"/>
@@ -735,7 +735,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OMQ-Bv-vjS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-506.39999999999998" y="-167.76611694152925"/>
+            <point key="canvasLocation" x="-499" y="119"/>
         </scene>
         <!--Post Add View Controller-->
         <scene sceneID="7HY-uu-rEx">
@@ -799,7 +799,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bki-mU-9f6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="28783.200000000001" y="1181.5592203898052"/>
+            <point key="canvasLocation" x="29083" y="1201"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="MDL-vV-FvM">
@@ -1226,7 +1226,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vjV-7b-men" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="29942" y="819"/>
+            <point key="canvasLocation" x="30701" y="364"/>
         </scene>
         <!--Deals Details View Controller-->
         <scene sceneID="hAm-qO-qaz">
@@ -1311,30 +1311,30 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="E6Q-aC-pxK">
-                                        <rect key="frame" x="213" y="5" width="100" height="25"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="E6Q-aC-pxK">
+                                        <rect key="frame" x="238" y="5" width="70" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kz3-EQ-X33">
-                                                <rect key="frame" x="0.0" y="0.0" width="49" height="25"/>
-                                                <state key="normal" image="unLike"/>
-                                                <state key="selected" image="like"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                <state key="normal" backgroundImage="unLike"/>
+                                                <state key="selected" backgroundImage="like"/>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X8m-jb-TRt">
-                                                <rect key="frame" x="51" y="0.0" width="49" height="25"/>
+                                                <rect key="frame" x="40" y="0.0" width="30" height="30"/>
                                                 <state key="normal" image="share"/>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="25" id="6mN-HW-wMd"/>
-                                            <constraint firstAttribute="width" constant="100" id="SmT-C2-Lcz"/>
+                                            <constraint firstAttribute="height" constant="30" id="6mN-HW-wMd"/>
+                                            <constraint firstAttribute="width" constant="70" id="SmT-C2-Lcz"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="ACv-oi-T8p"/>
-                                    <constraint firstAttribute="trailing" secondItem="E6Q-aC-pxK" secondAttribute="trailing" constant="5" id="QIh-gi-PQy"/>
+                                    <constraint firstAttribute="trailing" secondItem="E6Q-aC-pxK" secondAttribute="trailing" constant="10" id="QIh-gi-PQy"/>
                                     <constraint firstItem="kdZ-XW-OHF" firstAttribute="leading" secondItem="dpw-i0-8cl" secondAttribute="leading" constant="8" id="ahS-53-2Tk"/>
                                     <constraint firstItem="E6Q-aC-pxK" firstAttribute="top" secondItem="dpw-i0-8cl" secondAttribute="top" constant="5" id="mGH-4I-myo"/>
                                     <constraint firstItem="kdZ-XW-OHF" firstAttribute="top" secondItem="dpw-i0-8cl" secondAttribute="top" constant="6" id="ojh-ze-9hc"/>
@@ -1390,7 +1390,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Oh-X1-x9h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-856.875" y="-721.47887323943667"/>
+            <point key="canvasLocation" x="-1273" y="-770"/>
         </scene>
         <!--Near By Deals View Controller-->
         <scene sceneID="5j0-PH-kd0">
@@ -1422,7 +1422,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZAP-EI-F9V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-476" y="-646"/>
+            <point key="canvasLocation" x="-3135" y="-471"/>
         </scene>
         <!--User Profile View Controller-->
         <scene sceneID="Kcf-iD-cxC">
@@ -1547,12 +1547,12 @@
         <image name="MonileNumberImage" width="225" height="225"/>
         <image name="StarEmpty" width="32" height="32"/>
         <image name="StarFull" width="25" height="25"/>
-        <image name="like" width="24" height="24"/>
+        <image name="like" width="35" height="32"/>
         <image name="logo" width="150" height="150"/>
-        <image name="share" width="24" height="24"/>
+        <image name="share" width="40" height="40"/>
         <image name="step1" width="80" height="77"/>
         <image name="step2" width="80" height="77"/>
-        <image name="unLike" width="25" height="25"/>
+        <image name="unLike" width="35" height="32"/>
         <image name="userDefaultIcon" width="48" height="48"/>
         <image name="verificationImage" width="150" height="150"/>
     </resources>

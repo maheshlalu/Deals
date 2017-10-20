@@ -10,17 +10,16 @@ import UIKit
 
 class ReviewListViewController: UIViewController {
     var dealDetailDict : NSDictionary!
-    var reviewsList : NSArray!
+    var reviewsList : NSArray = NSArray()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.getReviews()
-        
         //DealReviews
-        
-        reviewsList = dealDetailDict.value(forKey: "DealReviews") as! NSArray
-
-
+                //reviewsList = dealDetailDict.value(forKey: "DealReviews") as! NSArray
+        if let reviewsArray = dealDetailDict.value(forKey: "DealReviews") as? NSArray , reviewsArray.count != 0{
+            reviewsList = reviewsArray
+        }
         // Do any additional setup after loading the view.
     }
     
