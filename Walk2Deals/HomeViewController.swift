@@ -9,12 +9,14 @@
 import UIKit
 import MapKit
 class HomeViewController: UIViewController {
-
+    
     @IBOutlet weak var homeCollectionView: UICollectionView!
     var currentLocation: CLLocation!
     var dealsArray : NSMutableArray = NSMutableArray()
     var isGetNearFeeds = false
-
+    
+    var notificationBtn : MIBadgeButton!
+    var searchBtn : MIBadgeButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.checklocationAuthentication()
@@ -27,7 +29,70 @@ class HomeViewController: UIViewController {
         self.homeCollectionView.contentInset = UIEdgeInsetsMake(5, 10, 10, 10)
         self.automaticallyAdjustsScrollViewInsets = false
         // Do any additional setup after loading the view.
+        self.addBarButtonItems()
+        self.designLeftBarButtonITems()
     }
+    
+    //MARK: Right Bar button
+    func addBarButtonItems(){
+        let rightButtonsView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 150, height: 40))
+        let buttondWidth : CGFloat = 35
+        var buttonXposition : CGFloat = rightButtonsView.frame.size.width-buttondWidth+12
+        self.notificationBtn = self.createCartButton("whiteNotification", frame: CGRect(x: buttonXposition,y: 2, width: 35, height: 35))
+        self.notificationBtn.addTarget(self, action: #selector(notificationBtnTapped), for: .touchUpInside)
+        buttonXposition =  buttonXposition-notificationBtn.frame.size.width-20
+        self.searchBtn = self.createCartButton("search", frame: CGRect(x: buttonXposition, y: 1, width: 35, height: 35))
+        self.searchBtn.addTarget(self, action: #selector(searchBtnTapped), for: .touchUpInside)
+        rightButtonsView.addSubview(notificationBtn)
+        rightButtonsView.addSubview(searchBtn)
+        self.navigationItem.rightBarButtonItem =  UIBarButtonItem(customView: rightButtonsView)
+        
+    }
+    
+    func notificationBtnTapped(_ sender:UIButton){
+
+    }
+    
+    func searchBtnTapped(_ sender:UIButton){
+        
+    }
+    func createCartButton(_ imageName:String,frame:CGRect) -> MIBadgeButton {
+        
+        let button = MIBadgeButton(type: .custom) as MIBadgeButton
+        button.setBackgroundImage(UIImage(named:imageName), for: UIControlState())
+        button.frame =  frame
+        button.badgeTextColor = UIColor.red
+        button.badgeBackgroundColor = UIColor.white
+        button.badgeEdgeInsets = UIEdgeInsetsMake(13, 5, 0, 10)
+        return button
+    }
+    
+    //MARK: Left Bar button item
+    
+    func designLeftBarButtonITems(){
+        let leftButtonsView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 250, height: 40))
+        self.navigationItem.titleView =  leftButtonsView
+        
+        let titleLable : UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
+        titleLable.textAlignment = .left
+        titleLable.textColor = UIColor.white
+        titleLable.text = "Categories"
+        //titleLable.text = CXAppConfig.sharedInstance.productName()
+       // titleLable.font = CXAppConfig.sharedInstance.appLargeFont()
+        leftButtonsView.addSubview(titleLable)
+        
+        let dropDownBtn = self.createCartButton("arrow", frame: CGRect(x: titleLable.frame.size.width+10,y: 2, width: 35, height: 35))
+        self.searchBtn.addTarget(self, action: #selector(categoryBtnTapped), for: .touchUpInside)
+
+        leftButtonsView.addSubview(dropDownBtn)
+      
+
+    }
+    
+    func categoryBtnTapped(_ sender:UIButton){
+        
+    }
+
     
     func getDeails(){
         
@@ -45,32 +110,32 @@ class HomeViewController: UIViewController {
             if errorcode == "0"{
                 let deals =  responceDic.value(forKey: "Deals") as? NSArray
                 self.dealsArray = NSMutableArray(array: deals!)
-               // DispatchQueue.main.sync {
-                    self.homeCollectionView.reloadData()
+                // DispatchQueue.main.sync {
+                self.homeCollectionView.reloadData()
                 //}
             }else{
                 CXDataService.sharedInstance.showAlert(message: "Something went Wrong!!!", viewController: self)
             }
             
         }
-
+        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
     func setUpSideMenu(){
         let menuItem = UIBarButtonItem(image: UIImage(named: "sidePanelMenu"), style: .plain, target: self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)))
         self.navigationItem.leftBarButtonItem = menuItem
@@ -95,7 +160,7 @@ extension HomeViewController:UICollectionViewDataSource,UICollectionViewDelegate
         if let imageUrlArray = dataDict?.value(forKey: "ImageCDNUrls") as? NSArray , imageUrlArray.count != 0{
             let imgStr = imageUrlArray.lastObject as? String
             let img_Url1 = NSURL(string: imgStr! )
-           // cell.categoryImageView.setImageWith(img_Url1 as URL!, usingActivityIndicatorStyle: .white)
+           cell.categoryImageView.setImageWith(img_Url1 as URL!, usingActivityIndicatorStyle: .white)
         }
         //OfferTitle
         if  let offerTitle = dataDict?.value(forKey: "OfferTitle") as? String{
@@ -138,7 +203,7 @@ extension HomeViewController:UICollectionViewDataSource,UICollectionViewDelegate
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         //return CGSize(width: collectionView.bounds.width/1-9, height: 200)
-        return CGSize(width: collectionView.bounds.width-20, height: 250)
+        return CGSize(width: collectionView.bounds.width-20, height: 300)
     }
     
     

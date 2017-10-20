@@ -24,11 +24,15 @@ class DealsDetailsViewController: UIViewController {
     @IBOutlet weak var pagerHeight: NSLayoutConstraint!
     @IBOutlet weak var writeReviewHeight: NSLayoutConstraint!
     
+    @IBOutlet weak var rattingLbl: UILabel!
     var dealDetailDict : NSDictionary!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.getDealDataByID()
+        
+        
         //CXLog.print(dealId)
+        
         
         // Do any additional setup after loading the view.
     }
@@ -49,9 +53,7 @@ class DealsDetailsViewController: UIViewController {
         reviewsVc.title = "Reviews"
         reviewsVc.dealDetailDict = self.dealDetailDict
         ///ReviewListViewController
-        
         let pagerHeight = UIScreen.main.bounds.size.height - (self.pagerHeight.constant + self.writeReviewHeight.constant + 70)
-        
         
         self.pageMenu = CAPSPageMenu(viewControllers: [aboutDeal,reviewsVc], frame: CGRect(x: 0, y: self.pagerHeight.constant+1+50, width: self.view.frame.width, height: pagerHeight-50), pageMenuOptions: parameters)
         self.view.addSubview((self.pageMenu?.view)!)
@@ -66,11 +68,27 @@ class DealsDetailsViewController: UIViewController {
             CXLog.print(" deail deatil dic\(responceDic)")
             self.dealDetailDict = responceDic
             CXDataService.sharedInstance.hideLoader()
-            self.setUpTabPager()
-            self.imageViewAimations(dealsDic: responceDic)
-        })
+            self.populatedTheData()
+            })
     }
     
+    func populatedTheData(){
+        
+       /* let myString:NSString = CXAppConfig.resultString(self.dealDetailDict.value(forKey: "DealReviewStars") as AnyObject) as NSString
+        if myString.length != 0 {
+            var myMutableString = NSMutableAttributedString()
+            myMutableString = NSMutableAttributedString(string: myString as String, attributes: [NSFontAttributeName:UIFont(name: "Roboto-Regular", size: 14.0)!])
+            myMutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor.red, range: NSRange(location:2,length:myString.length))
+            // set label Attribute
+            self.rattingLbl.attributedText = myMutableString
+        }*/
+     
+
+        //DealReviewStars
+            self.rattingView.rating = Float(CXAppConfig.resultString(self.dealDetailDict.value(forKey: "DealReviewStars") as AnyObject))!
+        self.setUpTabPager()
+        self.imageViewAimations(dealsDic: self.dealDetailDict)
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -82,11 +100,10 @@ class DealsDetailsViewController: UIViewController {
         // var timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: #selector(timerCall()), userInfo: nil, repeats: true)
         
         self.coverPageImagesList = NSMutableArray()
-        let attachements: NSArray = dealsDic.value(forKey: "ImageCDNUrls") as! NSArray
+       //let attachements: NSArray = dealsDic.value(forKey: "ImageCDNUrls") as! NSArray
         
+        if let attachements = dealDetailDict.value(forKey: "ImageCDNUrls") as? NSArray , attachements.count != 0{
         // let attachements: NSArray = CXAppConfig.sharedInstance.getTheDataInDictionaryFromKey(dealsDic, sourceKey: "Attachments") as! NSArray
-        
-        
         for imageDic in attachements {
             self.coverPageImagesList.add(imageDic)
         }
@@ -95,8 +112,7 @@ class DealsDetailsViewController: UIViewController {
         self.pagerView.checkWetherToToggleSlideshowTimer()
         self.pagerView.slideshowTimeInterval = 3
         self.pagerView.reloadData()
-        
-        
+        }
     }
 
    
@@ -104,7 +120,7 @@ class DealsDetailsViewController: UIViewController {
         let storyBaord = UIStoryboard(name: "Main", bundle: nil)
         let writeReviewVc = storyBaord.instantiateViewController(withIdentifier: "WriteReviewViewController") as? WriteReviewViewController
         writeReviewVc?.dealID = self.dealId
-        
+        writeReviewVc?.delegate = self
         self.navigationController?.pushViewController(writeReviewVc!, animated: true)
     }
     /*
@@ -124,8 +140,6 @@ extension DealsDetailsViewController:KIImagePagerDelegate,KIImagePagerDataSource
         return self.coverPageImagesList as! [Any]!
         //return ["" as AnyObject,"" as AnyObject,"" as AnyObject,"" as AnyObject,"" as AnyObject]
     }
-    
-    
     //    }
     
     func contentMode(forImage image: UInt, in pager: KIImagePager!) -> UIViewContentMode {
@@ -134,6 +148,15 @@ extension DealsDetailsViewController:KIImagePagerDelegate,KIImagePagerDataSource
     }
     
 }
+
+extension DealsDetailsViewController: ReviewSubMitDelegate{
+    
+    func didSubmitReview() {
+        self.getDealDataByID()
+    }
+}
+
+
 
 /*
 extension DealsDetailsViewController: FloatRatingViewDelegate {

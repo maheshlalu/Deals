@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import RealmSwift
 class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     @IBOutlet weak var leftTableview: UITableView!
     var nameArray = ["Home","Near By Stores","My Deals","Rewards Points","Favourites","Invite your friends","Settings","Give us Feedback","Sign Out"]
@@ -82,8 +82,9 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
             let nearByVc = storyBoard.instantiateViewController(withIdentifier: "NearByDealsViewController") as! NearByDealsViewController
             let navCntl = UINavigationController(rootViewController: nearByVc)
             revealController.pushFrontViewController(navCntl, animated: true)
-        }else if itemName == "Near By Stores"{
-           
+        }else if itemName == "logouts"{
+            self.showAlert("Are you sure want to logout?", status: 0)
+
         }
         
     }
@@ -97,7 +98,39 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
         
     }
 
-
+    func showAlert(_ message:String, status:Int) {
+        let alert = UIAlertController(title: "WalkDeals", message:message , preferredStyle: UIAlertControllerStyle.alert)
+        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
+            UIAlertAction in
+            CXLog.print("OK Pressed")
+            
+            if let bundle = Bundle.main.bundleIdentifier {
+                UserDefaults.standard.removePersistentDomain(forName: bundle)
+            }
+            // LFDataManager.sharedInstance.deleteTheDeviceTokenFromServer()
+            let appDelVar:AppDelegate = (UIApplication.shared.delegate as? AppDelegate)!
+            appDelVar.logOutFromTheApp()
+            self.deleteUserDataFromRealm()
+            //Truncate database
+            
+        }
+        
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.destructive) {
+            UIAlertAction in
+        }
+        alert.addAction(okAction)
+        alert.addAction(cancelAction)
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+    
+    func deleteUserDataFromRealm(){
+        let realm = try! Realm()
+        try! realm.write {
+            realm.deleteAll()
+        }
+    }
     @IBAction func postAddAction(_ sender: UIButton) {
         let revealController : SWRevealViewController  = self.revealViewController()
         let storyBoard = UIStoryboard(name: "Main", bundle: Bundle.main)

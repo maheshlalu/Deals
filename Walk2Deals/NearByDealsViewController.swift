@@ -81,7 +81,7 @@ class NearByDealsViewController: UIViewController,MKMapViewDelegate {
             }
             point.name = CXAppConfig.sharedInstance.getTheDataInDictionaryFromKey(sourceDic: dict!, sourceKey: "OfferTitle")
             
-            if let imageUrlArray = dict?.value(forKey: "ImageCDNUrls") as? NSArray{
+            if let imageUrlArray = dict?.value(forKey: "ImageCDNUrls") as? NSArray , imageUrlArray.count != 0{
                 let imgStr = imageUrlArray.lastObject as? String
                 point.image  = URL(string: imgStr!)
             }

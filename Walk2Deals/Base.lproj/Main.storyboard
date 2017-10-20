@@ -932,7 +932,7 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="orW-W8-GJN" id="jRB-sB-QJC">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="119.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RPa-7O-gVA">
@@ -1274,13 +1274,13 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RD9-HP-qm6">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RD9-HP-qm6">
                                 <rect key="frame" x="0.0" y="527" width="320" height="41"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="41" id="SEy-Xb-CTm"/>
                                 </constraints>
-                                <state key="normal" title="Write Review">
+                                <state key="normal" title="Write Review" image="pen">
                                     <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -1299,7 +1299,7 @@
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="rating">
-                                                <real key="value" value="3"/>
+                                                <real key="value" value="0.0"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="image" keyPath="fullImage" value="StarFull"/>
                                             <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="StarEmpty"/>
@@ -1309,6 +1309,7 @@
                                             <userDefinedRuntimeAttribute type="number" keyPath="maxRating">
                                                 <integer key="value" value="5"/>
                                             </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="editable" value="NO"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="E6Q-aC-pxK">
@@ -1330,12 +1331,24 @@
                                             <constraint firstAttribute="width" constant="70" id="SmT-C2-Lcz"/>
                                         </constraints>
                                     </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zwN-nA-2I7">
+                                        <rect key="frame" x="169" y="8" width="46" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="34" id="tBb-h2-yVG"/>
+                                            <constraint firstAttribute="width" constant="46" id="vR7-kk-cSL"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.01176470588" green="0.63137254899999995" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="ACv-oi-T8p"/>
                                     <constraint firstAttribute="trailing" secondItem="E6Q-aC-pxK" secondAttribute="trailing" constant="10" id="QIh-gi-PQy"/>
                                     <constraint firstItem="kdZ-XW-OHF" firstAttribute="leading" secondItem="dpw-i0-8cl" secondAttribute="leading" constant="8" id="ahS-53-2Tk"/>
+                                    <constraint firstItem="zwN-nA-2I7" firstAttribute="top" secondItem="dpw-i0-8cl" secondAttribute="top" constant="8" id="hMD-4r-DWb"/>
+                                    <constraint firstItem="zwN-nA-2I7" firstAttribute="leading" secondItem="kdZ-XW-OHF" secondAttribute="trailing" constant="8" id="ldr-fD-Wfv"/>
                                     <constraint firstItem="E6Q-aC-pxK" firstAttribute="top" secondItem="dpw-i0-8cl" secondAttribute="top" constant="5" id="mGH-4I-myo"/>
                                     <constraint firstItem="kdZ-XW-OHF" firstAttribute="top" secondItem="dpw-i0-8cl" secondAttribute="top" constant="6" id="ojh-ze-9hc"/>
                                 </constraints>
@@ -1384,13 +1397,14 @@
                         <outlet property="mapBtn" destination="Kz3-EQ-X33" id="RAm-Ck-Raz"/>
                         <outlet property="pagerHeight" destination="1rf-Zt-Yuj" id="uJb-84-wej"/>
                         <outlet property="pagerView" destination="a2w-TJ-Bf8" id="SxQ-YS-BBV"/>
+                        <outlet property="rattingLbl" destination="zwN-nA-2I7" id="Djz-3S-FlB"/>
                         <outlet property="rattingView" destination="kdZ-XW-OHF" id="AJH-d5-QuW"/>
                         <outlet property="writeReviewHeight" destination="SEy-Xb-CTm" id="nAD-gl-mxc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Oh-X1-x9h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1273" y="-770"/>
+            <point key="canvasLocation" x="-1273.125" y="-770.07042253521126"/>
         </scene>
         <!--Near By Deals View Controller-->
         <scene sceneID="5j0-PH-kd0">
@@ -1549,6 +1563,7 @@
         <image name="StarFull" width="25" height="25"/>
         <image name="like" width="35" height="32"/>
         <image name="logo" width="150" height="150"/>
+        <image name="pen" width="25" height="25"/>
         <image name="share" width="40" height="40"/>
         <image name="step1" width="80" height="77"/>
         <image name="step2" width="80" height="77"/>

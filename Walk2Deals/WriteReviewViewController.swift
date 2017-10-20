@@ -8,13 +8,17 @@
 
 import UIKit
 
+protocol ReviewSubMitDelegate {
+    func didSubmitReview()
+}
+
 class WriteReviewViewController: UIViewController {
 
     @IBOutlet weak var userImgView: UIImageView!
     @IBOutlet weak var userNameLbl: UILabel!
     @IBOutlet weak var rattingView: FloatRatingView!
     @IBOutlet weak var commentTextView: UITextView!
-    
+    var delegate : ReviewSubMitDelegate!
     var dealID : String!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +61,10 @@ class WriteReviewViewController: UIViewController {
                     let errorcode = errorDict?.value(forKey: "ErrorCode") as? String
                     
                     if errorcode == "0"{
+                        if (self.delegate != nil){
+                            self.delegate.didSubmitReview()
+                            self.view.makeToast(message: "Review Posted Successfully!!!")
+                        }
                     }else{
                         
                         CXDataService.sharedInstance.showAlert(message: "Something went Wrong!!!", viewController: self)

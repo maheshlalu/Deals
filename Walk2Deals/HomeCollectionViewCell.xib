@@ -18,7 +18,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ibm-XE-1JL">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ibm-XE-1JL">
                         <rect key="frame" x="0.0" y="0.0" width="300" height="158"/>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="99y-jU-bi3">
@@ -66,7 +66,7 @@
                     </view>
                 </subviews>
             </view>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="Ibm-XE-1JL" secondAttribute="trailing" id="2u6-um-UnJ"/>
                 <constraint firstItem="99y-jU-bi3" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Db5-Kx-bok"/>
