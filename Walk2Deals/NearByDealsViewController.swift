@@ -19,7 +19,6 @@ class NearByDealsViewController: UIViewController,MKMapViewDelegate {
         super.viewDidLoad()
         self.setUpSideMenu()
         self.getDeails()
-
         // Do any additional setup after loading the view.
     }
 

@@ -98,7 +98,7 @@ class HomeViewController: UIViewController {
         
         //http://api.walk2deals.com/api/Deal/GetCurrentDeals
         
-        let parameters = ["CurrentDate":"","Latitude":"","Longitude":"","Location":"1","LocationId":""]
+        let parameters = ["CurrentDate":"","Latitude":"","Longitude":"","Location":"1","LocationId":"","UserId":CXAppConfig.sharedInstance.getUserID()]
         
         CXDataService.sharedInstance.showLoader(view: self.view, message: "Loading...")
         CXDataService.sharedInstance.postTheDataToServer(urlString: CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getDealsUrl(), parameters: parameters as! [String : String]) { (responceDic) in
@@ -167,6 +167,13 @@ extension HomeViewController:UICollectionViewDataSource,UICollectionViewDelegate
             cell.offerTitleLbl.text = offerTitle
         }
         
+        if         CXAppConfig.resultString(dataDict?.value(forKey: "UserFavDeal") as AnyObject) == "1" {
+                cell.favBtn.isSelected = true
+        }else{
+            cell.favBtn.isSelected = false
+
+        }
+        
         cell.favBtn.addTarget(self, action:#selector(favButtonAction(sender:)), for: .touchUpInside)
         cell.favBtn.tag = indexPath.row
 
@@ -180,6 +187,10 @@ extension HomeViewController:UICollectionViewDataSource,UICollectionViewDelegate
     }
     
     func favButtonAction(sender:UIButton){
+        
+        if sender.isSelected {
+            return
+        }
         //http://api.walk2deals.com/api/User/DealsFavSave
         sender.isSelected = !sender.isSelected
         let dataDict = self.dealsArray[sender.tag]

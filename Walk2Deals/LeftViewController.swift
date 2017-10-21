@@ -82,10 +82,15 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
             let nearByVc = storyBoard.instantiateViewController(withIdentifier: "NearByDealsViewController") as! NearByDealsViewController
             let navCntl = UINavigationController(rootViewController: nearByVc)
             revealController.pushFrontViewController(navCntl, animated: true)
-        }else if itemName == "logouts"{
+        }else if itemName == "Sign Out"{
             self.showAlert("Are you sure want to logout?", status: 0)
 
+        }else if itemName == "Settings"{
+            let settingVc = storyBoard.instantiateViewController(withIdentifier: "SettingsViewController") as! SettingsViewController
+            let navCntl = UINavigationController(rootViewController: settingVc)
+            revealController.pushFrontViewController(navCntl, animated: true)
         }
+
         
     }
     
@@ -99,7 +104,7 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
     }
 
     func showAlert(_ message:String, status:Int) {
-        let alert = UIAlertController(title: "WalkDeals", message:message , preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: "Walk2Deals", message:message , preferredStyle: UIAlertControllerStyle.alert)
         let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
             UIAlertAction in
             CXLog.print("OK Pressed")

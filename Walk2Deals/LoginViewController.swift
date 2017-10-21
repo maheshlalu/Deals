@@ -87,27 +87,32 @@ class LoginViewController: UIViewController {
         //Password
         
         CXDataService.sharedInstance.showLoader(view: self.view, message: "Loading...")
-
-        let parameters = ["UserName":self.enterEmailTxt.text,"Password":self.passwordTxt.text]
-        
-        CXDataService.sharedInstance.postTheDataToServer(urlString: CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getLoginUrl(), parameters: parameters as! [String : String]) { (responceDic) in
-            CXLog.print("responce dict \(responceDic)")
-            
-            CXDataService.sharedInstance.hideLoader()
-            let error =  responceDic.value(forKey: "Errors") as? NSArray
-            let errorDict = error?.lastObject as? NSDictionary
-            let errorcode = errorDict?.value(forKey: "ErrorCode") as? String
-            if errorcode == "0"{
-                //CXAppConfig.sharedInstance.saveUserID(userID: "")
-                CXDataSaveManager.sharedInstance.saveTheUserDetailsInDB(userDataDic: JSON(responceDic))
-                let appDelegate = UIApplication.shared.delegate as? AppDelegate
-                appDelegate?.setUpSidePanl()
+        if let email = self.enterEmailTxt.text, !email.isEmpty,let password = self.enterEmailTxt.text, !password.isEmpty{
+            let parameters = ["UserName":self.enterEmailTxt.text,"Password":self.passwordTxt.text]
+            CXDataService.sharedInstance.postTheDataToServer(urlString: CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getLoginUrl(), parameters: parameters as! [String : String]) { (responceDic) in
+                CXLog.print("responce dict \(responceDic)")
                 
-            }else{
-                CXDataService.sharedInstance.showAlert(message: "Something went Wrong!!!", viewController: self)
+                CXDataService.sharedInstance.hideLoader()
+                let error =  responceDic.value(forKey: "Errors") as? NSArray
+                let errorDict = error?.lastObject as? NSDictionary
+                let errorcode = errorDict?.value(forKey: "ErrorCode") as? String
+                if errorcode == "0"{
+                    //CXAppConfig.sharedInstance.saveUserID(userID: "")
+                    CXDataSaveManager.sharedInstance.saveTheUserDetailsInDB(userDataDic: JSON(responceDic))
+                    let appDelegate = UIApplication.shared.delegate as? AppDelegate
+                    appDelegate?.setUpSidePanl()
+                    
+                }else{
+                    CXDataService.sharedInstance.showAlert(message: "Something went Wrong!!!", viewController: self)
+                }
+                
             }
-            
+        }else{
+            CXDataService.sharedInstance.showAlert(message: "Please Enter Inputs", viewController: self)
+
         }
+
+
 
         
     }

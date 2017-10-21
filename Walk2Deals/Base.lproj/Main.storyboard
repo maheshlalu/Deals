@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="QKL-Uw-swT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="MIl-D0-oa9">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Home View Controller-->
         <scene sceneID="C2X-CT-ub0">
@@ -328,7 +333,7 @@
         <!--Launch View Controller-->
         <scene sceneID="bth-0S-hE0">
             <objects>
-                <viewController storyboardIdentifier="Launch" id="eiV-Ke-YqD" customClass="LaunchViewController" customModule="Walk2Deals" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LaunchViewController" id="eiV-Ke-YqD" customClass="LaunchViewController" customModule="Walk2Deals" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BDD-tg-uoI"/>
                         <viewControllerLayoutGuide type="bottom" id="0Wg-Tk-EPq"/>
@@ -932,7 +937,7 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="orW-W8-GJN" id="jRB-sB-QJC">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="119.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RPa-7O-gVA">
@@ -1113,7 +1118,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="agK-Uf-KqU"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -1129,7 +1134,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Vfs-Ba-jgT"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -1138,13 +1143,13 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Date : alkshdkja hjldkjakl;d jhalkjdlKJK" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DNM-UN-MJ2">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="35"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End Date: SJDOKSJA OKPJSAFDSWA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w7z-eY-tRu">
-                                        <rect key="frame" x="0.0" y="35" width="288.5" height="35"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="0.0" y="35" width="288" height="35"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -1165,7 +1170,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="93" id="X0H-sV-SwD"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -1185,12 +1190,12 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="pUf-kl-QEg"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="D8a-Ch-nXC" secondAttribute="trailing" id="0hN-Ks-HG9"/>
                             <constraint firstItem="odL-1n-dCb" firstAttribute="leading" secondItem="XzV-Mx-qfW" secondAttribute="leading" constant="8" id="1CS-cM-NEj"/>
@@ -1554,6 +1559,103 @@
             </objects>
             <point key="canvasLocation" x="216.80000000000001" y="141.67916041979012"/>
         </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="HJn-zU-dUg">
+            <objects>
+                <viewController storyboardIdentifier="SettingsViewController" id="2eU-bH-dXn" customClass="SettingsViewController" customModule="Walk2Deals" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nCh-TO-KzV"/>
+                        <viewControllerLayoutGuide type="bottom" id="em4-ef-zMz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4G7-Zt-dqA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dBq-lE-Yr2">
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="2eU-bH-dXn" id="TDp-SR-cDu"/>
+                                    <outlet property="delegate" destination="2eU-bH-dXn" id="1cl-yQ-gmk"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="em4-ef-zMz" firstAttribute="top" secondItem="dBq-lE-Yr2" secondAttribute="bottom" id="AFG-eH-1ZD"/>
+                            <constraint firstItem="dBq-lE-Yr2" firstAttribute="leading" secondItem="4G7-Zt-dqA" secondAttribute="leading" id="KN9-2i-0pU"/>
+                            <constraint firstItem="dBq-lE-Yr2" firstAttribute="top" secondItem="nCh-TO-KzV" secondAttribute="bottom" id="ZlK-xN-2n7"/>
+                            <constraint firstAttribute="trailing" secondItem="dBq-lE-Yr2" secondAttribute="trailing" id="hDH-lL-cc4"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="settingTableView" destination="dBq-lE-Yr2" id="A6Q-q2-8XM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zza-su-2El" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="545" y="350"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="M5k-Ew-QeR">
+            <objects>
+                <viewController id="5dC-qQ-sAb" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gha-qc-fMU"/>
+                        <viewControllerLayoutGuide type="bottom" id="by6-cv-F74"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nm5-If-3j1">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="verification-code" translatesAutoresizingMaskIntoConstraints="NO" id="0H0-QO-0Pf">
+                                <rect key="frame" x="60" y="58" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="UT3-U7-eUu"/>
+                                    <constraint firstAttribute="width" constant="200" id="WMF-vB-UVb"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RUm-gV-vZU">
+                                <rect key="frame" x="0.0" y="538" width="320" height="30"/>
+                                <color key="backgroundColor" red="0.031372549020000001" green="0.68627450980000004" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="zpi-dM-RSx"/>
+                                </constraints>
+                                <state key="normal" title="Get Location">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ezr-vD-dBj">
+                                <rect key="frame" x="45" y="302" width="231" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="231" id="ZAz-ZN-TOK"/>
+                                    <constraint firstAttribute="height" constant="30" id="dXh-vV-Ftq"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="location" translatesAutoresizingMaskIntoConstraints="NO" id="QQs-qf-1hh">
+                                <rect key="frame" x="251" y="309" width="18" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ezr-vD-dBj" firstAttribute="top" secondItem="0H0-QO-0Pf" secondAttribute="bottom" constant="44" id="BIm-lQ-ZyP"/>
+                            <constraint firstItem="by6-cv-F74" firstAttribute="top" secondItem="RUm-gV-vZU" secondAttribute="bottom" id="SYK-xh-MaO"/>
+                            <constraint firstItem="RUm-gV-vZU" firstAttribute="leading" secondItem="nm5-If-3j1" secondAttribute="leading" id="XvS-jg-DP7"/>
+                            <constraint firstItem="0H0-QO-0Pf" firstAttribute="centerX" secondItem="nm5-If-3j1" secondAttribute="centerX" id="hsP-fH-OT7"/>
+                            <constraint firstAttribute="trailing" secondItem="RUm-gV-vZU" secondAttribute="trailing" id="imy-mu-wBe"/>
+                            <constraint firstItem="ezr-vD-dBj" firstAttribute="centerX" secondItem="nm5-If-3j1" secondAttribute="centerX" id="vQj-qb-YgL"/>
+                            <constraint firstItem="0H0-QO-0Pf" firstAttribute="top" secondItem="gha-qc-fMU" secondAttribute="bottom" constant="38" id="vjI-4c-yQW"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rsv-Qv-dFT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1357.5" y="474.29577464788736"/>
+        </scene>
     </scenes>
     <resources>
         <image name="GlobeImage" width="80" height="77"/>
@@ -1562,6 +1664,7 @@
         <image name="StarEmpty" width="32" height="32"/>
         <image name="StarFull" width="25" height="25"/>
         <image name="like" width="35" height="32"/>
+        <image name="location" width="20" height="20"/>
         <image name="logo" width="150" height="150"/>
         <image name="pen" width="25" height="25"/>
         <image name="share" width="40" height="40"/>
@@ -1569,6 +1672,7 @@
         <image name="step2" width="80" height="77"/>
         <image name="unLike" width="35" height="32"/>
         <image name="userDefaultIcon" width="48" height="48"/>
+        <image name="verification-code" width="150" height="150"/>
         <image name="verificationImage" width="150" height="150"/>
     </resources>
 </document>

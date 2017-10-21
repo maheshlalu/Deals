@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,SWRevealViewControllerDele
         //        CXDataService.sharedInstance.getTheAppDataFromServer(["":"" as AnyObject]) { (dict) in
         //
         //        }
-        //IQKeyboardManager.sharedManager().enable = true
+        IQKeyboardManager.sharedManager().enable = true
         
         let navigationBarAppearace = UINavigationBar.appearance()
         navigationBarAppearace.tintColor = UIColor.white
@@ -47,9 +47,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate,SWRevealViewControllerDele
         for view in (self.window?.subviews)!{
             view.removeFromSuperview()
         }
+        
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        let  loginViewController: LoginViewController = (storyBoard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController)!
+        let  loginViewController: LaunchViewController = (storyBoard.instantiateViewController(withIdentifier: "LaunchViewController") as? LaunchViewController)!
+        
         let lognNavCntl : UINavigationController = UINavigationController(rootViewController: loginViewController)
+        lognNavCntl.isNavigationBarHidden = true
         self.window?.rootViewController = lognNavCntl
     }
     

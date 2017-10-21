@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		122670E01F8D168100FED033 /* UIImageView+UIActivityIndicatorForSDWebImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 122670DF1F8D168100FED033 /* UIImageView+UIActivityIndicatorForSDWebImage.m */; };
 		122670E31F8E85D600FED033 /* KIImagePager.m in Sources */ = {isa = PBXBuildFile; fileRef = 122670E21F8E85D600FED033 /* KIImagePager.m */; };
+		12321C861F9A5D1600995249 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12321C851F9A5D1600995249 /* SettingsViewController.swift */; };
+		12321C881F9A6C7600995249 /* SelectLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12321C871F9A6C7600995249 /* SelectLocationViewController.swift */; };
 		12355DD41F8661D50053A5F5 /* PostAddTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12355DD21F8661D50053A5F5 /* PostAddTableViewCell.swift */; };
 		12355DD51F8661D50053A5F5 /* PostAddTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12355DD31F8661D50053A5F5 /* PostAddTableViewCell.xib */; };
 		12355DD81F86624A0053A5F5 /* PostAddOneTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12355DD61F86624A0053A5F5 /* PostAddOneTableViewCell.swift */; };
@@ -104,6 +106,8 @@
 		122670DF1F8D168100FED033 /* UIImageView+UIActivityIndicatorForSDWebImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+UIActivityIndicatorForSDWebImage.m"; sourceTree = "<group>"; };
 		122670E11F8E85D600FED033 /* KIImagePager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIImagePager.h; sourceTree = "<group>"; };
 		122670E21F8E85D600FED033 /* KIImagePager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIImagePager.m; sourceTree = "<group>"; };
+		12321C851F9A5D1600995249 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		12321C871F9A6C7600995249 /* SelectLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectLocationViewController.swift; sourceTree = "<group>"; };
 		12355DD21F8661D50053A5F5 /* PostAddTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostAddTableViewCell.swift; sourceTree = "<group>"; };
 		12355DD31F8661D50053A5F5 /* PostAddTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostAddTableViewCell.xib; sourceTree = "<group>"; };
 		12355DD61F86624A0053A5F5 /* PostAddOneTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostAddOneTableViewCell.swift; sourceTree = "<group>"; };
@@ -225,6 +229,14 @@
 			name = SdWebImage;
 			sourceTree = "<group>";
 		};
+		12321C841F9A5CF300995249 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				12321C851F9A5D1600995249 /* SettingsViewController.swift */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
 		12389F681F8558C400CE790C /* PostAdd */ = {
 			isa = PBXGroup;
 			children = (
@@ -316,6 +328,7 @@
 		184139711F6FF7E900B73595 /* Walk2Deals */ = {
 			isa = PBXGroup;
 			children = (
+				12321C841F9A5CF300995249 /* Settings */,
 				1831D8D61F9606F800A26921 /* DropDown */,
 				182B9BF31F92408E00109B15 /* Profile */,
 				182B9BEE1F91F80100109B15 /* Database */,
@@ -377,6 +390,7 @@
 				184139A71F70070D00B73595 /* CreateAccountViewController.swift */,
 				184139A81F70070D00B73595 /* VerificationCodeViewController.swift */,
 				184139A91F70070D00B73595 /* EnterMobileNumberViewController.swift */,
+				12321C871F9A6C7600995249 /* SelectLocationViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -837,10 +851,12 @@
 				187D5B221F764F1B00A5E250 /* HomeViewController.swift in Sources */,
 				122670E01F8D168100FED033 /* UIImageView+UIActivityIndicatorForSDWebImage.m in Sources */,
 				187D5B1D1F764DE900A5E250 /* SWRevealViewController.m in Sources */,
+				12321C881F9A6C7600995249 /* SelectLocationViewController.swift in Sources */,
 				182B9BF71F92409900109B15 /* UserProfileViewController.swift in Sources */,
 				187D5B241F764F2C00A5E250 /* LeftViewController.swift in Sources */,
 				188366CE1F9A1518004A962D /* MIBadgeButton.swift in Sources */,
 				184139A41F70004200B73595 /* CXLog.swift in Sources */,
+				12321C861F9A5D1600995249 /* SettingsViewController.swift in Sources */,
 				18437E661F9094AB003B9631 /* FloatRatingView.swift in Sources */,
 				12355DD81F86624A0053A5F5 /* PostAddOneTableViewCell.swift in Sources */,
 				18437E631F909465003B9631 /* CXCommentRatingViewController.swift in Sources */,

@@ -42,7 +42,6 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
     @IBAction func createBtn(_ sender: UIButton) {
         
         if self.emailTxt.text?.characters.count == 0 || !CXDataService.sharedInstance.isValidEmail(testStr: self.emailTxt.text!){
-            
             CXDataService.sharedInstance.showAlert(message: "Please Enter Valid Email", viewController: self)
         }else if self.passwordTxt.text?.characters.count == 0 {
             CXDataService.sharedInstance.showAlert(message: "Please Enter Valid Password", viewController: self)
