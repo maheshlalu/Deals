@@ -313,9 +313,226 @@ open class CXDataService: NSObject {
         viewController.present(alert, animated: true, completion: nil)
     }
     
+    func imageData(){
+        
+        let mainDict = NSMutableDictionary()
+        mainDict["OfferTitle"] = "mahesh special offer"
+        mainDict["OfferDescription"] = "reste87fghfgh9sdfsdfrt"
+        mainDict["StartDate"] = "2017-10-15T04:25:25.6619455-04:00"
+        mainDict["EndDate"] = "2017-20-15T04:25:25.6619455-04:00"
+        mainDict["UserId"] = "18"
+        let dict = ["CategoryId":"1"]
+        
+        /*
+         DealCoreEntity =  {
+         "OfferTitle": "test",
+         "OfferDescription": "test",
+         "StartDate": "2017-9-17",
+         "EndDate": "2017-9-28",
+         "UserId": 18,
+         "DealCategories": [
+         {
+         "CategoryId": 1
+         }
+         ],
+         "DealLocations": [
+         {
+         "StoreLocationId": 2,
+         "isActive": true
+         }
+         ]
+         }
+         2= "file"
+         api/Deal/Save*/
+        let array = [dict]
+        mainDict["DealCategories"] = array
+        
+        let subDict = NSMutableDictionary()
+        subDict["StoreLocationId"] = "2"
+        subDict["IsActive"] = "true"
+        let arr = [subDict]
+        mainDict["DealLocations"] = arr
+        
+        print(mainDict)
+        self.myImageUploadRequest(dataDic: mainDict)
+        return
+        
+        let image = UIImage(named: "sampleDeal")
+        let imgData = UIImageJPEGRepresentation(image!, 0.2)!
+        
+       // let parameters = ["DealCoreEntity":self.constructTheJson(ticketsInput: mainDict),"2":""] as [String : Any]
+        
+        //"{username: user; password: pass}"
+        
+       
+        
+        Alamofire.upload(multipartFormData: { multipartFormData in
+            multipartFormData.append(imgData, withName: "2",fileName: "file.jpg", mimeType: "image/jpg")
+            multipartFormData.append(self.constructTheJson(ticketsInput: mainDict).data(using: String.Encoding.utf8)!, withName: "DealCoreEntity" )
+        },
+                         to:"http://api.walk2deals.com/api/Deal/Save",
+                         method:.post,
+                         headers:self.constructHttpHeader())
+        { (result) in
+            switch result {
+            case .success(let upload, _, _):
+                
+                upload.uploadProgress(closure: { (progress) in
+                    
+                    print("Upload Progress: \(progress.fractionCompleted)")
+                })
+                
+                upload.responseJSON { response in
+                    print(response.request)  // original URL request
+                    print(response.response) // URL response
+                    print(response.data)     // server data
+                    print(response.result)
+                    print(response.result.value)
+                }
+                
+            case .failure(let encodingError):
+                print(encodingError)
+            }
+        }
+    }
     
+    
+    func constructTheJson(ticketsInput:NSMutableDictionary) -> String{
+        
+        var jsonData : Data = Data()
+        do {
+            jsonData = try JSONSerialization.data(withJSONObject: ticketsInput, options: JSONSerialization.WritingOptions.prettyPrinted)
+            // here "jsonData" is the dictionary encoded in JSON data
+        } catch let error as NSError {
+        }
+        let jsonStringFormat = String(data: jsonData, encoding: String.Encoding.utf8)
+        
+        return jsonStringFormat!
+    }
+    
+    func myImageUploadRequest(dataDic:NSDictionary)
+    {
+        let image = UIImage(named: "sampleDeal")
+        let imageData = UIImageJPEGRepresentation(image!, 0.2)!
+        
+        let myUrl = NSURL(string: "http://api.walk2deals.com/api/Deal/Save");
+        //let myUrl = NSURL(string: "http://www.boredwear.com/utils/postImage.php");
+        
+        let request = NSMutableURLRequest(url:myUrl! as URL);
+        request.httpMethod = "POST";
+        
+        //let param = dataDic
+        
+        let boundary = generateBoundaryString()
+        //request.setValue(<#T##value: Any?##Any?#>, forKey: <#T##String#>)
+        
+        //request.setValue("multipart/form-data; boundary=\(boundary)")
+        
+      //  request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+
+        
+        
+        if(imageData==nil)  { return; }
+        
+        request.httpBody = createBodyWithParameters(parameters: dataDic as? [String:String], filePathKey: "2", imageDataKey: imageData as NSData, boundary: boundary) as Data
+        
+        
+        let username = "ae632c7fb300455c8e72fe0ae05ef283"
+        let password = "F15E9DA4E0EDAEC"
+        let loginString = String(format: "%@:%@", username, password)
+        let loginData = loginString.data(using: String.Encoding.utf8)!
+        let base64LoginString = loginData.base64EncodedString()
+        
+        
+        request.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
+        //request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+
+        
+        
+        let task = URLSession.shared.dataTask(with: request as URLRequest) {
+            data, response, error in
+            
+            if error != nil {
+                //print("error=\(error)")
+                return
+            }
+            
+            // You can print out response object
+            print("******* response = \(response)")
+            
+            // Print out reponse body
+            let responseString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
+            //print("****** response data = \(responseString!)")
+            
+            do {
+                let json = try JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
+                
+                print(json)
+                
+                
+                
+            }catch
+            {
+                print(error)
+            }
+            
+            
+        }
+        
+        task.resume()
+        
+    }
+    
+    
+    func createBodyWithParameters(parameters: [String: String]?, filePathKey: String?, imageDataKey: NSData, boundary: String) -> NSData {
+        let body = NSMutableData();
+        
+        if parameters != nil {
+            for (key, value) in parameters! {
+                body.appendString(string: "--\(boundary)\r\n")
+                body.appendString(string: "Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n")
+                body.appendString(string: "\(value)\r\n")
+            }
+        }
+        
+        let filename = "user-profile.jpg"
+        
+        //let mimetype = "application/x-www-form-urlencoded"
+        
+        body.appendString(string: "--\(boundary)\r\n")
+        body.appendString(string: "Content-Disposition: form-data; name=\"\(filePathKey!)\"; filename=\"\(filename)\"\r\n")
+        //body.appendString(string: "Content-Type: \(mimetype)\r\n\r\n")
+        body.append(imageDataKey as Data)
+        body.appendString(string: "\r\n")
+        
+        
+        
+        body.appendString(string: "--\(boundary)--\r\n")
+        
+        return body
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+
+
+
 }
 
+extension NSMutableData {
+    
+    func appendString(string: String) {
+        let data = string.data(using: String.Encoding.utf8, allowLossyConversion: true)
+        append(data!)
+    }
+}
 
 //MARK: Validations
 extension CXDataService{

@@ -145,7 +145,6 @@ class PostAddViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
     
     func postAddAction(){
-        let parameters = ["OfferTitle":"","OfferDescription":"","StartDate":"","EndDate":"","UserId":"","IsActive":""]
         
         //yyyy-MM-dd HH:mm:ss.S
         
@@ -159,23 +158,42 @@ class PostAddViewController: UIViewController,UITableViewDelegate,UITableViewDat
         mainDict["EndDate"] = "2017-20-15T04:25:25.6619455-04:00"
         mainDict["UserId"] = "2"
         let dict = ["CategoryId":"1"]
+        
+        /*
+        DealCoreEntity =  {
+         "OfferTitle": "test",
+         "OfferDescription": "test",
+         "StartDate": "2017-9-17",
+         "EndDate": "2017-9-28",
+         "UserId": 18,
+         "DealCategories": [
+         {
+         "CategoryId": 1
+         }
+         ],
+         "DealLocations": [
+         {
+         "StoreLocationId": 2,
+         "isActive": true
+         }
+         ]
+         }
+         2= "file"
+         api/Deal/Save*/
         let array = [dict]
-        mainDict["DealCategories"] = self.constructTheJson(ticketsInput: array as! NSMutableArray)
-        let dict1 = ["FileName":"fdgdgfdg",
-                     "CDNFilePath":"dfgdfgdfg",
-                     "FileContent":imageData] as [String : Any]
-        let array1 = [dict1]
+        mainDict["DealCategories"] = array
+
         let subDict = NSMutableDictionary()
         subDict["StoreLocationId"] = "1"
-        subDict["FileContentCoreEntityList"] = self.constructTheJson(ticketsInput: array1 as! NSMutableArray)
         subDict["IsActive"] = "true"
         let arr = [subDict]
         mainDict["DealLocations"] = arr
         
         print(mainDict)
         
+        let inputDic = ["DealCoreEntity":self.constructTheJson(ticketsInput: mainDict),"2":""]
         
-        CXDataService.sharedInstance.postTheDataToServer(urlString: CXAppConfig.sharedInstance.getBaseUrl()+"api/Deal/Save", parameters: mainDict as! [String : String]) { (responceDic) in
+        CXDataService.sharedInstance.postTheDataToServer(urlString: CXAppConfig.sharedInstance.getBaseUrl()+"api/Deal/Save", parameters: inputDic as! [String : String]) { (responceDic) in
             CXLog.print("responce dict \(responceDic)")
             
             let error = responceDic.value(forKey: "Errors") as? NSArray
@@ -189,42 +207,11 @@ class PostAddViewController: UIViewController,UITableViewDelegate,UITableViewDat
             
         }
         
-        /*
-         {
-         "OfferTitle": "sampledsfssdgfhfh789fsfringdsf2",
-         "OfferDescription": "reste87fghfgh9sdfsdfrt",
-         "StartDate": "2017-10-15T04:25:25.6619455-04:00",
-         "EndDate": "2017-10-15T04:25:25.6619455-04:00",
-         "UserId": 2,
-         "IsActive": true,
-
-         "DealCategories":[
-         {
-         
-         "CategoryId": 6,
-         
-         }
-         
-         ],
-         "DealLocations": [
-         {
-         "StoreLocationId": 1,
-         "FileContentCoreEntityList": [
-         {
-         "FileName": "fdgdgfdg",
-         "CDNFilePath": "dfgdfgdfg",
-         "FileContent": "00000000000000000000000001100100"
-         }
-         
-         ],     
-         
-         }]
-         }
-        api/Deal/Save*/
+       
         
     }
     
-    func constructTheJson(ticketsInput:NSMutableArray) -> String{
+    func constructTheJson(ticketsInput:NSMutableDictionary) -> String{
         
         var jsonData : Data = Data()
         do {
@@ -262,5 +249,9 @@ extension PostAddViewController: kDropDownListViewDelegate{
     func dropDownListView(_ dropdownListView: DropDownListView!, datalist ArryData: NSMutableArray!) {
         
     }
+    
+    
+    
+ 
     
 }

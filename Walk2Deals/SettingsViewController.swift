@@ -35,6 +35,9 @@ class SettingsViewController: UIViewController,UITableViewDataSource,UITableView
     
     func backAction(sender:UIButton){
         self.navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true) { 
+            
+        }
     }
 
     /*

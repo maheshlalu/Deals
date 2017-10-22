@@ -89,7 +89,13 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
             let settingVc = storyBoard.instantiateViewController(withIdentifier: "SettingsViewController") as! SettingsViewController
             let navCntl = UINavigationController(rootViewController: settingVc)
             revealController.pushFrontViewController(navCntl, animated: true)
+        }else if itemName == "Settings"{
+            let settingVc = storyBoard.instantiateViewController(withIdentifier: "SettingsViewController") as! SettingsViewController
+            let navCntl = UINavigationController(rootViewController: settingVc)
+            revealController.pushFrontViewController(navCntl, animated: true)
         }
+
+        
 
         
     }
