@@ -316,7 +316,7 @@ open class CXDataService: NSObject {
     func imageData(){
         
         let mainDict = NSMutableDictionary()
-        mainDict["OfferTitle"] = "mahesh special offer"
+        mainDict["OfferTitle"] = "final  special offer"
         mainDict["OfferDescription"] = "reste87fghfgh9sdfsdfrt"
         mainDict["StartDate"] = "2017-9-17"
         mainDict["EndDate"] = "2017-9-28"
