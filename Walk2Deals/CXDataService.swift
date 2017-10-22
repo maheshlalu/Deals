@@ -318,8 +318,8 @@ open class CXDataService: NSObject {
         let mainDict = NSMutableDictionary()
         mainDict["OfferTitle"] = "mahesh special offer"
         mainDict["OfferDescription"] = "reste87fghfgh9sdfsdfrt"
-        mainDict["StartDate"] = "2017-10-15T04:25:25.6619455-04:00"
-        mainDict["EndDate"] = "2017-20-15T04:25:25.6619455-04:00"
+        mainDict["StartDate"] = "2017-9-17"
+        mainDict["EndDate"] = "2017-9-28"
         mainDict["UserId"] = "18"
         let dict = ["CategoryId":"1"]
         
@@ -354,20 +354,17 @@ open class CXDataService: NSObject {
         mainDict["DealLocations"] = arr
         
         print(mainDict)
-        self.myImageUploadRequest(dataDic: mainDict)
-        return
+        //self.myImageUploadRequest(dataDic: mainDict)
+        //return
         
         let image = UIImage(named: "sampleDeal")
         let imgData = UIImageJPEGRepresentation(image!, 0.2)!
         
-       // let parameters = ["DealCoreEntity":self.constructTheJson(ticketsInput: mainDict),"2":""] as [String : Any]
-        
-        //"{username: user; password: pass}"
-        
-       
         
         Alamofire.upload(multipartFormData: { multipartFormData in
+            
             multipartFormData.append(imgData, withName: "2",fileName: "file.jpg", mimeType: "image/jpg")
+            
             multipartFormData.append(self.constructTheJson(ticketsInput: mainDict).data(using: String.Encoding.utf8)!, withName: "DealCoreEntity" )
         },
                          to:"http://api.walk2deals.com/api/Deal/Save",
@@ -424,6 +421,7 @@ open class CXDataService: NSObject {
         //let param = dataDic
         
         let boundary = generateBoundaryString()
+        
         //request.setValue(<#T##value: Any?##Any?#>, forKey: <#T##String#>)
         
         //request.setValue("multipart/form-data; boundary=\(boundary)")
@@ -434,7 +432,7 @@ open class CXDataService: NSObject {
         
         if(imageData==nil)  { return; }
         
-        request.httpBody = createBodyWithParameters(parameters: dataDic as? [String:String], filePathKey: "2", imageDataKey: imageData as NSData, boundary: boundary) as Data
+        request.httpBody = createBodyWithParameters(parameters: dataDic as! NSMutableDictionary, filePathKey: "2", imageDataKey: imageData as NSData, boundary: boundary) as Data
         
         
         let username = "ae632c7fb300455c8e72fe0ae05ef283"
@@ -484,24 +482,28 @@ open class CXDataService: NSObject {
     }
     
     
-    func createBodyWithParameters(parameters: [String: String]?, filePathKey: String?, imageDataKey: NSData, boundary: String) -> NSData {
+    func createBodyWithParameters(parameters: NSMutableDictionary, filePathKey: String?, imageDataKey: NSData, boundary: String) -> NSData {
         let body = NSMutableData();
+        let keyValu = "DealCoreEntity"
+        body.appendString(string: "--\(boundary)\r\n")
+        body.appendString(string: "Content-Disposition: form-data; name=\"\(keyValu)\"\r\n\r\n")
+        body.appendString(string: "\(self.constructTheJson(ticketsInput: parameters))\r\n")
         
-        if parameters != nil {
-            for (key, value) in parameters! {
+       /* if parameters != nil {
+            for (key, value) in parameters {
                 body.appendString(string: "--\(boundary)\r\n")
                 body.appendString(string: "Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n")
                 body.appendString(string: "\(value)\r\n")
             }
-        }
+        }*/
         
         let filename = "user-profile.jpg"
         
-        //let mimetype = "application/x-www-form-urlencoded"
+        let mimetype = "application/x-www-form-urlencoded"
         
         body.appendString(string: "--\(boundary)\r\n")
         body.appendString(string: "Content-Disposition: form-data; name=\"\(filePathKey!)\"; filename=\"\(filename)\"\r\n")
-        //body.appendString(string: "Content-Type: \(mimetype)\r\n\r\n")
+        body.appendString(string: "Content-Type: \(mimetype)\r\n\r\n")
         body.append(imageDataKey as Data)
         body.appendString(string: "\r\n")
         
