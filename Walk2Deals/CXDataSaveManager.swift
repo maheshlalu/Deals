@@ -39,6 +39,19 @@ class CXDataSaveManager: NSObject  {
                 profile.aDharNumbers = userDataDic["AdharNumber"].stringValue
                 relamInstance.add(profile)
             })
+        }else{
+            try! relamInstance.write({
+            let profile = userData.first
+            profile?.userId = userDataDic["UserId"].stringValue
+            profile?.email = userDataDic["EmailAddress"].stringValue
+            profile?.firstName = userDataDic["FirstName"].stringValue
+            profile?.gender = userDataDic["Gender"].stringValue
+            profile?.lastName = userDataDic["LastName"].stringValue
+            profile?.mobile = userDataDic["MobileNumber"].stringValue
+            profile?.image = userDataDic["ProfileImagePath"].stringValue
+            profile?.aDharNumbers = userDataDic["AdharNumber"].stringValue
+            })
+
         }
         
     }

@@ -33,11 +33,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate,SWRevealViewControllerDele
         navigationBarAppearace.titleTextAttributes = myAttribute
         navigationBarAppearace.titleTextAttributes = myAttributeTxtColor
         
-        CXDataService.sharedInstance.imageData()
+        //CXDataService.sharedInstance.imageData()
         if CXAppConfig.sharedInstance.getUserID().isEmpty {
             
         }else{
-            self.setUpSidePanl()
+           // self.setUpSidePanl()
         }
         CXLog.print("Realm DB path \(Realm.Configuration.defaultConfiguration.fileURL!)")
         
