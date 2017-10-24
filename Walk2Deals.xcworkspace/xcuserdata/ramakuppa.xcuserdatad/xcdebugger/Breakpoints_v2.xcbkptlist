@@ -314,7 +314,7 @@
                   moduleName = "Walk2Deals"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/GitProject/Deals/Walk2Deals/WriteReviewViewController.swift"
-                  timestampString = "530476261.784876"
+                  timestampString = "530506157.608292"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "56"
@@ -329,7 +329,7 @@
                   moduleName = "Walk2Deals"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/GitProject/Deals/Walk2Deals/WriteReviewViewController.swift"
-                  timestampString = "530476261.786974"
+                  timestampString = "530506157.611041"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "57"
@@ -442,7 +442,7 @@
                   moduleName = "Walk2Deals"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/GitProject/Deals/Walk2Deals/LoginViewController.swift"
-                  timestampString = "530476261.814276"
+                  timestampString = "530506157.640001"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "38"
@@ -457,7 +457,7 @@
                   moduleName = "Walk2Deals"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/GitProject/Deals/Walk2Deals/LoginViewController.swift"
-                  timestampString = "530476261.816422"
+                  timestampString = "530506157.642124"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "39"
@@ -490,7 +490,7 @@
                   moduleName = "Walk2Deals"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/GitProject/Deals/Walk2Deals/CXDataService.swift"
-                  timestampString = "530476261.8219"
+                  timestampString = "530506157.64843"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "82"
@@ -505,7 +505,7 @@
                   moduleName = "Walk2Deals"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/GitProject/Deals/Walk2Deals/CXDataService.swift"
-                  timestampString = "530476261.824167"
+                  timestampString = "530506157.650622"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "83"
@@ -650,7 +650,7 @@
                   moduleName = "Walk2Deals"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/GitProject/Deals/Walk2Deals/CXDataService.swift"
-                  timestampString = "530476261.858788"
+                  timestampString = "530506157.688562"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "413"
@@ -665,7 +665,7 @@
                   moduleName = "Walk2Deals"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/GitProject/Deals/Walk2Deals/CXDataService.swift"
-                  timestampString = "530476261.860889"
+                  timestampString = "530506157.691748"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "415"
@@ -730,11 +730,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Walk2Deals/UserProfileViewController.swift"
-            timestampString = "530476871.304912"
+            timestampString = "530505912.05305"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "244"
-            endingLineNumber = "244"
+            startingLineNumber = "245"
+            endingLineNumber = "245"
             landmarkName = "getUserProfileData()"
             landmarkType = "7">
          </BreakpointContent>
@@ -746,11 +746,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Walk2Deals/UserProfileViewController.swift"
-            timestampString = "530476871.304912"
+            timestampString = "530505912.05305"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "236"
-            endingLineNumber = "236"
+            startingLineNumber = "237"
+            endingLineNumber = "237"
             landmarkName = "getUserProfileData()"
             landmarkType = "7">
          </BreakpointContent>
@@ -778,11 +778,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Walk2Deals/UserProfileViewController.swift"
-            timestampString = "530475730.005039"
+            timestampString = "530505912.05305"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
             landmarkName = "validationTextField()"
             landmarkType = "7">
          </BreakpointContent>
@@ -794,11 +794,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Walk2Deals/UserProfileViewController.swift"
-            timestampString = "530475730.005039"
+            timestampString = "530505912.05305"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
             landmarkName = "validationTextField()"
             landmarkType = "7">
          </BreakpointContent>
@@ -810,11 +810,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Walk2Deals/UserProfileViewController.swift"
-            timestampString = "530476282.694434"
+            timestampString = "530505912.05305"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "114"
-            endingLineNumber = "114"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
             landmarkName = "validationTextField()"
             landmarkType = "7">
          </BreakpointContent>
@@ -826,11 +826,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Walk2Deals/UserProfileViewController.swift"
-            timestampString = "530476322.701806"
+            timestampString = "530505912.05305"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
             landmarkName = "validationTextField()"
             landmarkType = "7">
             <Locations>
@@ -842,12 +842,12 @@
                   moduleName = "Walk2Deals"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/GitProject/Deals/Walk2Deals/UserProfileViewController.swift"
-                  timestampString = "530476322.707901"
+                  timestampString = "530506157.733834"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "123"
-                  endingLineNumber = "123"
-                  offsetFromSymbolStart = "12774">
+                  startingLineNumber = "124"
+                  endingLineNumber = "124"
+                  offsetFromSymbolStart = "12828">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -857,14 +857,110 @@
                   moduleName = "Walk2Deals"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/GitProject/Deals/Walk2Deals/UserProfileViewController.swift"
-                  timestampString = "530476322.712206"
+                  timestampString = "530506157.736496"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "123"
-                  endingLineNumber = "123"
+                  startingLineNumber = "124"
+                  endingLineNumber = "124"
                   offsetFromSymbolStart = "12">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Walk2Deals/HomeViewController.swift"
+            timestampString = "530506059.435896"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "getDeails()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Walk2Deals/HomeViewController.swift"
+            timestampString = "530506063.480129"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
+            landmarkName = "getDeails()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Walk2Deals/HomeViewController.swift"
+            timestampString = "530506101.950097"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "270"
+            endingLineNumber = "270"
+            landmarkName = "tracingLocation(_:_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Walk2Deals/HomeViewController.swift"
+            timestampString = "530506103.215735"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "268"
+            endingLineNumber = "268"
+            landmarkName = "tracingLocation(_:_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Walk2Deals/HomeViewController.swift"
+            timestampString = "530506506.132301"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "265"
+            endingLineNumber = "265"
+            landmarkName = "tracingLocation(_:_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Walk2Deals/HomeViewController.swift"
+            timestampString = "530506507.482268"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "259"
+            endingLineNumber = "259"
+            landmarkName = "checklocationAuthentication()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

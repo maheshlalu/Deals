@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Iv9-Wi-BuD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="MIl-D0-oa9">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -1551,13 +1551,14 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="subcribtn" destination="xkQ-SZ-DJH" id="7yf-av-sff"/>
                         <outlet property="userImageView" destination="bCR-lW-uNF" id="VSH-6q-7FG"/>
                         <outlet property="userProfileTableView" destination="zof-lD-cEa" id="vFc-5x-WLr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UwX-lu-fMX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="216.80000000000001" y="141.67916041979012"/>
+            <point key="canvasLocation" x="45" y="50"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="HJn-zU-dUg">

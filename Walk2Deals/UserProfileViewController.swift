@@ -14,6 +14,7 @@ class UserProfileViewController: UIViewController,UITableViewDataSource,UITableV
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var userProfileTableView: UITableView!
     
+    @IBOutlet weak var subcribtn: UISwitch!
     var textFieldArray = ["Mobile No","First Name","Last Name","Email","Aadhaar"]
     
     

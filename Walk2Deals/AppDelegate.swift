@@ -37,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,SWRevealViewControllerDele
         if CXAppConfig.sharedInstance.getUserID().isEmpty {
             
         }else{
-           // self.setUpSidePanl()
+            self.setUpSidePanl()
         }
         CXLog.print("Realm DB path \(Realm.Configuration.defaultConfiguration.fileURL!)")
         
