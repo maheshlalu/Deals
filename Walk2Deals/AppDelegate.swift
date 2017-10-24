@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import IQKeyboardManager
+//import IQKeyboardManager
 import RealmSwift
 
 @UIApplicationMain
@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,SWRevealViewControllerDele
         //        CXDataService.sharedInstance.getTheAppDataFromServer(["":"" as AnyObject]) { (dict) in
         //
         //        }
-        IQKeyboardManager.shared().isEnabled = true
+        //IQKeyboardManager.shared().isEnabled = true
         
         let navigationBarAppearace = UINavigationBar.appearance()
         navigationBarAppearace.tintColor = UIColor.white
@@ -37,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,SWRevealViewControllerDele
         if CXAppConfig.sharedInstance.getUserID().isEmpty {
             
         }else{
-            self.setUpSidePanl()
+           // self.setUpSidePanl()
         }
         CXLog.print("Realm DB path \(Realm.Configuration.defaultConfiguration.fileURL!)")
         

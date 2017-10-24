@@ -8,7 +8,6 @@
 
 import UIKit
 import SwiftyJSON
-
 class UserProfileViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
 
     @IBOutlet weak var userImageView: UIImageView!
@@ -16,13 +15,12 @@ class UserProfileViewController: UIViewController,UITableViewDataSource,UITableV
     
     @IBOutlet weak var subcribtn: UISwitch!
     var textFieldArray = ["Mobile No","First Name","Last Name","Email","Aadhaar"]
-    
-    
-    var mobileNoTextField = UITextField()
-    var firstNameTextField = UITextField()
-    var lastNameTextField = UITextField()
-    var emailTextField = UITextField()
-    var aadhaarTextField = UITextField()
+
+    var mobileNoTextField = ACFloatingTextfield()
+    var firstNameTextField = ACFloatingTextfield()
+    var lastNameTextField = ACFloatingTextfield()
+    var emailTextField = ACFloatingTextfield()
+    var aadhaarTextField = ACFloatingTextfield()
     var profileImageData : NSData!
     var editImageView = UIImageView()
     
@@ -43,10 +41,8 @@ class UserProfileViewController: UIViewController,UITableViewDataSource,UITableV
         // Do any additional setup after loading the view.
     }
     
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    
-        
+
         return textFieldArray.count
         
     }
@@ -68,6 +64,8 @@ class UserProfileViewController: UIViewController,UITableViewDataSource,UITableV
         }else if indexPath.row == 3{
             cell?.userProfileTextField.placeholder = "Email"
             cell?.userProfileTextField.text = self.profile.email
+            self.emailTextField.tag = 100
+            self.emailTextField.delegate = self
             self.emailTextField.text = cell?.userProfileTextField.text
         }else if indexPath.row == 4{
             cell?.userProfileTextField.placeholder = "Aadhaar"
@@ -118,9 +116,10 @@ class UserProfileViewController: UIViewController,UITableViewDataSource,UITableV
             profileDict["CreatedById"] = self.profile.userId
             profileDict["ModifiedById"] = self.profile.userId
             profileDict["SubscribeNewsletter"] = "true"
-            
+            CXDataService.sharedInstance.showLoader(view: self.view, message: "Updating...")
             CXDataService.sharedInstance.updateTheProfileAndAddThePostAdd(mainDict: profileDict, jsonKeyName: "UserCoreEntity", imageData: self.profileImageData as Data, imageKey: "ProfileImage",urlString:"http://api.walk2deals.com/api/User/UpdateProfile", completion: { (responce) in
-                
+                CXDataService.sharedInstance.hideLoader()
+                self.view.makeToast(message: "Profile Updated Successfully...")
             })
             
             //"http://api.walk2deals.com/api/Deal/Save"
@@ -261,5 +260,14 @@ class UserProfileViewController: UIViewController,UITableViewDataSource,UITableV
     
 }
 
-
+extension UserProfileViewController : UITextFieldDelegate{
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        
+        if textField.tag == 100 {
+            return false
+        }
+        return true
+    }
+}
 

@@ -21,6 +21,7 @@
 		126CEAAA1F86A71200B32BD5 /* AboutDeailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126CEAA91F86A71200B32BD5 /* AboutDeailViewController.swift */; };
 		126CEAAC1F86A72C00B32BD5 /* WriteReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126CEAAB1F86A72C00B32BD5 /* WriteReviewViewController.swift */; };
 		12E8878E1F83EC4E00335823 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E8878D1F83EC4E00335823 /* LoginViewController.swift */; };
+		1824209C1F9F6A46001091B3 /* ACFloatingTextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1824209B1F9F6A46001091B3 /* ACFloatingTextfield.swift */; };
 		182B9BF01F91F82200109B15 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182B9BEF1F91F82200109B15 /* UserProfile.swift */; };
 		182B9BF21F91F9F900109B15 /* CXDataSaveManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182B9BF11F91F9F900109B15 /* CXDataSaveManager.swift */; };
 		182B9BF71F92409900109B15 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182B9BF41F92409900109B15 /* UserProfileViewController.swift */; };
@@ -118,6 +119,7 @@
 		126CEAA91F86A71200B32BD5 /* AboutDeailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutDeailViewController.swift; sourceTree = "<group>"; };
 		126CEAAB1F86A72C00B32BD5 /* WriteReviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriteReviewViewController.swift; sourceTree = "<group>"; };
 		12E8878D1F83EC4E00335823 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		1824209B1F9F6A46001091B3 /* ACFloatingTextfield.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACFloatingTextfield.swift; sourceTree = "<group>"; };
 		182B9BEF1F91F82200109B15 /* UserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		182B9BF11F91F9F900109B15 /* CXDataSaveManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CXDataSaveManager.swift; sourceTree = "<group>"; };
 		182B9BF41F92409900109B15 /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
@@ -335,6 +337,7 @@
 				18437E601F909458003B9631 /* Comment */,
 				122670E11F8E85D600FED033 /* KIImagePager.h */,
 				18437E5C1F90880D003B9631 /* CAPSPageMenu.swift */,
+				1824209B1F9F6A46001091B3 /* ACFloatingTextfield.swift */,
 				122670E21F8E85D600FED033 /* KIImagePager.m */,
 				122670DD1F8D166700FED033 /* SdWebImage */,
 				12389F681F8558C400CE790C /* PostAdd */,
@@ -793,6 +796,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Walk2Deals/Pods-Walk2Deals-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ACFloatingTextfield-Swift/ACFloatingTextfield_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/ActionSheetPicker-3.0/ActionSheetPicker_3_0.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
@@ -804,6 +808,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ACFloatingTextfield_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ActionSheetPicker_3_0.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
@@ -853,6 +858,7 @@
 				126CEAA61F86A68500B32BD5 /* DealsDetailsViewController.swift in Sources */,
 				187D5B221F764F1B00A5E250 /* HomeViewController.swift in Sources */,
 				122670E01F8D168100FED033 /* UIImageView+UIActivityIndicatorForSDWebImage.m in Sources */,
+				1824209C1F9F6A46001091B3 /* ACFloatingTextfield.swift in Sources */,
 				187D5B1D1F764DE900A5E250 /* SWRevealViewController.m in Sources */,
 				12321C881F9A6C7600995249 /* SelectLocationViewController.swift in Sources */,
 				182B9BF71F92409900109B15 /* UserProfileViewController.swift in Sources */,

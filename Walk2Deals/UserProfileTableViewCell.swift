@@ -11,7 +11,7 @@ import UIKit
 class UserProfileTableViewCell: UITableViewCell {
 
   
-    @IBOutlet weak var userProfileTextField: UITextField!
+    @IBOutlet weak var userProfileTextField: ACFloatingTextfield!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
