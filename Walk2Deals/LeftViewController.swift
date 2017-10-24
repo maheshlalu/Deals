@@ -158,5 +158,7 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
         // Pass the selected object to the new view controller.
     }
     */
+    @IBAction func editProfile(_ sender: UIButton) {
+    }
 
 }

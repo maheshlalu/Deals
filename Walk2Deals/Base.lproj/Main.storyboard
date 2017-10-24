@@ -601,14 +601,17 @@
                                         </variation>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PQU-tW-6xk">
-                                        <rect key="frame" x="-19.5" y="117" width="266" height="30"/>
+                                        <rect key="frame" x="8" y="117" width="239" height="30"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="266" id="NNi-we-QLw"/>
+                                            <constraint firstAttribute="width" constant="239" id="NNi-we-QLw"/>
                                             <constraint firstAttribute="height" constant="30" id="aaM-aq-M8W"/>
                                         </constraints>
-                                        <state key="normal" title="Verify Email ID">
+                                        <state key="normal" title="Edit Profile">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="editProfile:" destination="G6a-iy-5Lv" eventType="touchUpInside" id="afn-Lq-o6U"/>
+                                        </connections>
                                     </button>
                                     <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dy4-Z9-jmV">
                                         <rect key="frame" x="0.0" y="163" width="320" height="32"/>
@@ -649,7 +652,7 @@
                                     <constraint firstAttribute="bottom" secondItem="Dy4-Z9-jmV" secondAttribute="bottom" id="QXM-RD-oa7"/>
                                     <constraint firstItem="Dy4-Z9-jmV" firstAttribute="leading" secondItem="euV-IK-a51" secondAttribute="leading" id="fpq-Zs-RDi"/>
                                     <constraint firstAttribute="trailing" secondItem="Dy4-Z9-jmV" secondAttribute="trailing" id="gJm-DJ-Xam"/>
-                                    <constraint firstItem="PQU-tW-6xk" firstAttribute="centerX" secondItem="euV-IK-a51" secondAttribute="centerX" constant="-46.5" id="gZP-Xf-aDA"/>
+                                    <constraint firstItem="PQU-tW-6xk" firstAttribute="centerX" secondItem="euV-IK-a51" secondAttribute="centerX" constant="-32.5" id="gZP-Xf-aDA"/>
                                     <constraint firstAttribute="height" constant="195" id="iPl-jR-gys"/>
                                     <constraint firstAttribute="height" constant="247" id="iXB-YU-yLQ">
                                         <variation key="heightClass=regular-widthClass=compact" constant="235"/>
@@ -740,7 +743,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OMQ-Bv-vjS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-499" y="119"/>
+            <point key="canvasLocation" x="-500.625" y="118.30985915492958"/>
         </scene>
         <!--Post Add View Controller-->
         <scene sceneID="7HY-uu-rEx">
