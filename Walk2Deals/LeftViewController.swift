@@ -143,11 +143,12 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
         }
     }
     @IBAction func postAddAction(_ sender: UIButton) {
-        let revealController : SWRevealViewController  = self.revealViewController()
         let storyBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
         let postAddVc = storyBoard.instantiateViewController(withIdentifier: "PostAddViewController") as! PostAddViewController
         let navCntl = UINavigationController(rootViewController: postAddVc)
-        revealController.pushFrontViewController(navCntl, animated: true)
+        self.present(navCntl, animated: true) { 
+            
+        }
     }
     /*
     // MARK: - Navigation
@@ -159,6 +160,13 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
     }
     */
     @IBAction func editProfile(_ sender: UIButton) {
+        let storyBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let postAddVc = storyBoard.instantiateViewController(withIdentifier: "UserProfileViewController") as! UserProfileViewController
+        let navCntl = UINavigationController(rootViewController: postAddVc)
+        self.present(navCntl, animated: true) {
+            
+        }
+        
     }
 
 }

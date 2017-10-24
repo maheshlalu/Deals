@@ -37,13 +37,29 @@ class UserProfileViewController: UIViewController,UITableViewDataSource,UITableV
         self.userImageView.layer.cornerRadius = 50
         self.userImageView.layer.borderWidth = 2
         self.userImageView.layer.masksToBounds = true
-
+        
+        self.setUpBackButton()
         // Do any additional setup after loading the view.
+    }
+    
+    func setUpBackButton(){
+        self.title = "Profile"
+        let menuItem = UIBarButtonItem(image: UIImage(named: "back"), style: .plain, target: self, action: #selector(SettingsViewController.backAction(sender:)))
+        self.navigationItem.leftBarButtonItem = menuItem
+        self.navigationItem.leftBarButtonItem?.tintColor = UIColor.white
+    }
+    
+    
+    func backAction(sender:UIButton){
+        self.navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true) {
+            
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return textFieldArray.count
+        return  textFieldArray.count
         
     }
     
@@ -239,10 +255,8 @@ class UserProfileViewController: UIViewController,UITableViewDataSource,UITableV
     
         
         CXDataService.sharedInstance.getTheDataFromServer(urlString: "http://api.walk2deals.com/api/User/GetById/18", completion: { (responceDic) in
-            
             CXLog.print(responceDic)
             let responceDic = responceDic
-            
             //Errors
             let error = responceDic.value(forKey: "Errors") as? NSArray
             let errorDict = error?.lastObject as? NSDictionary
@@ -250,20 +264,19 @@ class UserProfileViewController: UIViewController,UITableViewDataSource,UITableV
             if errorcode == "0"{
                 CXDataSaveManager.sharedInstance.saveTheUserDetailsInDB(userDataDic: JSON(responceDic))
             }
-            
         })
-        
-        
-        
+
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
     }
     
     
 }
 
 extension UserProfileViewController : UITextFieldDelegate{
-    
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        
         if textField.tag == 100 {
             return false
         }

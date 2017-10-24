@@ -8,11 +8,17 @@
 
 import UIKit
 import ActionSheetPicker_3_0
-
+import SwiftyJSON
 class PostAddViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     
-    let nameArray = ["Location","Category","Other Title","StartDate","EndDate","UploadImage"]
+    let nameArray = ["Stores","Location","Category","Other Title","StartDate","EndDate","UploadImage"]
+    
+    var selectedStore = NSDictionary()
+    var selectedLocation = NSDictionary()
+    
+    var selectedLocationArray = NSArray()
+    var selectedStoresArray = NSArray()
     
     var locations: NSArray!
     var selectionDict : NSMutableDictionary = NSMutableDictionary()
@@ -21,6 +27,7 @@ class PostAddViewController: UIViewController,UITableViewDelegate,UITableViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
         registrationCell()
+        self.getAllStoreLocations()
         //self.postAddAction()
         // Do any additional setup after loading the view.
     }
@@ -37,47 +44,73 @@ class PostAddViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
     func getAllStoreLocations(){
         //api/Store/GetAllStoreLocation/{UserId}-
+        /*
+         1.Get Stores : http://api.walk2deals.com/api/Store/GetAll
+         2.Get locations based on stores : http://api.walk2deals.com/api/Store/GetAllStoreLocationbyId/3
+         3.Get all  category  : http://api.walk2deals.com/api/Category/GetAll
+         */
+        
+        CXDataService.sharedInstance.getTheDataFromServer(urlString: "http://api.walk2deals.com/api/Store/GetAll") { (responceDict) in
+            if let stores = responceDict.value(forKey: "Stores") as? NSArray{
+                self.selectedStoresArray = stores
+                self.selectedStore = (self.selectedStoresArray.firstObject as? NSDictionary)!
+                self.getLocationBasedOnStores()
+            }
+            CXLog.print(responceDict)
+            
+            //Stores
+        }
+        
     }
+    
+    func getLocationBasedOnStores(){
+        
+        let json = JSON(self.selectedStore)
+        let urlString = "http://api.walk2deals.com/api/Store/GetAllStoreLocationbyId/" + json["Id"].string!
+        CXDataService.sharedInstance.getTheDataFromServer(urlString: urlString) { (responceDict) in
+            CXLog.print(responceDict)
+            self.selectedLocationArray = JSON(responceDict)["StoreLocations"].array! as NSArray
+            self.selectedLocation = (self.selectedLocationArray.firstObject as? NSDictionary)!
+            
+        }
+    }
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return nameArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell1 = tableView.dequeueReusableCell(withIdentifier: "PostAddTableViewCell", for: indexPath)as? PostAddTableViewCell
+        let itemName = self.nameArray[indexPath.row]
         
-        if indexPath.row == 4{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "PostAddOneTableViewCell", for: indexPath)as? PostAddOneTableViewCell
-            cell?.selectionStyle = .none
-            return cell!
-        }else{
-            let cell1 = tableView.dequeueReusableCell(withIdentifier: "PostAddTableViewCell", for: indexPath)as? PostAddTableViewCell
-            if indexPath.row == 0{
-                let tapgestures : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(selectLocation(_:)))
-                tapgestures.numberOfTapsRequired = 1
-                cell1?.postAddTextField.addGestureRecognizer(tapgestures)
-                cell1?.postAddTextField.placeholder = "Location"
-                
-                if let name = self.selectionDict["Location"] as? String{
-                    cell1?.postAddTextField?.text = name
-                }
-                
-            }else if indexPath.row == 1{
-                cell1?.postAddTextField.placeholder = "Category"
-                let tapgestures : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(selectCategory(_:)))
-                tapgestures.numberOfTapsRequired = 1
-                cell1?.postAddTextField.addGestureRecognizer(tapgestures)
-            }else if indexPath.row == 2{
-                cell1?.postAddTextField.placeholder = "Other Title"
-            }else if indexPath.row == 3{
-                cell1?.postAddTextField.placeholder = "StartDate"
-            }else if indexPath.row == 4{
-                cell1?.postAddTextField.placeholder = "EndDate"
-            }else if indexPath.row == 5{
-                cell1?.postAddTextField.placeholder = "UploadImage"
+        if itemName == "Stores" {
+            
+        }else if itemName == "Location"{
+            let tapgestures : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(selectLocation(_:)))
+            tapgestures.numberOfTapsRequired = 1
+            cell1?.postAddTextField.addGestureRecognizer(tapgestures)
+            cell1?.postAddTextField.placeholder = "Location"
+            if let name = self.selectionDict["Location"] as? String{
+                cell1?.postAddTextField?.text = name
             }
-            cell1?.selectionStyle = .none
-            return cell1!
+        }else if itemName == "Category"{
+            cell1?.postAddTextField.placeholder = "Category"
+            let tapgestures : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(selectCategory(_:)))
+            tapgestures.numberOfTapsRequired = 1
+            cell1?.postAddTextField.addGestureRecognizer(tapgestures)
+        }else if itemName == "Other Title"{
+            cell1?.postAddTextField.placeholder = "Other Title"
+        }else if itemName == "StartDate"{
+            cell1?.postAddTextField.placeholder = "StartDate"
+        }else if itemName == "EndDate"{
+            cell1?.postAddTextField.placeholder = "EndDate"
+        }else if itemName == "UploadImage"{
+            cell1?.postAddTextField.placeholder = "UploadImage"
         }
+        cell1?.selectionStyle = .none
+        return cell1!
+        
         /*
          else if indexPath.row == 1{
          
@@ -109,18 +142,7 @@ class PostAddViewController: UIViewController,UITableViewDelegate,UITableViewDat
     func selectCategory(_ sender: UITapGestureRecognizer){
         
         
-       // let touchLocation: CGPoint = CGPoint(x: self.view.frame.size.width/2, y: <#T##CGFloat#>)
-        if DropDownList != nil {
-           DropDownList.fadeOut()
-        }
-        //DropDownList.fadeOut()
-        DropDownList  = DropDownListView(title: "", options: ["heloo","test","tewerwer","ew52145"], xy: self.view.center, size: CGSize(width: 300, height: 320), isMultiple: true)
-        DropDownList.delegate = self
-        DropDownList.center = self.view.center
-        DropDownList.show(in: self.view, animated: true)
-        DropDownList.setBackGroundDropDown_R(23.0, g: 56.0, b: 32.0, alpha: 1.0)
-        //DropDownList.fadeOut()
-    }
+           }
     
     func showPicker(title:String,rows:[String],initialSelection:Int,completionPicking:@escaping (_ value:String,_ index:Int)->Void){
         
