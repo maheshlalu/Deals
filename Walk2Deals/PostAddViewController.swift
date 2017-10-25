@@ -9,10 +9,11 @@
 import UIKit
 import ActionSheetPicker_3_0
 import SwiftyJSON
-class PostAddViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class PostAddViewController: UIViewController,UITableViewDelegate,UITableViewDataSource ,UIImagePickerControllerDelegate,UINavigationControllerDelegate{
     
     
-    let nameArray = ["Stores","Location","Category","Other Title","StartDate","EndDate","UploadImage"]
+    @IBOutlet weak var uploadImgview: UIImageView!
+    let nameArray = ["Stores","Location","Category","Offer  Title","Description","StartDate","EndDate","Upload"]
     
     var selectedStore = NSDictionary()
     var selectedLocation = NSDictionary()
@@ -20,14 +21,31 @@ class PostAddViewController: UIViewController,UITableViewDelegate,UITableViewDat
     var selectedLocationArray = NSArray()
     var selectedStoresArray = NSArray()
     
+    var categoriesArray = NSArray()
+    var selectedCategories = NSMutableArray()
+    var selectedCategoriesNames = [String]()
+    
+    
     var locations: NSArray!
     var selectionDict : NSMutableDictionary = NSMutableDictionary()
+    
+    var imag : UIImage!
     @IBOutlet weak var postAddTableVIew: UITableView!
-     var DropDownList : DropDownListView!
+    
+    var startDate = Date()
+    var endDate = Date()
+    
+    var startDateStr = ""
+    var endDateStr = ""
+    
+    
+    var isSelectDate = false
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setUpBackButton()
         registrationCell()
         self.getAllStoreLocations()
+        self.getAllCategories()
         //self.postAddAction()
         // Do any additional setup after loading the view.
     }
@@ -42,6 +60,23 @@ class PostAddViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
     }
     
+    func setUpBackButton(){
+        self.title = "Post Ad"
+        let menuItem = UIBarButtonItem(image: UIImage(named: "back"), style: .plain, target: self, action: #selector(SettingsViewController.backAction(sender:)))
+        self.navigationItem.leftBarButtonItem = menuItem
+        self.navigationItem.leftBarButtonItem?.tintColor = UIColor.white
+    }
+    
+    
+    func backAction(sender:UIButton){
+        self.navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true) {
+            
+        }
+    }
+    
+    //MARK: Get locations
+    
     func getAllStoreLocations(){
         //api/Store/GetAllStoreLocation/{UserId}-
         /*
@@ -50,10 +85,12 @@ class PostAddViewController: UIViewController,UITableViewDelegate,UITableViewDat
          3.Get all  category  : http://api.walk2deals.com/api/Category/GetAll
          */
         
+        CXDataService.sharedInstance.showLoader(view: self.view, message: "Loading...")
         CXDataService.sharedInstance.getTheDataFromServer(urlString: "http://api.walk2deals.com/api/Store/GetAll") { (responceDict) in
             if let stores = responceDict.value(forKey: "Stores") as? NSArray{
                 self.selectedStoresArray = stores
                 self.selectedStore = (self.selectedStoresArray.firstObject as? NSDictionary)!
+                CXDataService.sharedInstance.hideLoader()
                 self.getLocationBasedOnStores()
             }
             CXLog.print(responceDict)
@@ -63,14 +100,39 @@ class PostAddViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
     }
     
-    func getLocationBasedOnStores(){
-        
-        let json = JSON(self.selectedStore)
-        let urlString = "http://api.walk2deals.com/api/Store/GetAllStoreLocationbyId/" + json["Id"].string!
-        CXDataService.sharedInstance.getTheDataFromServer(urlString: urlString) { (responceDict) in
+    func getAllCategories(){
+        //CXDataService.sharedInstance.showLoader(view: self.view, message: "Loading...")
+        CXDataService.sharedInstance.getTheDataFromServer(urlString: "http://api.walk2deals.com/api/Category/GetAll") { (responceDict) in
+            if let stores = responceDict.value(forKey: "Categories") as? NSArray{
+                self.categoriesArray = stores
+                // self.selectedStore = (self.selectedStoresArray.firstObject as? NSDictionary)!
+                for store in self.categoriesArray {
+                    let storeDict = store as? NSDictionary
+                    if let locName = storeDict?.value(forKey: "Name") as? String{
+                        self.selectedCategoriesNames.append(locName)
+                    }else{
+                        self.selectedCategoriesNames.append("Empty")
+                    }
+                }
+                // CXDataService.sharedInstance.hideLoader()
+            }
             CXLog.print(responceDict)
-            self.selectedLocationArray = JSON(responceDict)["StoreLocations"].array! as NSArray
+            
+            //Stores
+        }
+    }
+    
+    func getLocationBasedOnStores(){
+        CXDataService.sharedInstance.showLoader(view: self.view, message: "Loading...")
+        
+        let storeID = CXAppConfig.resultString(self.selectedStore.value(forKey: "Id") as AnyObject)
+        
+        let urlString = "http://api.walk2deals.com/api/Store/GetAllStoreLocationbyId/" + storeID
+        CXDataService.sharedInstance.getTheDataFromServer(urlString: urlString) { (responceDict) in
+            self.selectedLocationArray = responceDict.value(forKey: "StoreLocations")  as! NSArray
             self.selectedLocation = (self.selectedLocationArray.firstObject as? NSDictionary)!
+            self.reloadIndex(indexs: [IndexPath(row: 0, section: 0),IndexPath(row: 1, section: 0)])
+            CXDataService.sharedInstance.hideLoader()
             
         }
     }
@@ -85,28 +147,89 @@ class PostAddViewController: UIViewController,UITableViewDelegate,UITableViewDat
         let itemName = self.nameArray[indexPath.row]
         
         if itemName == "Stores" {
-            
+            let tapgestures : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(selectStores(_:)))
+            tapgestures.numberOfTapsRequired = 1
+            cell1?.postAddTextField.placeholder = "Store"
+            cell1?.postAddTextField.addGestureRecognizer(tapgestures)
+            if let name = self.selectedStore.value(forKey: "StoreName") as? String{
+                cell1?.postAddTextField?.text = name
+            }else{
+                cell1?.postAddTextField?.text = ""
+            }
         }else if itemName == "Location"{
             let tapgestures : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(selectLocation(_:)))
             tapgestures.numberOfTapsRequired = 1
             cell1?.postAddTextField.addGestureRecognizer(tapgestures)
             cell1?.postAddTextField.placeholder = "Location"
-            if let name = self.selectionDict["Location"] as? String{
+            if let name = self.selectedLocation.value(forKey: "Location") as? String{
                 cell1?.postAddTextField?.text = name
+            }else{
+                cell1?.postAddTextField?.text = ""
             }
         }else if itemName == "Category"{
             cell1?.postAddTextField.placeholder = "Category"
             let tapgestures : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(selectCategory(_:)))
             tapgestures.numberOfTapsRequired = 1
             cell1?.postAddTextField.addGestureRecognizer(tapgestures)
-        }else if itemName == "Other Title"{
-            cell1?.postAddTextField.placeholder = "Other Title"
+            var catNames = ""
+            for cateDic in self.selectedCategories {
+                let dict = cateDic as? NSDictionary
+                if let locName = dict?.value(forKey: "Name") as? String{
+                    if catNames.isEmpty {
+                        catNames = catNames  + locName
+                        
+                    }else{
+                        catNames = catNames + "," + locName
+                        
+                    }
+                }else{
+                }
+            }
+            cell1?.postAddTextField.text = catNames
+            
+        }else if itemName == "Offer  Title"{
+            cell1?.postAddBtn.isHidden = true
+            cell1?.postAddTextField.placeholder = "Offer  Title"
         }else if itemName == "StartDate"{
+            let tapgestures : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(startDateSelection(_:)))
+            tapgestures.numberOfTapsRequired = 1
             cell1?.postAddTextField.placeholder = "StartDate"
+            
+            if self.startDateStr.isEmpty {
+                cell1?.postAddTextField.text = ""
+                
+            }else{
+                cell1?.postAddTextField.text = self.startDateStr
+                
+            }
+            
+            cell1?.postAddTextField.addGestureRecognizer(tapgestures)
         }else if itemName == "EndDate"{
+            let tapgestures : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(endDateSelection(_:)))
+            tapgestures.numberOfTapsRequired = 1
             cell1?.postAddTextField.placeholder = "EndDate"
+            cell1?.postAddTextField.addGestureRecognizer(tapgestures)
+            
+            if self.endDateStr.isEmpty {
+                cell1?.postAddTextField.text = ""
+            }else{
+                cell1?.postAddTextField.text = self.endDateStr
+            }
+            
         }else if itemName == "UploadImage"{
             cell1?.postAddTextField.placeholder = "UploadImage"
+        }else if itemName == "Description"{
+            //let cell = tableView.dequeueReusableCell(withIdentifier: "PostAddOneTableViewCell", for: indexPath)as? PostAddOneTableViewCell
+            cell1?.postAddTextField.placeholder = "Description"
+            cell1?.postAddBtn.isHidden = true
+        }else if itemName == "Upload"{
+             let cell = tableView.dequeueReusableCell(withIdentifier: "PostAddOneTableViewCell", for: indexPath)as? PostAddOneTableViewCell
+            if let img = self.imag {
+                cell?.addImgView.image = img
+            }
+            cell?.uploadBtn.addTarget(self, action:#selector(addImgeUpload(sender:)), for: .touchUpInside)
+            cell?.selectionStyle = .none
+            return cell1!
         }
         cell1?.selectionStyle = .none
         return cell1!
@@ -122,27 +245,80 @@ class PostAddViewController: UIViewController,UITableViewDelegate,UITableViewDat
          }*/
     }
     
-   
+    
+    func dateToString(date:Date) -> String{
+        
+        let formatter = DateFormatter()
+        // initially set the format based on your datepicker date
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        
+        let myString = formatter.string(from: date)
+        // convert your string to date
+        let yourDate = formatter.date(from: myString)
+        //then again set the date format whhich type of output you need
+        formatter.dateFormat = "EEEE, MMM d, yyyy"
+        // again convert your date to string
+        return formatter.string(from: yourDate!)
+    }
+    
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         return false
     }
     
+    //MARK: Select Stores
     
-    func selectLocation(_ sender: UITapGestureRecognizer){
+    func selectStores(_ sender: UITapGestureRecognizer){
+        //StoreName
         
-       self.showPicker(title: "Select Location", rows: ["Vskp","Sklm","Test"], initialSelection: 0) { (value,index) in
-            self.selectionDict["LocationName"] = value
+        var storeNameDic = [String]()
+        for store in self.selectedStoresArray {
+            let storeDict = store as? NSDictionary
+            storeNameDic.append(storeDict?.value(forKey: "StoreName") as! String)
+        }
+        self.showPicker(title: "Select Store", rows: storeNameDic, initialSelection: 0) { (value,index) in
+            self.selectedStore = self.selectedStoresArray[index] as! NSDictionary
+            self.reloadIndex(indexs: [IndexPath(row: 0, section: 0),IndexPath(row: 1, section: 0)])
+            self.getLocationBasedOnStores()
             CXLog.print(value)
             CXLog.print(index)
         }
+    }
+    
+    func reloadIndex(indexs:[IndexPath]){
+        self.selectedLocation = NSDictionary()
+        self.postAddTableVIew.reloadRows(at: indexs, with: .none)
+    }
+    
+    func selectLocation(_ sender: UITapGestureRecognizer){
         
+        var storeNameDic = [String]()
+        for store in self.selectedLocationArray {
+            let storeDict = store as? NSDictionary
+            if let locName = storeDict?.value(forKey: "Location") as? String{
+                storeNameDic.append(locName)
+            }else{
+                storeNameDic.append("Empty")
+            }
+        }
+        self.showPicker(title: "Select Location", rows: storeNameDic, initialSelection: 0) { (value,index) in
+            self.selectedLocation = self.selectedLocationArray[index] as! NSDictionary
+            self.postAddTableVIew.reloadRows(at: [IndexPath(row: 1, section: 0)], with: .none)
+            CXLog.print(value)
+            CXLog.print(index)
+        }
     }
     
     func selectCategory(_ sender: UITapGestureRecognizer){
         
+        let multiSelect = SHMultipleSelect()
+        multiSelect.delegate = self;
+        multiSelect.rowsCount = self.selectedCategoriesNames.count
+        multiSelect.show()
         
-           }
+    }
+    
+    
     
     func showPicker(title:String,rows:[String],initialSelection:Int,completionPicking:@escaping (_ value:String,_ index:Int)->Void){
         
@@ -156,13 +332,53 @@ class PostAddViewController: UIViewController,UITableViewDelegate,UITableViewDat
         }, origin: self.view)
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 4{
-            return 100
-        }else{
-            return 75
+    //MARK: Date Selection
+    func startDateSelection(_ sender: UITapGestureRecognizer){
+        
+        let selectDate = Date()
+        //let maxDate = Date()
+        let minDate = Date()
+        
+        ActionSheetDatePicker.show(withTitle: "Select Start Date", datePickerMode: .date, selectedDate: selectDate, minimumDate: minDate, maximumDate: nil, doneBlock: { (picker, selectDate, orign) in
+            CXLog.print(selectDate)
+            self.isSelectDate  = true
+            self.startDate = (selectDate as? Date)!
+            self.startDateStr = self.dateToString(date: self.startDate)
+            self.endDateStr = ""
+            self.reloadIndex(indexs: [IndexPath(row: 5, section: 0),IndexPath(row: 6, section: 0)])
             
+            
+        }, cancel: { (picker) in
+            
+        }, origin: self.view)
+    }
+    
+    func endDateSelection(_ sender: UITapGestureRecognizer){
+        
+        if !isSelectDate {
+            return
         }
+        
+        let selectDate = Date()
+        let maxDate = Date()
+        
+        ActionSheetDatePicker.show(withTitle: "Select End Date", datePickerMode: .date, selectedDate: self.startDate, minimumDate: startDate, maximumDate: nil, doneBlock: { (picker, selectDate, orign) in
+            self.endDate = (selectDate as? Date)!
+            self.endDateStr = self.dateToString(date: self.endDate)
+            self.reloadIndex(indexs: [IndexPath(row: 5, section: 0),IndexPath(row: 6, section: 0)])
+            
+        }, cancel: { (picker) in
+            
+        }, origin: self.view)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        let itemName = self.nameArray[indexPath.row]
+        if itemName == "Upload"{
+            return 150
+        }
+        return 50
     }
     
     
@@ -171,7 +387,7 @@ class PostAddViewController: UIViewController,UITableViewDelegate,UITableViewDat
         //yyyy-MM-dd HH:mm:ss.S
         
         let image = UIImage(named: "images")
-       let imageData: NSData = UIImagePNGRepresentation(image!) as! NSData
+        let imageData: NSData = UIImagePNGRepresentation(image!) as! NSData
         
         let mainDict = NSMutableDictionary()
         mainDict["OfferTitle"] = "Diwali special offer"
@@ -182,7 +398,7 @@ class PostAddViewController: UIViewController,UITableViewDelegate,UITableViewDat
         let dict = ["CategoryId":"1"]
         
         /*
-        DealCoreEntity =  {
+         DealCoreEntity =  {
          "OfferTitle": "test",
          "OfferDescription": "test",
          "StartDate": "2017-9-17",
@@ -204,7 +420,7 @@ class PostAddViewController: UIViewController,UITableViewDelegate,UITableViewDat
          api/Deal/Save*/
         let array = [dict]
         mainDict["DealCategories"] = array
-
+        
         let subDict = NSMutableDictionary()
         subDict["StoreLocationId"] = "1"
         subDict["IsActive"] = "true"
@@ -222,19 +438,18 @@ class PostAddViewController: UIViewController,UITableViewDelegate,UITableViewDat
             let errorDict = error?.lastObject as? NSDictionary
             let errorcode = errorDict?.value(forKey: "ErrorCode") as? String
             if errorcode == "0"{
-               
+                
             }else{
                 CXDataService.sharedInstance.showAlert(message: "Something went Wrong!!!", viewController: self)
             }
             
         }
         
-       
+        
         
     }
     
     func constructTheJson(ticketsInput:NSMutableDictionary) -> String{
-        
         var jsonData : Data = Data()
         do {
             jsonData = try JSONSerialization.data(withJSONObject: ticketsInput, options: JSONSerialization.WritingOptions.prettyPrinted)
@@ -246,34 +461,91 @@ class PostAddViewController: UIViewController,UITableViewDelegate,UITableViewDat
         return jsonStringFormat!
     }
     
+    
+    @IBAction func createPostBtnAction(_ sender: UIButton) {
+        
+        
+    }
+    
+    //MARK: Upload Action
+    func addImgeUpload(sender:UIButton){
+        self.imagePickerAction()
+        
+    }
+
+    /*Image Picker Action  */
+    func imagePickerAction(){
+        //Create the AlertController and add Its action like button in Actionsheet
+        let choosePhotosActionSheet: UIAlertController = UIAlertController(title: "Select An Option", message: nil , preferredStyle: .actionSheet)
+        
+        let chooseFromPhotos: UIAlertAction = UIAlertAction(title: "Choose From Photos", style: .default)
+        { action -> Void in
+            //print("choose from photos")
+            let image = UIImagePickerController()
+            image.delegate = self
+            image.sourceType = .photoLibrary
+            image.allowsEditing = false
+            self.present(image, animated: true, completion: nil)
+        }
+        choosePhotosActionSheet.addAction(chooseFromPhotos)
+        
+        let capturePicture: UIAlertAction = UIAlertAction(title: "Capture Image", style: .default)
+        { action -> Void in
+            //print("camera shot")
+            let picker = UIImagePickerController()
+            picker.allowsEditing = false
+            picker.delegate = self
+            picker.sourceType = .camera
+            picker.cameraCaptureMode = .photo
+            picker.modalPresentationStyle = .fullScreen
+            self.present(picker, animated: true, completion: nil)
+        }
+        choosePhotosActionSheet.addAction(capturePicture)
+        
+        let noImage: UIAlertAction = UIAlertAction(title: "Remove Image", style: .default)
+        { action -> Void in
+            //self.editImageView.image = UIImage(named: "placeholder")
+            UserDefaults.standard.set(nil, forKey: "IMG_DATA")
+        }
+        // choosePhotosActionSheet.addAction(noImage)
+        
+        let cancel: UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel)
+        { action -> Void in
+            print("Delete")
+            //self.saveButton.isHidden = true
+        }
+        choosePhotosActionSheet.addAction(cancel)
+        
+        self.present(choosePhotosActionSheet, animated: true, completion: nil)
+    }
+    
+    /* image Picker Controller*/
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        var image = UIImage()
+        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            image = pickedImage as UIImage
+            self.imag = image
+            self.reloadIndex(indexs: [IndexPath(row: 7, section: 0)])
+
+        }
+        self.dismiss(animated: true, completion: nil)
+    }
 }
 
-extension PostAddViewController: kDropDownListViewDelegate{
-    /*
-     - (void)DropDownListView:(DropDownListView *)dropdownListView didSelectedIndex:(NSInteger)anIndex;
-     - (void)DropDownListView:(DropDownListView *)dropdownListView Datalist:(NSMutableArray*)ArryData;
-     - (void)DropDownListViewDidCancel;
-     */
+extension PostAddViewController: SHMultipleSelectDelegate{
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    func multipleSelectView(_ multipleSelectView: SHMultipleSelect!, clickedBtnAt clickedBtnIndex: Int, withSelectedIndexPaths selectedIndexPaths: [Any]!) {
         
+        for index in (selectedIndexPaths as? [IndexPath])!{
+            self.selectedCategories.add(self.categoriesArray[index.row])
+        }
+        self.postAddTableVIew.reloadRows(at: [IndexPath(row: 2, section: 0)], with: .none)
+
+        CXLog.print(self.selectedCategories)
     }
     
-    
-    func dropDownListViewDidCancel() {
-        
+    func multipleSelectView(_ multipleSelectView: SHMultipleSelect!, titleForRowAt indexPath: IndexPath!) -> String! {
+        return self.selectedCategoriesNames[indexPath.row]
     }
-    
-    func dropDownListView(_ dropdownListView: DropDownListView!, didSelectedIndex anIndex: Int) {
-        
-    }
-    
-    func dropDownListView(_ dropdownListView: DropDownListView!, datalist ArryData: NSMutableArray!) {
-        
-    }
-    
-    
-    
- 
-    
 }
+

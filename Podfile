@@ -14,7 +14,6 @@ pod 'ActionSheetPicker-3.0'
 pod 'RealmSwift'
 pod 'SwiftyJSON'
 pod 'ACFloatingTextfield-Swift', '~> 1.5'
-
   target 'Walk2DealsTests' do
     inherit! :search_paths
     # Pods for testing

@@ -250,10 +250,8 @@ class UserProfileViewController: UIViewController,UITableViewDataSource,UITableV
     
     
     func getUserProfileData(){
-        
        // http://api.walk2deals.com/api/User/GetById/18
     
-        
         CXDataService.sharedInstance.getTheDataFromServer(urlString: "http://api.walk2deals.com/api/User/GetById/18", completion: { (responceDic) in
             CXLog.print(responceDic)
             let responceDic = responceDic

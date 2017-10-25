@@ -758,7 +758,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JOY-n1-e5d">
-                                <rect key="frame" x="0.0" y="44" width="320" height="474"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="517"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="QKL-Uw-swT" id="1XK-e1-Kzw"/>
@@ -775,6 +775,9 @@
                                         <state key="normal" title="CREATE">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="createPostBtnAction:" destination="QKL-Uw-swT" eventType="touchUpInside" id="2Q7-aR-hVW"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yL7-Y1-ULw">
                                         <rect key="frame" x="160" y="0.0" width="160" height="50"/>
@@ -794,11 +797,11 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="POM-Xy-fOh" secondAttribute="trailing" id="Gph-vd-WLO"/>
                             <constraint firstItem="u5I-xE-Hfd" firstAttribute="top" secondItem="POM-Xy-fOh" secondAttribute="bottom" id="TG8-DV-wyQ"/>
+                            <constraint firstItem="POM-Xy-fOh" firstAttribute="top" secondItem="JOY-n1-e5d" secondAttribute="bottom" constant="1" id="daL-HU-MzP"/>
                             <constraint firstItem="POM-Xy-fOh" firstAttribute="leading" secondItem="Bdx-cd-A47" secondAttribute="leading" id="eLv-u2-Nn5"/>
-                            <constraint firstAttribute="trailing" secondItem="JOY-n1-e5d" secondAttribute="trailing" id="kud-qx-7dX"/>
-                            <constraint firstItem="POM-Xy-fOh" firstAttribute="top" secondItem="JOY-n1-e5d" secondAttribute="bottom" id="ldf-mR-e9g"/>
-                            <constraint firstItem="JOY-n1-e5d" firstAttribute="top" secondItem="Y0c-yS-Oq6" secondAttribute="bottom" constant="24" id="pfX-BQ-2eo"/>
-                            <constraint firstItem="JOY-n1-e5d" firstAttribute="leading" secondItem="Bdx-cd-A47" secondAttribute="leading" id="vTV-Fw-NtL"/>
+                            <constraint firstItem="JOY-n1-e5d" firstAttribute="top" secondItem="Bdx-cd-A47" secondAttribute="top" id="f9P-M7-fha"/>
+                            <constraint firstAttribute="trailing" secondItem="JOY-n1-e5d" secondAttribute="trailing" id="hzG-8U-utC"/>
+                            <constraint firstItem="JOY-n1-e5d" firstAttribute="leading" secondItem="Bdx-cd-A47" secondAttribute="leading" id="vxn-oy-dUY"/>
                         </constraints>
                     </view>
                     <connections>
@@ -807,7 +810,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bki-mU-9f6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="29083" y="1201"/>
+            <point key="canvasLocation" x="29081.25" y="1200"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="MDL-vV-FvM">
@@ -940,7 +943,7 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="orW-W8-GJN" id="jRB-sB-QJC">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="119.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RPa-7O-gVA">

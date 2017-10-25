@@ -10,7 +10,8 @@ import UIKit
 
 class PostAddOneTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var postAddTextView: UITextView!
+    @IBOutlet weak var addImgView: UIImageView!
+    @IBOutlet weak var uploadBtn: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
