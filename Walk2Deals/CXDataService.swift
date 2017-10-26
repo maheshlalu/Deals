@@ -317,7 +317,7 @@ open class CXDataService: NSObject {
         
         Alamofire.upload(multipartFormData: { multipartFormData in
             
-            multipartFormData.append(imageData, withName: "imageKey",fileName: "file.jpg", mimeType: "image/jpg")
+            multipartFormData.append(imageData, withName: imageKey,fileName: "file.jpg", mimeType: "image/jpg")
             
             multipartFormData.append(self.constructTheJson(ticketsInput: mainDict).data(using: String.Encoding.utf8)!, withName: jsonKeyName )
         },

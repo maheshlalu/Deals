@@ -9,6 +9,7 @@
 import UIKit
 import ActionSheetPicker_3_0
 import SwiftyJSON
+import Alamofire
 class PostAddViewController: UIViewController,UITableViewDelegate,UITableViewDataSource ,UIImagePickerControllerDelegate,UINavigationControllerDelegate{
     
     
@@ -246,20 +247,7 @@ class PostAddViewController: UIViewController,UITableViewDelegate,UITableViewDat
     }
     
     
-    func dateToString(date:Date) -> String{
-        
-        let formatter = DateFormatter()
-        // initially set the format based on your datepicker date
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        
-        let myString = formatter.string(from: date)
-        // convert your string to date
-        let yourDate = formatter.date(from: myString)
-        //then again set the date format whhich type of output you need
-        formatter.dateFormat = "EEEE, MMM d, yyyy"
-        // again convert your date to string
-        return formatter.string(from: yourDate!)
-    }
+
     
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
@@ -343,7 +331,7 @@ class PostAddViewController: UIViewController,UITableViewDelegate,UITableViewDat
             CXLog.print(selectDate)
             self.isSelectDate  = true
             self.startDate = (selectDate as? Date)!
-            self.startDateStr = self.dateToString(date: self.startDate)
+            self.startDateStr = self.dateToString(date: self.startDate, isDisplay: true)
             self.endDateStr = ""
             self.reloadIndex(indexs: [IndexPath(row: 5, section: 0),IndexPath(row: 6, section: 0)])
             
@@ -364,7 +352,8 @@ class PostAddViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         ActionSheetDatePicker.show(withTitle: "Select End Date", datePickerMode: .date, selectedDate: self.startDate, minimumDate: startDate, maximumDate: nil, doneBlock: { (picker, selectDate, orign) in
             self.endDate = (selectDate as? Date)!
-            self.endDateStr = self.dateToString(date: self.endDate)
+            self.startDateStr = self.dateToString(date: self.endDate, isDisplay: true)
+
             self.reloadIndex(indexs: [IndexPath(row: 5, section: 0),IndexPath(row: 6, section: 0)])
             
         }, cancel: { (picker) in
@@ -381,23 +370,132 @@ class PostAddViewController: UIViewController,UITableViewDelegate,UITableViewDat
         return 50
     }
     
+    func dateToString(date:Date,isDisplay:Bool) -> String{
+        
+        let formatter = DateFormatter()
+        // initially set the format based on your datepicker date
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        
+        let myString = formatter.string(from: date)
+        // convert your string to date
+        let yourDate = formatter.date(from: myString)
+        //then again set the date format whhich type of output you need
+        if isDisplay {
+            formatter.dateFormat = "EEEE, MMM d, yyyy"
+
+        }else{
+            formatter.dateFormat = "yyyy-MM-dd"
+        }
+        // again convert your date to string
+        return formatter.string(from: yourDate!)
+    }
     
+    func constructTheJson(ticketsInput:NSMutableDictionary) -> String{
+        var jsonData : Data = Data()
+        do {
+            jsonData = try JSONSerialization.data(withJSONObject: ticketsInput, options: JSONSerialization.WritingOptions.prettyPrinted)
+            // here "jsonData" is the dictionary encoded in JSON data
+        } catch let error as NSError {
+        }
+        let jsonStringFormat = String(data: jsonData, encoding: String.Encoding.utf8)
+        
+        return jsonStringFormat!
+    }
+    
+    
+    @IBAction func createPostBtnAction(_ sender: UIButton) {
+        
+        self.postAddAction()
+    }
+    
+    func getTextFiled(row:Int,section:Int) ->PostAddTableViewCell {
+        
+        let indexPath = IndexPath(row: row, section: 0)
+        let cell: PostAddTableViewCell = self.postAddTableVIew.cellForRow(at: indexPath) as! PostAddTableViewCell
+        return cell
+    }
+    
+    func validations(){
+        
+        
+    }
+    //    let nameArray = ["Stores","Location","Category","Offer  Title","Description","StartDate","EndDate","Upload"]
+
     func postAddAction(){
         
         //yyyy-MM-dd HH:mm:ss.S
         
-        let image = UIImage(named: "images")
-        let imageData: NSData = UIImagePNGRepresentation(image!) as! NSData
+        
+        let offerTitle = self.getTextFiled(row: 3, section: 0).postAddTextField.text
+        let offerDescription = self.getTextFiled(row: 4, section: 0).postAddTextField.text
+    
+        if (offerTitle?.isEmpty)! {
+            CXDataService.sharedInstance.showAlert(message: "Pleae Enter Offer Title", viewController: self)
+            return
+        }
+        
+        if (offerDescription?.isEmpty)! {
+            CXDataService.sharedInstance.showAlert(message: "Pleae Enter Offer Description", viewController: self)
+            return
+        }
+        
+        if self.startDateStr.isEmpty {
+            CXDataService.sharedInstance.showAlert(message: "Pleae Select Start Date", viewController: self)
+            return
+        }
+
+        if self.endDateStr.isEmpty {
+            CXDataService.sharedInstance.showAlert(message: "Pleae Select End Date", viewController: self)
+            return
+        }
+        
+        if self.imag == nil{
+            CXDataService.sharedInstance.showAlert(message: "Pleae Select Post Image", viewController: self)
+            return
+        }
+        let imageData: Data = UIImagePNGRepresentation(self.imag) as! Data
+
+        
         
         let mainDict = NSMutableDictionary()
-        mainDict["OfferTitle"] = "Diwali special offer"
-        mainDict["OfferDescription"] = "reste87fghfgh9sdfsdfrt"
-        mainDict["StartDate"] = "2017-10-15T04:25:25.6619455-04:00"
-        mainDict["EndDate"] = "2017-20-15T04:25:25.6619455-04:00"
-        mainDict["UserId"] = "2"
-        let dict = ["CategoryId":"1"]
+        mainDict["OfferTitle"] = offerTitle
+        mainDict["OfferDescription"] = offerDescription
+        mainDict["StartDate"] = self.dateToString(date: self.startDate, isDisplay: false)
+        mainDict["EndDate"] = self.dateToString(date: self.endDate, isDisplay: false)
+        mainDict["UserId"] = CXDataSaveManager.sharedInstance.getTheUserProfileFromDB().userId
+        
+        var array = NSMutableArray()
+        for catDict in self.selectedCategories {
+            let dic = catDict as? NSDictionary
+            array.add(["DealCategories":dic?.value(forKey: "Id")])
+        }
+        
+
+        //let array = [dict]
+        mainDict["DealCategories"] = array
+        
+        let subDict = NSMutableDictionary()
+        subDict["StoreLocationId"] = self.selectedLocation.value(forKey: "Id")
+        subDict["IsActive"] = "true"
+        let arr = [subDict]
+        mainDict["DealLocations"] = arr
+        
+        print(mainDict)
+        
+        //let inputDic = ["DealCoreEntity":self.constructTheJson(ticketsInput: mainDict),"2":""]
+        
+        CXDataService.sharedInstance.updateTheProfileAndAddThePostAdd(mainDict: mainDict, jsonKeyName: "DealCoreEntity", imageData: imageData as Data, imageKey: self.selectedStore.value(forKey: "Id") as! String, urlString: "http://api.walk2deals.com/api/Deal/Save") { (responce) in
+            
+        CXLog.print(responce)
+        }
+
+        
+        
         
         /*
+         
+       yyyy-MM-dd
+         
          DealCoreEntity =  {
          "OfferTitle": "test",
          "OfferDescription": "test",
@@ -418,54 +516,9 @@ class PostAddViewController: UIViewController,UITableViewDelegate,UITableViewDat
          }
          2= "file"
          api/Deal/Save*/
-        let array = [dict]
-        mainDict["DealCategories"] = array
-        
-        let subDict = NSMutableDictionary()
-        subDict["StoreLocationId"] = "1"
-        subDict["IsActive"] = "true"
-        let arr = [subDict]
-        mainDict["DealLocations"] = arr
-        
-        print(mainDict)
-        
-        let inputDic = ["DealCoreEntity":self.constructTheJson(ticketsInput: mainDict),"2":""]
-        
-        CXDataService.sharedInstance.postTheDataToServer(urlString: CXAppConfig.sharedInstance.getBaseUrl()+"api/Deal/Save", parameters: inputDic as! [String : String]) { (responceDic) in
-            CXLog.print("responce dict \(responceDic)")
-            
-            let error = responceDic.value(forKey: "Errors") as? NSArray
-            let errorDict = error?.lastObject as? NSDictionary
-            let errorcode = errorDict?.value(forKey: "ErrorCode") as? String
-            if errorcode == "0"{
-                
-            }else{
-                CXDataService.sharedInstance.showAlert(message: "Something went Wrong!!!", viewController: self)
-            }
-            
-        }
-        
-        
         
     }
-    
-    func constructTheJson(ticketsInput:NSMutableDictionary) -> String{
-        var jsonData : Data = Data()
-        do {
-            jsonData = try JSONSerialization.data(withJSONObject: ticketsInput, options: JSONSerialization.WritingOptions.prettyPrinted)
-            // here "jsonData" is the dictionary encoded in JSON data
-        } catch let error as NSError {
-        }
-        let jsonStringFormat = String(data: jsonData, encoding: String.Encoding.utf8)
-        
-        return jsonStringFormat!
-    }
-    
-    
-    @IBAction func createPostBtnAction(_ sender: UIButton) {
-        
-        
-    }
+
     
     //MARK: Upload Action
     func addImgeUpload(sender:UIButton){
