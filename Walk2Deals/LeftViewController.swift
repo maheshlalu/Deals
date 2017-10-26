@@ -27,6 +27,14 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.userImage.layer.cornerRadius = 50
+        self.userImage.layer.borderWidth = 2
+        self.userImage.layer.masksToBounds = true
+    if let img =  CXDataSaveManager.sharedInstance.getTheUserProfileFromDB().image as? String{
+            let url = URL(string: CXDataSaveManager.sharedInstance.getTheUserProfileFromDB().image)
+            self.userImage.setImageWith(url, usingActivityIndicatorStyle: .white)
+        }
+        
         self.navigationController?.isNavigationBarHidden = true
     }
     override func didReceiveMemoryWarning() {
@@ -81,6 +89,7 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
         }else if itemName == "Near By Stores"{
             let nearByVc = storyBoard.instantiateViewController(withIdentifier: "NearByDealsViewController") as! NearByDealsViewController
             let navCntl = UINavigationController(rootViewController: nearByVc)
+            navCntl.title = "Near By Stores"
             revealController.pushFrontViewController(navCntl, animated: true)
         }else if itemName == "Sign Out"{
             self.showAlert("Are you sure want to logout?", status: 0)
@@ -88,11 +97,11 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
         }else if itemName == "Settings"{
             let settingVc = storyBoard.instantiateViewController(withIdentifier: "SettingsViewController") as! SettingsViewController
             let navCntl = UINavigationController(rootViewController: settingVc)
-            revealController.pushFrontViewController(navCntl, animated: true)
-        }else if itemName == "Settings"{
-            let settingVc = storyBoard.instantiateViewController(withIdentifier: "SettingsViewController") as! SettingsViewController
-            let navCntl = UINavigationController(rootViewController: settingVc)
-            revealController.pushFrontViewController(navCntl, animated: true)
+            navCntl.title = "Settings"
+            //revealController.pushFrontViewController(navCntl, animated: true)
+            self.present(navCntl, animated: true, completion: { 
+                
+            })
         }
 
         

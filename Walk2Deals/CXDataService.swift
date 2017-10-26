@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 import MBProgressHUD
-
+import SwiftyJSON
 private var _SingletonSharedInstance:CXDataService! = CXDataService()
 
 open class CXDataService: NSObject {
@@ -441,6 +441,22 @@ open class CXDataService: NSObject {
         let jsonStringFormat = String(data: jsonData, encoding: String.Encoding.utf8)
         
         return jsonStringFormat!
+    }
+    func getUserProfileData(){
+        // http://api.walk2deals.com/api/User/GetById/18
+        
+        CXDataService.sharedInstance.getTheDataFromServer(urlString: CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getUserDataUrl() + CXDataSaveManager.sharedInstance.getTheUserProfileFromDB().userId, completion: { (responceDic) in
+            CXLog.print(responceDic)
+            let responceDic = responceDic
+            //Errors
+            let error = responceDic.value(forKey: "Errors") as? NSArray
+            let errorDict = error?.lastObject as? NSDictionary
+            let errorcode = errorDict?.value(forKey: "ErrorCode") as? String
+            if errorcode == "0"{
+                CXDataSaveManager.sharedInstance.saveTheUserDetailsInDB(userDataDic: JSON(responceDic))
+            }
+        })
+        
     }
 }
 

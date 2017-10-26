@@ -39,6 +39,11 @@ class UserProfileViewController: UIViewController,UITableViewDataSource,UITableV
         self.userImageView.layer.masksToBounds = true
         
         self.setUpBackButton()
+        
+        if let img =  CXDataSaveManager.sharedInstance.getTheUserProfileFromDB().image as? String{
+            let url = URL(string: CXDataSaveManager.sharedInstance.getTheUserProfileFromDB().image)
+            self.userImageView.setImageWith(url, usingActivityIndicatorStyle: .white)
+        }
         // Do any additional setup after loading the view.
     }
     
@@ -122,7 +127,6 @@ class UserProfileViewController: UIViewController,UITableViewDataSource,UITableV
             CXDataService.sharedInstance.showAlert(message: "Please Enter Valid adharNumber", viewController: self)
             
         }else{
-            
             /*
              {"FirstName":"asula","LastName":"ausula","MiddleName":"","EmailAddress":"kushalkanna@gmail.com","AdharNumber":"37485734759373975","UserId":18,"Id":18,"SubscribeNewsletter":true,"CreatedById":18,"ModifiedById":18}
              */
@@ -135,6 +139,7 @@ class UserProfileViewController: UIViewController,UITableViewDataSource,UITableV
             CXDataService.sharedInstance.showLoader(view: self.view, message: "Updating...")
             CXDataService.sharedInstance.updateTheProfileAndAddThePostAdd(mainDict: profileDict, jsonKeyName: "UserCoreEntity", imageData: self.profileImageData as Data, imageKey: "ProfileImage",urlString:"http://api.walk2deals.com/api/User/UpdateProfile", completion: { (responce) in
                 CXDataService.sharedInstance.hideLoader()
+                CXDataService.sharedInstance.getUserProfileData()
                 self.view.makeToast(message: "Profile Updated Successfully...")
             })
             
@@ -249,22 +254,7 @@ class UserProfileViewController: UIViewController,UITableViewDataSource,UITableV
     }
     
     
-    func getUserProfileData(){
-       // http://api.walk2deals.com/api/User/GetById/18
-    
-        CXDataService.sharedInstance.getTheDataFromServer(urlString: "http://api.walk2deals.com/api/User/GetById/18", completion: { (responceDic) in
-            CXLog.print(responceDic)
-            let responceDic = responceDic
-            //Errors
-            let error = responceDic.value(forKey: "Errors") as? NSArray
-            let errorDict = error?.lastObject as? NSDictionary
-            let errorcode = errorDict?.value(forKey: "ErrorCode") as? String
-            if errorcode == "0"{
-                CXDataSaveManager.sharedInstance.saveTheUserDetailsInDB(userDataDic: JSON(responceDic))
-            }
-        })
-
-    }
+  
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60

@@ -37,6 +37,11 @@ class CXDataSaveManager: NSObject  {
                 profile.mobile = userDataDic["MobileNumber"].stringValue
                 profile.image = userDataDic["ProfileImagePath"].stringValue
                 profile.aDharNumbers = userDataDic["AdharNumber"].stringValue
+                
+                if let profilePath = userDataDic["ProfileImagePath"].dictionary {
+                    profile.image = (profilePath["CDNFilePath"]?.string)!
+                }
+                
                 relamInstance.add(profile)
             })
         }else{
@@ -50,9 +55,21 @@ class CXDataSaveManager: NSObject  {
             profile?.mobile = userDataDic["MobileNumber"].stringValue
             profile?.image = userDataDic["ProfileImagePath"].stringValue
             profile?.aDharNumbers = userDataDic["AdharNumber"].stringValue
+                if let profilePath = userDataDic["ProfileImagePath"].dictionary {
+                    profile?.image = (profilePath["CDNFilePath"]?.string)!
+                }
+                
             })
 
         }
+        
+        /*
+         ProfileImagePath =     {
+         CDNFilePath = "http://89c864a87c3ad18dae47-7bbeedb9edb88b42dee08f7ffab566a2.r82.cf5.rackcdn.com//W2D/Dev/User/10027.jpg";
+         FileContent = "<null>";
+         FileName = "<null>";
+         };
+         */
         
     }
     

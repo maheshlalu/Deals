@@ -14,7 +14,7 @@ class PostAddViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
     
     @IBOutlet weak var uploadImgview: UIImageView!
-    let nameArray = ["Stores","Location","Category","Offer  Title","Description","StartDate","EndDate","Upload"]
+    let nameArray = ["Stores","Location","Category","Offer  Title","Description","StartDate","EndDate"]//"Upload"
     
     var selectedStore = NSDictionary()
     var selectedLocation = NSDictionary()
@@ -230,20 +230,11 @@ class PostAddViewController: UIViewController,UITableViewDelegate,UITableViewDat
             }
             cell?.uploadBtn.addTarget(self, action:#selector(addImgeUpload(sender:)), for: .touchUpInside)
             cell?.selectionStyle = .none
-            return cell1!
+            return cell!
         }
         cell1?.selectionStyle = .none
         return cell1!
-        
-        /*
-         else if indexPath.row == 1{
-         
-         let tapgestures : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(selectLocation(_:)))
-         tapgestures.numberOfTapsRequired = 1
-         cell1?.postAddTextField.addGestureRecognizer(tapgestures)
-         
-         cell1?.postAddTextField.placeholder = "Storename"
-         }*/
+
     }
     
     
@@ -274,7 +265,7 @@ class PostAddViewController: UIViewController,UITableViewDelegate,UITableViewDat
     }
     
     func reloadIndex(indexs:[IndexPath]){
-        self.selectedLocation = NSDictionary()
+        //self.selectedLocation = NSDictionary()
         self.postAddTableVIew.reloadRows(at: indexs, with: .none)
     }
     
@@ -352,7 +343,7 @@ class PostAddViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         ActionSheetDatePicker.show(withTitle: "Select End Date", datePickerMode: .date, selectedDate: self.startDate, minimumDate: startDate, maximumDate: nil, doneBlock: { (picker, selectDate, orign) in
             self.endDate = (selectDate as? Date)!
-            self.startDateStr = self.dateToString(date: self.endDate, isDisplay: true)
+            self.endDateStr = self.dateToString(date: self.endDate, isDisplay: true)
 
             self.reloadIndex(indexs: [IndexPath(row: 5, section: 0),IndexPath(row: 6, section: 0)])
             
@@ -420,6 +411,9 @@ class PostAddViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
     }
     //    let nameArray = ["Stores","Location","Category","Offer  Title","Description","StartDate","EndDate","Upload"]
+    @IBAction func poadTapAction(_ sender: UITapGestureRecognizer) {
+        self.imagePickerAction()
+    }
 
     func postAddAction(){
         
@@ -449,11 +443,14 @@ class PostAddViewController: UIViewController,UITableViewDelegate,UITableViewDat
             return
         }
         
-        if self.imag == nil{
+
+        
+        
+        if self.uploadImgview.image == nil {
             CXDataService.sharedInstance.showAlert(message: "Pleae Select Post Image", viewController: self)
-            return
+return
         }
-        let imageData: Data = UIImagePNGRepresentation(self.imag) as! Data
+        let imageData: Data = UIImagePNGRepresentation(self.uploadImgview.image!) as! Data
 
         
         
@@ -475,7 +472,8 @@ class PostAddViewController: UIViewController,UITableViewDelegate,UITableViewDat
         mainDict["DealCategories"] = array
         
         let subDict = NSMutableDictionary()
-        subDict["StoreLocationId"] = self.selectedLocation.value(forKey: "Id")
+        print(self.selectedLocation)
+        subDict["StoreLocationId"] = CXAppConfig.resultString(self.selectedLocation.value(forKey: "Id") as AnyObject)
         subDict["IsActive"] = "true"
         let arr = [subDict]
         mainDict["DealLocations"] = arr
@@ -484,14 +482,15 @@ class PostAddViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         //let inputDic = ["DealCoreEntity":self.constructTheJson(ticketsInput: mainDict),"2":""]
         
-        CXDataService.sharedInstance.updateTheProfileAndAddThePostAdd(mainDict: mainDict, jsonKeyName: "DealCoreEntity", imageData: imageData as Data, imageKey: self.selectedStore.value(forKey: "Id") as! String, urlString: "http://api.walk2deals.com/api/Deal/Save") { (responce) in
-            
-        CXLog.print(responce)
+        CXDataService.sharedInstance.showLoader(view: self.view, message: "Uploading...")
+        CXDataService.sharedInstance.updateTheProfileAndAddThePostAdd(mainDict: mainDict, jsonKeyName: "DealCoreEntity", imageData: imageData as Data, imageKey: CXAppConfig.resultString(self.selectedStore.value(forKey: "Id") as AnyObject), urlString: "http://api.walk2deals.com/api/Deal/Save") { (responce) in
+            CXDataService.sharedInstance.hideLoader()
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reloadData"), object: nil)
+            self.view.makeToast(message: "Uploaded Successfully")
+            self.backAction(sender: UIButton())
+            CXLog.print(responce)
         }
-
-        
-        
-        
+ 
         /*
          
        yyyy-MM-dd
@@ -577,9 +576,12 @@ class PostAddViewController: UIViewController,UITableViewDelegate,UITableViewDat
         var image = UIImage()
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             image = pickedImage as UIImage
-            self.imag = image
-            self.reloadIndex(indexs: [IndexPath(row: 7, section: 0)])
-
+            self.uploadImgview.image = image
+           // self.reloadIndex(indexs: [IndexPath(row: 7, section: 0)])
+            //let indexPath = IndexPath(row: 7, section: 0)
+            //let cell: PostAddOneTableViewCell = self.postAddTableVIew.cellForRow(at: indexPath) as! PostAddOneTableViewCell
+           // cell.addImgView.image = image
+            //PostAddOneTableViewCell
         }
         self.dismiss(animated: true, completion: nil)
     }

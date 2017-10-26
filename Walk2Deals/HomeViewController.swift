@@ -31,6 +31,16 @@ class HomeViewController: UIViewController {
         // Do any additional setup after loading the view.
         self.addBarButtonItems()
         self.designLeftBarButtonITems()
+        self.notificationRegister()
+    }
+    
+    func notificationRegister(){
+        NotificationCenter.default.addObserver(self, selector: #selector(HomeViewController.reloadHomeFeed), name: NSNotification.Name(rawValue: "reloadData"), object: nil)
+
+    }
+    
+    func reloadHomeFeed(){
+        self.getDeails()
     }
     
     //MARK: Right Bar button

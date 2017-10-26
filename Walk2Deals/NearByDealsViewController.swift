@@ -17,8 +17,13 @@ class NearByDealsViewController: UIViewController,MKMapViewDelegate {
     var isGetNearFeeds = false
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+  
+        self.mapviewPlaces.delegate = self
+
         self.setUpSideMenu()
         self.getDeails()
+    
         // Do any additional setup after loading the view.
     }
 
@@ -66,13 +71,20 @@ class NearByDealsViewController: UIViewController,MKMapViewDelegate {
             let dict = data as? NSDictionary
             let center = CLLocationCoordinate2D(latitude: (dict?.value(forKey: "Latitude")! as AnyObject).doubleValue!, longitude: (dict?.value(forKey: "Longitude")! as AnyObject).doubleValue!)
             let point = StarbucksAnnotation(coordinate: center)
-           let locations = dict?.value(forKey: "DealLocations") as! NSArray
+            
+            let span = MKCoordinateSpanMake(0.075, 0.075)
+            let region = MKCoordinateRegion(center: center, span: span)
+            mapviewPlaces.setRegion(region, animated: true)
+            
+            
+            if let locations = dict?.value(forKey: "DealLocations") as? NSArray{
             if locations.count != 0 {
                 let dealLocation =  locations.lastObject as? NSDictionary
                  point.address = dealLocation?.value(forKey: "StoreLocationAddress") as? String
                 //StoreLocationAddress
                 //Latitude
                 //Longitude
+            }
             }
           //  point.address = CXAppConfig.sharedInstance.getTheDataInDictionaryFromKey(sourceDic: dict!, sourceKey: "formatted_address")
              if let dealID = (dict as AnyObject).value(forKey: "Id") as? Int{
