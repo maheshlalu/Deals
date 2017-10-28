@@ -17,10 +17,8 @@ class NearByDealsViewController: UIViewController,MKMapViewDelegate {
     var isGetNearFeeds = false
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-  
         self.mapviewPlaces.delegate = self
-
+        self.title = "Near By Stores"
         self.setUpSideMenu()
         self.getDeails()
     

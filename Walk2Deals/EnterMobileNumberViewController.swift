@@ -15,9 +15,8 @@ class EnterMobileNumberViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var lineView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         enterNumberImage.image = UIImage(named: "enter-mobile-no")
-
+    
         // Do any additional setup after loading the view.
     }
 
@@ -120,9 +119,6 @@ class EnterMobileNumberViewController: UIViewController, UITextFieldDelegate {
             CXDataService.sharedInstance.showAlert(message: "Please Enter Valid Phone Number", viewController: self)
         }
     }
-    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-       textField.resignFirstResponder()
-        return true
-    }
+    
 
 }

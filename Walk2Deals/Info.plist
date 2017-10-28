@@ -31,8 +31,6 @@
 	<string>Your location is used to get NearbyOffers.</string>
 	<key>NSLocationUsageDescription</key>
 	<string> $(PRODUCT_NAME) To get latitude and longitude of the current location for searching local restaurants.</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Your location is used to get NearbyOffers.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>This app requires access to the photo library.</string>
 	<key>UIAppFonts</key>
@@ -54,6 +52,10 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>This app requires access your location</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>This app requires access your location</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

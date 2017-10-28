@@ -494,4 +494,19 @@ extension CXDataService{
 
     }
     
+    func faveButtonAction(inputDict:[String:String]){
+        CXDataService.sharedInstance.postTheDataToServer(urlString: CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getSaveFavouriteUrl(), parameters: inputDict) { (responceDic) in
+            CXLog.print("responce dict \(responceDic)")
+            let error =  responceDic.value(forKey: "Errors") as? NSArray
+            let errorDict = error?.lastObject as? NSDictionary
+            let errorcode = errorDict?.value(forKey: "ErrorCode") as? String
+            if errorcode == "0"{
+                //let deals =  responceDic.value(forKey: "Deals") as? NSArray
+                // self.dealsArray = NSMutableArray(array: deals!)
+            }else{
+               // CXDataService.sharedInstance.showAlert(message: "Something went Wrong!!!", viewController: self)
+            }
+        }
+    }
+    
 }

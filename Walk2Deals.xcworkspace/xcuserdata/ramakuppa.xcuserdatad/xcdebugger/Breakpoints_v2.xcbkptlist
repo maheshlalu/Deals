@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Walk2Deals/EnterMobileNumberViewController.swift"
-            timestampString = "527945324.388616"
+            timestampString = "530826640.833127"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "45"
@@ -74,7 +74,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Walk2Deals/EnterMobileNumberViewController.swift"
-            timestampString = "529053007.094329"
+            timestampString = "530826640.833395"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "51"
@@ -90,7 +90,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Walk2Deals/EnterMobileNumberViewController.swift"
-            timestampString = "529053725.348454"
+            timestampString = "530826640.833472"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "62"
@@ -106,7 +106,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Walk2Deals/EnterMobileNumberViewController.swift"
-            timestampString = "529053654.068708"
+            timestampString = "530826640.83354"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "55"
@@ -186,11 +186,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Walk2Deals/DealsDetailsViewController.swift"
-            timestampString = "529771999.096086"
+            timestampString = "530826640.833707"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
             landmarkName = "populatedTheData()"
             landmarkType = "7">
          </BreakpointContent>
@@ -294,31 +294,31 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Walk2Deals.WriteReviewViewController.submitReviewAction (__ObjC.UIButton) -&gt; ()"
+                  symbolName = "Walk2Deals.WriteReviewViewController.submitReviewAction(__ObjC.UIButton) -&gt; ()"
                   moduleName = "Walk2Deals"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/GitProject/Deals/Walk2Deals/WriteReviewViewController.swift"
-                  timestampString = "530736969.476432"
+                  timestampString = "530818951.383238"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "56"
                   endingLineNumber = "56"
-                  offsetFromSymbolStart = "1722">
+                  offsetFromSymbolStart = "1760">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Walk2Deals.WriteReviewViewController.(submitReviewAction (__ObjC.UIButton) -&gt; ()).(closure #1)"
+                  symbolName = "closure #1 (__ObjC.NSDictionary) -&gt; () in Walk2Deals.WriteReviewViewController.submitReviewAction(__ObjC.UIButton) -&gt; ()"
                   moduleName = "Walk2Deals"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/GitProject/Deals/Walk2Deals/WriteReviewViewController.swift"
-                  timestampString = "530736969.478604"
+                  timestampString = "530818951.385465"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "57"
                   endingLineNumber = "57"
-                  offsetFromSymbolStart = "31">
+                  offsetFromSymbolStart = "24">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -362,11 +362,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Walk2Deals/LeftViewController.swift"
-            timestampString = "530734199.588595"
+            timestampString = "530817183.411574"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
             landmarkName = "tableView(_:didSelectRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -406,31 +406,31 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Walk2Deals.LoginViewController.sendPasswordToEmail (emailStr : Swift.String) -&gt; ()"
+                  symbolName = "Walk2Deals.LoginViewController.sendPasswordToEmail(emailStr: Swift.String) -&gt; ()"
                   moduleName = "Walk2Deals"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/GitProject/Deals/Walk2Deals/LoginViewController.swift"
-                  timestampString = "530736969.501469"
+                  timestampString = "530818951.411113"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "38"
                   endingLineNumber = "38"
-                  offsetFromSymbolStart = "996">
+                  offsetFromSymbolStart = "1052">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Walk2Deals.LoginViewController.(sendPasswordToEmail (emailStr : Swift.String) -&gt; ()).(closure #1)"
+                  symbolName = "closure #1 (__ObjC.NSDictionary) -&gt; () in Walk2Deals.LoginViewController.sendPasswordToEmail(emailStr: Swift.String) -&gt; ()"
                   moduleName = "Walk2Deals"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/GitProject/Deals/Walk2Deals/LoginViewController.swift"
-                  timestampString = "530736969.503525"
+                  timestampString = "530818951.414378"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "39"
                   endingLineNumber = "39"
-                  offsetFromSymbolStart = "31">
+                  offsetFromSymbolStart = "24">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -442,7 +442,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Walk2Deals/CXDataService.swift"
-            timestampString = "530474064.63886"
+            timestampString = "530826640.834091"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "352"
@@ -458,7 +458,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Walk2Deals/CXDataService.swift"
-            timestampString = "530474064.63886"
+            timestampString = "530826640.834168"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "352"
@@ -474,7 +474,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Walk2Deals/CXDataService.swift"
-            timestampString = "530474064.63886"
+            timestampString = "530826640.834236"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "423"
@@ -490,7 +490,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Walk2Deals/CXDataService.swift"
-            timestampString = "530474064.63886"
+            timestampString = "530826640.834303"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "402"
@@ -506,27 +506,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Walk2Deals/CXDataService.swift"
-            timestampString = "530474064.63886"
+            timestampString = "530826640.834371"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "411"
             endingLineNumber = "411"
-            landmarkName = "imageData()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Walk2Deals/CXDataService.swift"
-            timestampString = "530474064.63886"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "413"
-            endingLineNumber = "413"
             landmarkName = "imageData()"
             landmarkType = "7">
             <Locations>
@@ -534,31 +518,31 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Walk2Deals.CXDataService.(imageData () -&gt; ()).(closure #2)"
+                  symbolName = "closure #2 (Alamofire.SessionManager.MultipartFormDataEncodingResult) -&gt; () in Walk2Deals.CXDataService.imageData() -&gt; ()"
                   moduleName = "Walk2Deals"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/GitProject/Deals/Walk2Deals/CXDataService.swift"
-                  timestampString = "530736969.539763"
+                  timestampString = "530818951.446205"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "413"
-                  endingLineNumber = "413"
-                  offsetFromSymbolStart = "109">
+                  startingLineNumber = "411"
+                  endingLineNumber = "411"
+                  offsetFromSymbolStart = "44">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Walk2Deals.CXDataService.(imageData () -&gt; ()).(closure #2).(closure #1)"
+                  symbolName = "closure #2 (Alamofire.SessionManager.MultipartFormDataEncodingResult) -&gt; () in Walk2Deals.CXDataService.imageData() -&gt; ()"
                   moduleName = "Walk2Deals"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/GitProject/Deals/Walk2Deals/CXDataService.swift"
-                  timestampString = "530736969.543001"
+                  timestampString = "530818951.449533"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "415"
-                  endingLineNumber = "415"
-                  offsetFromSymbolStart = "19">
+                  startingLineNumber = "411"
+                  endingLineNumber = "411"
+                  offsetFromSymbolStart = "76">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -570,7 +554,55 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Walk2Deals/CXDataService.swift"
-            timestampString = "530474064.63886"
+            timestampString = "530826640.834436"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "413"
+            endingLineNumber = "413"
+            landmarkName = "imageData()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Alamofire.SessionManager.MultipartFormDataEncodingResult) -&gt; () in Walk2Deals.CXDataService.imageData() -&gt; ()"
+                  moduleName = "Walk2Deals"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/GitProject/Deals/Walk2Deals/CXDataService.swift"
+                  timestampString = "530818951.457115"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "413"
+                  endingLineNumber = "413"
+                  offsetFromSymbolStart = "124">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__ObjC.Progress) -&gt; () in closure #2 (Alamofire.SessionManager.MultipartFormDataEncodingResult) -&gt; () in Walk2Deals.CXDataService.imageData() -&gt; ()"
+                  moduleName = "Walk2Deals"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/GitProject/Deals/Walk2Deals/CXDataService.swift"
+                  timestampString = "530818951.460647"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "415"
+                  endingLineNumber = "415"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Walk2Deals/CXDataService.swift"
+            timestampString = "530826640.834502"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "415"
@@ -586,7 +618,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Walk2Deals/CXDataService.swift"
-            timestampString = "530474064.63886"
+            timestampString = "530826640.834569"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "393"
@@ -602,7 +634,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Walk2Deals/CXDataService.swift"
-            timestampString = "530474064.63886"
+            timestampString = "530826640.834635"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "421"
@@ -634,7 +666,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Walk2Deals/CXDataService.swift"
-            timestampString = "530472256.020304"
+            timestampString = "530826640.83473"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "319"
@@ -714,7 +746,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Walk2Deals/CXDataService.swift"
-            timestampString = "530556518.115997"
+            timestampString = "530826640.834892"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "322"
@@ -730,7 +762,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Walk2Deals/CXDataService.swift"
-            timestampString = "530556569.920552"
+            timestampString = "530826640.834959"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "443"
@@ -870,31 +902,31 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Walk2Deals.PostAddViewController.getLocationBasedOnStores () -&gt; ()"
+                  symbolName = "Walk2Deals.PostAddViewController.getLocationBasedOnStores() -&gt; ()"
                   moduleName = "Walk2Deals"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/GitProject/Deals/Walk2Deals/PostAddViewController.swift"
-                  timestampString = "530736969.625583"
+                  timestampString = "530818951.572983"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "132"
                   endingLineNumber = "132"
-                  offsetFromSymbolStart = "787">
+                  offsetFromSymbolStart = "780">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Walk2Deals.PostAddViewController.(getLocationBasedOnStores () -&gt; ()).(closure #1)"
+                  symbolName = "closure #1 (__ObjC.NSDictionary) -&gt; () in Walk2Deals.PostAddViewController.getLocationBasedOnStores() -&gt; ()"
                   moduleName = "Walk2Deals"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/GitProject/Deals/Walk2Deals/PostAddViewController.swift"
-                  timestampString = "530736969.627662"
+                  timestampString = "530818951.575105"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "133"
                   endingLineNumber = "133"
-                  offsetFromSymbolStart = "38">
+                  offsetFromSymbolStart = "24">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -918,31 +950,31 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Walk2Deals.PostAddViewController.getAllCategories () -&gt; ()"
+                  symbolName = "Walk2Deals.PostAddViewController.getAllCategories() -&gt; ()"
                   moduleName = "Walk2Deals"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/GitProject/Deals/Walk2Deals/PostAddViewController.swift"
-                  timestampString = "530736969.632699"
+                  timestampString = "530818951.581396"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "106"
                   endingLineNumber = "106"
-                  offsetFromSymbolStart = "12">
+                  offsetFromSymbolStart = "20">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Walk2Deals.PostAddViewController.(getAllCategories () -&gt; ()).(closure #1)"
+                  symbolName = "closure #1 (__ObjC.NSDictionary) -&gt; () in Walk2Deals.PostAddViewController.getAllCategories() -&gt; ()"
                   moduleName = "Walk2Deals"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/GitProject/Deals/Walk2Deals/PostAddViewController.swift"
-                  timestampString = "530736969.634786"
+                  timestampString = "530818951.585528"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "107"
                   endingLineNumber = "107"
-                  offsetFromSymbolStart = "39">
+                  offsetFromSymbolStart = "40">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -982,31 +1014,31 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Walk2Deals.PostAddViewController.showPicker (title : Swift.String, rows : Swift.Array&lt;Swift.String&gt;, initialSelection : Swift.Int, completionPicking : (Swift.String, Swift.Int) -&gt; ()) -&gt; ()"
+                  symbolName = "Walk2Deals.PostAddViewController.showPicker(title: Swift.String, rows: Swift.Array&lt;Swift.String&gt;, initialSelection: Swift.Int, completionPicking: (Swift.String, Swift.Int) -&gt; ()) -&gt; ()"
                   moduleName = "Walk2Deals"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/GitProject/Deals/Walk2Deals/PostAddViewController.swift"
-                  timestampString = "530736969.643868"
+                  timestampString = "530818951.596014"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "304"
                   endingLineNumber = "304"
-                  offsetFromSymbolStart = "51">
+                  offsetFromSymbolStart = "48">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Walk2Deals.PostAddViewController.(showPicker (title : Swift.String, rows : Swift.Array&lt;Swift.String&gt;, initialSelection : Swift.Int, completionPicking : (Swift.String, Swift.Int) -&gt; ()) -&gt; ()).(closure #1)"
+                  symbolName = "closure #1 (Swift.Optional&lt;__ObjC.ActionSheetStringPicker&gt;, Swift.Int, Swift.Optional&lt;Any&gt;) -&gt; () in Walk2Deals.PostAddViewController.showPicker(title: Swift.String, rows: Swift.Array&lt;Swift.String&gt;, initialSelection: Swift.Int, completionPicking: (Swift.String, Swift.Int) -&gt; ()) -&gt; ()"
                   moduleName = "Walk2Deals"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/GitProject/Deals/Walk2Deals/PostAddViewController.swift"
-                  timestampString = "530736969.645951"
+                  timestampString = "530818951.601386"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "305"
                   endingLineNumber = "305"
-                  offsetFromSymbolStart = "35">
+                  offsetFromSymbolStart = "40">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -1030,46 +1062,46 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Walk2Deals.PostAddViewController.endDateSelection (__ObjC.UITapGestureRecognizer) -&gt; ()"
+                  symbolName = "Walk2Deals.PostAddViewController.endDateSelection(__ObjC.UITapGestureRecognizer) -&gt; ()"
                   moduleName = "Walk2Deals"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/GitProject/Deals/Walk2Deals/PostAddViewController.swift"
-                  timestampString = "530736969.651104"
+                  timestampString = "530818951.611371"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "350"
                   endingLineNumber = "350"
-                  offsetFromSymbolStart = "1215">
+                  offsetFromSymbolStart = "728">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Walk2Deals.PostAddViewController.(endDateSelection (__ObjC.UITapGestureRecognizer) -&gt; ()).(closure #1)"
+                  symbolName = "closure #1 (Swift.Optional&lt;__ObjC.ActionSheetDatePicker&gt;, Swift.Optional&lt;Any&gt;, Swift.Optional&lt;Any&gt;) -&gt; () in Walk2Deals.PostAddViewController.endDateSelection(__ObjC.UITapGestureRecognizer) -&gt; ()"
                   moduleName = "Walk2Deals"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/GitProject/Deals/Walk2Deals/PostAddViewController.swift"
-                  timestampString = "530736969.653552"
+                  timestampString = "530818951.615434"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "350"
                   endingLineNumber = "350"
-                  offsetFromSymbolStart = "645">
+                  offsetFromSymbolStart = "640">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Walk2Deals.PostAddViewController.(endDateSelection (__ObjC.UITapGestureRecognizer) -&gt; ()).(closure #2)"
+                  symbolName = "closure #2 (Swift.Optional&lt;__ObjC.ActionSheetDatePicker&gt;) -&gt; () in Walk2Deals.PostAddViewController.endDateSelection(__ObjC.UITapGestureRecognizer) -&gt; ()"
                   moduleName = "Walk2Deals"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/GitProject/Deals/Walk2Deals/PostAddViewController.swift"
-                  timestampString = "530736969.656514"
+                  timestampString = "530818951.619403"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "352"
                   endingLineNumber = "352"
-                  offsetFromSymbolStart = "12">
+                  offsetFromSymbolStart = "16">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -1109,31 +1141,31 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Walk2Deals.PostAddViewController.postAddAction () -&gt; ()"
+                  symbolName = "Walk2Deals.PostAddViewController.postAddAction() -&gt; ()"
                   moduleName = "Walk2Deals"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/GitProject/Deals/Walk2Deals/PostAddViewController.swift"
-                  timestampString = "530736969.667314"
+                  timestampString = "530818951.631454"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "486"
                   endingLineNumber = "486"
-                  offsetFromSymbolStart = "10761">
+                  offsetFromSymbolStart = "11020">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Walk2Deals.PostAddViewController.(postAddAction () -&gt; ()).(closure #1)"
+                  symbolName = "closure #1 (__ObjC.NSDictionary) -&gt; () in Walk2Deals.PostAddViewController.postAddAction() -&gt; ()"
                   moduleName = "Walk2Deals"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/GitProject/Deals/Walk2Deals/PostAddViewController.swift"
-                  timestampString = "530736969.66942"
+                  timestampString = "530818951.63618"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "487"
                   endingLineNumber = "487"
-                  offsetFromSymbolStart = "20">
+                  offsetFromSymbolStart = "24">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -1273,7 +1305,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Walk2Deals/LeftViewController.swift"
-            timestampString = "530734199.588595"
+            timestampString = "530817183.412418"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "33"
@@ -1289,11 +1321,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Walk2Deals/HomeViewController.swift"
-            timestampString = "530734421.74722"
+            timestampString = "530826640.835566"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "114"
-            endingLineNumber = "114"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
             landmarkName = "getDeails()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1305,11 +1337,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Walk2Deals/NearByDealsViewController.swift"
-            timestampString = "530736967.656234"
+            timestampString = "530817183.413018"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
             landmarkName = "mapView(_:viewFor:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1321,11 +1353,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Walk2Deals/NearByDealsViewController.swift"
-            timestampString = "530736967.656234"
+            timestampString = "530817183.41308"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "123"
-            endingLineNumber = "123"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
             landmarkName = "mapView(_:didSelect:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1337,12 +1369,92 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Walk2Deals/NearByDealsViewController.swift"
-            timestampString = "530736967.656234"
+            timestampString = "530817183.413138"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "124"
-            endingLineNumber = "124"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
             landmarkName = "mapView(_:didSelect:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Walk2Deals/HomeViewController.swift"
+            timestampString = "530826640.83571"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
+            landmarkName = "getDeails()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Walk2Deals/HomeViewController.swift"
+            timestampString = "530826640.835779"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "266"
+            endingLineNumber = "266"
+            landmarkName = "tracingLocation(_:_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Walk2Deals/HomeViewController.swift"
+            timestampString = "530826640.835848"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "260"
+            endingLineNumber = "260"
+            landmarkName = "checklocationAuthentication()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Walk2Deals/HomeViewController.swift"
+            timestampString = "530826640.835914"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "183"
+            endingLineNumber = "183"
+            landmarkName = "collectionView(_:cellForItemAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Walk2Deals/DealsDetailsViewController.swift"
+            timestampString = "530826640.835982"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "getDealDataByID()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

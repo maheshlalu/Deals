@@ -12,6 +12,7 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var homeCollectionView: UICollectionView!
     var currentLocation: CLLocation!
+    var locationManager : CLLocationManager!
     var dealsArray : NSMutableArray = NSMutableArray()
     var isGetNearFeeds = false
     
@@ -108,7 +109,9 @@ class HomeViewController: UIViewController {
         
         //http://api.walk2deals.com/api/Deal/GetCurrentDeals
         
-        let parameters = ["CurrentDate":"","Latitude":"","Longitude":"","Location":"1","LocationId":"","UserId":CXAppConfig.sharedInstance.getUserID()]
+        let parameters = ["CurrentDate":"","Latitude":        String(self.currentLocation.coordinate.latitude)
+            ,"Longitude":        String(self.currentLocation.coordinate.longitude)
+,"Location":"1","LocationId":"","UserId":CXAppConfig.sharedInstance.getUserID()]
         
         CXDataService.sharedInstance.showLoader(view: self.view, message: "Loading...")
         CXDataService.sharedInstance.postTheDataToServer(urlString: CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getDealsUrl(), parameters: parameters as! [String : String]) { (responceDic) in
@@ -177,6 +180,10 @@ extension HomeViewController:UICollectionViewDataSource,UICollectionViewDelegate
             cell.offerTitleLbl.text = offerTitle
         }
         
+        if  let distance = dataDict?.value(forKey: "UserDistance") as? String{
+            cell.distanceLbl.text = distance + "Km"
+        }
+        
         if         CXAppConfig.resultString(dataDict?.value(forKey: "UserFavDeal") as AnyObject) == "1" {
                 cell.favBtn.isSelected = true
         }else{
@@ -190,7 +197,7 @@ extension HomeViewController:UICollectionViewDataSource,UICollectionViewDelegate
         cell.shareBtn.addTarget(self, action:#selector(shareButtonAction(sender:)), for: .touchUpInside)
 
         cell.shareBtn.tag = indexPath.row
-
+//UserDistance
         return cell
         
         
@@ -207,18 +214,7 @@ extension HomeViewController:UICollectionViewDataSource,UICollectionViewDelegate
         if let dealID = (dataDict as AnyObject).value(forKey: "Id") as? Int{
             let parameters = ["DealId":String(dealID),"UserId":CXAppConfig.sharedInstance.getUserID()]
             //{"DealId":"2","UserId":"2"}
-            CXDataService.sharedInstance.postTheDataToServer(urlString: CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getSaveFavouriteUrl(), parameters: parameters) { (responceDic) in
-                CXLog.print("responce dict \(responceDic)")
-                let error =  responceDic.value(forKey: "Errors") as? NSArray
-                let errorDict = error?.lastObject as? NSDictionary
-                let errorcode = errorDict?.value(forKey: "ErrorCode") as? String
-                if errorcode == "0"{
-                    //let deals =  responceDic.value(forKey: "Deals") as? NSArray
-                    // self.dealsArray = NSMutableArray(array: deals!)
-                }else{
-                    CXDataService.sharedInstance.showAlert(message: "Something went Wrong!!!", viewController: self)
-                }
-            }
+            CXDataService.sharedInstance.faveButtonAction(inputDict: parameters)
         }
     }
     
@@ -229,18 +225,13 @@ extension HomeViewController:UICollectionViewDataSource,UICollectionViewDelegate
     
     
     func shareButtonAction(sender:UIButton){
-     
         let activityViewController = UIActivityViewController(activityItems: ["" as NSString], applicationActivities: nil)
         self.present(activityViewController, animated: true, completion: {})
     }
     
-    
-    
-    
     func numberOfSections(in collectionView: UICollectionView) -> Int
     {
         return 1
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -275,7 +266,7 @@ extension HomeViewController : LocationServiceDelegate,CLLocationManagerDelegate
     func tracingLocation( _ currentLocation: CLLocation,  _ locationManager: CLLocationManager){
         
         self.currentLocation = locationManager.location
-        
+        self.locationManager = locationManager
         if !isGetNearFeeds {
             self.getDeails()
             isGetNearFeeds = true

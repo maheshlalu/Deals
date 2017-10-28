@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import IQKeyboardManager
+import IQKeyboardManagerSwift
 import RealmSwift
 
 @UIApplicationMain
@@ -22,8 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,SWRevealViewControllerDele
         //        CXDataService.sharedInstance.getTheAppDataFromServer(["":"" as AnyObject]) { (dict) in
         //
         //        }
-        IQKeyboardManager.shared().isEnabled = true
-        
+        IQKeyboardManager.sharedManager().enable = true
+
         let navigationBarAppearace = UINavigationBar.appearance()
         navigationBarAppearace.tintColor = UIColor.white
         navigationBarAppearace.barTintColor = UIColor(colorLiteralRed: 51.0/255.0, green: 51.0/255.0, blue: 51.0/255.0, alpha: 1.0)

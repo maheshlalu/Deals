@@ -24,6 +24,7 @@ class DealsDetailsViewController: UIViewController {
     @IBOutlet weak var pagerHeight: NSLayoutConstraint!
     @IBOutlet weak var writeReviewHeight: NSLayoutConstraint!
     
+   
     @IBOutlet weak var rattingLbl: UILabel!
     var dealDetailDict : NSDictionary!
     override func viewDidLoad() {
@@ -70,6 +71,26 @@ class DealsDetailsViewController: UIViewController {
             CXDataService.sharedInstance.hideLoader()
             self.populatedTheData()
             })
+    }
+    
+    @IBAction func favBtnAction(_ sender: UIButton) {
+        if sender.isSelected {
+            return
+        }
+        //http://api.walk2deals.com/api/User/DealsFavSave
+        sender.isSelected = !sender.isSelected
+        let dataDict = self.dealDetailDict
+        if let dealID = (dataDict as AnyObject).value(forKey: "Id") as? Int{
+            let parameters = ["DealId":String(dealID),"UserId":CXAppConfig.sharedInstance.getUserID()]
+            //{"DealId":"2","UserId":"2"}
+            CXDataService.sharedInstance.faveButtonAction(inputDict: parameters)
+        }
+    }
+    @IBAction func shareAction(_ sender: UIButton) {
+        
+        let activityViewController = UIActivityViewController(activityItems: ["" as NSString], applicationActivities: nil)
+        self.present(activityViewController, animated: true, completion: {})
+        
     }
     
     func populatedTheData(){

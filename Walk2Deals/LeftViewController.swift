@@ -71,11 +71,7 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let revealController : SWRevealViewController  = self.revealViewController()
-        
-        if indexPath == previousSelectedIndex {
-            revealController.revealToggle(animated: true)
-            return
-        }
+       
         previousSelectedIndex = indexPath
         //self.navController.drawerToggle()
         let storyBoard = UIStoryboard(name: "Main", bundle: Bundle.main)

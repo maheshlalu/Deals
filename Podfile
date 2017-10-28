@@ -6,7 +6,7 @@ target 'Walk2Deals' do
   use_frameworks!
 
   # Pods for Walk2Deals
-pod 'IQKeyboardManager', '~> 5.0'
+  pod 'IQKeyboardManagerSwift'
 pod 'Alamofire', '~> 4.0'
 pod 'SDWebImage', '~> 3.8'
 pod 'MBProgressHUD', '~> 1.0'

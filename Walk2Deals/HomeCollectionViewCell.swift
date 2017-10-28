@@ -12,6 +12,7 @@ class HomeCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var offerTitleLbl: UILabel!
     @IBOutlet weak var categoryImageView: UIImageView!
+    @IBOutlet weak var distanceLbl: UILabel!
     
     @IBOutlet weak var shareBtn: UIButton!
     @IBOutlet weak var favBtn: UIButton!
