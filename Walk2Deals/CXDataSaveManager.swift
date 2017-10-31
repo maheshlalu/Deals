@@ -39,7 +39,10 @@ class CXDataSaveManager: NSObject  {
                 profile.aDharNumbers = userDataDic["AdharNumber"].stringValue
                 
                 if let profilePath = userDataDic["ProfileImagePath"].dictionary {
-                    profile.image = (profilePath["CDNFilePath"]?.string)!
+                    if let image = profilePath["CDNFilePath"]?.string{
+                        profile.image = image
+
+                    }
                 }
                 
                 relamInstance.add(profile)

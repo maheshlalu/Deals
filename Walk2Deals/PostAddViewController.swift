@@ -492,9 +492,7 @@ return
         }
  
         /*
-         
        yyyy-MM-dd
-         
          DealCoreEntity =  {
          "OfferTitle": "test",
          "OfferDescription": "test",

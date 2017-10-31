@@ -18,6 +18,7 @@ class LaunchViewController: UIViewController {
         super.viewDidLoad()
         launchImage.image = UIImage(named: "logo")
         self.dealsBtn.isHidden = true
+        self.addSwipeGestures()
         // Do any additional setup after loading the view.
     }
 
@@ -26,6 +27,30 @@ class LaunchViewController: UIViewController {
         
         
         // Dispose of any resources that can be recreated.
+    }
+    
+    func addSwipeGestures(){
+    
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeRightGesture))
+        
+        swipeRight.direction = UISwipeGestureRecognizerDirection.right
+        self.view.addGestureRecognizer(swipeRight)
+        
+        
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeLeftGesture))
+        swipeLeft.direction = UISwipeGestureRecognizerDirection.left
+        self.view.addGestureRecognizer(swipeLeft)
+       
+    }
+    
+    func respondToSwipeRightGesture(gesture: UIGestureRecognizer) {
+        
+        
+    }
+    
+    func respondToSwipeLeftGesture(gesture: UIGestureRecognizer) {
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
