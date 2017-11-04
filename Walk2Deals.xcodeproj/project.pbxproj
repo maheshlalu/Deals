@@ -13,6 +13,7 @@
 		122549911FA08296001D38F2 /* UIView+SHAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1225498E1FA08296001D38F2 /* UIView+SHAdditions.m */; };
 		122670E01F8D168100FED033 /* UIImageView+UIActivityIndicatorForSDWebImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 122670DF1F8D168100FED033 /* UIImageView+UIActivityIndicatorForSDWebImage.m */; };
 		122670E31F8E85D600FED033 /* KIImagePager.m in Sources */ = {isa = PBXBuildFile; fileRef = 122670E21F8E85D600FED033 /* KIImagePager.m */; };
+		122D245E1FAD8EE9006A911C /* LocationSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122D245D1FAD8EE9006A911C /* LocationSelectViewController.swift */; };
 		12321C861F9A5D1600995249 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12321C851F9A5D1600995249 /* SettingsViewController.swift */; };
 		12321C881F9A6C7600995249 /* SelectLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12321C871F9A6C7600995249 /* SelectLocationViewController.swift */; };
 		12355DD41F8661D50053A5F5 /* PostAddTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12355DD21F8661D50053A5F5 /* PostAddTableViewCell.swift */; };
@@ -114,6 +115,7 @@
 		122670DF1F8D168100FED033 /* UIImageView+UIActivityIndicatorForSDWebImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+UIActivityIndicatorForSDWebImage.m"; sourceTree = "<group>"; };
 		122670E11F8E85D600FED033 /* KIImagePager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIImagePager.h; sourceTree = "<group>"; };
 		122670E21F8E85D600FED033 /* KIImagePager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIImagePager.m; sourceTree = "<group>"; };
+		122D245D1FAD8EE9006A911C /* LocationSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSelectViewController.swift; sourceTree = "<group>"; };
 		12321C851F9A5D1600995249 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		12321C871F9A6C7600995249 /* SelectLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectLocationViewController.swift; sourceTree = "<group>"; };
 		12355DD21F8661D50053A5F5 /* PostAddTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostAddTableViewCell.swift; sourceTree = "<group>"; };
@@ -240,6 +242,14 @@
 			name = SdWebImage;
 			sourceTree = "<group>";
 		};
+		122D24591FAD8DD4006A911C /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				122D245D1FAD8EE9006A911C /* LocationSelectViewController.swift */,
+			);
+			name = Location;
+			sourceTree = "<group>";
+		};
 		12321C841F9A5CF300995249 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -340,6 +350,7 @@
 		184139711F6FF7E900B73595 /* Walk2Deals */ = {
 			isa = PBXGroup;
 			children = (
+				122D24591FAD8DD4006A911C /* Location */,
 				12321C841F9A5CF300995249 /* Settings */,
 				1831D8D61F9606F800A26921 /* DropDown */,
 				182B9BF31F92408E00109B15 /* Profile */,
@@ -879,6 +890,7 @@
 				12355DD81F86624A0053A5F5 /* PostAddOneTableViewCell.swift in Sources */,
 				18437E631F909465003B9631 /* CXCommentRatingViewController.swift in Sources */,
 				188366CC1F9A125D004A962D /* HRToast+UIView.swift in Sources */,
+				122D245E1FAD8EE9006A911C /* LocationSelectViewController.swift in Sources */,
 				18437E741F90E842003B9631 /* ReviewTableViewCell.swift in Sources */,
 				18437E701F90B6EE003B9631 /* CustomCalloutView.swift in Sources */,
 				18437E5F1F908C90003B9631 /* NearByDealsViewController.swift in Sources */,

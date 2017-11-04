@@ -109,9 +109,9 @@ class HomeViewController: UIViewController {
         
         //http://api.walk2deals.com/api/Deal/GetCurrentDeals
         
-        let parameters = ["CurrentDate":"","Latitude":        String(self.currentLocation.coordinate.latitude)
+        let parameters = ["CurrentDate":"2017-11-02","Latitude":        String(self.currentLocation.coordinate.latitude)
             ,"Longitude":        String(self.currentLocation.coordinate.longitude)
-,"Location":"1","LocationId":"","UserId":CXAppConfig.sharedInstance.getUserID()]
+            ,"UserId":CXAppConfig.sharedInstance.getUserID(),"PageSize":"5","PageNumber":"1"]
         
         CXDataService.sharedInstance.showLoader(view: self.view, message: "Loading...")
         CXDataService.sharedInstance.postTheDataToServer(urlString: CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getDealsUrl(), parameters: parameters as! [String : String]) { (responceDic) in
@@ -171,9 +171,11 @@ extension HomeViewController:UICollectionViewDataSource,UICollectionViewDelegate
         let cell : HomeCollectionViewCell = (collectionView.dequeueReusableCell(withReuseIdentifier: "HomeCollectionViewCell", for: indexPath)as? HomeCollectionViewCell)!
         let dataDict = self.dealsArray[indexPath.row] as? NSDictionary
         if let imageUrlArray = dataDict?.value(forKey: "ImageCDNUrls") as? NSArray , imageUrlArray.count != 0{
-            let imgStr = imageUrlArray.lastObject as? String
-            let img_Url1 = NSURL(string: imgStr! )
-           cell.categoryImageView.setImageWith(img_Url1 as URL!, usingActivityIndicatorStyle: .white)
+            if let imgStr = imageUrlArray.lastObject as? String {
+                let img_Url1 = NSURL(string: imgStr )
+                cell.categoryImageView.setImageWith(img_Url1 as URL!, usingActivityIndicatorStyle: .white)
+            }
+         
         }
         //OfferTitle
         if  let offerTitle = dataDict?.value(forKey: "OfferTitle") as? String{

@@ -351,16 +351,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="qqr-w8-18J">
-                                <rect key="frame" x="75" y="168" width="170" height="170.5"/>
+                                <rect key="frame" x="75" y="172" width="170" height="170.5"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Browse online and discover the best Deals in your city..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MsT-SZ-umk">
-                                <rect key="frame" x="20" y="359.5" width="280" height="52"/>
+                                <rect key="frame" x="20" y="363.5" width="280" height="52"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.26456061009999998" green="0.61360251899999996" blue="0.086019910869999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lU7-CX-u60">
-                                <rect key="frame" x="119" y="427" width="88.5" height="84"/>
+                                <rect key="frame" x="119" y="431" width="88.5" height="84"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <state key="normal" image="step1"/>
                                 <state key="selected" backgroundImage="GlobeImage"/>
@@ -369,7 +369,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e4a-CL-CO8">
-                                <rect key="frame" x="121" y="427.5" width="88.5" height="83.5"/>
+                                <rect key="frame" x="121" y="431.5" width="88.5" height="83.5"/>
                                 <state key="normal" image="step2"/>
                                 <connections>
                                     <action selector="dealsBtnAction:" destination="eiV-Ke-YqD" eventType="touchUpInside" id="0oN-DX-5yh"/>
@@ -562,7 +562,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MIl-D0-oa9" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="eHd-Sn-F8F">
-                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="48"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1203,7 +1203,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End Date: SJDOKSJA OKPJSAFDSWA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w7z-eY-tRu">
-                                        <rect key="frame" x="0.0" y="35" width="282.5" height="35"/>
+                                        <rect key="frame" x="0.0" y="35" width="288" height="35"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
