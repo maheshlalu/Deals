@@ -17,10 +17,11 @@ class NearByDealsViewController: UIViewController,MKMapViewDelegate {
     var isGetNearFeeds = false
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.checklocationAuthentication()
+
         self.mapviewPlaces.delegate = self
         self.title = "Near By Stores"
         self.setUpSideMenu()
-        self.getDeails()
     
         // Do any additional setup after loading the view.
     }
@@ -40,7 +41,10 @@ class NearByDealsViewController: UIViewController,MKMapViewDelegate {
     
     func getDeails(){
         //http://api.walk2deals.com/api/Deal/GetCurrentDeals
-        let parameters = ["CurrentDate":"","Latitude":"","Longitude":"","Location":"1","LocationId":""]
+        let parameters = ["CurrentDate":CXAppConfig.sharedInstance.dateToString(date: Date(), isDisplay: true),"Latitude":String(self.currentLocation.coordinate.latitude)
+            ,"Longitude":String(self.currentLocation.coordinate.longitude)
+            ,"UserId":CXAppConfig.sharedInstance.getUserID(),"PageNumber":"1","PageSize":"100"]
+        
         CXDataService.sharedInstance.showLoader(view: self.view, message: "Loading...")
         CXDataService.sharedInstance.postTheDataToServer(urlString: CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getDealsUrl(), parameters: parameters as! [String : String]) { (responceDic) in
             CXLog.print("responce dict \(responceDic)")
@@ -91,8 +95,10 @@ class NearByDealsViewController: UIViewController,MKMapViewDelegate {
             point.name = CXAppConfig.sharedInstance.getTheDataInDictionaryFromKey(sourceDic: dict!, sourceKey: "OfferTitle")
             
             if let imageUrlArray = dict?.value(forKey: "ImageCDNUrls") as? NSArray , imageUrlArray.count != 0{
-                let imgStr = imageUrlArray.lastObject as? String
-                point.image  = URL(string: imgStr!)
+                if let imgStr = imageUrlArray.lastObject as? String {
+                    point.image  = URL(string: imgStr)
+                }
+                
             }
             self.mapviewPlaces.addAnnotation(point)
             self.latAndLongData.add(point)

@@ -18,6 +18,8 @@ class HomeViewController: UIViewController {
     
     var notificationBtn : MIBadgeButton!
     var searchBtn : MIBadgeButton!
+    var pageNumber = 0
+    var isRefresh = false
     override func viewDidLoad() {
         super.viewDidLoad()
         self.checklocationAuthentication()
@@ -105,34 +107,6 @@ class HomeViewController: UIViewController {
     }
 
     
-    func getDeails(){
-        
-        //http://api.walk2deals.com/api/Deal/GetCurrentDeals
-        
-        let parameters = ["CurrentDate":"2017-11-02","Latitude":        String(self.currentLocation.coordinate.latitude)
-            ,"Longitude":        String(self.currentLocation.coordinate.longitude)
-            ,"UserId":CXAppConfig.sharedInstance.getUserID(),"PageSize":"5","PageNumber":"1"]
-        
-        CXDataService.sharedInstance.showLoader(view: self.view, message: "Loading...")
-        CXDataService.sharedInstance.postTheDataToServer(urlString: CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getDealsUrl(), parameters: parameters as! [String : String]) { (responceDic) in
-            CXLog.print("responce dict \(responceDic)")
-            CXDataService.sharedInstance.hideLoader()
-            let error =  responceDic.value(forKey: "Errors") as? NSArray
-            let errorDict = error?.lastObject as? NSDictionary
-            let errorcode = errorDict?.value(forKey: "ErrorCode") as? String
-            if errorcode == "0"{
-                let deals =  responceDic.value(forKey: "Deals") as? NSArray
-                self.dealsArray = NSMutableArray(array: deals!)
-                // DispatchQueue.main.sync {
-                self.homeCollectionView.reloadData()
-                //}
-            }else{
-                CXDataService.sharedInstance.showAlert(message: "Something went Wrong!!!", viewController: self)
-            }
-            
-        }
-        
-    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -280,6 +254,60 @@ extension HomeViewController : LocationServiceDelegate,CLLocationManagerDelegate
     }
     func tracingLocationDetails(_ currentLocationDetails: CLPlacemark){
         
+    }
+    
+}
+
+extension HomeViewController{
+    
+    
+    func getDeails(){
+        
+        //http://api.walk2deals.com/api/Deal/GetCurrentDeals
+        
+        let parameters = ["CurrentDate":CXAppConfig.sharedInstance.dateToString(date: Date(), isDisplay: true),"Latitude":String(self.currentLocation.coordinate.latitude)
+            ,"Longitude":        String(self.currentLocation.coordinate.longitude)
+            ,"UserId":CXAppConfig.sharedInstance.getUserID(),"PageNumber":"\(self.pageNumber)","PageSize":"10"] //PageNumber
+        
+        CXDataService.sharedInstance.showLoader(view: self.view, message: "Loading...")
+        CXDataService.sharedInstance.postTheDataToServer(urlString: CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getDealsUrl(), parameters: parameters as! [String : String]) { (responceDic) in
+            CXLog.print("responce dict \(responceDic)")
+            CXDataService.sharedInstance.hideLoader()
+            let error =  responceDic.value(forKey: "Errors") as? NSArray
+            let errorDict = error?.lastObject as? NSDictionary
+            let errorcode = errorDict?.value(forKey: "ErrorCode") as? String
+            if errorcode == "0"{
+                let deals =  responceDic.value(forKey: "Deals") as? NSArray
+                if deals?.count == 0{
+                    return
+                }
+                if self.pageNumber == 1{
+                    self.dealsArray = NSMutableArray(array: deals!)
+                    // DispatchQueue.main.sync {
+                    self.homeCollectionView.reloadData()
+                }else{
+                    
+                    self.dealsArray.addObjects(from: deals as! [Any])
+                    self.homeCollectionView.reloadData()
+                }
+                self.isRefresh = false
+                //}
+            }else{
+                CXDataService.sharedInstance.showAlert(message: "Something went Wrong!!!", viewController: self)
+            }
+            
+        }
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        
+        if indexPath.item == self.dealsArray.count - 1 && !self.isRefresh{
+            self.pageNumber += 1
+            self.isRefresh = true
+            self.getDeails()
+            
+        }
     }
     
 }

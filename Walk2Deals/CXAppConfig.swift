@@ -126,6 +126,12 @@ class CXAppConfig {
         }
     }
     
+    //getAllLocations
+    func getAllLocations() -> String{
+        return config!.value(forKey: "getAllLocations") as! String
+
+    }
+    
     static func resultString(_ input: AnyObject) -> String{
         if let value: AnyObject = input {
             var reqType : String!
@@ -164,5 +170,25 @@ class CXAppConfig {
         return ""
     }
 
-    
+
+
+    func dateToString(date:Date,isDisplay:Bool) -> String{
+        
+        let formatter = DateFormatter()
+        // initially set the format based on your datepicker date
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        
+        let myString = formatter.string(from: date)
+        // convert your string to date
+        let yourDate = formatter.date(from: myString)
+        //then again set the date format whhich type of output you need
+        if isDisplay {
+            formatter.dateFormat = "EEEE, MMM d, yyyy"
+            
+        }else{
+            formatter.dateFormat = "yyyy-MM-dd"
+        }
+        // again convert your date to string
+        return formatter.string(from: yourDate!)
+    }
 }

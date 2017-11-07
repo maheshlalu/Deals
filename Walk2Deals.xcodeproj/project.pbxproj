@@ -80,6 +80,9 @@
 		18BD79D81F72A74800BB1A83 /* CXAppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BD79D71F72A74800BB1A83 /* CXAppConfig.swift */; };
 		45FEB2C6DF34E4D5BBC8FF78 /* Pods_Walk2Deals.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C9FA8110221974AAFF3FEE1 /* Pods_Walk2Deals.framework */; };
 		732625FDD40822DCDD9FB0C6 /* Pods_Walk2DealsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D0FBCC8FB9FCE874BA10192 /* Pods_Walk2DealsUITests.framework */; };
+		A9F495E51FB0CE6300B86314 /* DealTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F495E41FB0CE6300B86314 /* DealTitleCell.swift */; };
+		A9F495E71FB0CEC700B86314 /* OfferDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F495E61FB0CEC700B86314 /* OfferDetailCell.swift */; };
+		A9F495E91FB0CEF400B86314 /* DealLocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F495E81FB0CEF400B86314 /* DealLocationCell.swift */; };
 		C437F54E9B33DF342F8BD1D0 /* Pods_Walk2DealsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F388D68C956295A0A27D28 /* Pods_Walk2DealsTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -191,6 +194,9 @@
 		2C9FA8110221974AAFF3FEE1 /* Pods_Walk2Deals.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Walk2Deals.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		513194D07A79E0872A50E4E1 /* Pods-Walk2Deals.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Walk2Deals.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Walk2Deals/Pods-Walk2Deals.debug.xcconfig"; sourceTree = "<group>"; };
 		93E02FF06837F95D0027841B /* Pods-Walk2DealsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Walk2DealsUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Walk2DealsUITests/Pods-Walk2DealsUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		A9F495E41FB0CE6300B86314 /* DealTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealTitleCell.swift; sourceTree = "<group>"; };
+		A9F495E61FB0CEC700B86314 /* OfferDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferDetailCell.swift; sourceTree = "<group>"; };
+		A9F495E81FB0CEF400B86314 /* DealLocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealLocationCell.swift; sourceTree = "<group>"; };
 		AD6DB2711D3E21BEF474A903 /* Pods-Walk2DealsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Walk2DealsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Walk2DealsTests/Pods-Walk2DealsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D09F227503B92FB17082B3CB /* Pods-Walk2DealsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Walk2DealsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Walk2DealsTests/Pods-Walk2DealsTests.release.xcconfig"; sourceTree = "<group>"; };
 		ECD70C951A49E23B6115ABE8 /* Pods-Walk2DealsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Walk2DealsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Walk2DealsUITests/Pods-Walk2DealsUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -274,6 +280,7 @@
 		126CEAA41F86A66A00B32BD5 /* DealsDetails */ = {
 			isa = PBXGroup;
 			children = (
+				A9F495E31FB0CE3200B86314 /* DealLocationCell */,
 				18437E721F90E81E003B9631 /* ReviewCell */,
 				18437E691F90B13E003B9631 /* LFLocationService.swift */,
 				126CEAA51F86A68500B32BD5 /* DealsDetailsViewController.swift */,
@@ -503,6 +510,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A9F495E31FB0CE3200B86314 /* DealLocationCell */ = {
+			isa = PBXGroup;
+			children = (
+				A9F495E41FB0CE6300B86314 /* DealTitleCell.swift */,
+				A9F495E61FB0CEC700B86314 /* OfferDetailCell.swift */,
+				A9F495E81FB0CEF400B86314 /* DealLocationCell.swift */,
+			);
+			name = DealLocationCell;
+			sourceTree = "<group>";
+		};
 		F3AAE232D72640C18CD25227 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -709,7 +726,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		29687829576BDCC3D392D689 /* [CP] Copy Pods Resources */ = {
@@ -787,7 +804,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		DB6E6259D4C30C572695EC4D /* [CP] Check Pods Manifest.lock */ = {
@@ -805,7 +822,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		E1FE8422EE5A3D3322D39DE1 /* [CP] Embed Pods Frameworks */ = {
@@ -858,6 +875,7 @@
 				122549901FA08296001D38F2 /* UIImage+SHAdditions.m in Sources */,
 				12389F6A1F8558E400CE790C /* PostAddViewController.swift in Sources */,
 				182B9BF81F92409900109B15 /* UserProfileTableViewCell.swift in Sources */,
+				A9F495E71FB0CEC700B86314 /* OfferDetailCell.swift in Sources */,
 				18BD79D81F72A74800BB1A83 /* CXAppConfig.swift in Sources */,
 				126CEAA81F86A6D300B32BD5 /* ReviewListViewController.swift in Sources */,
 				18437E5D1F90880D003B9631 /* CAPSPageMenu.swift in Sources */,
@@ -876,6 +894,7 @@
 				184139AD1F70070D00B73595 /* EnterMobileNumberViewController.swift in Sources */,
 				126CEAAC1F86A72C00B32BD5 /* WriteReviewViewController.swift in Sources */,
 				126CEAA61F86A68500B32BD5 /* DealsDetailsViewController.swift in Sources */,
+				A9F495E51FB0CE6300B86314 /* DealTitleCell.swift in Sources */,
 				187D5B221F764F1B00A5E250 /* HomeViewController.swift in Sources */,
 				122670E01F8D168100FED033 /* UIImageView+UIActivityIndicatorForSDWebImage.m in Sources */,
 				1824209C1F9F6A46001091B3 /* ACFloatingTextfield.swift in Sources */,
@@ -895,6 +914,7 @@
 				18437E701F90B6EE003B9631 /* CustomCalloutView.swift in Sources */,
 				18437E5F1F908C90003B9631 /* NearByDealsViewController.swift in Sources */,
 				122549911FA08296001D38F2 /* UIView+SHAdditions.m in Sources */,
+				A9F495E91FB0CEF400B86314 /* DealLocationCell.swift in Sources */,
 				184139AE1F70070D00B73595 /* LaunchViewController.swift in Sources */,
 				122670E31F8E85D600FED033 /* KIImagePager.m in Sources */,
 			);

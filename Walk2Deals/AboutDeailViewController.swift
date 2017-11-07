@@ -9,20 +9,15 @@
 import UIKit
 
 class AboutDeailViewController: UIViewController {
+    @IBOutlet var aboutDealTbl: UITableView!
     var dealDetailDict : NSDictionary!
-
-    @IBOutlet weak var dealStartLbl: UILabel!
-    @IBOutlet weak var dealTitle: UILabel!
-    @IBOutlet weak var dealEndLbl: UILabel!
-    @IBOutlet weak var addressLbl: UILabel!
-    
-    var dealLocatinDict : NSArray!
+        var dealLocatinDict : NSArray!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         CXLog.print("\(dealDetailDict)")
         //DealLocations
-        self.dealTitle.text = dealDetailDict.value(forKey: "OfferTitle") as? String
+       /* self.dealTitle.text = dealDetailDict.value(forKey: "OfferTitle") as? String
         self.dealLocatinDict = dealDetailDict.value(forKey: "DealLocations") as! NSArray
         
         if let strdDate = dealDetailDict.value(forKey: "StartDate") as? String , let endDate = dealDetailDict.value(forKey: "StartDate") as? String {
@@ -40,13 +35,18 @@ class AboutDeailViewController: UIViewController {
             //StoreLocationAddress
             //Latitude
             //Longitude
-        }
+        }*/
         //StartDate
         //EndDate
     
         // Do any additional setup after loading the view.
     }
 
+    func registerCell(){
+        
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

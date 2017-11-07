@@ -22,6 +22,8 @@
 	<string>api/Deal/DealReviewCreate</string>
 	<key>getUserData</key>
 	<string>api/User/GetById/</string>
+	<key>getAllLocations</key>
+	<string>api/Location/GetAll</string>
 	<key>getOtpUlr</key>
 	<string>api/User/VerifyMobileNumber/</string>
 </dict>
