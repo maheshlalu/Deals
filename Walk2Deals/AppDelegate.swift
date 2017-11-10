@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,SWRevealViewControllerDele
     
     var window: UIWindow?
     
+    var favDealID = [Int]()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -109,4 +110,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,SWRevealViewControllerDele
     
     
 }
-
+extension Array {
+    func contains<T where T : Equatable>(obj: T) -> Bool {
+        return self.filter({$0 as? T == obj}).count > 0
+    }
+}

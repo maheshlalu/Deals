@@ -1156,6 +1156,43 @@
             </objects>
             <point key="canvasLocation" x="30982.5" y="594.71830985915494"/>
         </scene>
+        <!--Store Creation View Controller-->
+        <scene sceneID="8g5-fX-sGu">
+            <objects>
+                <viewController storyboardIdentifier="StoreCreationViewController" id="LCU-tb-Tyr" customClass="StoreCreationViewController" customModule="Walk2Deals" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eBD-v3-q8n"/>
+                        <viewControllerLayoutGuide type="bottom" id="0vs-hN-0aa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kR1-LK-sA0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="91h-6D-bGG">
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="LCU-tb-Tyr" id="sWG-jG-Mtq"/>
+                                    <outlet property="delegate" destination="LCU-tb-Tyr" id="bo0-XZ-e0T"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="91h-6D-bGG" secondAttribute="trailing" id="Aga-8Y-ocg"/>
+                            <constraint firstItem="0vs-hN-0aa" firstAttribute="top" secondItem="91h-6D-bGG" secondAttribute="bottom" id="pbD-Gt-LAe"/>
+                            <constraint firstItem="91h-6D-bGG" firstAttribute="leading" secondItem="kR1-LK-sA0" secondAttribute="leading" id="rUM-8u-al6"/>
+                            <constraint firstItem="91h-6D-bGG" firstAttribute="top" secondItem="eBD-v3-q8n" secondAttribute="bottom" id="sJO-Qa-ZeM"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="aTableView" destination="91h-6D-bGG" id="MBk-zW-p3P"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CSC-pS-9fC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="32228" y="325"/>
+        </scene>
         <!--About Deail View Controller-->
         <scene sceneID="Fub-QV-Nhc">
             <objects>

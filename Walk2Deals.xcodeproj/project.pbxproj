@@ -80,6 +80,13 @@
 		18BD79D81F72A74800BB1A83 /* CXAppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BD79D71F72A74800BB1A83 /* CXAppConfig.swift */; };
 		45FEB2C6DF34E4D5BBC8FF78 /* Pods_Walk2Deals.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C9FA8110221974AAFF3FEE1 /* Pods_Walk2Deals.framework */; };
 		732625FDD40822DCDD9FB0C6 /* Pods_Walk2DealsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D0FBCC8FB9FCE874BA10192 /* Pods_Walk2DealsUITests.framework */; };
+		A9A73FAB1FB211EF00054F42 /* PersonDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A73FA71FB211EE00054F42 /* PersonDetailsCell.swift */; };
+		A9A73FAC1FB211EF00054F42 /* AddressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9A73FA81FB211EE00054F42 /* AddressCell.xib */; };
+		A9A73FAD1FB211EF00054F42 /* PersonDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9A73FA91FB211EE00054F42 /* PersonDetailsCell.xib */; };
+		A9A73FAE1FB211EF00054F42 /* AddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A73FAA1FB211EF00054F42 /* AddressCell.swift */; };
+		A9A73FB01FB2120700054F42 /* StoreCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A73FAF1FB2120700054F42 /* StoreCreationViewController.swift */; };
+		A9A73FB31FB21FF600054F42 /* FavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A73FB21FB21FF600054F42 /* FavViewController.swift */; };
+		A9A73FB61FB2278700054F42 /* MyDealsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A73FB51FB2278700054F42 /* MyDealsViewController.swift */; };
 		A9F495E51FB0CE6300B86314 /* DealTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F495E41FB0CE6300B86314 /* DealTitleCell.swift */; };
 		A9F495E71FB0CEC700B86314 /* OfferDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F495E61FB0CEC700B86314 /* OfferDetailCell.swift */; };
 		A9F495E91FB0CEF400B86314 /* DealLocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F495E81FB0CEF400B86314 /* DealLocationCell.swift */; };
@@ -194,6 +201,13 @@
 		2C9FA8110221974AAFF3FEE1 /* Pods_Walk2Deals.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Walk2Deals.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		513194D07A79E0872A50E4E1 /* Pods-Walk2Deals.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Walk2Deals.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Walk2Deals/Pods-Walk2Deals.debug.xcconfig"; sourceTree = "<group>"; };
 		93E02FF06837F95D0027841B /* Pods-Walk2DealsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Walk2DealsUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Walk2DealsUITests/Pods-Walk2DealsUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		A9A73FA71FB211EE00054F42 /* PersonDetailsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonDetailsCell.swift; sourceTree = "<group>"; };
+		A9A73FA81FB211EE00054F42 /* AddressCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddressCell.xib; sourceTree = "<group>"; };
+		A9A73FA91FB211EE00054F42 /* PersonDetailsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonDetailsCell.xib; sourceTree = "<group>"; };
+		A9A73FAA1FB211EF00054F42 /* AddressCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressCell.swift; sourceTree = "<group>"; };
+		A9A73FAF1FB2120700054F42 /* StoreCreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreCreationViewController.swift; sourceTree = "<group>"; };
+		A9A73FB21FB21FF600054F42 /* FavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavViewController.swift; sourceTree = "<group>"; };
+		A9A73FB51FB2278700054F42 /* MyDealsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDealsViewController.swift; sourceTree = "<group>"; };
 		A9F495E41FB0CE6300B86314 /* DealTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealTitleCell.swift; sourceTree = "<group>"; };
 		A9F495E61FB0CEC700B86314 /* OfferDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferDetailCell.swift; sourceTree = "<group>"; };
 		A9F495E81FB0CEF400B86314 /* DealLocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealLocationCell.swift; sourceTree = "<group>"; };
@@ -357,6 +371,9 @@
 		184139711F6FF7E900B73595 /* Walk2Deals */ = {
 			isa = PBXGroup;
 			children = (
+				A9A73FB41FB2277C00054F42 /* MyDeals */,
+				A9A73FB11FB21FE100054F42 /* Favourites */,
+				A9A73FA61FB211D500054F42 /* StoreCreation */,
 				122D24591FAD8DD4006A911C /* Location */,
 				12321C841F9A5CF300995249 /* Settings */,
 				1831D8D61F9606F800A26921 /* DropDown */,
@@ -508,6 +525,34 @@
 				0D0FBCC8FB9FCE874BA10192 /* Pods_Walk2DealsUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A9A73FA61FB211D500054F42 /* StoreCreation */ = {
+			isa = PBXGroup;
+			children = (
+				A9A73FA71FB211EE00054F42 /* PersonDetailsCell.swift */,
+				A9A73FA91FB211EE00054F42 /* PersonDetailsCell.xib */,
+				A9A73FAA1FB211EF00054F42 /* AddressCell.swift */,
+				A9A73FA81FB211EE00054F42 /* AddressCell.xib */,
+				A9A73FAF1FB2120700054F42 /* StoreCreationViewController.swift */,
+			);
+			name = StoreCreation;
+			sourceTree = "<group>";
+		};
+		A9A73FB11FB21FE100054F42 /* Favourites */ = {
+			isa = PBXGroup;
+			children = (
+				A9A73FB21FB21FF600054F42 /* FavViewController.swift */,
+			);
+			name = Favourites;
+			sourceTree = "<group>";
+		};
+		A9A73FB41FB2277C00054F42 /* MyDeals */ = {
+			isa = PBXGroup;
+			children = (
+				A9A73FB51FB2278700054F42 /* MyDealsViewController.swift */,
+			);
+			name = MyDeals;
 			sourceTree = "<group>";
 		};
 		A9F495E31FB0CE3200B86314 /* DealLocationCell */ = {
@@ -666,6 +711,8 @@
 				187D5B421F76774800A5E250 /* TableViewCell.xib in Resources */,
 				187D5B371F76578C00A5E250 /* Roboto-Regular.ttf in Resources */,
 				187D5B381F76578C00A5E250 /* RobotoCondensed-Bold.ttf in Resources */,
+				A9A73FAC1FB211EF00054F42 /* AddressCell.xib in Resources */,
+				A9A73FAD1FB211EF00054F42 /* PersonDetailsCell.xib in Resources */,
 				187D5B391F76578C00A5E250 /* RobotoCondensed-Light.ttf in Resources */,
 				1841397D1F6FF7EA00B73595 /* LaunchScreen.storyboard in Resources */,
 				18BD79D61F72A70100BB1A83 /* Configuration.plist in Resources */,
@@ -874,6 +921,8 @@
 				18437E6A1F90B13E003B9631 /* LFLocationService.swift in Sources */,
 				122549901FA08296001D38F2 /* UIImage+SHAdditions.m in Sources */,
 				12389F6A1F8558E400CE790C /* PostAddViewController.swift in Sources */,
+				A9A73FAE1FB211EF00054F42 /* AddressCell.swift in Sources */,
+				A9A73FB01FB2120700054F42 /* StoreCreationViewController.swift in Sources */,
 				182B9BF81F92409900109B15 /* UserProfileTableViewCell.swift in Sources */,
 				A9F495E71FB0CEC700B86314 /* OfferDetailCell.swift in Sources */,
 				18BD79D81F72A74800BB1A83 /* CXAppConfig.swift in Sources */,
@@ -882,6 +931,7 @@
 				12355DD41F8661D50053A5F5 /* PostAddTableViewCell.swift in Sources */,
 				182B9BF21F91F9F900109B15 /* CXDataSaveManager.swift in Sources */,
 				184139A11F6FFCDF00B73595 /* CXDataService.swift in Sources */,
+				A9A73FB31FB21FF600054F42 /* FavViewController.swift in Sources */,
 				187D5B411F76774800A5E250 /* TableViewCell.swift in Sources */,
 				126CEAAA1F86A71200B32BD5 /* AboutDeailViewController.swift in Sources */,
 				1225498F1FA08296001D38F2 /* SHMultipleSelect.m in Sources */,
@@ -891,6 +941,7 @@
 				18437E641F909465003B9631 /* CXCommentViewController.swift in Sources */,
 				182B9BF01F91F82200109B15 /* UserProfile.swift in Sources */,
 				184139731F6FF7E900B73595 /* AppDelegate.swift in Sources */,
+				A9A73FB61FB2278700054F42 /* MyDealsViewController.swift in Sources */,
 				184139AD1F70070D00B73595 /* EnterMobileNumberViewController.swift in Sources */,
 				126CEAAC1F86A72C00B32BD5 /* WriteReviewViewController.swift in Sources */,
 				126CEAA61F86A68500B32BD5 /* DealsDetailsViewController.swift in Sources */,
@@ -917,6 +968,7 @@
 				A9F495E91FB0CEF400B86314 /* DealLocationCell.swift in Sources */,
 				184139AE1F70070D00B73595 /* LaunchViewController.swift in Sources */,
 				122670E31F8E85D600FED033 /* KIImagePager.m in Sources */,
+				A9A73FAB1FB211EF00054F42 /* PersonDetailsCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

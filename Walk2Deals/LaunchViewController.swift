@@ -14,6 +14,7 @@ class LaunchViewController: UIViewController {
     @IBOutlet weak var launchBtn: UIButton!
     @IBOutlet weak var launchImage: UIImageView!
     @IBOutlet weak var launchLbl: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         launchImage.image = UIImage(named: "logo")
@@ -63,15 +64,12 @@ class LaunchViewController: UIViewController {
         self.dealsBtn.isHidden = false
         self.launchBtn.isHidden = true
         self.launchLbl.text = "Don't My Your Great Deals!"
-        
     }
 
     @IBAction func dealsBtnAction(_ sender: UIButton) {
-        
         let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let enternumber : EnterMobileNumberViewController = (storyboard.instantiateViewController(withIdentifier: "EnterMN") as? EnterMobileNumberViewController)!
         self.navigationController?.pushViewController(enternumber, animated: true)
-        
     }
 
 }

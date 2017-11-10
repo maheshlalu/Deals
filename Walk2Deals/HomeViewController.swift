@@ -20,6 +20,9 @@ class HomeViewController: UIViewController {
     var searchBtn : MIBadgeButton!
     var pageNumber = 0
     var isRefresh = false
+    
+    let delgate = UIApplication.shared.delegate as? AppDelegate
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.checklocationAuthentication()
@@ -159,10 +162,21 @@ extension HomeViewController:UICollectionViewDataSource,UICollectionViewDelegate
         if  let distance = dataDict?.value(forKey: "UserDistance") as? String{
             cell.distanceLbl.text = distance + "Km"
         }
-        
-        if         CXAppConfig.resultString(dataDict?.value(forKey: "UserFavDeal") as AnyObject) == "1" {
+        if  CXAppConfig.resultString(dataDict?.value(forKey: "UserFavDeal") as AnyObject) == "1" {
                 cell.favBtn.isSelected = true
+            if let dealID = (dataDict as AnyObject).value(forKey: "Id") as? Int{
+                CXLog.print(dealID)
+                if !(delgate?.favDealID.contains(obj: dealID))!{
+                    delgate?.favDealID.append(dealID)
+                }
+            }
         }else{
+            if let dealID = (dataDict as AnyObject).value(forKey: "Id") as? Int{
+                CXLog.print(dealID)
+                if (delgate?.favDealID.contains(obj: dealID))!{
+                    cell.favBtn.isSelected = true
+                }
+            }
             cell.favBtn.isSelected = false
 
         }
