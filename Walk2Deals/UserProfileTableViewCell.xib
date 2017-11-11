@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -19,17 +19,15 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rXZ-cP-7aq" customClass="ACFloatingTextfield" customModule="Walk2Deals">
-                        <rect key="frame" x="15" y="6" width="290" height="30"/>
+                        <rect key="frame" x="15" y="6" width="290" height="37.5"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="30" id="geE-si-f8f"/>
-                        </constraints>
                         <nil key="textColor"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="bottom" secondItem="rXZ-cP-7aq" secondAttribute="bottom" id="88c-aP-bpn"/>
                     <constraint firstItem="rXZ-cP-7aq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6" id="AQ0-Iq-fNG"/>
                     <constraint firstItem="rXZ-cP-7aq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="mxw-QK-fFz"/>
                     <constraint firstAttribute="trailing" secondItem="rXZ-cP-7aq" secondAttribute="trailing" constant="15" id="tfI-ms-1vp"/>

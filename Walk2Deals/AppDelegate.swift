@@ -15,7 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate,SWRevealViewControllerDele
     
     var window: UIWindow?
     
-    var favDealID = [Int]()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.

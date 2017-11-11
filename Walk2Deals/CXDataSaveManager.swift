@@ -83,6 +83,19 @@ class CXDataSaveManager: NSObject  {
         
     }
     
+    func isSavedFavourites(postId:String)->Bool{
+        let relamInstance = try! Realm()
+        let favData = relamInstance.objects(Favourites.self).filter("postID=='\(postId)'")
+        if favData.count == 0 {
+            //Insert The Data
+            try! relamInstance.write({
+                relamInstance.add(favData)
+            })
+            return false
+        }
+        return true
+    }
+    
     /*
      CreatedById = 0;
      CreatedByName = "<null>";

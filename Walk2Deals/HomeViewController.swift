@@ -152,7 +152,7 @@ extension HomeViewController:UICollectionViewDataSource,UICollectionViewDelegate
                 let img_Url1 = NSURL(string: imgStr )
                 cell.categoryImageView.setImageWith(img_Url1 as URL!, usingActivityIndicatorStyle: .white)
             }
-         
+            
         }
         //OfferTitle
         if  let offerTitle = dataDict?.value(forKey: "OfferTitle") as? String{
@@ -163,31 +163,25 @@ extension HomeViewController:UICollectionViewDataSource,UICollectionViewDelegate
             cell.distanceLbl.text = distance + "Km"
         }
         if  CXAppConfig.resultString(dataDict?.value(forKey: "UserFavDeal") as AnyObject) == "1" {
-                cell.favBtn.isSelected = true
+            cell.favBtn.isSelected = true
             if let dealID = (dataDict as AnyObject).value(forKey: "Id") as? Int{
-                CXLog.print(dealID)
-                if !(delgate?.favDealID.contains(obj: dealID))!{
-                    delgate?.favDealID.append(dealID)
-                }
+                CXLog.print(CXDataSaveManager.sharedInstance.isSavedFavourites(postId: "\(dealID)"))
             }
         }else{
             if let dealID = (dataDict as AnyObject).value(forKey: "Id") as? Int{
-                CXLog.print(dealID)
-                if (delgate?.favDealID.contains(obj: dealID))!{
+                if CXDataSaveManager.sharedInstance.isSavedFavourites(postId: "\(dealID)"){
                     cell.favBtn.isSelected = true
+
+                }else{
+                    cell.favBtn.isSelected = false
                 }
             }
-            cell.favBtn.isSelected = false
-
         }
-        
         cell.favBtn.addTarget(self, action:#selector(favButtonAction(sender:)), for: .touchUpInside)
         cell.favBtn.tag = indexPath.row
-
         cell.shareBtn.addTarget(self, action:#selector(shareButtonAction(sender:)), for: .touchUpInside)
-
         cell.shareBtn.tag = indexPath.row
-//UserDistance
+        //UserDistance
         return cell
         
         
@@ -198,10 +192,12 @@ extension HomeViewController:UICollectionViewDataSource,UICollectionViewDelegate
         if sender.isSelected {
             return
         }
+
         //http://api.walk2deals.com/api/User/DealsFavSave
         sender.isSelected = !sender.isSelected
         let dataDict = self.dealsArray[sender.tag]
         if let dealID = (dataDict as AnyObject).value(forKey: "Id") as? Int{
+            CXLog.print(CXDataSaveManager.sharedInstance.isSavedFavourites(postId: "\(dealID)"))
             let parameters = ["DealId":String(dealID),"UserId":CXAppConfig.sharedInstance.getUserID()]
             //{"DealId":"2","UserId":"2"}
             CXDataService.sharedInstance.faveButtonAction(inputDict: parameters)

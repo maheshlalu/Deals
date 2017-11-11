@@ -26,6 +26,8 @@
 		126CEAAA1F86A71200B32BD5 /* AboutDeailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126CEAA91F86A71200B32BD5 /* AboutDeailViewController.swift */; };
 		126CEAAC1F86A72C00B32BD5 /* WriteReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126CEAAB1F86A72C00B32BD5 /* WriteReviewViewController.swift */; };
 		12E8878E1F83EC4E00335823 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E8878D1F83EC4E00335823 /* LoginViewController.swift */; };
+		180167EC1FB70A86005EB597 /* Favourites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180167EB1FB70A86005EB597 /* Favourites.swift */; };
+		180167EF1FB71538005EB597 /* RequestForAddController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180167EE1FB71538005EB597 /* RequestForAddController.swift */; };
 		1824209C1F9F6A46001091B3 /* ACFloatingTextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1824209B1F9F6A46001091B3 /* ACFloatingTextfield.swift */; };
 		182B9BF01F91F82200109B15 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182B9BEF1F91F82200109B15 /* UserProfile.swift */; };
 		182B9BF21F91F9F900109B15 /* CXDataSaveManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182B9BF11F91F9F900109B15 /* CXDataSaveManager.swift */; };
@@ -138,6 +140,8 @@
 		126CEAA91F86A71200B32BD5 /* AboutDeailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutDeailViewController.swift; sourceTree = "<group>"; };
 		126CEAAB1F86A72C00B32BD5 /* WriteReviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriteReviewViewController.swift; sourceTree = "<group>"; };
 		12E8878D1F83EC4E00335823 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		180167EB1FB70A86005EB597 /* Favourites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favourites.swift; sourceTree = "<group>"; };
+		180167EE1FB71538005EB597 /* RequestForAddController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestForAddController.swift; sourceTree = "<group>"; };
 		1824209B1F9F6A46001091B3 /* ACFloatingTextfield.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACFloatingTextfield.swift; sourceTree = "<group>"; };
 		182B9BEF1F91F82200109B15 /* UserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		182B9BF11F91F9F900109B15 /* CXDataSaveManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CXDataSaveManager.swift; sourceTree = "<group>"; };
@@ -313,11 +317,27 @@
 			name = Login;
 			sourceTree = "<group>";
 		};
+		180167EA1FB7099C005EB597 /* LocalDatabase */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = LocalDatabase;
+			sourceTree = "<group>";
+		};
+		180167ED1FB712F6005EB597 /* RequestForAdd */ = {
+			isa = PBXGroup;
+			children = (
+				180167EE1FB71538005EB597 /* RequestForAddController.swift */,
+			);
+			name = RequestForAdd;
+			sourceTree = "<group>";
+		};
 		182B9BEE1F91F80100109B15 /* Database */ = {
 			isa = PBXGroup;
 			children = (
 				182B9BF11F91F9F900109B15 /* CXDataSaveManager.swift */,
 				182B9BEF1F91F82200109B15 /* UserProfile.swift */,
+				180167EB1FB70A86005EB597 /* Favourites.swift */,
 			);
 			name = Database;
 			sourceTree = "<group>";
@@ -371,6 +391,8 @@
 		184139711F6FF7E900B73595 /* Walk2Deals */ = {
 			isa = PBXGroup;
 			children = (
+				180167ED1FB712F6005EB597 /* RequestForAdd */,
+				180167EA1FB7099C005EB597 /* LocalDatabase */,
 				A9A73FB41FB2277C00054F42 /* MyDeals */,
 				A9A73FB11FB21FE100054F42 /* Favourites */,
 				A9A73FA61FB211D500054F42 /* StoreCreation */,
@@ -655,9 +677,9 @@
 				TargetAttributes = {
 					1841396E1F6FF7E900B73595 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = T6LSS7AWXU;
+						DevelopmentTeam = Q22ZGFMC7F;
 						LastSwiftMigration = 0830;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
 								enabled = 1;
@@ -773,7 +795,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		29687829576BDCC3D392D689 /* [CP] Copy Pods Resources */ = {
@@ -851,7 +873,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DB6E6259D4C30C572695EC4D /* [CP] Check Pods Manifest.lock */ = {
@@ -869,7 +891,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E1FE8422EE5A3D3322D39DE1 /* [CP] Embed Pods Frameworks */ = {
@@ -887,6 +909,7 @@
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -899,6 +922,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -938,9 +962,11 @@
 				1843A23B1F94E60C00ACD476 /* AnnotationView.swift in Sources */,
 				18437E6D1F90B6E0003B9631 /* StarbucksAnnotation.swift in Sources */,
 				187D5B3D1F76643F00A5E250 /* HomeCollectionViewCell.swift in Sources */,
+				180167EF1FB71538005EB597 /* RequestForAddController.swift in Sources */,
 				18437E641F909465003B9631 /* CXCommentViewController.swift in Sources */,
 				182B9BF01F91F82200109B15 /* UserProfile.swift in Sources */,
 				184139731F6FF7E900B73595 /* AppDelegate.swift in Sources */,
+				180167EC1FB70A86005EB597 /* Favourites.swift in Sources */,
 				A9A73FB61FB2278700054F42 /* MyDealsViewController.swift in Sources */,
 				184139AD1F70070D00B73595 /* EnterMobileNumberViewController.swift in Sources */,
 				126CEAAC1F86A72C00B32BD5 /* WriteReviewViewController.swift in Sources */,
@@ -1123,15 +1149,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = T6LSS7AWXU;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q22ZGFMC7F;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Walk2Deals/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dinspire.Walk2Deals;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f4a8644f-9c85-4cfd-a759-40a928cd1e0a";
-				PROVISIONING_PROFILE_SPECIFIER = dev_w;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Walk2Deals/Walk2Deals-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -1145,15 +1171,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = T6LSS7AWXU;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q22ZGFMC7F;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Walk2Deals/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dinspire.Walk2Deals;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f4a8644f-9c85-4cfd-a759-40a928cd1e0a";
-				PROVISIONING_PROFILE_SPECIFIER = dev_w;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Walk2Deals/Walk2Deals-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};

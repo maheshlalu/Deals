@@ -63,7 +63,6 @@ class StoreCreationViewController: UIViewController,UITableViewDelegate,UITableV
             }else if indexPath.row == 3{
                 emailTxtField = cell.nameDetails
             }
-            
             cell.nameDetails.placeholder = placeHolderArr[indexPath.row] as! String
             return cell
         }else{
@@ -121,3 +120,10 @@ class StoreCreationViewController: UIViewController,UITableViewDelegate,UITableV
         }
     }
 }
+
+
+/*
+ {   "StoreName": "PraveenTech",   "CINumber": "IN567",   "Description": "Cloth",   "IsSingleBusiness": true,   "UserId": 1,   "Stores": [     {       "Id": 1,       "StoreId": 1,       "Location": "Vijaya",        "LocationId": "2",       "ContactPerson": "Sam",       "ContactNumber": "9000863842",       "Latitude": "17.234",       "Longitude": "83.5245",       "PhoneNumber": "7396226338",       "Address1": "H:no:567",       "Address2": "lane5",       "City": "Vijayawada",       "State": "AP",       "ZipCode": "562123",          "CreatedById": 1,       "CreatedByName": "Aneesh",       "CreatedDate": "2017-11-08",       "ModifiedById": 1,       "ModifiedByName": "Aneesh",       "ModifiedDate": "2017-11-08",       "IsActive": true,            }    ],   "CreatedById": 1,   "CreatedByName": "aNISH",   "CreatedDate": "2017-11-08",   "ModifiedById": 1,   "ModifiedByName": "aNEESH",   "ModifiedDate": "2017-11-08",   "IsActive": true,  }
+ 
+ 
+ */
