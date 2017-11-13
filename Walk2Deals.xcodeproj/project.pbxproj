@@ -677,7 +677,7 @@
 				TargetAttributes = {
 					1841396E1F6FF7E900B73595 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = Q22ZGFMC7F;
+						DevelopmentTeam = T6LSS7AWXU;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -1150,7 +1150,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Q22ZGFMC7F;
+				DEVELOPMENT_TEAM = T6LSS7AWXU;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Walk2Deals/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1172,7 +1172,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Q22ZGFMC7F;
+				DEVELOPMENT_TEAM = T6LSS7AWXU;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Walk2Deals/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
