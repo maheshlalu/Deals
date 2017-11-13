@@ -12,38 +12,25 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="45" id="KGk-i7-Jjw" customClass="PersonDetailsCell" customModule="RegistrationScreenWithDictionaries" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="45" id="KGk-i7-Jjw" customClass="PersonDetailsCell" customModule="Walk2Deals" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="45"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="44.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sR8-y4-dhh">
-                        <rect key="frame" x="16" y="5" width="288" height="30"/>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sR8-y4-dhh" customClass="ACFloatingTextfield" customModule="Walk2Deals" customModuleProvider="target">
+                        <rect key="frame" x="10" y="0.0" width="300" height="45"/>
                         <nil key="textColor"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aR6-lE-vh8">
-                        <rect key="frame" x="16" y="38" width="288" height="2"/>
-                        <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="2" id="phs-2H-0l7"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="aR6-lE-vh8" secondAttribute="trailing" constant="16" id="1gT-6D-ZEw"/>
-                    <constraint firstItem="aR6-lE-vh8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="3np-z1-TnY"/>
-                    <constraint firstItem="sR8-y4-dhh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="QpK-Mw-xtv"/>
-                    <constraint firstAttribute="bottom" secondItem="aR6-lE-vh8" secondAttribute="bottom" constant="4.5" id="awy-3x-UJu"/>
-                    <constraint firstItem="aR6-lE-vh8" firstAttribute="top" secondItem="sR8-y4-dhh" secondAttribute="bottom" constant="3" id="fHM-be-CC3"/>
-                    <constraint firstAttribute="trailing" secondItem="sR8-y4-dhh" secondAttribute="trailing" constant="16" id="hfq-LJ-2zT"/>
-                    <constraint firstItem="sR8-y4-dhh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="tq9-Q5-Wn6"/>
+                    <constraint firstAttribute="bottom" secondItem="sR8-y4-dhh" secondAttribute="bottom" id="GFw-KM-b9A"/>
+                    <constraint firstItem="sR8-y4-dhh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="RtB-EZ-vfz"/>
+                    <constraint firstItem="sR8-y4-dhh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="sSA-M2-oHa"/>
+                    <constraint firstAttribute="trailing" secondItem="sR8-y4-dhh" secondAttribute="trailing" constant="10" id="zRx-tT-O6T"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
