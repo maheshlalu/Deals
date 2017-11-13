@@ -10,9 +10,9 @@ import UIKit
 import RealmSwift
 class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     @IBOutlet weak var leftTableview: UITableView!
-    var nameArray = ["Home","Near By Stores","My Deals","Rewards Points","Favourites","Invite your friends","Settings","Give us Feedback","Sign Out"]
+    var nameArray = ["Home","Near By Stores","My Deals","Rewards Points","Favourites","Invite your friends","Settings","Give us Feedback","Request For Add","Sign Out"]
     
-    var imageArray = ["home","nearby","my-deal","rewards-points","fav-menu","invite-fnds","settings","feedBack","logout"]
+    var imageArray = ["home","nearby","my-deal","rewards-points","fav-menu","invite-fnds","settings","feedBack","logout","logout"]
     @IBOutlet weak var userImage: UIImageView!
     var previousSelectedIndex  : IndexPath = IndexPath()
 
@@ -96,6 +96,14 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
             navCntl.title = "Settings"
             //revealController.pushFrontViewController(navCntl, animated: true)
             self.present(navCntl, animated: true, completion: { 
+                
+            })
+        }else if itemName == "Request For Add"{
+            
+            let settingVc = storyBoard.instantiateViewController(withIdentifier: "StoreCreationViewController") as! StoreCreationViewController
+            let navCntl = UINavigationController(rootViewController: settingVc)
+            navCntl.title = "Request For Add"
+            self.present(navCntl, animated: true, completion: {
                 
             })
         }

@@ -147,13 +147,20 @@ extension HomeViewController:UICollectionViewDataSource,UICollectionViewDelegate
     {
         let cell : HomeCollectionViewCell = (collectionView.dequeueReusableCell(withReuseIdentifier: "HomeCollectionViewCell", for: indexPath)as? HomeCollectionViewCell)!
         let dataDict = self.dealsArray[indexPath.row] as? NSDictionary
-        if let imageUrlArray = dataDict?.value(forKey: "ImageCDNUrls") as? NSArray , imageUrlArray.count != 0{
+       /* if let imageUrlArray = dataDict?.value(forKey: "ImageCDNUrls") as? NSArray , imageUrlArray.count != 0{
             if let imgStr = imageUrlArray.lastObject as? String {
                 let img_Url1 = NSURL(string: imgStr )
                 cell.categoryImageView.setImageWith(img_Url1 as URL!, usingActivityIndicatorStyle: .white)
             }
             
+        }*/
+        
+        if let imageUrl = dataDict?.value(forKey: "DealImageUrl") as? String ,!imageUrl.isEmpty {
+                let img_Url1 = NSURL(string: imageUrl )
+                cell.categoryImageView.setImageWith(img_Url1 as URL!, usingActivityIndicatorStyle: .white)
+            
         }
+        //DealImageUrl
         //OfferTitle
         if  let offerTitle = dataDict?.value(forKey: "OfferTitle") as? String{
             cell.offerTitleLbl.text = offerTitle
@@ -287,12 +294,12 @@ extension HomeViewController{
             let errorDict = error?.lastObject as? NSDictionary
             let errorcode = errorDict?.value(forKey: "ErrorCode") as? String
             if errorcode == "0"{
-                let deals =  responceDic.value(forKey: "Deals") as? NSArray
-                if deals?.count == 0{
+                if let deals =  responceDic.value(forKey: "Deals") as? NSArray{
+                    if deals.count == 0{
                     return
                 }
                 if self.pageNumber == 1{
-                    self.dealsArray = NSMutableArray(array: deals!)
+                    self.dealsArray = NSMutableArray(array: deals)
                     // DispatchQueue.main.sync {
                     self.homeCollectionView.reloadData()
                 }else{
@@ -302,6 +309,9 @@ extension HomeViewController{
                 }
                 self.isRefresh = false
                 //}
+                }else{
+                    
+                }
             }else{
                 CXDataService.sharedInstance.showAlert(message: "Something went Wrong!!!", viewController: self)
             }

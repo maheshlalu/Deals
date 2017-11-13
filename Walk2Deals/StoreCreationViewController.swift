@@ -32,7 +32,23 @@ class StoreCreationViewController: UIViewController,UITableViewDelegate,UITableV
         self.aTableView.register(UINib(nibName:"PersonDetailsCell",bundle:nil), forCellReuseIdentifier: "PersonDetailsCell")
         self.aTableView.register(UINib(nibName:"AddressCell",bundle:nil), forCellReuseIdentifier: "AddressCell")
         //        self.aTableView.rowHeight = 70.0
+        self.setUpBackButton()
+        // Do any additional setup after loading the view.
     }
+    
+    
+    func setUpBackButton(){
+        let menuItem = UIBarButtonItem(image: UIImage(named: "back"), style: .plain, target: self, action: #selector(SettingsViewController.backAction(sender:)))
+        self.navigationItem.leftBarButtonItem = menuItem
+        self.navigationItem.leftBarButtonItem?.tintColor = UIColor.white
+    }
+    func backAction(sender:UIButton){
+        self.navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true) {
+            
+        }
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
