@@ -34,6 +34,8 @@
 		182B9BF71F92409900109B15 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182B9BF41F92409900109B15 /* UserProfileViewController.swift */; };
 		182B9BF81F92409900109B15 /* UserProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182B9BF51F92409900109B15 /* UserProfileTableViewCell.swift */; };
 		182B9BF91F92409900109B15 /* UserProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 182B9BF61F92409900109B15 /* UserProfileTableViewCell.xib */; };
+		183E75341FBB252B0098EA2D /* FavourateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E75321FBB252A0098EA2D /* FavourateTableViewCell.swift */; };
+		183E75351FBB252B0098EA2D /* FavourateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183E75331FBB252A0098EA2D /* FavourateTableViewCell.xib */; };
 		184139731F6FF7E900B73595 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184139721F6FF7E900B73595 /* AppDelegate.swift */; };
 		184139751F6FF7EA00B73595 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184139741F6FF7EA00B73595 /* ViewController.swift */; };
 		184139781F6FF7EA00B73595 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 184139761F6FF7EA00B73595 /* Main.storyboard */; };
@@ -148,6 +150,8 @@
 		182B9BF41F92409900109B15 /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		182B9BF51F92409900109B15 /* UserProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileTableViewCell.swift; sourceTree = "<group>"; };
 		182B9BF61F92409900109B15 /* UserProfileTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserProfileTableViewCell.xib; sourceTree = "<group>"; };
+		183E75321FBB252A0098EA2D /* FavourateTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavourateTableViewCell.swift; sourceTree = "<group>"; };
+		183E75331FBB252A0098EA2D /* FavourateTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavourateTableViewCell.xib; sourceTree = "<group>"; };
 		1841396F1F6FF7E900B73595 /* Walk2Deals.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Walk2Deals.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		184139721F6FF7E900B73595 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		184139741F6FF7EA00B73595 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -552,6 +556,8 @@
 		A9A73FA61FB211D500054F42 /* StoreCreation */ = {
 			isa = PBXGroup;
 			children = (
+				183E75321FBB252A0098EA2D /* FavourateTableViewCell.swift */,
+				183E75331FBB252A0098EA2D /* FavourateTableViewCell.xib */,
 				A9A73FA71FB211EE00054F42 /* PersonDetailsCell.swift */,
 				A9A73FA91FB211EE00054F42 /* PersonDetailsCell.xib */,
 				A9A73FAA1FB211EF00054F42 /* AddressCell.swift */,
@@ -736,6 +742,7 @@
 				A9A73FAC1FB211EF00054F42 /* AddressCell.xib in Resources */,
 				A9A73FAD1FB211EF00054F42 /* PersonDetailsCell.xib in Resources */,
 				187D5B391F76578C00A5E250 /* RobotoCondensed-Light.ttf in Resources */,
+				183E75351FBB252B0098EA2D /* FavourateTableViewCell.xib in Resources */,
 				1841397D1F6FF7EA00B73595 /* LaunchScreen.storyboard in Resources */,
 				18BD79D61F72A70100BB1A83 /* Configuration.plist in Resources */,
 				187D5B3E1F76643F00A5E250 /* HomeCollectionViewCell.xib in Resources */,
@@ -971,6 +978,7 @@
 				184139AD1F70070D00B73595 /* EnterMobileNumberViewController.swift in Sources */,
 				126CEAAC1F86A72C00B32BD5 /* WriteReviewViewController.swift in Sources */,
 				126CEAA61F86A68500B32BD5 /* DealsDetailsViewController.swift in Sources */,
+				183E75341FBB252B0098EA2D /* FavourateTableViewCell.swift in Sources */,
 				A9F495E51FB0CE6300B86314 /* DealTitleCell.swift in Sources */,
 				187D5B221F764F1B00A5E250 /* HomeViewController.swift in Sources */,
 				122670E01F8D168100FED033 /* UIImageView+UIActivityIndicatorForSDWebImage.m in Sources */,
