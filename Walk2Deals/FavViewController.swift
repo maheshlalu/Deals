@@ -60,6 +60,11 @@ class FavViewController: UIViewController ,UITableViewDataSource,UITableViewDele
          
          */
     }
+    
+    @IBAction func saveAction(_ sender: UIButton) {
+    }
+    @IBAction func cancelAction(_ sender: Any) {
+    }
     /*
      // MARK: - Navigation
      
