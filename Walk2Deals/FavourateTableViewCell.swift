@@ -11,13 +11,14 @@ import UIKit
 class FavourateTableViewCell: UITableViewCell {
     @IBOutlet weak var favourateLabel: UILabel!
 
-    @IBOutlet weak var streetAddressTextView: UITextView!
-    @IBOutlet weak var parkingTextView: UITextView!
-    @IBOutlet weak var rampTextView: UITextView!
-    @IBOutlet weak var constructionTextView: UITextView!
-    @IBOutlet weak var managementTextView: UITextView!
-    @IBOutlet weak var nameTextView: UITextView!
-    @IBOutlet weak var favourateTextView: UITextView!
+    @IBOutlet weak var name: UITextView!
+    @IBOutlet weak var contactName: UITextView!
+    @IBOutlet weak var phoneNumber: UITextView!
+    @IBOutlet weak var anotherNumber: UITextView!
+    @IBOutlet weak var email: UITextView!
+    @IBOutlet weak var address: UITextView!
+
+    @IBOutlet weak var chageAddressAction: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
