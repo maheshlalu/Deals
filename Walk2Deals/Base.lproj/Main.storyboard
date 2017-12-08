@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="MIl-D0-oa9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="MIl-D0-oa9">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -1100,7 +1100,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RPa-7O-gVA">
-                                                    <rect key="frame" x="105" y="22" width="207" height="32"/>
+                                                    <rect key="frame" x="112" y="25" width="193" height="32"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="32" id="ShY-hZ-uEZ"/>
                                                     </constraints>
@@ -1109,13 +1109,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X2K-KD-7p0">
-                                                    <rect key="frame" x="105" y="62" width="207" height="50"/>
+                                                    <rect key="frame" x="112" y="65" width="200" height="47"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userDefaultIcon" translatesAutoresizingMaskIntoConstraints="NO" id="ZId-ue-p2e">
-                                                    <rect key="frame" x="7" y="14" width="90" height="90"/>
+                                                    <rect key="frame" x="14" y="17" width="90" height="90"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="90" id="HWZ-ib-haI"/>
                                                         <constraint firstAttribute="height" constant="90" id="VKK-oU-iKk"/>
@@ -1338,11 +1338,11 @@
                                             <outlet property="dealTitleLbl" destination="Tpj-aQ-4Rp" id="FMp-HY-A3c"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="OfferDetailCell" rowHeight="148" id="mxj-0h-Y0d" customClass="OfferDetailCell" customModule="Walk2Deals" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="72" width="320" height="148"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="OfferDetailCell" rowHeight="120" id="mxj-0h-Y0d" customClass="OfferDetailCell" customModule="Walk2Deals" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="72" width="320" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mxj-0h-Y0d" id="Eze-Z0-MNf">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="147.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="119.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Valid Offer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="odL-1n-dCb">
@@ -1373,15 +1373,15 @@
                                             <outlet property="validStartFromLbl" destination="DNM-UN-MJ2" id="7Q6-6p-k0g"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DealLocationCell" rowHeight="141" id="kRU-X7-raW" customClass="DealLocationCell" customModule="Walk2Deals" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="220" width="320" height="141"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DealLocationCell" rowHeight="177" id="kRU-X7-raW" customClass="DealLocationCell" customModule="Walk2Deals" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="192" width="320" height="177"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kRU-X7-raW" id="9R5-Lz-qHk">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="140.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="176.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" aksdjkoaj jalD SAJKSDJakljdlajdsljakldakljd lkajDKLJA LKJAKLDJAkldjklaJDKL A" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D8a-Ch-nXC">
-                                                    <rect key="frame" x="0.0" y="47" width="320" height="93"/>
+                                                    <rect key="frame" x="0.0" y="47" width="320" height="129"/>
                                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1422,6 +1422,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="0qb-Xw-azS" id="8tG-i1-sUe"/>
+                                    <outlet property="delegate" destination="0qb-Xw-azS" id="Sh8-UO-lcH"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

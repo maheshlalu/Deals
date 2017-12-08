@@ -64,7 +64,7 @@ class DealsDetailsViewController: UIViewController {
     func getDealDataByID(){
         CXDataService.sharedInstance.showLoader(view: self.view, message: "Loading...")
        // http://api.walk2deals.com/api/Deal/GetById/2
-        let otpUrlString = CXAppConfig.sharedInstance.getBaseUrl() + CXAppConfig.sharedInstance.getDealByIDUrl() + "\(self.dealId!)"
+        let otpUrlString = CXAppConfig.sharedInstance.getBaseUrl() + CXAppConfig.sharedInstance.getDealByIDUrl() + "\(self.dealId!)" + "/" + "\(CXAppConfig.sharedInstance.getUserID())"
         CXDataService.sharedInstance.getTheDataFromServer(urlString: otpUrlString, completion: { (responceDic) in
             CXLog.print(" deail deatil dic\(responceDic)")
             self.dealDetailDict = responceDic

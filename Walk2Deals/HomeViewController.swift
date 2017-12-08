@@ -35,7 +35,7 @@ class HomeViewController: UIViewController {
         self.homeCollectionView.contentInset = UIEdgeInsetsMake(5, 10, 10, 10)
         self.automaticallyAdjustsScrollViewInsets = false
         // Do any additional setup after loading the view.
-        self.addBarButtonItems()
+       // self.addBarButtonItems()
         self.designLeftBarButtonITems()
         self.notificationRegister()
     }
@@ -100,9 +100,7 @@ class HomeViewController: UIViewController {
         let dropDownBtn = self.createCartButton("arrow", frame: CGRect(x: titleLable.frame.size.width+10,y: 2, width: 35, height: 35))
         self.searchBtn.addTarget(self, action: #selector(categoryBtnTapped), for: .touchUpInside)
 
-        leftButtonsView.addSubview(dropDownBtn)
-      
-
+        //leftButtonsView.addSubview(dropDownBtn)
     }
     
     func categoryBtnTapped(_ sender:UIButton){
@@ -287,6 +285,7 @@ extension HomeViewController{
             ,"UserId":CXAppConfig.sharedInstance.getUserID(),"PageNumber":"\(self.pageNumber)","PageSize":"10"] //PageNumber
         
         CXDataService.sharedInstance.showLoader(view: self.view, message: "Loading...")
+        CXLog.print(parameters)
         CXDataService.sharedInstance.postTheDataToServer(urlString: CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getDealsUrl(), parameters: parameters as! [String : String]) { (responceDic) in
             CXLog.print("responce dict \(responceDic)")
             CXDataService.sharedInstance.hideLoader()

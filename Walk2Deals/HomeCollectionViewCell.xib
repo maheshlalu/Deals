@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -25,7 +25,7 @@
                         <rect key="frame" x="0.0" y="158" width="300" height="42"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sdfasfdas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hls-hX-ox4">
-                                <rect key="frame" x="10" y="13" width="172" height="21"/>
+                                <rect key="frame" x="10" y="13" width="152" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="hus-Di-XlT"/>
                                 </constraints>
@@ -53,12 +53,12 @@
                                     <constraint firstAttribute="width" constant="70" id="J83-tO-D1W"/>
                                 </constraints>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12Km" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d3v-36-jyv">
-                                <rect key="frame" x="184" y="8" width="34" height="29"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d3v-36-jyv">
+                                <rect key="frame" x="163" y="8" width="55" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="29" id="okF-MJ-w9O"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -68,11 +68,11 @@
                             <constraint firstItem="Hls-hX-ox4" firstAttribute="top" secondItem="99y-jU-bi3" secondAttribute="top" constant="13" id="GzC-gr-70y"/>
                             <constraint firstAttribute="height" constant="42" id="MOO-Uk-UdR"/>
                             <constraint firstItem="pwx-fz-KJV" firstAttribute="top" secondItem="99y-jU-bi3" secondAttribute="top" constant="8" id="YMJ-Ty-oD5"/>
-                            <constraint firstItem="d3v-36-jyv" firstAttribute="leading" secondItem="Hls-hX-ox4" secondAttribute="trailing" constant="2" id="dhb-xJ-2XP"/>
+                            <constraint firstItem="d3v-36-jyv" firstAttribute="leading" secondItem="Hls-hX-ox4" secondAttribute="trailing" constant="1" id="dhb-xJ-2XP"/>
                             <constraint firstItem="pwx-fz-KJV" firstAttribute="leading" secondItem="d3v-36-jyv" secondAttribute="trailing" constant="2" id="fdE-Mq-haR"/>
                             <constraint firstAttribute="bottom" secondItem="d3v-36-jyv" secondAttribute="bottom" constant="5" id="idz-X7-qSn"/>
                             <constraint firstAttribute="trailing" secondItem="pwx-fz-KJV" secondAttribute="trailing" constant="10" id="kHY-lw-s6T"/>
-                            <constraint firstItem="pwx-fz-KJV" firstAttribute="leading" secondItem="Hls-hX-ox4" secondAttribute="trailing" constant="38" id="le5-sO-z4b"/>
+                            <constraint firstItem="pwx-fz-KJV" firstAttribute="leading" secondItem="Hls-hX-ox4" secondAttribute="trailing" constant="58" id="le5-sO-z4b"/>
                             <constraint firstItem="Hls-hX-ox4" firstAttribute="leading" secondItem="99y-jU-bi3" secondAttribute="leading" constant="10" id="sxx-Cz-AXa"/>
                         </constraints>
                     </view>
