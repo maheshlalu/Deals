@@ -24,12 +24,16 @@ class DealsDetailsViewController: UIViewController {
     @IBOutlet weak var pagerHeight: NSLayoutConstraint!
     @IBOutlet weak var writeReviewHeight: NSLayoutConstraint!
     
-   
+    @IBOutlet weak var reedemBtn: UIButton!
+    
+    @IBOutlet weak var writeReviewBtn: UIButton!
     @IBOutlet weak var rattingLbl: UILabel!
+    var navTitle = ""
     var dealDetailDict : NSDictionary!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.getDealDataByID()
+        self.title = self.navTitle
         
         
         //CXLog.print(dealId)
@@ -47,16 +51,34 @@ class DealsDetailsViewController: UIViewController {
             .scrollMenuBackgroundColor(UIColor.gray),
             .menuItemWidth(self.view.frame.size.width/2-16)
         ]
+        var contrl = [UIViewController]()
         let aboutDeal : AboutDeailViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AboutDeailViewController") as! AboutDeailViewController
         aboutDeal.title = "About"
         aboutDeal.dealDetailDict = self.dealDetailDict
+       
         let reviewsVc : ReviewListViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ReviewListViewController") as! ReviewListViewController
         reviewsVc.title = "Reviews"
         reviewsVc.dealDetailDict = self.dealDetailDict
         ///ReviewListViewController
+        contrl.append(aboutDeal)
+        contrl.append(reviewsVc)
+
+        
+        let profile = CXDataSaveManager.sharedInstance.getTheUserProfileFromDB()
+        if profile.isUser {
+            self.reedemBtn.isHidden = false
+
+        }else{
+            let approveVc : ApproveViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ApproveViewController") as! ApproveViewController
+            approveVc.title = "Redeem"
+            approveVc.dealDetailDict = self.dealDetailDict
+            contrl.append(approveVc)
+            self.reedemBtn.isHidden = true
+        }
+        
         let pagerHeight = UIScreen.main.bounds.size.height - (self.pagerHeight.constant + self.writeReviewHeight.constant + 70)
         
-        self.pageMenu = CAPSPageMenu(viewControllers: [aboutDeal,reviewsVc], frame: CGRect(x: 0, y: self.pagerHeight.constant+1+50, width: self.view.frame.width, height: pagerHeight-50), pageMenuOptions: parameters)
+        self.pageMenu = CAPSPageMenu(viewControllers: contrl, frame: CGRect(x: 0, y: self.pagerHeight.constant+1+50, width: self.view.frame.width, height: pagerHeight-50), pageMenuOptions: parameters)
         self.view.addSubview((self.pageMenu?.view)!)
     }
     
@@ -143,6 +165,25 @@ class DealsDetailsViewController: UIViewController {
         writeReviewVc?.dealID = self.dealId
         writeReviewVc?.delegate = self
         self.navigationController?.pushViewController(writeReviewVc!, animated: true)
+    }
+    @IBAction func reedemBtnAction(_ sender: UIButton) {
+        /*
+         POST /api/Deal/SaveRedeem
+         Request
+         {
+         "DealId":10132,
+         "UserId":1
+         }
+         */
+        let urlString = CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getSaveReedm()
+        let dataDict = self.dealDetailDict
+        if let dealID = (dataDict as AnyObject).value(forKey: "Id") as? Int{
+            let parameters = ["DealId":String(dealID),"UserId":CXAppConfig.sharedInstance.getUserID()]
+            //{"DealId":"2","UserId":"2"}
+            CXDataService.sharedInstance.postTheDataToServer(urlString: urlString, parameters: parameters, completion: { (responce) in
+                CXLog.print(responce)
+            })
+        }
     }
     /*
     // MARK: - Navigation

@@ -10,18 +10,29 @@ import UIKit
 import RealmSwift
 class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     @IBOutlet weak var leftTableview: UITableView!
-    var nameArray = ["Home","Near By Stores","My Deals","Rewards Points","Favourites","Invite your friends","Settings","Give us Feedback","Request For Add","Sign Out"]
+    var nameArray = ["Home","Near By Stores","My Deals","Favourites","Invite your friends","Settings","Give us Feedback","Request For Add","Sign Out"]
+    //"Rewards Points",
     
-    var imageArray = ["home","nearby","my-deal","rewards-points","fav-menu","invite-fnds","settings","feedBack","logout","logout"]
+    var imageArray = ["home","nearby","my-deal","fav-menu","invite-fnds","settings","feedBack","","logout"]
+    //,"rewards-points"
     @IBOutlet weak var userImage: UIImageView!
     var previousSelectedIndex  : IndexPath = IndexPath()
 
+    @IBOutlet weak var postAdBtn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         let nib = UINib(nibName: "TableViewCell", bundle: nil)
         self.leftTableview.register(nib, forCellReuseIdentifier: "TableViewCell")
         self.leftTableview.dataSource = self
         self.leftTableview.delegate = self
+        
+        let profile = CXDataSaveManager.sharedInstance.getTheUserProfileFromDB()
+        if profile.isUser {
+            self.postAdBtn.isHidden = true
+        }else{
+            nameArray = nameArray.filter { $0 != "Request For Add" }
+            imageArray = imageArray.filter { $0 != "" }
+        }
         // Do any additional setup after loading the view.
     }
 

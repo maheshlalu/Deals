@@ -21,6 +21,8 @@
 		12355DD81F86624A0053A5F5 /* PostAddOneTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12355DD61F86624A0053A5F5 /* PostAddOneTableViewCell.swift */; };
 		12355DD91F86624A0053A5F5 /* PostAddOneTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12355DD71F86624A0053A5F5 /* PostAddOneTableViewCell.xib */; };
 		12389F6A1F8558E400CE790C /* PostAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12389F691F8558E400CE790C /* PostAddViewController.swift */; };
+		1263A09F1FDBBB0A00C88486 /* ApproveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1263A09E1FDBBB0A00C88486 /* ApproveViewController.swift */; };
+		1263A0A11FDBC1C000C88486 /* ApproveTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1263A0A01FDBC1C000C88486 /* ApproveTableViewCell.swift */; };
 		126CEAA61F86A68500B32BD5 /* DealsDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126CEAA51F86A68500B32BD5 /* DealsDetailsViewController.swift */; };
 		126CEAA81F86A6D300B32BD5 /* ReviewListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126CEAA71F86A6D300B32BD5 /* ReviewListViewController.swift */; };
 		126CEAAA1F86A71200B32BD5 /* AboutDeailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126CEAA91F86A71200B32BD5 /* AboutDeailViewController.swift */; };
@@ -137,6 +139,8 @@
 		12355DD61F86624A0053A5F5 /* PostAddOneTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostAddOneTableViewCell.swift; sourceTree = "<group>"; };
 		12355DD71F86624A0053A5F5 /* PostAddOneTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostAddOneTableViewCell.xib; sourceTree = "<group>"; };
 		12389F691F8558E400CE790C /* PostAddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostAddViewController.swift; sourceTree = "<group>"; };
+		1263A09E1FDBBB0A00C88486 /* ApproveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApproveViewController.swift; sourceTree = "<group>"; };
+		1263A0A01FDBC1C000C88486 /* ApproveTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApproveTableViewCell.swift; sourceTree = "<group>"; };
 		126CEAA51F86A68500B32BD5 /* DealsDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealsDetailsViewController.swift; sourceTree = "<group>"; };
 		126CEAA71F86A6D300B32BD5 /* ReviewListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewListViewController.swift; sourceTree = "<group>"; };
 		126CEAA91F86A71200B32BD5 /* AboutDeailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutDeailViewController.swift; sourceTree = "<group>"; };
@@ -309,6 +313,8 @@
 				126CEAA71F86A6D300B32BD5 /* ReviewListViewController.swift */,
 				126CEAA91F86A71200B32BD5 /* AboutDeailViewController.swift */,
 				126CEAAB1F86A72C00B32BD5 /* WriteReviewViewController.swift */,
+				1263A09E1FDBBB0A00C88486 /* ApproveViewController.swift */,
+				1263A0A01FDBC1C000C88486 /* ApproveTableViewCell.swift */,
 			);
 			name = DealsDetails;
 			sourceTree = "<group>";
@@ -951,6 +957,7 @@
 				12E8878E1F83EC4E00335823 /* LoginViewController.swift in Sources */,
 				18437E6A1F90B13E003B9631 /* LFLocationService.swift in Sources */,
 				122549901FA08296001D38F2 /* UIImage+SHAdditions.m in Sources */,
+				1263A0A11FDBC1C000C88486 /* ApproveTableViewCell.swift in Sources */,
 				12389F6A1F8558E400CE790C /* PostAddViewController.swift in Sources */,
 				A9A73FAE1FB211EF00054F42 /* AddressCell.swift in Sources */,
 				A9A73FB01FB2120700054F42 /* StoreCreationViewController.swift in Sources */,
@@ -986,6 +993,7 @@
 				187D5B1D1F764DE900A5E250 /* SWRevealViewController.m in Sources */,
 				12321C881F9A6C7600995249 /* SelectLocationViewController.swift in Sources */,
 				182B9BF71F92409900109B15 /* UserProfileViewController.swift in Sources */,
+				1263A09F1FDBBB0A00C88486 /* ApproveViewController.swift in Sources */,
 				187D5B241F764F2C00A5E250 /* LeftViewController.swift in Sources */,
 				188366CE1F9A1518004A962D /* MIBadgeButton.swift in Sources */,
 				184139A41F70004200B73595 /* CXLog.swift in Sources */,

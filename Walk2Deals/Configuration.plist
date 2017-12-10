@@ -24,6 +24,10 @@
 	<string>api/User/GetById/</string>
 	<key>getAllLocations</key>
 	<string>api/Location/GetAll</string>
+	<key>saveReedm</key>
+	<string>api/Deal/SaveRedeem</string>
+	<key>ApproveRedeem</key>
+	<string>api/Deal/ApproveRedeem</string>
 	<key>getOtpUlr</key>
 	<string>api/User/VerifyMobileNumber/</string>
 </dict>

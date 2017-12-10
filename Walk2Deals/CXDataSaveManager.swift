@@ -26,6 +26,7 @@ class CXDataSaveManager: NSObject  {
         let userData = relamInstance.objects(UserProfile.self).filter("userId=='\(userDataDic["UserId"].stringValue)'")
         if userData.count == 0 {
             //Insert The Data
+            //Role = User;
             try! relamInstance.write({
                 let profile  = UserProfile()
                 profile.userId = userDataDic["UserId"].stringValue
@@ -37,11 +38,16 @@ class CXDataSaveManager: NSObject  {
                 profile.mobile = userDataDic["MobileNumber"].stringValue
                 profile.image = userDataDic["ProfileImagePath"].stringValue
                 profile.aDharNumbers = userDataDic["AdharNumber"].stringValue
-                
+                if userDataDic["Role"].stringValue == "User"{
+                    profile.isUser = true
+                }else{
+                    profile.isUser = false
+                    
+                }
                 if let profilePath = userDataDic["ProfileImagePath"].dictionary {
                     if let image = profilePath["CDNFilePath"]?.string{
                         profile.image = image
-
+                        
                     }
                 }
                 
@@ -49,21 +55,27 @@ class CXDataSaveManager: NSObject  {
             })
         }else{
             try! relamInstance.write({
-            let profile = userData.first
-            profile?.userId = userDataDic["UserId"].stringValue
-            profile?.email = userDataDic["EmailAddress"].stringValue
-            profile?.firstName = userDataDic["FirstName"].stringValue
-            profile?.gender = userDataDic["Gender"].stringValue
-            profile?.lastName = userDataDic["LastName"].stringValue
-            profile?.mobile = userDataDic["MobileNumber"].stringValue
-            profile?.image = userDataDic["ProfileImagePath"].stringValue
-            profile?.aDharNumbers = userDataDic["AdharNumber"].stringValue
+                let profile = userData.first
+                profile?.userId = userDataDic["UserId"].stringValue
+                profile?.email = userDataDic["EmailAddress"].stringValue
+                profile?.firstName = userDataDic["FirstName"].stringValue
+                profile?.gender = userDataDic["Gender"].stringValue
+                profile?.lastName = userDataDic["LastName"].stringValue
+                profile?.mobile = userDataDic["MobileNumber"].stringValue
+                profile?.image = userDataDic["ProfileImagePath"].stringValue
+                profile?.aDharNumbers = userDataDic["AdharNumber"].stringValue
+                if userDataDic["Role"].stringValue == "User"{
+                    profile?.isUser = true
+                }else{
+                    profile?.isUser = false
+
+                }
                 if let profilePath = userDataDic["ProfileImagePath"].dictionary {
                     profile?.image = (profilePath["CDNFilePath"]?.string)!
                 }
                 
             })
-
+            
         }
         
         /*

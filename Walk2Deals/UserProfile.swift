@@ -25,6 +25,8 @@ class UserProfile: Object {
     dynamic  var userId :  String = ""
     dynamic  var aDharNumbers :  String = ""
     dynamic  var mobile :  String = ""
+    dynamic  var isUser :  Bool = true
+
 
 // Specify properties to ignore (Realm won't persist these)
     

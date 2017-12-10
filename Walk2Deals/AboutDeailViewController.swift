@@ -94,8 +94,9 @@ extension AboutDeailViewController:UITableViewDataSource,UITableViewDelegate{
             self.dealLocatinDict = dealDetailDict.value(forKey: "DealLocations") as! NSArray
             
             if let strdDate = dealDetailDict.value(forKey: "StartDate") as? String , let endDate = dealDetailDict.value(forKey: "StartDate") as? String {
-                offerCell?.validStartFromLbl.text = "Start Date:  " + strdDate
-                offerCell?.validEndOfferLbl.text = "End Date:  " + endDate
+                //stringToDate
+                offerCell?.validStartFromLbl.text = "Start Date:  " + CXAppConfig.sharedInstance.stringToDate(dateString: strdDate)
+                offerCell?.validEndOfferLbl.text = "End Date:  " + CXAppConfig.sharedInstance.stringToDate(dateString: endDate)
             }
             
             return offerCell!

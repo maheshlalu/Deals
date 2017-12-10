@@ -97,8 +97,8 @@ class HomeViewController: UIViewController {
        // titleLable.font = CXAppConfig.sharedInstance.appLargeFont()
         leftButtonsView.addSubview(titleLable)
         
-        let dropDownBtn = self.createCartButton("arrow", frame: CGRect(x: titleLable.frame.size.width+10,y: 2, width: 35, height: 35))
-        self.searchBtn.addTarget(self, action: #selector(categoryBtnTapped), for: .touchUpInside)
+        //let dropDownBtn = self.createCartButton("arrow", frame: CGRect(x: titleLable.frame.size.width+10,y: 2, width: 35, height: 35))
+        //self.searchBtn.addTarget(self, action: #selector(categoryBtnTapped), for: .touchUpInside)
 
         //leftButtonsView.addSubview(dropDownBtn)
     }
@@ -236,6 +236,9 @@ extension HomeViewController:UICollectionViewDataSource,UICollectionViewDelegate
         
         if let dealID = dataDict?.value(forKey: "Id") as? Int{
             dealDetail?.dealId = String(dealID)
+        }
+        if let offerTitle = dataDict?.value(forKey: "OfferTitle") as? String{
+            dealDetail?.navTitle = offerTitle
         }
         
             self.navigationController?.pushViewController(dealDetail!, animated: true)
