@@ -30,6 +30,7 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
         if profile.isUser {
             self.postAdBtn.isHidden = true
              nameArray = nameArray.filter { $0 != "My Deals" }
+            imageArray = imageArray.filter { $0 != "my-deal" }
         }else{
             nameArray = nameArray.filter { $0 != "Request For Add" }
             imageArray = imageArray.filter { $0 != "" }
