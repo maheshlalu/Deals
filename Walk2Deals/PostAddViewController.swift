@@ -84,10 +84,20 @@ class PostAddViewController: UIViewController,UITableViewDelegate,UITableViewDat
          1.Get Stores : http://api.walk2deals.com/api/Store/GetAll
          2.Get locations based on stores : http://api.walk2deals.com/api/Store/GetAllStoreLocationbyId/3
          3.Get all  category  : http://api.walk2deals.com/api/Category/GetAll
+         
+         
+         http://api.walk2deals.com/api/Store/StoreLocationbyUser/userid/storeid
+         
+         
+         http://api.walk2deals.com/api/Store/StorebyUser/userId
+         
+         
          */
         
+        let user = CXDataSaveManager.sharedInstance.getTheUserProfileFromDB()
+        
         CXDataService.sharedInstance.showLoader(view: self.view, message: "Loading...")
-        CXDataService.sharedInstance.getTheDataFromServer(urlString: "http://api.walk2deals.com/api/Store/GetAll") { (responceDict) in
+        CXDataService.sharedInstance.getTheDataFromServer(urlString: "http://api.walk2deals.com/api/Store/StorebyUser/" + user.userId) { (responceDict) in
             if let stores = responceDict.value(forKey: "Stores") as? NSArray{
                 self.selectedStoresArray = stores
                 self.selectedStore = (self.selectedStoresArray.firstObject as? NSDictionary)!
@@ -124,11 +134,12 @@ class PostAddViewController: UIViewController,UITableViewDelegate,UITableViewDat
     }
     
     func getLocationBasedOnStores(){
+        let user = CXDataSaveManager.sharedInstance.getTheUserProfileFromDB()
+
+        //http://api.walk2deals.com/api/Store/StoreLocationbyUser/userid/storeid
         CXDataService.sharedInstance.showLoader(view: self.view, message: "Loading...")
-        
-        let storeID = CXAppConfig.resultString(self.selectedStore.value(forKey: "Id") as AnyObject)
-        
-        let urlString = "http://api.walk2deals.com/api/Store/GetAllStoreLocationbyId/" + storeID
+        let storeID = CXAppConfig.resultString(self.selectedStore.value(forKey: "StoreId") as AnyObject)
+        let urlString = "http://api.walk2deals.com/api/Store/StoreLocationbyUser/"+"\(user.userId)/" + storeID
         CXDataService.sharedInstance.getTheDataFromServer(urlString: urlString) { (responceDict) in
             self.selectedLocationArray = responceDict.value(forKey: "StoreLocations")  as! NSArray
             self.selectedLocation = (self.selectedLocationArray.firstObject as? NSDictionary)!
@@ -136,6 +147,17 @@ class PostAddViewController: UIViewController,UITableViewDelegate,UITableViewDat
             CXDataService.sharedInstance.hideLoader()
             
         }
+        
+        /*
+         StoreLocations =     (
+         {
+         StoreId = 1;
+         StoreLocationId = 1;
+         StoreLocationName = "Pm Palem";
+         StoreName = "D-Mart";
+         }
+         );
+         */
     }
     
     
@@ -162,7 +184,7 @@ class PostAddViewController: UIViewController,UITableViewDelegate,UITableViewDat
             tapgestures.numberOfTapsRequired = 1
             cell1?.postAddTextField.addGestureRecognizer(tapgestures)
             cell1?.postAddTextField.placeholder = "Location"
-            if let name = self.selectedLocation.value(forKey: "Location") as? String{
+            if let name = self.selectedLocation.value(forKey: "StoreLocationName") as? String{
                 cell1?.postAddTextField?.text = name
             }else{
                 cell1?.postAddTextField?.text = ""
@@ -274,7 +296,7 @@ class PostAddViewController: UIViewController,UITableViewDelegate,UITableViewDat
         var storeNameDic = [String]()
         for store in self.selectedLocationArray {
             let storeDict = store as? NSDictionary
-            if let locName = storeDict?.value(forKey: "Location") as? String{
+            if let locName = storeDict?.value(forKey: "StoreLocationName") as? String{
                 storeNameDic.append(locName)
             }else{
                 storeNameDic.append("Empty")
@@ -473,7 +495,7 @@ return
         
         let subDict = NSMutableDictionary()
         print(self.selectedLocation)
-        subDict["StoreLocationId"] = CXAppConfig.resultString(self.selectedLocation.value(forKey: "Id") as AnyObject)
+        subDict["StoreLocationId"] = CXAppConfig.resultString(self.selectedLocation.value(forKey: "StoreId") as AnyObject)
         subDict["IsActive"] = "true"
         let arr = [subDict]
         mainDict["DealLocations"] = arr

@@ -29,6 +29,7 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
         let profile = CXDataSaveManager.sharedInstance.getTheUserProfileFromDB()
         if profile.isUser {
             self.postAdBtn.isHidden = true
+             nameArray = nameArray.filter { $0 != "My Deals" }
         }else{
             nameArray = nameArray.filter { $0 != "Request For Add" }
             imageArray = imageArray.filter { $0 != "" }
@@ -110,18 +111,25 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
                 
             })
         }else if itemName == "Request For Add"{
-            
             let settingVc = storyBoard.instantiateViewController(withIdentifier: "StoreCreationViewController") as! StoreCreationViewController
             let navCntl = UINavigationController(rootViewController: settingVc)
             navCntl.title = "Request For Add"
             self.present(navCntl, animated: true, completion: {
-                
             })
+        }else{
+            let nearByVc = storyBoard.instantiateViewController(withIdentifier: "MyDealsViewController") as! MyDealsViewController
+            let navCntl = UINavigationController(rootViewController: nearByVc)
+            if itemName == "Favourites"{
+                nearByVc.isFavDeal = true
+                navCntl.title = "Favourites"
+            }else{
+                nearByVc.isFavDeal = false
+                navCntl.title = "My Deals"
+            }
+            revealController.pushFrontViewController(navCntl, animated: true)
         }
-
-        
-
-        
+        //Favourites
+        //My Deals
     }
     
     

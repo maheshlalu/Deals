@@ -77,7 +77,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RAe-oD-vkm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4503.75" y="-359.15492957746477"/>
+            <point key="canvasLocation" x="3561" y="-386"/>
         </scene>
         <!--Approve View Controller-->
         <scene sceneID="RkB-Wo-yyr">
@@ -1473,7 +1473,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End Date: SJDOKSJA OKPJSAFDSWA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w7z-eY-tRu">
-                                                            <rect key="frame" x="0.0" y="41" width="288" height="41"/>
+                                                            <rect key="frame" x="0.0" y="41" width="297" height="41"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -1688,8 +1688,8 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="zCG-jb-dbN">
                                 <rect key="frame" x="0.0" y="518" width="320" height="50"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UQE-Kt-EUS">
-                                        <rect key="frame" x="0.0" y="0.0" width="159.5" height="50"/>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UQE-Kt-EUS">
+                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="50"/>
                                         <color key="backgroundColor" red="0.34509803921568627" green="0.63529411764705879" blue="0.77254901960784317" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Reedem">
                                             <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1699,7 +1699,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RD9-HP-qm6">
-                                        <rect key="frame" x="160.5" y="0.0" width="159.5" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="Write Review" image="pen">
                                             <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2030,6 +2030,59 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rsv-Qv-dFT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1357.5" y="474.29577464788736"/>
+        </scene>
+        <!--My Deals View Controller-->
+        <scene sceneID="hgf-FJ-rDh">
+            <objects>
+                <viewController storyboardIdentifier="MyDealsViewController" id="WR9-ss-amZ" customClass="MyDealsViewController" customModule="Walk2Deals" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="B9i-Y9-fqZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="0ek-p6-8Y6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Wlj-3I-ek7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="X5d-VM-sMl">
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Z9Q-pK-NGq">
+                                    <size key="itemSize" width="300" height="200"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="ggW-UV-Bhw">
+                                        <rect key="frame" x="10" y="10" width="300" height="200"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="WR9-ss-amZ" id="3rE-T4-kNW"/>
+                                    <outlet property="delegate" destination="WR9-ss-amZ" id="X9p-MM-DD3"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="X5d-VM-sMl" firstAttribute="leading" secondItem="Wlj-3I-ek7" secondAttribute="leading" id="UzO-Ll-B5C"/>
+                            <constraint firstAttribute="trailing" secondItem="X5d-VM-sMl" secondAttribute="trailing" id="a0L-F9-rCm"/>
+                            <constraint firstItem="X5d-VM-sMl" firstAttribute="top" secondItem="B9i-Y9-fqZ" secondAttribute="bottom" id="hWa-7m-pRR"/>
+                            <constraint firstItem="0ek-p6-8Y6" firstAttribute="top" secondItem="X5d-VM-sMl" secondAttribute="bottom" id="tDV-Mw-tTB"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="homeCollectionView" destination="X5d-VM-sMl" id="2Gj-W5-RP8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mXJ-NU-BnG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4344" y="-375"/>
         </scene>
     </scenes>
     <resources>

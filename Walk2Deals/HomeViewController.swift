@@ -92,7 +92,7 @@ class HomeViewController: UIViewController {
         let titleLable : UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
         titleLable.textAlignment = .left
         titleLable.textColor = UIColor.white
-        titleLable.text = "Categories"
+        titleLable.text = "Walk2Deals"
         //titleLable.text = CXAppConfig.sharedInstance.productName()
        // titleLable.font = CXAppConfig.sharedInstance.appLargeFont()
         leftButtonsView.addSubview(titleLable)
@@ -165,7 +165,7 @@ extension HomeViewController:UICollectionViewDataSource,UICollectionViewDelegate
         }
         
         if  let distance = dataDict?.value(forKey: "UserDistance") as? String{
-            cell.distanceLbl.text = distance + "Km"
+            cell.distanceLbl.text = distance.replacingOccurrences(of: " ", with: "")
         }
         if  CXAppConfig.resultString(dataDict?.value(forKey: "UserFavDeal") as AnyObject) == "1" {
             cell.favBtn.isSelected = true
@@ -280,13 +280,10 @@ extension HomeViewController{
     
     
     func getDeails(){
-        
         //http://api.walk2deals.com/api/Deal/GetCurrentDeals
-        
         let parameters = ["CurrentDate":CXAppConfig.sharedInstance.dateToString(date: Date(), isDisplay: true),"Latitude":String(self.currentLocation.coordinate.latitude)
             ,"Longitude":        String(self.currentLocation.coordinate.longitude)
             ,"UserId":CXAppConfig.sharedInstance.getUserID(),"PageNumber":"\(self.pageNumber)","PageSize":"10"] //PageNumber
-        
         CXDataService.sharedInstance.showLoader(view: self.view, message: "Loading...")
         CXLog.print(parameters)
         CXDataService.sharedInstance.postTheDataToServer(urlString: CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getDealsUrl(), parameters: parameters as! [String : String]) { (responceDic) in
