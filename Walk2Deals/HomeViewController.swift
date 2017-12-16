@@ -281,12 +281,14 @@ extension HomeViewController{
     
     func getDeails(){
         //http://api.walk2deals.com/api/Deal/GetCurrentDeals
+        ///api/Deal/DashboardDeals
+        //BaseUrl
         let parameters = ["CurrentDate":CXAppConfig.sharedInstance.dateToString(date: Date(), isDisplay: true),"Latitude":String(self.currentLocation.coordinate.latitude)
             ,"Longitude":        String(self.currentLocation.coordinate.longitude)
             ,"UserId":CXAppConfig.sharedInstance.getUserID(),"PageNumber":"\(self.pageNumber)","PageSize":"10"] //PageNumber
         CXDataService.sharedInstance.showLoader(view: self.view, message: "Loading...")
         CXLog.print(parameters)
-        CXDataService.sharedInstance.postTheDataToServer(urlString: CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getDealsUrl(), parameters: parameters as! [String : String]) { (responceDic) in
+        CXDataService.sharedInstance.postTheDataToServer(urlString: CXAppConfig.sharedInstance.getBaseUrl()+"api/Deal/DashboardDeals", parameters: parameters as! [String : String]) { (responceDic) in
             CXLog.print("responce dict \(responceDic)")
             CXDataService.sharedInstance.hideLoader()
             let error =  responceDic.value(forKey: "Errors") as? NSArray
@@ -331,3 +333,28 @@ extension HomeViewController{
     
 }
 
+//MARK:
+
+
+/*extension HomeViewController{
+    var topDeals  =  DealsModel(responce: NSDictionary())
+    
+    
+    
+    
+    
+}
+
+class DealsModel {
+    var dealImage = ""
+    var dealID = ""
+    
+    init(responce:NSDictionary) {
+
+        
+        dealImage = (responce.value(forKey: "DealImageUrl") as? String)!
+        dealID = (responce.value(forKey: "DealId") as? String)!
+
+    }
+    
+}*/

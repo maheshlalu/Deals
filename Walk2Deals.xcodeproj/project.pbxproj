@@ -210,6 +210,7 @@
 		188366CD1F9A1518004A962D /* MIBadgeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MIBadgeButton.swift; sourceTree = "<group>"; };
 		18BD79D51F72A70100BB1A83 /* Configuration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Configuration.plist; sourceTree = "<group>"; };
 		18BD79D71F72A74800BB1A83 /* CXAppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CXAppConfig.swift; sourceTree = "<group>"; };
+		21AE54001FE43B6C00CFEE33 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		2C9FA8110221974AAFF3FEE1 /* Pods_Walk2Deals.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Walk2Deals.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		513194D07A79E0872A50E4E1 /* Pods-Walk2Deals.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Walk2Deals.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Walk2Deals/Pods-Walk2Deals.debug.xcconfig"; sourceTree = "<group>"; };
 		93E02FF06837F95D0027841B /* Pods-Walk2DealsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Walk2DealsUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Walk2DealsUITests/Pods-Walk2DealsUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -434,6 +435,7 @@
 				184139791F6FF7EA00B73595 /* Assets.xcassets */,
 				1841397B1F6FF7EA00B73595 /* LaunchScreen.storyboard */,
 				1841397E1F6FF7EA00B73595 /* Info.plist */,
+				21AE54001FE43B6C00CFEE33 /* Header.h */,
 			);
 			path = Walk2Deals;
 			sourceTree = "<group>";
