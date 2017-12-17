@@ -23,6 +23,7 @@ class HomeViewController: UIViewController {
     
     let delgate = UIApplication.shared.delegate as? AppDelegate
     
+    @IBOutlet weak var homeTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.checklocationAuthentication()

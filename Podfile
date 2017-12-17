@@ -15,7 +15,8 @@ pod 'RealmSwift'
 pod 'SwiftyJSON'	
 pod 'ACFloatingTextfield-Swift', '~> 1.5'
 pod 'SkyFloatingLabelTextField', '~> 3.0'
-
+pod 'ImageSlideshow', '~> 1.0.0'
+pod "ImageSlideshow/AFURL"
   target 'Walk2DealsTests' do
     inherit! :search_paths
     # Pods for testing

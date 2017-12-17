@@ -85,7 +85,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,SWRevealViewControllerDele
         self.window = UIWindow.init(frame: wFrame)
         
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        let homeView = storyBoard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+        let homeView = storyBoard.instantiateViewController(withIdentifier: "W2DHomeViewController") as! W2DHomeViewController
         let menuVC = storyBoard.instantiateViewController(withIdentifier: "LeftViewController") as! LeftViewController
         
         let menuVCNav = UINavigationController(rootViewController: menuVC)
