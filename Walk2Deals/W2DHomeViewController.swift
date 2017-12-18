@@ -37,6 +37,7 @@ class W2DHomeViewController: UIViewController {
 
         self.setUpSideMenu()
         self.registerCell()
+        self.designLeftBarButtonITems()
         
         if self.currentLocation != nil {
             self.getDeails()
@@ -44,6 +45,24 @@ class W2DHomeViewController: UIViewController {
 
         }
         // Do any additional setup after loading the view.
+    }
+    
+    func designLeftBarButtonITems(){
+        let leftButtonsView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 250, height: 40))
+        self.navigationItem.titleView =  leftButtonsView
+        
+        let titleLable : UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
+        titleLable.textAlignment = .left
+        titleLable.textColor = UIColor.white
+        titleLable.text = "Walk2Deals"
+        //titleLable.text = CXAppConfig.sharedInstance.productName()
+        // titleLable.font = CXAppConfig.sharedInstance.appLargeFont()
+        leftButtonsView.addSubview(titleLable)
+        
+        //let dropDownBtn = self.createCartButton("arrow", frame: CGRect(x: titleLable.frame.size.width+10,y: 2, width: 35, height: 35))
+        //self.searchBtn.addTarget(self, action: #selector(categoryBtnTapped), for: .touchUpInside)
+        
+        //leftButtonsView.addSubview(dropDownBtn)
     }
     
     func registerCell(){
@@ -119,16 +138,42 @@ extension W2DHomeViewController:UITableViewDataSource,UITableViewDelegate{
             }
             return cell!
         }else{
-             let cell = tableView.dequeueReusableCell(withIdentifier: "HomeTblCell") as? HomeTblCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "HomeTblCell") as? HomeTblCell
             let dataDict = self.dealsArray[indexPath.row-3] as? NSDictionary
             if let imageUrl = dataDict?.value(forKey: "DealImageUrl") as? String ,!imageUrl.isEmpty {
                 let img_Url1 = NSURL(string: imageUrl )
                 cell?.dealImgView.setImageWith(img_Url1 as URL!, usingActivityIndicatorStyle: .white)
             }
             
+            var subTitleLbl = ""
             if  let offerTitle = dataDict?.value(forKey: "OfferTitle") as? String{
                 cell?.dealTitleLbl.text = offerTitle
+                
+                //UserView
+                //UserDistance
+                //StoreName
+                //EndDate
             }
+           
+            if  let StoreName = dataDict?.value(forKey: "StoreName") as? String{
+                subTitleLbl = StoreName + "."
+            }
+            if  let UserView = dataDict?.value(forKey: "UserView") as? Int{
+                if UserView == 0 || UserView == 1{
+                    subTitleLbl = subTitleLbl + "\(UserView)" + "  view."
+
+                }else{
+                    subTitleLbl = subTitleLbl + "\(UserView)" + "  views."
+
+                }
+            }
+            if  let UserDistance = dataDict?.value(forKey: "UserDistance") as? String{
+                subTitleLbl = subTitleLbl + UserDistance + "."
+            }
+            if  let EndDate = dataDict?.value(forKey: "EndDate") as? String{
+                subTitleLbl = subTitleLbl + "Exp On " + CXAppConfig.sharedInstance.stringToDate(dateString: EndDate)
+            }
+            cell?.dealSubTitleLbl.text = subTitleLbl
             return cell!
         }
         return TableViewCell()
@@ -145,6 +190,24 @@ extension W2DHomeViewController:UITableViewDataSource,UITableViewDelegate{
         guard let tableViewCell = cell as? CollectionViewTblCell else { return }
         
         storedOffsets[indexPath.row] = tableViewCell.collectionViewOffset
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let dataDict = self.dealsArray[indexPath.row-3] as? NSDictionary
+        //Id
+        
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let dealDetail = storyBoard.instantiateViewController(withIdentifier: "DealsDetailsViewController") as? DealsDetailsViewController
+        
+        if let dealID = dataDict?.value(forKey: "Id") as? Int{
+            dealDetail?.dealId = String(dealID)
+        }
+        if let offerTitle = dataDict?.value(forKey: "OfferTitle") as? String{
+            dealDetail?.navTitle = offerTitle
+        }
+        
+        self.navigationController?.pushViewController(dealDetail!, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     func designBannerView(indexPathe:IndexPath){
         
@@ -188,6 +251,29 @@ extension W2DHomeViewController:UICollectionViewDelegate,UICollectionViewDataSou
         }
         return cell!
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        var dataDict = NSDictionary()
+        if collectionView.tag == 1 {
+            dataDict = (self.recentDealsArray[indexPath.item] as? NSDictionary)!
+        }else{
+            dataDict = (self.popularDealsArray[indexPath.item] as? NSDictionary)!
+        }        //Id
+        
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let dealDetail = storyBoard.instantiateViewController(withIdentifier: "DealsDetailsViewController") as? DealsDetailsViewController
+        
+        if let dealID = dataDict.value(forKey: "DealId") as? Int{
+            dealDetail?.dealId = String(dealID)
+        }
+//        if let offerTitle = dataDict?.value(forKey: "OfferTitle") as? String{
+//            dealDetail?.navTitle = offerTitle
+//        }
+        
+        self.navigationController?.pushViewController(dealDetail!, animated: true)
+    }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize{
         return CGSize(width: 150, height: 150);
     }
@@ -202,7 +288,7 @@ extension W2DHomeViewController{
         //BaseUrl
         let parameters = ["CurrentDate":CXAppConfig.sharedInstance.dateToString(date: Date(), isDisplay: true),"Latitude":String(self.currentLocation.coordinate.latitude)
             ,"Longitude":        String(self.currentLocation.coordinate.longitude)
-            ,"UserId":CXAppConfig.sharedInstance.getUserID(),"PageNumber":"\(self.pageNumber)","PageSize":"10"] //PageNumber
+            ,"UserId":CXAppConfig.sharedInstance.getUserID(),"PageNumber":"\(self.pageNumber)","PageSize":"100"] //PageNumber
         CXDataService.sharedInstance.showLoader(view: self.view, message: "Loading...")
         CXLog.print(parameters)
         CXDataService.sharedInstance.postTheDataToServer(urlString: CXAppConfig.sharedInstance.getBaseUrl()+"api/Deal/DashboardDeals", parameters: parameters as! [String : String]) { (responceDic) in
@@ -278,3 +364,7 @@ extension W2DHomeViewController : LocationServiceDelegate,CLLocationManagerDeleg
     }
     
 }
+/*
+ Developer Account: sridharpettela@dinspire.in/DinSpire27001
+
+ */

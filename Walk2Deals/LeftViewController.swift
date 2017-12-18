@@ -33,6 +33,8 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
             imageArray = imageArray.filter { $0 != "my-deal" }
         }else{
             nameArray = nameArray.filter { $0 != "Request For Add" }
+            nameArray.append("Redeem")
+            imageArray.append("my-deal")
             imageArray = imageArray.filter { $0 != "" }
         }
         // Do any additional setup after loading the view.
@@ -55,6 +57,12 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
         // Dispose of any resources that can be recreated.
     }
     
+    /*
+     let approveVc : ApproveViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ApproveViewController") as! ApproveViewController
+     approveVc.title = "Redeem"
+     approveVc.dealDetailDict = self.dealDetailDict
+     contrl.append(approveVc)
+     */
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
@@ -115,6 +123,12 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
             let settingVc = storyBoard.instantiateViewController(withIdentifier: "StoreCreationViewController") as! StoreCreationViewController
             let navCntl = UINavigationController(rootViewController: settingVc)
             navCntl.title = "Request For Add"
+            self.present(navCntl, animated: true, completion: {
+            })
+        }else if itemName == "Redeem"{
+            let approveVc : ApproveViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ApproveViewController") as! ApproveViewController
+            let navCntl = UINavigationController(rootViewController: approveVc)
+            navCntl.title = "Redeem"
             self.present(navCntl, animated: true, completion: {
             })
         }else{

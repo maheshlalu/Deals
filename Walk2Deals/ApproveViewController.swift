@@ -15,11 +15,50 @@ class ApproveViewController: UIViewController {
     var approveList : NSArray = NSArray()
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setUpBackButton()
+        self.title = "Redeem"
+        self.getApproveList()
 //DealRedeems
-        if let reviewsArray = dealDetailDict.value(forKey: "DealRedeems") as? NSArray , reviewsArray.count != 0{
-            approveList = reviewsArray
-        }
+//        if let reviewsArray = dealDetailDict.value(forKey: "DealRedeems") as? NSArray , reviewsArray.count != 0{
+//            approveList = reviewsArray
+//        }
         // Do any additional setup after loading the view.
+        
+
+    }
+    
+    func getApproveList(){
+        /*
+         http://api.walk2deals.com/api/Deal/ApproveDeals
+         {
+         "CurrentDate":"2017-12-12",
+         "UserId":6,
+         "PageSize":10,
+         "PageNumber":1
+         }
+         */
+        
+        let parameters = ["CurrentDate":CXAppConfig.sharedInstance.dateToString(date: Date(), isDisplay: true),
+                          "UserId":CXAppConfig.sharedInstance.getUserID(),"PageNumber":"\("1")","PageSize":"100"] //PageNumber
+        CXDataService.sharedInstance.showLoader(view: self.view, message: "Loading...")
+        CXLog.print(parameters)
+        CXDataService.sharedInstance.postTheDataToServer(urlString: CXAppConfig.sharedInstance.getBaseUrl()+"api/Deal/ApproveDeals", parameters: parameters as! [String : String]) { (responceDic) in
+            CXLog.print("responce dict \(responceDic)")
+            
+            let error =  responceDic.value(forKey: "Errors") as? NSArray
+            let errorDict = error?.lastObject as? NSDictionary
+            let errorcode = errorDict?.value(forKey: "ErrorCode") as? String
+            if errorcode == "0"{
+                if let deals =  responceDic.value(forKey: "Deals") as? NSArray{
+                    if deals.count == 0{
+                        return
+                    }
+                    self.approveList = deals
+                    self.approveTbl.reloadData()
+                }
+            }
+            CXDataService.sharedInstance.hideLoader()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,7 +66,17 @@ class ApproveViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    func setUpBackButton(){
+        let menuItem = UIBarButtonItem(image: UIImage(named: "back"), style: .plain, target: self, action: #selector(SettingsViewController.backAction(sender:)))
+        self.navigationItem.leftBarButtonItem = menuItem
+        self.navigationItem.leftBarButtonItem?.tintColor = UIColor.white
+    }
+    func backAction(sender:UIButton){
+        self.navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true) {
+            
+        }
+    }
     /*
     // MARK: - Navigation
 
@@ -55,7 +104,7 @@ extension ApproveViewController:UITableViewDataSource,UITableViewDelegate{
         let dataDict = self.approveList[indexPath.row] as? NSDictionary
 
         
-        if let imageUrl = dataDict?.value(forKey: "UserImage") as? String ,!imageUrl.isEmpty {
+        if let imageUrl = dataDict?.value(forKey: "ProfileImagePath") as? String ,!imageUrl.isEmpty {
             let img_Url1 = NSURL(string: imageUrl )
             approveCell?.userImgView.setImageWith(img_Url1 as URL!, usingActivityIndicatorStyle: .white)
             
@@ -65,7 +114,7 @@ extension ApproveViewController:UITableViewDataSource,UITableViewDelegate{
         if  let offerTitle = dataDict?.value(forKey: "UserName") as? String{
             approveCell?.userNameLbl.text = offerTitle
         }
-        if  let couponCode = dataDict?.value(forKey: "CouponCode") as? String{
+        if  let couponCode = dataDict?.value(forKey: "RedeemCode") as? String{
             approveCell?.couponCodeLbl.text = couponCode
         }
         /*
@@ -110,7 +159,8 @@ extension ApproveViewController:UITableViewDataSource,UITableViewDelegate{
             let parameters = ["Id":String(dealID),"UserId":CXAppConfig.sharedInstance.getUserID()]
             CXDataService.sharedInstance.postTheDataToServer(urlString: urlString, parameters: parameters, completion: { (responce) in
                 CXLog.print(responce)
-                
+                CXDataService.sharedInstance.showAlert(message: "Approved Sucessfully", viewController: self)
+                self.getApproveList()
             })
         }
 

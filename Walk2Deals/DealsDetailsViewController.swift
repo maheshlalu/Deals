@@ -67,12 +67,11 @@ class DealsDetailsViewController: UIViewController {
         let profile = CXDataSaveManager.sharedInstance.getTheUserProfileFromDB()
         if profile.isUser {
             self.reedemBtn.isHidden = false
-
         }else{
             let approveVc : ApproveViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ApproveViewController") as! ApproveViewController
             approveVc.title = "Redeem"
             approveVc.dealDetailDict = self.dealDetailDict
-            contrl.append(approveVc)
+            //contrl.append(approveVc)
             self.reedemBtn.isHidden = true
         }
         
