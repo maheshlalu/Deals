@@ -45,6 +45,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,SWRevealViewControllerDele
     }
     
     func logOutFromTheApp(){
+        self.loadLoginView()
+        return
         for view in (self.window?.subviews)!{
             view.removeFromSuperview()
         }
@@ -104,6 +106,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate,SWRevealViewControllerDele
         //        self.window?.rootViewController = drawer
         //        self.window?.makeKeyAndVisible()
         
+    }
+    
+    func loadLoginView(){
+        let wFrame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
+        self.window = UIWindow.init(frame: wFrame)
+        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let enternumber : EnterMobileNumberViewController = (storyboard.instantiateViewController(withIdentifier: "EnterMN") as? EnterMobileNumberViewController)!
+        let navHome = UINavigationController(rootViewController: enternumber)
+        navHome.navigationBar.isHidden = true
+        self.window?.rootViewController = navHome
+        self.window?.makeKeyAndVisible()
     }
     
     

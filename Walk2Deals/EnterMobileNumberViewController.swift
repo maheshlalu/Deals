@@ -58,10 +58,12 @@ class EnterMobileNumberViewController: UIViewController, UITextFieldDelegate {
                      
                      */
                     
-                    if let password = responceDic.value(forKey: "Password") as? String{
+                    if let password = responceDic.value(forKey: "Password") as? String,let mobile = responceDic.value(forKey: "MobileNumber") as? String{
                         //}
                         //if !CXAppConfig.sharedInstance.getTheDataInDictionaryFromKey(sourceDic: responceDic, sourceKey: "Password").isEmpty{
                         let loginVc : LoginViewController = (storyboard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController)!
+                        loginVc.email = mobile
+                        //MobileNumber
                         self.navigationController?.pushViewController(loginVc, animated: true)
                         
                     }else{

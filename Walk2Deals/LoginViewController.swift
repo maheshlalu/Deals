@@ -9,9 +9,10 @@
 import UIKit
 import SwiftyJSON
 class LoginViewController: UIViewController {
-    @IBOutlet weak var enterEmailTxt: UITextField!
+   // @IBOutlet weak var enterEmailTxt: UITextField!
 
     @IBOutlet weak var passwordTxt: UITextField!
+    var email : String!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -86,9 +87,9 @@ class LoginViewController: UIViewController {
         //UserName
         //Password
         
-        CXDataService.sharedInstance.showLoader(view: self.view, message: "Loading...")
-        if let email = self.enterEmailTxt.text, !email.isEmpty,let password = self.enterEmailTxt.text, !password.isEmpty{
-            let parameters = ["UserName":self.enterEmailTxt.text,"Password":self.passwordTxt.text]
+        if let email = self.passwordTxt.text, !email.isEmpty{
+            CXDataService.sharedInstance.showLoader(view: self.view, message: "Loading...")
+            let parameters = ["UserName":self.email,"Password":self.passwordTxt.text]
             CXDataService.sharedInstance.postTheDataToServer(urlString: CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getLoginUrl(), parameters: parameters as! [String : String]) { (responceDic) in
                 CXLog.print("responce dict \(responceDic)")
                 

@@ -93,6 +93,8 @@
 		211BE1FA1FE66242007E17A3 /* DealCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 211BE1F81FE66242007E17A3 /* DealCollectionViewCell.xib */; };
 		211BE1FD1FE681C7007E17A3 /* HomeTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211BE1FB1FE681C7007E17A3 /* HomeTblCell.swift */; };
 		211BE1FE1FE681C7007E17A3 /* HomeTblCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 211BE1FC1FE681C7007E17A3 /* HomeTblCell.xib */; };
+		2190688A1FEC17A500E1F7AD /* Launch1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219068881FEC17A300E1F7AD /* Launch1ViewController.swift */; };
+		2190688B1FEC17A500E1F7AD /* TutorialPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219068891FEC17A400E1F7AD /* TutorialPageController.swift */; };
 		45FEB2C6DF34E4D5BBC8FF78 /* Pods_Walk2Deals.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C9FA8110221974AAFF3FEE1 /* Pods_Walk2Deals.framework */; };
 		732625FDD40822DCDD9FB0C6 /* Pods_Walk2DealsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D0FBCC8FB9FCE874BA10192 /* Pods_Walk2DealsUITests.framework */; };
 		A9A73FAB1FB211EF00054F42 /* PersonDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A73FA71FB211EE00054F42 /* PersonDetailsCell.swift */; };
@@ -228,6 +230,8 @@
 		211BE1F81FE66242007E17A3 /* DealCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DealCollectionViewCell.xib; sourceTree = "<group>"; };
 		211BE1FB1FE681C7007E17A3 /* HomeTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTblCell.swift; sourceTree = "<group>"; };
 		211BE1FC1FE681C7007E17A3 /* HomeTblCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTblCell.xib; sourceTree = "<group>"; };
+		219068881FEC17A300E1F7AD /* Launch1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Launch1ViewController.swift; sourceTree = "<group>"; };
+		219068891FEC17A400E1F7AD /* TutorialPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialPageController.swift; sourceTree = "<group>"; };
 		21AE54001FE43B6C00CFEE33 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		2C9FA8110221974AAFF3FEE1 /* Pods_Walk2Deals.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Walk2Deals.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		513194D07A79E0872A50E4E1 /* Pods-Walk2Deals.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Walk2Deals.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Walk2Deals/Pods-Walk2Deals.debug.xcconfig"; sourceTree = "<group>"; };
@@ -420,6 +424,7 @@
 		184139711F6FF7E900B73595 /* Walk2Deals */ = {
 			isa = PBXGroup;
 			children = (
+				219068871FEC178D00E1F7AD /* Tutorial */,
 				180167ED1FB712F6005EB597 /* RequestForAdd */,
 				180167EA1FB7099C005EB597 /* LocalDatabase */,
 				A9A73FB41FB2277C00054F42 /* MyDeals */,
@@ -585,6 +590,15 @@
 			name = Version1.0Home;
 			sourceTree = "<group>";
 		};
+		219068871FEC178D00E1F7AD /* Tutorial */ = {
+			isa = PBXGroup;
+			children = (
+				219068891FEC17A400E1F7AD /* TutorialPageController.swift */,
+				219068881FEC17A300E1F7AD /* Launch1ViewController.swift */,
+			);
+			name = Tutorial;
+			sourceTree = "<group>";
+		};
 		77B703CC46946E871D7824DB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -728,7 +742,7 @@
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = T6LSS7AWXU;
 						LastSwiftMigration = 0830;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
 								enabled = 1;
@@ -1026,6 +1040,7 @@
 				182B9BF01F91F82200109B15 /* UserProfile.swift in Sources */,
 				184139731F6FF7E900B73595 /* AppDelegate.swift in Sources */,
 				180167EC1FB70A86005EB597 /* Favourites.swift in Sources */,
+				2190688A1FEC17A500E1F7AD /* Launch1ViewController.swift in Sources */,
 				A9A73FB61FB2278700054F42 /* MyDealsViewController.swift in Sources */,
 				184139AD1F70070D00B73595 /* EnterMobileNumberViewController.swift in Sources */,
 				211BE1FD1FE681C7007E17A3 /* HomeTblCell.swift in Sources */,
@@ -1042,6 +1057,7 @@
 				182B9BF71F92409900109B15 /* UserProfileViewController.swift in Sources */,
 				1263A09F1FDBBB0A00C88486 /* ApproveViewController.swift in Sources */,
 				187D5B241F764F2C00A5E250 /* LeftViewController.swift in Sources */,
+				2190688B1FEC17A500E1F7AD /* TutorialPageController.swift in Sources */,
 				188366CE1F9A1518004A962D /* MIBadgeButton.swift in Sources */,
 				184139A41F70004200B73595 /* CXLog.swift in Sources */,
 				12321C861F9A5D1600995249 /* SettingsViewController.swift in Sources */,
@@ -1214,16 +1230,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = T6LSS7AWXU;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Walk2Deals/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dinspire.Walk2Deals;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d518c784-7cea-45f3-bbdf-540daaedfc45";
-				PROVISIONING_PROFILE_SPECIFIER = Dist_w2Deals;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Walk2Deals/Walk2Deals-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -1236,16 +1252,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = T6LSS7AWXU;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Walk2Deals/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dinspire.Walk2Deals;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d518c784-7cea-45f3-bbdf-540daaedfc45";
-				PROVISIONING_PROFILE_SPECIFIER = Dist_w2Deals;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Walk2Deals/Walk2Deals-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};

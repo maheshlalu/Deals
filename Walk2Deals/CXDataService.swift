@@ -305,7 +305,7 @@ open class CXDataService: NSObject {
     
     func showAlert(message:String,viewController:UIViewController)
     {
-        let alert = UIAlertController.init(title: "WalkDeals", message: message, preferredStyle: .alert)
+        let alert = UIAlertController.init(title: "Walk2Deals", message: message, preferredStyle: .alert)
         let okAction = UIAlertAction.init(title: "Ok", style: .default) { (okAction) in
             
         }
