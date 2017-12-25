@@ -30,19 +30,18 @@ class W2DHomeViewController: UIViewController {
     
     var currentLocation: CLLocation!
     var locationManager : CLLocationManager!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.checklocationAuthentication()
-
+       // self.view.backgroundColor = UIColor.gray
+        self.homeTbl.backgroundColor = UIColor.clear
         self.setUpSideMenu()
         self.registerCell()
         self.designLeftBarButtonITems()
-        
         if self.currentLocation != nil {
             self.getDeails()
             self.isGetNearFeeds = true
-
         }
         // Do any additional setup after loading the view.
     }
@@ -86,7 +85,6 @@ class W2DHomeViewController: UIViewController {
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
     }
-    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -116,67 +114,139 @@ class W2DHomeViewController: UIViewController {
 
 extension W2DHomeViewController:UITableViewDataSource,UITableViewDelegate{
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        if self.dealsArray.count > 0 {
+            return self.dealsArray.count + 3
+        }
+        return 0
+
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.dealsArray.count + 3
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if indexPath.row == 0 {
+        if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "BannerTableViewCell") as? BannerTableViewCell
             cell?.addTheBannerImage(imageList: self.topDealsArray)
             return cell!
-        }else if indexPath.row == 1 || indexPath.row == 2 {
+        }else if indexPath.section == 1 || indexPath.section == 2 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "CollectionViewTblCell") as? CollectionViewTblCell
-            cell!.setCollectionViewDataSourceDelegate(self, forRow: indexPath.row)
-            cell!.collectionViewOffset = storedOffsets[indexPath.row] ?? 0
-            if indexPath.row == 1{
+            cell!.setCollectionViewDataSourceDelegate(self, forRow: indexPath.section)
+            cell!.collectionViewOffset = storedOffsets[indexPath.section] ?? 0
+            if indexPath.section == 1{
                 cell?.titleLbl?.text = "Recent Deals"
             }else{
                 cell?.titleLbl?.text = "Popular Deals"
-
             }
+            cell?.selectionStyle = .none
             return cell!
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "HomeTblCell") as? HomeTblCell
-            let dataDict = self.dealsArray[indexPath.row-3] as? NSDictionary
+            let dataDict = self.dealsArray[indexPath.section-3] as? NSDictionary
             if let imageUrl = dataDict?.value(forKey: "DealImageUrl") as? String ,!imageUrl.isEmpty {
                 let img_Url1 = NSURL(string: imageUrl )
                 cell?.dealImgView.setImageWith(img_Url1 as URL!, usingActivityIndicatorStyle: .white)
             }
-            
             var subTitleLbl = ""
             if  let offerTitle = dataDict?.value(forKey: "OfferTitle") as? String{
                 cell?.dealTitleLbl.text = offerTitle
-                
                 //UserView
                 //UserDistance
                 //StoreName
                 //EndDate
             }
-           
             if  let StoreName = dataDict?.value(forKey: "StoreName") as? String{
-                subTitleLbl = StoreName + "."
+                subTitleLbl = StoreName + "• "
             }
             if  let UserView = dataDict?.value(forKey: "UserView") as? Int{
                 if UserView == 0 || UserView == 1{
-                    subTitleLbl = subTitleLbl + "\(UserView)" + "  view."
-
+                    subTitleLbl = subTitleLbl + "\(UserView)" + " view• "
                 }else{
-                    subTitleLbl = subTitleLbl + "\(UserView)" + "  views."
-
+                    subTitleLbl = subTitleLbl + "\(UserView)" + " views• "
                 }
             }
             if  let UserDistance = dataDict?.value(forKey: "UserDistance") as? String{
-                subTitleLbl = subTitleLbl + UserDistance + "."
+                //subTitleLbl = subTitleLbl + UserDistance + "."
             }
             if  let EndDate = dataDict?.value(forKey: "EndDate") as? String{
                 subTitleLbl = subTitleLbl + "Exp On " + CXAppConfig.sharedInstance.stringToDate(dateString: EndDate)
             }
+            if  let distance = dataDict?.value(forKey: "UserDistance") as? String{
+                cell?.distanceLbl.text = distance.replacingOccurrences(of: " ", with: "")
+            }
+            
+            if  CXAppConfig.resultString(dataDict?.value(forKey: "UserFav") as AnyObject) == "1" {
+                cell?.favBtn.isSelected = true
+                if let dealID = (dataDict as AnyObject).value(forKey: "Id") as? Int{
+                    CXLog.print(CXDataSaveManager.sharedInstance.isSavedFavourites(postId: "\(dealID)"))
+                }
+            }else{
+                if let dealID = (dataDict as AnyObject).value(forKey: "Id") as? Int{
+                    if CXDataSaveManager.sharedInstance.isSavedFavourites(postId: "\(dealID)"){
+                        cell?.favBtn.isSelected = true
+                    }else{
+                        cell?.favBtn.isSelected = false
+                    }
+                }
+            }
+            
             cell?.dealSubTitleLbl.text = subTitleLbl
+            cell?.selectionStyle = .none
+            self.addBorder(cell: cell!)
+            
+            cell?.favBtn.addTarget(self, action:#selector(favButtonAction(sender:)), for: .touchUpInside)
+            cell?.favBtn.tag = indexPath.section
+            cell?.shareBtn.addTarget(self, action:#selector(shareButtonAction(sender:)), for: .touchUpInside)
+            cell?.shareBtn.tag = indexPath.section
+            
             return cell!
         }
         return TableViewCell()
+    }
+    
+    func addBorder(cell:UITableViewCell){
+        cell.backgroundColor = UIColor.clear
+        cell.layer.borderColor = UIColor.clear.cgColor
+        cell.layer.borderWidth = 1
+        cell.layer.cornerRadius = 8
+        cell.clipsToBounds = true
+    }
+    
+    // Make the background color show through
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        headerView.backgroundColor = UIColor.clear
+        return headerView
+    }
+    
+    func favButtonAction(sender:UIButton){
+        
+        if sender.isSelected {
+            return
+        }
+        
+        //http://api.walk2deals.com/api/User/DealsFavSave
+        sender.isSelected = !sender.isSelected
+        let dataDict = self.dealsArray[sender.tag-3]
+        if let dealID = (dataDict as AnyObject).value(forKey: "Id") as? Int{
+            CXLog.print(CXDataSaveManager.sharedInstance.isSavedFavourites(postId: "\(dealID)"))
+            let parameters = ["DealId":String(dealID),"UserId":CXAppConfig.sharedInstance.getUserID()]
+            //{"DealId":"2","UserId":"2"}
+            CXDataService.sharedInstance.faveButtonAction(inputDict: parameters)
+        }
+    }
+    
+    func shareButtonAction(sender:UIButton){
+        // ShareUrl = "http://walk2deals.com//Deal/View/10060";
+        let dataDict = self.dealsArray[sender.tag-3]
+        if  let shareUrl = (dataDict as AnyObject).value(forKey: "ShareUrl") as? String{
+            let activityViewController = UIActivityViewController(activityItems: [shareUrl as NSString], applicationActivities: nil)
+            self.present(activityViewController, animated: true, completion: {})
+        }
+       
     }
     
     /* func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -185,14 +255,16 @@ extension W2DHomeViewController:UITableViewDataSource,UITableViewDelegate{
         tableViewCell.collectionViewOffset = storedOffsets[indexPath.row] ?? 0
     }*/
     
+   
+    
     func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
         guard let tableViewCell = cell as? CollectionViewTblCell else { return }
         
-        storedOffsets[indexPath.row] = tableViewCell.collectionViewOffset
+        storedOffsets[indexPath.section] = tableViewCell.collectionViewOffset
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let dataDict = self.dealsArray[indexPath.row-3] as? NSDictionary
+        let dataDict = self.dealsArray[indexPath.section-3] as? NSDictionary
         //Id
         
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
@@ -205,6 +277,7 @@ extension W2DHomeViewController:UITableViewDataSource,UITableViewDelegate{
         if let offerTitle = dataDict?.value(forKey: "OfferTitle") as? String{
             dealDetail?.navTitle = offerTitle
         }
+       
         
         self.navigationController?.pushViewController(dealDetail!, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
@@ -216,14 +289,22 @@ extension W2DHomeViewController:UITableViewDataSource,UITableViewDelegate{
     func designCollectionViewInCell(indexPathe:IndexPath){
         
     }
+  /*
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 5
+    }*/
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 0 {
+        if indexPath.section == 0 {
             return 180
-        }else if indexPath.row == 1 || indexPath.row == 2{
+        }else if indexPath.section == 1 || indexPath.section == 2{
             return 200
         }
-        return 280
+        return 300
     }
 }
 
@@ -268,6 +349,7 @@ extension W2DHomeViewController:UICollectionViewDelegate,UICollectionViewDataSou
         if let dealID = dataDict.value(forKey: "DealId") as? Int{
             dealDetail?.dealId = String(dealID)
         }
+        
 //        if let offerTitle = dataDict?.value(forKey: "OfferTitle") as? String{
 //            dealDetail?.navTitle = offerTitle
 //        }
@@ -288,7 +370,7 @@ extension W2DHomeViewController{
         //BaseUrl
         let parameters = ["CurrentDate":CXAppConfig.sharedInstance.dateToString(date: Date(), isDisplay: true),"Latitude":String(self.currentLocation.coordinate.latitude)
             ,"Longitude":        String(self.currentLocation.coordinate.longitude)
-            ,"UserId":CXAppConfig.sharedInstance.getUserID(),"PageNumber":"\(self.pageNumber)","PageSize":"100"] //PageNumber
+            ,"UserId":CXAppConfig.sharedInstance.getUserID(),"PageNumber":"\(self.pageNumber)","PageSize":"500"] //PageNumber
         CXDataService.sharedInstance.showLoader(view: self.view, message: "Loading...")
         CXLog.print(parameters)
         CXDataService.sharedInstance.postTheDataToServer(urlString: CXAppConfig.sharedInstance.getBaseUrl()+"api/Deal/DashboardDeals", parameters: parameters as! [String : String]) { (responceDic) in

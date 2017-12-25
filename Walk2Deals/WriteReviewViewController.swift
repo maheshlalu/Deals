@@ -12,6 +12,7 @@ protocol ReviewSubMitDelegate {
     func didSubmitReview()
 }
 
+
 class WriteReviewViewController: UIViewController {
 
     @IBOutlet weak var userImgView: UIImageView!
@@ -26,6 +27,20 @@ class WriteReviewViewController: UIViewController {
         self.commentTextView.layer.borderWidth = 2.0
         self.commentTextView.layer.borderColor = UIColor.gray.cgColor
         self.commentTextView.layer.masksToBounds = true
+        
+        self.userImgView.layer.cornerRadius = 45
+        self.userImgView.layer.borderWidth = 2
+        self.userImgView.layer.masksToBounds = true
+        
+        let profile = CXDataSaveManager.sharedInstance.getTheUserProfileFromDB()
+
+        if let img =  profile.image as? String{
+            let url = URL(string: CXDataSaveManager.sharedInstance.getTheUserProfileFromDB().image)
+            self.userImgView.setImageWith(url, usingActivityIndicatorStyle: .white)
+            
+            self.userNameLbl.text = profile.firstName + "  " + profile.lastName
+            
+        }
 
         // Do any additional setup after loading the view.
     }
@@ -64,6 +79,7 @@ class WriteReviewViewController: UIViewController {
                         if (self.delegate != nil){
                             self.delegate.didSubmitReview()
                             self.view.makeToast(message: "Review Posted Successfully!!!")
+                            self.navigationController?.popViewController(animated: true)
                         }
                     }else{
                         

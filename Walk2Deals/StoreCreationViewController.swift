@@ -27,7 +27,7 @@ class StoreCreationViewController: UIViewController,UITableViewDelegate,UITableV
         super.viewDidLoad()
         placeHolderArr = ["First Name","Last Name","Phone Number","Email Id"]
         labelNames = ["First Name","Last Name","Phone Number","Email Id",]
-        
+        self.title = "Request For Ad"
         
         self.aTableView.register(UINib(nibName:"PersonDetailsCell",bundle:nil), forCellReuseIdentifier: "PersonDetailsCell")
         self.aTableView.register(UINib(nibName:"AddressCell",bundle:nil), forCellReuseIdentifier: "AddressCell")

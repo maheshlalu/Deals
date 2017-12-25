@@ -42,7 +42,7 @@ class SelectLocationViewController: UIViewController {
             let errorcode = errorDict?.value(forKey: "ErrorCode") as? String
             if errorcode == "0"{
                 //Locations
-                self.locatoins =  responceDic.value(forKey: "Locations") as? NSArray as! NSMutableArray
+                //self.locatoins =  responceDic.value(forKey: "Locations") as? NSArray
                 //Id
                 //Name
                 self.getCityAddress()

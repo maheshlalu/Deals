@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>forgotPasswordUrl</key>
-	<string>api/User/User/ForgotPassword</string>
+	<string>api/User/ForgotPassword</string>
 	<key>register</key>
 	<string>api/User/Register</string>
 	<key>loginUrl</key>

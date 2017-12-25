@@ -44,21 +44,22 @@ class LoginViewController: UIViewController {
             let errorDict = error?.lastObject as? NSDictionary
             let errorcode = errorDict?.value(forKey: "ErrorCode") as? String
             if errorcode == "0"{
-                let appDelegate = UIApplication.shared.delegate as? AppDelegate
-                appDelegate?.setUpSidePanl()
+                //let appDelegate = UIApplication.shared.delegate as? AppDelegate
+               // appDelegate?.setUpSi
+                self.view.makeToast(message: "Password Set to your mobile/email")
+                
                 
             }else{
-                CXDataService.sharedInstance.showAlert(message: "Something went Wrong!!!", viewController: self)
+                let ErrorText = errorDict?.value(forKey: "ErrorText") as? String
+                CXDataService.sharedInstance.showAlert(message: ErrorText!, viewController: self)
             }
-            
         }
 
-        
     }
 
     @IBAction func forgotPasswordAction(_ sender: UIButton) {
         
-        let alertController = UIAlertController(title: "WalkDeals", message: "", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Walk2Deals", message: "", preferredStyle: .alert)
         
         let confirmAction = UIAlertAction(title: "Confirm", style: .default) { (_) in
             if let field = alertController.textFields?[0] {
@@ -86,13 +87,13 @@ class LoginViewController: UIViewController {
         
         //UserName
         //Password
-        
+        //SelectLocationViewController
+        //SelectLocationViewController
         if let email = self.passwordTxt.text, !email.isEmpty{
             CXDataService.sharedInstance.showLoader(view: self.view, message: "Loading...")
             let parameters = ["UserName":self.email,"Password":self.passwordTxt.text]
             CXDataService.sharedInstance.postTheDataToServer(urlString: CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getLoginUrl(), parameters: parameters as! [String : String]) { (responceDic) in
                 CXLog.print("responce dict \(responceDic)")
-                
                 CXDataService.sharedInstance.hideLoader()
                 let error =  responceDic.value(forKey: "Errors") as? NSArray
                 let errorDict = error?.lastObject as? NSDictionary
@@ -102,20 +103,20 @@ class LoginViewController: UIViewController {
                     CXDataSaveManager.sharedInstance.saveTheUserDetailsInDB(userDataDic: JSON(responceDic))
                     let appDelegate = UIApplication.shared.delegate as? AppDelegate
                     appDelegate?.setUpSidePanl()
-                    
+                  //  self.loadLocationView()
                 }else{
                     CXDataService.sharedInstance.showAlert(message: "Something went Wrong!!!", viewController: self)
                 }
-                
             }
         }else{
             CXDataService.sharedInstance.showAlert(message: "Please Enter Inputs", viewController: self)
-
         }
-
-
-
-        
+    }
+    
+    func loadLocationView(){
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let locationView = storyBoard.instantiateViewController(withIdentifier: "SelectLocationViewController") as! SelectLocationViewController
+        self.navigationController?.pushViewController(locationView, animated: true)
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -13,9 +13,15 @@ class HomeTblCell: UITableViewCell {
     @IBOutlet weak var dealImgView: UIImageView!
     @IBOutlet weak var dealTitleLbl: UILabel!
     @IBOutlet weak var dealSubTitleLbl: UILabel!
-    @IBOutlet weak var optionBtn: UIButton!
+    @IBOutlet weak var distanceLbl: UILabel!
+
+    @IBOutlet weak var shareBtn: UIButton!
+    @IBOutlet weak var favBtn: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+       // self.backgroundColor = UIColor.red
+        contentView.frame = UIEdgeInsetsInsetRect(contentView.frame, UIEdgeInsetsMake(10, 10, 10, 10))
         // Initialization code
     }
 

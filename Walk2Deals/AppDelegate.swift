@@ -47,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,SWRevealViewControllerDele
     func logOutFromTheApp(){
         self.loadLoginView()
         return
-        for view in (self.window?.subviews)!{
+    /*    for view in (self.window?.subviews)!{
             view.removeFromSuperview()
         }
         
@@ -56,7 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,SWRevealViewControllerDele
         
         let lognNavCntl : UINavigationController = UINavigationController(rootViewController: loginViewController)
         lognNavCntl.isNavigationBarHidden = true
-        self.window?.rootViewController = lognNavCntl
+        self.window?.rootViewController = lognNavCntl*/
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
@@ -123,7 +123,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,SWRevealViewControllerDele
     
 }
 extension Array {
-    func contains<T where T : Equatable>(obj: T) -> Bool {
+    func contains<T>(obj: T) -> Bool where T : Equatable {
         return self.filter({$0 as? T == obj}).count > 0
     }
 }

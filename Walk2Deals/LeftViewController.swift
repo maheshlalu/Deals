@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     @IBOutlet weak var leftTableview: UITableView!
-    var nameArray = ["Home","Near By Stores","My Deals","Favourites","Invite your friends","Settings","Give us Feedback","Request For Add","Sign Out"]
+    var nameArray = ["Home","Near By Stores","My Deals","Favourites","Invite your friends","Settings","Give us Feedback","Request For Ad","Sign Out"]
     //"Rewards Points",
     
     var imageArray = ["home","nearby","my-deal","fav-menu","invite-fnds","settings","feedBack","","logout"]
@@ -99,7 +99,7 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
         let itemName : String =  nameArray[indexPath.row]
         
         if itemName == "Home"{
-            let homeView = storyBoard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+            let homeView = storyBoard.instantiateViewController(withIdentifier: "W2DHomeViewController") as! W2DHomeViewController
             let navCntl = UINavigationController(rootViewController: homeView)
             revealController.pushFrontViewController(navCntl, animated: true)
             
@@ -119,10 +119,10 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
             self.present(navCntl, animated: true, completion: { 
                 
             })
-        }else if itemName == "Request For Add"{
+        }else if itemName == "Request For Ad"{
             let settingVc = storyBoard.instantiateViewController(withIdentifier: "StoreCreationViewController") as! StoreCreationViewController
             let navCntl = UINavigationController(rootViewController: settingVc)
-            navCntl.title = "Request For Add"
+            navCntl.title = "Request For Ad"
             self.present(navCntl, animated: true, completion: {
             })
         }else if itemName == "Redeem"{
