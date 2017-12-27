@@ -12,15 +12,27 @@ class RequestForAddController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.setUpBackButton()
         // Do any additional setup after loading the view.
     }
 
+    func setUpBackButton(){
+        let menuItem = UIBarButtonItem(image: UIImage(named: "back"), style: .plain, target: self, action: #selector(RequestForAddController.backAction(sender:)))
+        self.navigationItem.leftBarButtonItem = menuItem
+        self.navigationItem.leftBarButtonItem?.tintColor = UIColor.white
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    func backAction(sender:UIButton){
+        self.navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true) {
+            
+        }
+    }
+
 
     /*
     // MARK: - Navigation

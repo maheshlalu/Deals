@@ -302,7 +302,7 @@ extension W2DHomeViewController:UITableViewDataSource,UITableViewDelegate{
         if indexPath.section == 0 {
             return 180
         }else if indexPath.section == 1 || indexPath.section == 2{
-            return 200
+            return 150
         }
         return 300
     }

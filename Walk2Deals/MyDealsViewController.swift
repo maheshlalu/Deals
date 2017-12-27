@@ -27,6 +27,11 @@ class MyDealsViewController: UIViewController {
         // self.addBarButtonItems()
         // Do any additional setup after loading the view.
         self.getMyDeals()
+        if self.isFavDeal {
+            self.title = "Favourites"
+        }else{
+            self.title = "My Deals"
+        }
     }
     //MARK: Left Bar button item
     

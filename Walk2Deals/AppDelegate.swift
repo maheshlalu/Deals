@@ -9,6 +9,8 @@
 import UIKit
 import IQKeyboardManagerSwift
 import RealmSwift
+import GooglePlaces
+import GoogleMaps
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate,SWRevealViewControllerDelegate {
@@ -22,6 +24,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate,SWRevealViewControllerDele
         //        CXDataService.sharedInstance.getTheAppDataFromServer(["":"" as AnyObject]) { (dict) in
         //
         //        }
+        
+        GMSPlacesClient.provideAPIKey("AIzaSyCXQNH906fNIVuu5C5dNaYrD0yiijXufxE")
+        GMSServices.provideAPIKey("AIzaSyCXQNH906fNIVuu5C5dNaYrD0yiijXufxE")
+        
         IQKeyboardManager.sharedManager().enable = true
 
         let navigationBarAppearace = UINavigationBar.appearance()

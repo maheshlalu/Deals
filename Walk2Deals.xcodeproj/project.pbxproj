@@ -84,6 +84,7 @@
 		188366CE1F9A1518004A962D /* MIBadgeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188366CD1F9A1518004A962D /* MIBadgeButton.swift */; };
 		18BD79D61F72A70100BB1A83 /* Configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18BD79D51F72A70100BB1A83 /* Configuration.plist */; };
 		18BD79D81F72A74800BB1A83 /* CXAppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BD79D71F72A74800BB1A83 /* CXAppConfig.swift */; };
+		2112AE921FF2C7E3002E848F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2112AE911FF2C7E2002E848F /* GoogleService-Info.plist */; };
 		211BE1ED1FE615B8007E17A3 /* W2DHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211BE1EC1FE615B8007E17A3 /* W2DHomeViewController.swift */; };
 		211BE1F11FE63B1A007E17A3 /* BannerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211BE1EF1FE63B1A007E17A3 /* BannerTableViewCell.swift */; };
 		211BE1F21FE63B1A007E17A3 /* BannerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 211BE1F01FE63B1A007E17A3 /* BannerTableViewCell.xib */; };
@@ -221,6 +222,7 @@
 		188366CD1F9A1518004A962D /* MIBadgeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MIBadgeButton.swift; sourceTree = "<group>"; };
 		18BD79D51F72A70100BB1A83 /* Configuration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Configuration.plist; sourceTree = "<group>"; };
 		18BD79D71F72A74800BB1A83 /* CXAppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CXAppConfig.swift; sourceTree = "<group>"; };
+		2112AE911FF2C7E2002E848F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		211BE1EC1FE615B8007E17A3 /* W2DHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = W2DHomeViewController.swift; sourceTree = "<group>"; };
 		211BE1EF1FE63B1A007E17A3 /* BannerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerTableViewCell.swift; sourceTree = "<group>"; };
 		211BE1F01FE63B1A007E17A3 /* BannerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BannerTableViewCell.xib; sourceTree = "<group>"; };
@@ -424,6 +426,7 @@
 		184139711F6FF7E900B73595 /* Walk2Deals */ = {
 			isa = PBXGroup;
 			children = (
+				2112AE911FF2C7E2002E848F /* GoogleService-Info.plist */,
 				219068871FEC178D00E1F7AD /* Tutorial */,
 				180167ED1FB712F6005EB597 /* RequestForAdd */,
 				180167EA1FB7099C005EB597 /* LocalDatabase */,
@@ -799,6 +802,7 @@
 				187D5B371F76578C00A5E250 /* Roboto-Regular.ttf in Resources */,
 				187D5B381F76578C00A5E250 /* RobotoCondensed-Bold.ttf in Resources */,
 				A9A73FAC1FB211EF00054F42 /* AddressCell.xib in Resources */,
+				2112AE921FF2C7E3002E848F /* GoogleService-Info.plist in Resources */,
 				A9A73FAD1FB211EF00054F42 /* PersonDetailsCell.xib in Resources */,
 				187D5B391F76578C00A5E250 /* RobotoCondensed-Light.ttf in Resources */,
 				183E75351FBB252B0098EA2D /* FavourateTableViewCell.xib in Resources */,
@@ -902,9 +906,14 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Walk2Deals/Pods-Walk2Deals-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlacePicker/Frameworks/GooglePlacePicker.framework/Resources/GooglePlacePicker.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

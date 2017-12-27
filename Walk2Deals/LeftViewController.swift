@@ -120,7 +120,7 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
                 
             })
         }else if itemName == "Request For Ad"{
-            let settingVc = storyBoard.instantiateViewController(withIdentifier: "StoreCreationViewController") as! StoreCreationViewController
+            let settingVc = storyBoard.instantiateViewController(withIdentifier: "FavViewController") as! FavViewController
             let navCntl = UINavigationController(rootViewController: settingVc)
             navCntl.title = "Request For Ad"
             self.present(navCntl, animated: true, completion: {

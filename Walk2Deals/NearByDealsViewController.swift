@@ -25,6 +25,11 @@ class NearByDealsViewController: UIViewController,MKMapViewDelegate {
     
         // Do any additional setup after loading the view.
     }
+    
+    func addRadiusCircle(location: CLLocation){
+        var circle = MKCircle(center: location.coordinate, radius: 10000 as CLLocationDistance)
+        self.mapviewPlaces.add(circle)
+    }
 
     func setUpSideMenu(){
         let menuItem = UIBarButtonItem(image: UIImage(named: "sidePanelMenu"), style: .plain, target: self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)))
@@ -123,6 +128,17 @@ class NearByDealsViewController: UIViewController,MKMapViewDelegate {
         return annotationView
     }
     
+    func mapView(mapView: MKMapView!, rendererForOverlay overlay: MKOverlay!) -> MKOverlayRenderer! {
+        if overlay is MKCircle {
+            var circle = MKCircleRenderer(overlay: overlay)
+            circle.strokeColor = UIColor.red
+            circle.fillColor = UIColor(red: 255, green: 0, blue: 0, alpha: 0.1)
+            circle.lineWidth = 1
+            return circle
+        } else {
+            return nil
+        }
+    }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView){
         if view.annotation is MKUserLocation{
@@ -178,7 +194,7 @@ extension NearByDealsViewController : LocationServiceDelegate,CLLocationManagerD
     func tracingLocation( _ currentLocation: CLLocation,  _ locationManager: CLLocationManager){
         
         self.currentLocation = locationManager.location
-        
+        self.addRadiusCircle(location: currentLocation)
         if !isGetNearFeeds {
             self.getDeails()
             isGetNearFeeds = true

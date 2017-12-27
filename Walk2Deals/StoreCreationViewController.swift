@@ -130,7 +130,7 @@ class StoreCreationViewController: UIViewController,UITableViewDelegate,UITableV
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
-            return 50
+            return 70
         }else{
             return 100
         }
