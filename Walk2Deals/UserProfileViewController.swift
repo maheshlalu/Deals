@@ -72,6 +72,8 @@ class UserProfileViewController: UIViewController,UITableViewDataSource,UITableV
         let cell = tableView.dequeueReusableCell(withIdentifier: "UserProfileTableViewCell", for: indexPath) as? UserProfileTableViewCell
         if indexPath.row == 0{
             cell?.userProfileTextField.placeholder = "Mobile No"
+            cell?.userProfileTextField.isUserInteractionEnabled = false
+            self.emailTextField.tag = 101
             cell?.userProfileTextField.text = self.profile.mobile
             self.mobileNoTextField.text = cell?.userProfileTextField.text
         }else if indexPath.row == 1{
@@ -84,6 +86,7 @@ class UserProfileViewController: UIViewController,UITableViewDataSource,UITableV
             self.lastNameTextField.text = cell?.userProfileTextField.text
         }else if indexPath.row == 3{
             cell?.userProfileTextField.placeholder = "Email"
+            cell?.userProfileTextField.isUserInteractionEnabled = false
             cell?.userProfileTextField.text = self.profile.email
             self.emailTextField.tag = 100
             self.emailTextField.delegate = self
@@ -93,9 +96,11 @@ class UserProfileViewController: UIViewController,UITableViewDataSource,UITableV
             cell?.userProfileTextField.text = self.profile.aDharNumbers
             self.aadhaarTextField.text = cell?.userProfileTextField.text
         }
+        
         cell?.selectionStyle = .none
         return cell!
     }
+    
     
     func getTextFiled(row:Int,section:Int) ->UserProfileTableViewCell {
         
@@ -265,7 +270,7 @@ class UserProfileViewController: UIViewController,UITableViewDataSource,UITableV
 
 extension UserProfileViewController : UITextFieldDelegate{
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        if textField.tag == 100 {
+        if textField.tag == 100 || textField.tag == 101{
             return false
         }
         return true

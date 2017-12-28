@@ -131,6 +131,32 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
             navCntl.title = "Redeem"
             self.present(navCntl, animated: true, completion: {
             })
+        }else if itemName == "Invite your friends"{
+            let userItemCode : String = ""
+            //Set the default sharing message.
+            let message = "Referral Code is : ASAP\(userItemCode)"
+            //Set the link to share.
+            //http://goasap.co.in/invite?referrer=
+            
+            if let link = NSURL(string: "http://goasap.co.in/invite?referrer=ASAP\(userItemCode)")
+            {
+                let objectsToShare = [message,link] as [Any]
+                let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+                activityVC.excludedActivityTypes = [UIActivityType.airDrop, UIActivityType.addToReadingList]
+                self.present(activityVC, animated: true, completion: nil)
+            }
+        }else if itemName == "Give us Feedback"{
+            //FeedViewController
+            let feedBackVc : FeedViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FeedViewController") as! FeedViewController
+            let navCntl = UINavigationController(rootViewController: feedBackVc)
+            navCntl.title = "Give us Feedback"
+            feedBackVc.modalPresentationStyle = .overFullScreen
+            feedBackVc.modalTransitionStyle = .crossDissolve
+            let popover = feedBackVc.popoverPresentationController
+            //popover?.delegate = self
+            popover?.permittedArrowDirections = .any
+            self.present(navCntl, animated: true, completion: {
+            })
         }else{
             let nearByVc = storyBoard.instantiateViewController(withIdentifier: "MyDealsViewController") as! MyDealsViewController
             let navCntl = UINavigationController(rootViewController: nearByVc)

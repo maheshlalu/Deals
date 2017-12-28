@@ -54,7 +54,9 @@ class TutorialPageController: UIPageViewController ,UIPageViewControllerDelegate
         self.pageControl.tintColor = UIColor.blue
         self.pageControl.pageIndicatorTintColor = UIColor.blue
         self.pageControl.currentPageIndicatorTintColor = UIColor.red
+        self.pageControl.backgroundColor = UIColor.red
         self.view.addSubview(pageControl)
+        self.pageControl.bringSubview(toFront: self.view)
     }
     
     //Step 6: Implement the pager delegate And Datasource

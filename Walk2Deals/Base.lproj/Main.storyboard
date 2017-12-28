@@ -185,6 +185,24 @@
             </objects>
             <point key="canvasLocation" x="7867.5" y="34.859154929577464"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="Yd4-8d-oD7">
+            <objects>
+                <viewController id="fsz-li-D3p" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="k4s-kj-e3g"/>
+                        <viewControllerLayoutGuide type="bottom" id="6x0-FD-DyF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="IRz-VA-jTz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vnu-VV-Tvt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="12161" y="37"/>
+        </scene>
         <!--Fav View Controller-->
         <scene sceneID="jD0-bI-VHE">
             <objects>
@@ -2119,10 +2137,10 @@
             </objects>
             <point key="canvasLocation" x="4344" y="-375"/>
         </scene>
-        <!--View Controller-->
+        <!--Feed View Controller-->
         <scene sceneID="IM0-ix-Soj">
             <objects>
-                <viewController id="6t7-OE-iQZ" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FeedViewController" id="6t7-OE-iQZ" customClass="FeedViewController" customModule="Walk2Deals" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Std-vn-lB2"/>
                         <viewControllerLayoutGuide type="bottom" id="Wll-qQ-oMu"/>

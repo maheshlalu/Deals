@@ -108,9 +108,12 @@ class DealsDetailsViewController: UIViewController {
         }
     }
     @IBAction func shareAction(_ sender: UIButton) {
-        
-        let activityViewController = UIActivityViewController(activityItems: ["" as NSString], applicationActivities: nil)
-        self.present(activityViewController, animated: true, completion: {})
+        let dataDict = self.dealDetailDict
+        if  let shareUrl = (dataDict as AnyObject).value(forKey: "ShareUrl") as? String{
+            let activityViewController = UIActivityViewController(activityItems: [shareUrl as NSString], applicationActivities: nil)
+            self.present(activityViewController, animated: true, completion: {})
+        }
+     
         
     }
     

@@ -52,7 +52,7 @@ class AboutDeailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func locationBtnAction(_ sender: UIButton) {
+     func locationBtnAction(_ sender: UIButton) {
         let dealLocation =  self.dealLocatinDict.lastObject as? NSDictionary
         let destinationLatitude = Double(dealLocation?.value(forKey: "Latitude")! as! String)
         let destinationLongtitude = Double(dealLocation?.value(forKey: "Longitude")! as! String)
@@ -107,7 +107,8 @@ extension AboutDeailViewController:UITableViewDataSource,UITableViewDelegate{
                 let dealLocation =  self.dealLocatinDict.lastObject as? NSDictionary
                 locationCell?.locationAddressLbl.text = dealLocation?.value(forKey: "StoreLocationAddress") as? String
                 CXLog.print(dealLocation?.value(forKey: "StoreLocationAddress") as? String)
-                
+                locationCell?.locationBtn.tag = indexPath.row
+                locationCell?.locationBtn.addTarget(self, action:#selector(locationBtnAction(_:)), for: .touchUpInside)
                 //StoreLocationAddress
                 //Latitude
                 //Longitude
