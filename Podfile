@@ -20,6 +20,8 @@ pod "ImageSlideshow/AFURL"
 pod 'GooglePlaces'
 pod 'GooglePlacePicker'
 pod 'GoogleMaps'
+pod 'AAPopUp'
+
   target 'Walk2DealsTests' do
     inherit! :search_paths
     # Pods for testing

@@ -11,13 +11,17 @@ import IQKeyboardManagerSwift
 import RealmSwift
 import GooglePlaces
 import GoogleMaps
+import AAPopUp
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate,SWRevealViewControllerDelegate {
     
     var window: UIWindow?
     
-    
+    /*
+     username:9032217794
+     password:1234
+     */
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
@@ -46,7 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,SWRevealViewControllerDele
            self.setUpSidePanl()
         }
         CXLog.print("Realm DB path \(Realm.Configuration.defaultConfiguration.fileURL!)")
-        
+    
         return true
     }
     

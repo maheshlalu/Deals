@@ -128,6 +128,31 @@ class DealsDetailsViewController: UIViewController {
             self.rattingLbl.attributedText = myMutableString
         }*/
      
+        //IsRedeemed
+        //reedemBtn
+        if  CXAppConfig.resultString(self.dealDetailDict?.value(forKey: "IsRedeemed") as AnyObject) == "0" {
+            self.reedemBtn.isHidden = false
+        }else{
+            self.reedemBtn.isHidden = true
+        }
+        
+        if  CXAppConfig.resultString(self.dealDetailDict?.value(forKey: "UserFavDeal") as AnyObject) == "1" {
+            self.mapBtn.isSelected = true
+            //cell?.favBtn.isSelected = true
+            if let dealID = (self.dealDetailDict as AnyObject).value(forKey: "Id") as? Int{
+                CXLog.print(CXDataSaveManager.sharedInstance.isSavedFavourites(postId: "\(dealID)"))
+            }
+        }else{
+            if let dealID = (self.dealDetailDict as AnyObject).value(forKey: "Id") as? Int{
+                if CXDataSaveManager.sharedInstance.isSavedFavourites(postId: "\(dealID)"){
+                  //  cell?.favBtn.isSelected = true
+                    self.mapBtn.isSelected = true
+                }else{
+                    self.mapBtn.isSelected = false
+                   // cell?.favBtn.isSelected = false
+                }
+            }
+        }
 
         //DealReviewStars
             self.rattingView.rating = Float(CXAppConfig.resultString(self.dealDetailDict.value(forKey: "DealReviewStars") as AnyObject))!
@@ -184,6 +209,7 @@ class DealsDetailsViewController: UIViewController {
             //{"DealId":"2","UserId":"2"}
             CXDataService.sharedInstance.postTheDataToServer(urlString: urlString, parameters: parameters, completion: { (responce) in
                 CXLog.print(responce)
+                self.getDealDataByID()
             })
         }
     }

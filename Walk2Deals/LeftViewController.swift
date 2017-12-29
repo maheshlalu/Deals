@@ -8,6 +8,8 @@
 
 import UIKit
 import RealmSwift
+import AAPopUp
+
 class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     @IBOutlet weak var leftTableview: UITableView!
     var nameArray = ["Home","Near By Stores","My Deals","Favourites","Invite your friends","Settings","Give us Feedback","Request For Ad","Sign Out"]
@@ -17,6 +19,7 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
     //,"rewards-points"
     @IBOutlet weak var userImage: UIImageView!
     var previousSelectedIndex  : IndexPath = IndexPath()
+    var popup: AAPopUp = AAPopUp(popup: .demo2)
 
     @IBOutlet weak var postAdBtn: UIButton!
     override func viewDidLoad() {
@@ -147,16 +150,14 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
             }
         }else if itemName == "Give us Feedback"{
             //FeedViewController
-            let feedBackVc : FeedViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FeedViewController") as! FeedViewController
-            let navCntl = UINavigationController(rootViewController: feedBackVc)
-            navCntl.title = "Give us Feedback"
-            feedBackVc.modalPresentationStyle = .overFullScreen
-            feedBackVc.modalTransitionStyle = .crossDissolve
-            let popover = feedBackVc.popoverPresentationController
-            //popover?.delegate = self
-            popover?.permittedArrowDirections = .any
-            self.present(navCntl, animated: true, completion: {
-            })
+            
+            popup.present { popup in
+                // MARK:- View Did Appear Here
+                popup.dismissWithTag(9)
+                
+                
+            }
+          
         }else{
             let nearByVc = storyBoard.instantiateViewController(withIdentifier: "MyDealsViewController") as! MyDealsViewController
             let navCntl = UINavigationController(rootViewController: nearByVc)
@@ -242,4 +243,11 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
         
     }
 
+}
+
+extension AAPopUp {
+    
+    static let demo1 = AAPopUps<String? ,String>(identifier: "DemoPopup")
+    static let demo2 = AAPopUps<String? ,String>("Main" ,identifier: "DemoPopup")
+    
 }

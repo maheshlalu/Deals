@@ -86,6 +86,7 @@
 		18BD79D81F72A74800BB1A83 /* CXAppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BD79D71F72A74800BB1A83 /* CXAppConfig.swift */; };
 		2112AE921FF2C7E3002E848F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2112AE911FF2C7E2002E848F /* GoogleService-Info.plist */; };
 		2112AE941FF48D13002E848F /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2112AE931FF48D12002E848F /* FeedViewController.swift */; };
+		21195E421FF5E595006806DD /* DemoPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21195E411FF5E595006806DD /* DemoPopUp.swift */; };
 		211BE1ED1FE615B8007E17A3 /* W2DHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211BE1EC1FE615B8007E17A3 /* W2DHomeViewController.swift */; };
 		211BE1F11FE63B1A007E17A3 /* BannerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211BE1EF1FE63B1A007E17A3 /* BannerTableViewCell.swift */; };
 		211BE1F21FE63B1A007E17A3 /* BannerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 211BE1F01FE63B1A007E17A3 /* BannerTableViewCell.xib */; };
@@ -225,6 +226,7 @@
 		18BD79D71F72A74800BB1A83 /* CXAppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CXAppConfig.swift; sourceTree = "<group>"; };
 		2112AE911FF2C7E2002E848F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2112AE931FF48D12002E848F /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		21195E411FF5E595006806DD /* DemoPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoPopUp.swift; sourceTree = "<group>"; };
 		211BE1EC1FE615B8007E17A3 /* W2DHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = W2DHomeViewController.swift; sourceTree = "<group>"; };
 		211BE1EF1FE63B1A007E17A3 /* BannerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerTableViewCell.swift; sourceTree = "<group>"; };
 		211BE1F01FE63B1A007E17A3 /* BannerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BannerTableViewCell.xib; sourceTree = "<group>"; };
@@ -406,6 +408,7 @@
 		184139661F6FF7E800B73595 = {
 			isa = PBXGroup;
 			children = (
+				21195E411FF5E595006806DD /* DemoPopUp.swift */,
 				184139711F6FF7E900B73595 /* Walk2Deals */,
 				184139861F6FF7EA00B73595 /* Walk2DealsTests */,
 				184139911F6FF7EA00B73595 /* Walk2DealsUITests */,
@@ -981,6 +984,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Walk2Deals/Pods-Walk2Deals-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AAPopUp/AAPopUp.framework",
 				"${BUILT_PRODUCTS_DIR}/ACFloatingTextfield-Swift/ACFloatingTextfield_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/ActionSheetPicker-3.0/ActionSheetPicker_3_0.framework",
@@ -996,6 +1000,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AAPopUp.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ACFloatingTextfield_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ActionSheetPicker_3_0.framework",
@@ -1024,6 +1029,7 @@
 				184139AC1F70070D00B73595 /* VerificationCodeViewController.swift in Sources */,
 				184139AB1F70070D00B73595 /* CreateAccountViewController.swift in Sources */,
 				184139751F6FF7EA00B73595 /* ViewController.swift in Sources */,
+				21195E421FF5E595006806DD /* DemoPopUp.swift in Sources */,
 				122549851FA05C4A001D38F2 /* SelectionViewController.swift in Sources */,
 				12E8878E1F83EC4E00335823 /* LoginViewController.swift in Sources */,
 				18437E6A1F90B13E003B9631 /* LFLocationService.swift in Sources */,
