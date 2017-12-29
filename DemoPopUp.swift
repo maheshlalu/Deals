@@ -12,15 +12,17 @@ import AAPopUp
 class DemoPopUp: UIViewController {
     
     @IBOutlet weak var demoLabel: UILabel!
-    @IBOutlet weak var demoTextField: UITextField!
     @IBOutlet weak var demoTextView: UITextView!
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        self.demoTextView.layer.cornerRadius = 8.0
+        self.demoTextView.layer.borderColor = UIColor.gray.cgColor
+        self.demoTextView.layer.borderWidth = 2.0
         
-        
+       
         setBorder(demoTextView)
         
         
@@ -38,16 +40,38 @@ class DemoPopUp: UIViewController {
     }
     
     @IBAction func demoButtonAction(_ sender: Any) {
+        /*
+         http://api.walk2deals.com/api/User/Feedback
+         
+         params Feedback="
+         
+         UserId=""
+         */
         
-        let alert = UIAlertView(title: "Alert", message: "Thanks for submitting your feedback!", delegate: nil, cancelButtonTitle: "OK")
-        alert.performSelector(onMainThread: #selector(alert.show), with: nil, waitUntilDone: false)
+        if self.demoTextView.text.count != 0 {
+            let parameters = ["Feedback":self.demoTextView.text!,"UserId":CXDataSaveManager.sharedInstance.getTheUserProfileFromDB().userId]
+            CXDataService.sharedInstance.postTheDataToServer(urlString: CXAppConfig.sharedInstance.getBaseUrl() + "api/User/Feedback", parameters: parameters, completion: { (responce) in
+                CXLog.print("feedback Responce \(responce)")
+                self.dismiss(animated: true, completion: nil)
+
+            })
+            
+        }else{
+            
+        }
+        
+        /*
+         let alert = UIAlertView(title: "Alert", message: "Thanks for submitting your feedback!", delegate: nil, cancelButtonTitle: "OK")
+         alert.performSelector(onMainThread: #selector(alert.show), with: nil, waitUntilDone: false)
+         */
+       
     }
  
     @IBAction func closeAction(_ sender: Any) {
         
         // MARK:- Dismiss action
         
-        //self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
         
     }
     

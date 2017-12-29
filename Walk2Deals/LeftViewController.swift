@@ -251,3 +251,27 @@ extension AAPopUp {
     static let demo2 = AAPopUps<String? ,String>("Main" ,identifier: "DemoPopup")
     
 }
+
+
+
+
+/*
+ 
+ http://api.walk2deals.com/api/Deal/MyDeals/
+ 
+ 
+ http://api.walk2deals.com/api/Deal/MyDeals/19  - userid - this api is for my deals
+ 
+ http://api.walk2deals.com/api/Deal/GetFavouriteDeals
+ 
+ inputs - {"UserId":"19"}
+ 
+ http://api.walk2deals.com/api/User/Feedback
+ 
+ params Feedback="
+ 
+ UserId=""
+ */
+
+
+
