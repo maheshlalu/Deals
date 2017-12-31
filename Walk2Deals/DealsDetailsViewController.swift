@@ -44,11 +44,12 @@ class DealsDetailsViewController: UIViewController {
     
     
     func setUpTabPager(){
+        let color =  UIColor(red: 79/255.0, green: 112/255.0, blue: 157/255.0, alpha: 1.0)
         let parameters: [CAPSPageMenuOption] = [
             .selectionIndicatorColor(UIColor.white),
             .selectedMenuItemLabelColor(UIColor.white),
-            .menuHeight(40),
-            .scrollMenuBackgroundColor(UIColor.gray),
+            .menuHeight(55),
+            .scrollMenuBackgroundColor(color),
             .menuItemWidth(self.view.frame.size.width/2-16)
         ]
         var contrl = [UIViewController]()
@@ -66,7 +67,7 @@ class DealsDetailsViewController: UIViewController {
         
         let profile = CXDataSaveManager.sharedInstance.getTheUserProfileFromDB()
         if profile.isUser {
-            self.reedemBtn.isHidden = false
+            //self.reedemBtn.isHidden = false
         }else{
             let approveVc : ApproveViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ApproveViewController") as! ApproveViewController
             approveVc.title = "Redeem"
@@ -130,11 +131,22 @@ class DealsDetailsViewController: UIViewController {
      
         //IsRedeemed
         //reedemBtn
-        if  CXAppConfig.resultString(self.dealDetailDict?.value(forKey: "IsRedeemed") as AnyObject) == "0" {
-            self.reedemBtn.isHidden = false
-        }else{
+        //    RedeemCode = W2DEAL011060011029;
+
+        if let RedeemCode = self.dealDetailDict?.value(forKey: "RedeemCode") as? String{
+            CXLog.print(RedeemCode)
             self.reedemBtn.isHidden = true
+        }else{
+            self.reedemBtn.isHidden = false
         }
+        //ShowAddReview
+        
+        if  CXAppConfig.resultString(self.dealDetailDict?.value(forKey: "ShowAddReview") as AnyObject) == "1" {
+            self.writeReviewBtn.isHidden = true
+        }else{
+            self.writeReviewBtn.isHidden = false
+        }
+        
         
         if  CXAppConfig.resultString(self.dealDetailDict?.value(forKey: "UserFavDeal") as AnyObject) == "1" {
             self.mapBtn.isSelected = true
@@ -210,6 +222,7 @@ class DealsDetailsViewController: UIViewController {
             CXDataService.sharedInstance.postTheDataToServer(urlString: urlString, parameters: parameters, completion: { (responce) in
                 CXLog.print(responce)
                 self.getDealDataByID()
+                self.view.makeToast(message: "Redeem Successfully")
             })
         }
     }

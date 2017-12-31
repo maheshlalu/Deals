@@ -334,7 +334,9 @@ extension W2DHomeViewController:UICollectionViewDelegate,UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        /*
+         RedeemCode = W2DEAL011060011029;
+         */
         var dataDict = NSDictionary()
         if collectionView.tag == 1 {
             dataDict = (self.recentDealsArray[indexPath.item] as? NSDictionary)!

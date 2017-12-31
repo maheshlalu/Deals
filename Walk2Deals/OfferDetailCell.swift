@@ -7,13 +7,29 @@
 //
 
 import UIKit
-
+protocol ExpandCellDelegate {
+    func moreTapped(cell: OfferDetailCell)
+}
 class OfferDetailCell: UITableViewCell {
 
     @IBOutlet var validStartFromLbl: UILabel!
     @IBOutlet var validEndOfferLbl: UILabel!
+    @IBOutlet weak var viewMoreBtn: UIButton!
+    @IBOutlet weak var descriptionLbl: UILabel!
+    var delegate: ExpandCellDelegate?
+    var isExpanded: Bool = false
+
+    @IBAction func viewMoreAction(_ sender: UIButton) {
+        isExpanded = !isExpanded
+        descriptionLbl.numberOfLines = isExpanded ? 0 : 3
+        viewMoreBtn.setTitle(isExpanded ? "View less" : "View more...", for: .normal)
+        delegate?.moreTapped(cell: self)
+
+    }
+
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.selectionStyle = .none
         // Initialization code
     }
 

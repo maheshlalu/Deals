@@ -13,6 +13,8 @@ class DealTitleCell: UITableViewCell {
     @IBOutlet var dealTitleLbl: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.selectionStyle = .none
+
         // Initialization code
     }
 

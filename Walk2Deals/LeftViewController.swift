@@ -12,11 +12,11 @@ import AAPopUp
 
 class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     @IBOutlet weak var leftTableview: UITableView!
-    var nameArray = ["Home","Near By Stores","My Deals","Favourites","Invite your friends","Settings","Give us Feedback","Request For Ad","Sign Out"]
-    //"Rewards Points",
+    var nameArray = ["Home","Near By Stores","My Deals","Favourites","Invite your friends","Give us Feedback","Request For Ad","Sign Out"]
+    //"Rewards Points","Settings"
     
-    var imageArray = ["home","nearby","my-deal","fav-menu","invite-fnds","settings","feedBack","","logout"]
-    //,"rewards-points"
+    var imageArray = ["home","nearby","my-deal","fav-menu","invite-fnds","feedBack","","logout"]
+    //,"rewards-points","settings",
     @IBOutlet weak var userImage: UIImageView!
     var previousSelectedIndex  : IndexPath = IndexPath()
     var popup: AAPopUp = AAPopUp(popup: .demo2)

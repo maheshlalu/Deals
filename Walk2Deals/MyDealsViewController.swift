@@ -60,33 +60,48 @@ class MyDealsViewController: UIViewController {
             CXLog.print(parameters)
             CXDataService.sharedInstance.postTheDataToServer(urlString: CXAppConfig.sharedInstance.getBaseUrl()+"api/Deal/GetFavouriteDeals" ,parameters: parameters as! [String : String]) { (responceDic) in
                 CXLog.print("responce dict \(responceDic)")
-                CXDataService.sharedInstance.hideLoader()
-                let error =  responceDic.value(forKey: "Errors") as? NSArray
-                let errorDict = error?.lastObject as? NSDictionary
-                let errorcode = errorDict?.value(forKey: "ErrorCode") as? String
-                if errorcode == "0"{
-                    if let deals =  responceDic.value(forKey: "Deals") as? NSArray{
-                        if deals.count == 0{
-                            return
-                        }
-                            self.dealsArray.addObjects(from: deals as! [Any])
-                            self.homeCollectionView.reloadData()
-                        //}
-                    }else{
-                        
-                    }
-                }else{
-                    CXDataService.sharedInstance.showAlert(message: "Something went Wrong!!!", viewController: self)
-                }
+                self.parsetheData(responceDic: responceDic)
             }
         }else{
+            let parameters = ["UserId":CXAppConfig.sharedInstance.getUserID()] //PageNumber
+            CXDataService.sharedInstance.showLoader(view: self.view, message: "Loading...")
+            CXLog.print(parameters)
             
-            
+            let url = CXAppConfig.sharedInstance.getBaseUrl() + "api/Deal/MyDeals/" + CXAppConfig.sharedInstance.getUserID()
+            //CXDataService.sharedInstance
+            CXDataService.sharedInstance.getTheDataFromServer(urlString: url, completion: { (responceDic) in
+                CXLog.print("responce dict \(responceDic)")
+                self.parsetheData(responceDic: responceDic)
+
+            })
+           
             
         }
         
         
         
+    }
+    
+    
+    func parsetheData(responceDic:NSDictionary){
+        CXDataService.sharedInstance.hideLoader()
+        let error =  responceDic.value(forKey: "Errors") as? NSArray
+        let errorDict = error?.lastObject as? NSDictionary
+        let errorcode = errorDict?.value(forKey: "ErrorCode") as? String
+        if errorcode == "0"{
+            if let deals =  responceDic.value(forKey: "Deals") as? NSArray{
+                if deals.count == 0{
+                    return
+                }
+                self.dealsArray.addObjects(from: deals as! [Any])
+                self.homeCollectionView.reloadData()
+                //}
+            }else{
+                
+            }
+        }else{
+            CXDataService.sharedInstance.showAlert(message: "Something went Wrong!!!", viewController: self)
+        }
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -122,22 +137,30 @@ extension MyDealsViewController:UICollectionViewDataSource,UICollectionViewDeleg
          let img_Url1 = NSURL(string: imgStr )
          cell.categoryImageView.setImageWith(img_Url1 as URL!, usingActivityIndicatorStyle: .white)
          }
-         
+         ImageCDNUrls =             (
+         "http://89c864a87c3ad18dae47-7bbeedb9edb88b42dee08f7ffab566a2.r82.cf5.rackcdn.com//W2D/Dev/Deal/10087.jpg"
+         );
          }*/
         
         if let imageUrl = dataDict?.value(forKey: "DealImageUrl") as? String ,!imageUrl.isEmpty {
             let img_Url1 = NSURL(string: imageUrl )
             cell.categoryImageView.setImageWith(img_Url1 as URL!, usingActivityIndicatorStyle: .white)
             
+        }else{
+             if let imageUrl = dataDict?.value(forKey: "ImageCDNUrls") as? NSArray ,imageUrl.count != 0 {
+                let img_Url1 = NSURL(string: (imageUrl[0] as? String)!)
+                cell.categoryImageView.setImageWith(img_Url1 as URL!, usingActivityIndicatorStyle: .white)
+            }
         }
         //DealImageUrl
         //OfferTitle
+       // cell.favBtn.isHidden = true
         if  let offerTitle = dataDict?.value(forKey: "OfferTitle") as? String{
             cell.offerTitleLbl.text = offerTitle
         }
         
         if  let distance = dataDict?.value(forKey: "UserDistance") as? String{
-            cell.distanceLbl.text = distance + "Km"
+            cell.distanceLbl.text = distance
         }
         if  CXAppConfig.resultString(dataDict?.value(forKey: "UserFavDeal") as AnyObject) == "1" {
             cell.favBtn.isSelected = true
@@ -147,15 +170,15 @@ extension MyDealsViewController:UICollectionViewDataSource,UICollectionViewDeleg
         }else{
             if let dealID = (dataDict as AnyObject).value(forKey: "Id") as? Int{
                 if CXDataSaveManager.sharedInstance.isSavedFavourites(postId: "\(dealID)"){
-                    cell.favBtn.isSelected = true
+                    //cell.favBtn.isSelected = true
                     
                 }else{
-                    cell.favBtn.isSelected = false
+                   // cell.favBtn.isSelected = false
                 }
             }
         }
-        cell.favBtn.addTarget(self, action:#selector(favButtonAction(sender:)), for: .touchUpInside)
-        cell.favBtn.tag = indexPath.row
+       // cell.favBtn.addTarget(self, action:#selector(favButtonAction(sender:)), for: .touchUpInside)
+        //cell.favBtn.tag = indexPath.row
         cell.shareBtn.addTarget(self, action:#selector(shareButtonAction(sender:)), for: .touchUpInside)
         cell.shareBtn.tag = indexPath.row
         //UserDistance
@@ -188,8 +211,11 @@ extension MyDealsViewController:UICollectionViewDataSource,UICollectionViewDeleg
     
     
     func shareButtonAction(sender:UIButton){
-        let activityViewController = UIActivityViewController(activityItems: ["" as NSString], applicationActivities: nil)
-        self.present(activityViewController, animated: true, completion: {})
+        let dataDict = self.dealsArray[sender.tag-3]
+        if  let shareUrl = (dataDict as AnyObject).value(forKey: "ShareUrl") as? String{
+            let activityViewController = UIActivityViewController(activityItems: [shareUrl as NSString], applicationActivities: nil)
+            self.present(activityViewController, animated: true, completion: {})
+        }
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int

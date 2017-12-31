@@ -21,6 +21,7 @@ class DemoPopUp: UIViewController {
         self.demoTextView.layer.cornerRadius = 8.0
         self.demoTextView.layer.borderColor = UIColor.gray.cgColor
         self.demoTextView.layer.borderWidth = 2.0
+        self.demoTextView.textColor = UIColor.black
         
        
         setBorder(demoTextView)
@@ -53,7 +54,7 @@ class DemoPopUp: UIViewController {
             CXDataService.sharedInstance.postTheDataToServer(urlString: CXAppConfig.sharedInstance.getBaseUrl() + "api/User/Feedback", parameters: parameters, completion: { (responce) in
                 CXLog.print("feedback Responce \(responce)")
                 self.dismiss(animated: true, completion: nil)
-
+                self.demoTextView.text = ""
             })
             
         }else{
