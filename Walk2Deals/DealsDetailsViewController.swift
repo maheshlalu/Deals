@@ -26,6 +26,7 @@ class DealsDetailsViewController: UIViewController {
     
     @IBOutlet weak var reedemBtn: UIButton!
     
+    @IBOutlet weak var dealOfferDate: UILabel!
     @IBOutlet weak var writeReviewBtn: UIButton!
     @IBOutlet weak var rattingLbl: UILabel!
     var navTitle = ""
@@ -34,11 +35,7 @@ class DealsDetailsViewController: UIViewController {
         super.viewDidLoad()
         self.getDealDataByID()
         self.title = self.navTitle
-        
-        
         //CXLog.print(dealId)
-        
-        
         // Do any additional setup after loading the view.
     }
     
@@ -114,8 +111,6 @@ class DealsDetailsViewController: UIViewController {
             let activityViewController = UIActivityViewController(activityItems: [shareUrl as NSString], applicationActivities: nil)
             self.present(activityViewController, animated: true, completion: {})
         }
-     
-        
     }
     
     func populatedTheData(){
@@ -165,6 +160,15 @@ class DealsDetailsViewController: UIViewController {
                 }
             }
         }
+        
+        if let strdDate = dealDetailDict.value(forKey: "StartDate") as? String , let endDate = dealDetailDict.value(forKey: "EndDate") as? String {
+            
+            let validStr = "Valid From:\(CXAppConfig.sharedInstance.stringToDate(dateString: strdDate)) - \(CXAppConfig.sharedInstance.stringToDate(dateString: endDate))"
+            self.dealOfferDate.text = validStr
+        
+            //self.dealOfferDate.backgroundColor = UIColor(white: 1, alpha: 0.5)
+          
+        }
 
         //DealReviewStars
             self.rattingView.rating = Float(CXAppConfig.resultString(self.dealDetailDict.value(forKey: "DealReviewStars") as AnyObject))!
@@ -185,15 +189,16 @@ class DealsDetailsViewController: UIViewController {
        //let attachements: NSArray = dealsDic.value(forKey: "ImageCDNUrls") as! NSArray
         
         if let attachements = dealDetailDict.value(forKey: "ImageCDNUrls") as? NSArray , attachements.count != 0{
-        // let attachements: NSArray = CXAppConfig.sharedInstance.getTheDataInDictionaryFromKey(dealsDic, sourceKey: "Attachments") as! NSArray
-        for imageDic in attachements {
-            self.coverPageImagesList.add(imageDic)
-        }
-        self.pagerView.delegate = self
-        self.pagerView.dataSource = self
-        self.pagerView.checkWetherToToggleSlideshowTimer()
-        self.pagerView.slideshowTimeInterval = 3
-        self.pagerView.reloadData()
+            // let attachements: NSArray = CXAppConfig.sharedInstance.getTheDataInDictionaryFromKey(dealsDic, sourceKey: "Attachments") as! NSArray
+            for imageDic in attachements {
+                self.coverPageImagesList.add(imageDic)
+            }
+            self.pagerView.delegate = self
+            self.pagerView.dataSource = self
+            self.pagerView.checkWetherToToggleSlideshowTimer()
+            self.pagerView.slideshowTimeInterval = 3
+            self.pagerView.reloadData()
+           // self.pagerView.addSubview(self.dealOfferDate)
         }
     }
 

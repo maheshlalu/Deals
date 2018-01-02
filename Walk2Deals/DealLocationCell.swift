@@ -12,6 +12,10 @@ class DealLocationCell: UITableViewCell {
 
     @IBOutlet var locationBtn: UIButton!
     @IBOutlet var locationAddressLbl: UILabel!
+    
+    @IBOutlet weak var locImgView: UIImageView!
+    
+   
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

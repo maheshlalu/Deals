@@ -18,30 +18,11 @@ class AboutDeailViewController: UIViewController,ExpandCellDelegate {
         CXLog.print("\(dealDetailDict)")
         self.aboutDealTbl.rowHeight = UITableViewAutomaticDimension
         self.aboutDealTbl.estimatedRowHeight = 100;
+        //let edgeInsets = UIEdgeInsetsMake(0, 20, 0, 20)
+        //self.aboutDealTbl.contentInset = edgeInsets
+
         //DealLocations
-       /* self.dealTitle.text = dealDetailDict.value(forKey: "OfferTitle") as? String
-        self.dealLocatinDict = dealDetailDict.value(forKey: "DealLocations") as! NSArray
-        
-        if let strdDate = dealDetailDict.value(forKey: "StartDate") as? String , let endDate = dealDetailDict.value(forKey: "StartDate") as? String {
-            self.dealStartLbl.text = "Start Date:  " + strdDate
-            self.dealEndLbl.text = "End Date:  " + endDate
-        }
-        
-
-        if self.dealLocatinDict.count != 0 {
-            let dealLocation =  self.dealLocatinDict.lastObject as? NSDictionary
-            self.addressLbl.text = dealLocation?.value(forKey: "StoreLocationAddress") as? String
-            
-            CXLog.print(dealLocation?.value(forKey: "StoreLocationAddress") as? String)
-
-            //StoreLocationAddress
-            //Latitude
-            //Longitude
-        }*/
-        //StartDate
-        //EndDate
-    
-        // Do any additional setup after loading the view.
+  
     }
 
     func registerCell(){
@@ -88,28 +69,71 @@ class AboutDeailViewController: UIViewController,ExpandCellDelegate {
 
 extension AboutDeailViewController:UITableViewDataSource,UITableViewDelegate{
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 4
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        if indexPath.row == 0 {
+        self.dealLocatinDict = dealDetailDict.value(forKey: "DealLocations") as! NSArray
+
+        if indexPath.section == 0 {
+            /*
+             DealCategories =     (
+             {
+             CategoryId = 1;
+             CategoryName = categoryName;
+             Id = 0;
+             },
+             {
+             CategoryId = 2;
+             CategoryName = Clothing;
+             Id = 0;
+             }
+             );
+             */
+            var names = "Category:"
+            if let categories = dealDetailDict.value(forKey: "DealCategories") as? NSArray{
+                for (index,data)in categories.enumerated(){
+                    if let dic = data as? NSDictionary{
+                        if let str = dic.value(forKey: "CategoryName") as? String{
+                            if index == 0  {
+                                names = names + str
+                            }else if  index == categories.count-1{
+                                names =   names + "," + str
+                            }else{
+                                names =   names + "," + str
+
+                            }
+                        }
+                    }
+                }
+            }
+            
             let titleCell = tableView.dequeueReusableCell(withIdentifier: "DealTitleCell") as? DealTitleCell
-            titleCell?.dealTitleLbl.text = dealDetailDict.value(forKey: "OfferTitle") as? String
+            titleCell?.dealTitleLbl.text = names
             return titleCell!
-        }else {
+        }else if indexPath.section == 3{
+            let locationCell = tableView.dequeueReusableCell(withIdentifier: "DealLocationCell") as? DealLocationCell
+            let dealLocation =  self.dealLocatinDict.lastObject as? NSDictionary
+            locationCell?.locationAddressLbl.setHTML(html: (dealLocation?.value(forKey: "StoreLocationAddress") as? String)!)
+              locationCell?.locationBtn.addTarget(self, action:#selector(locationBtnAction(_:)), for: .touchUpInside)
+            return locationCell!
+
+        } else {
             let offerCell = tableView.dequeueReusableCell(withIdentifier: "OfferDetailCell") as? OfferDetailCell
             offerCell?.delegate = self
-            self.dealLocatinDict = dealDetailDict.value(forKey: "DealLocations") as! NSArray
             //OfferDescription
-            if indexPath.row == 1{
+            if indexPath.section == 1{
                 offerCell?.viewMoreBtn.isHidden = false
                 if let offerDesription = dealDetailDict.value(forKey: "OfferDescription") as? String
                 {
                     offerCell?.descriptionLbl.setHTML(html: offerDesription)
                 }
-            }else if indexPath.row == 2{
+            }else if indexPath.section == 2{
                 offerCell?.viewMoreBtn.isHidden = false
                 if let offerDesription = dealDetailDict.value(forKey: "RedeemDescription") as? String
                 {
@@ -151,13 +175,20 @@ extension AboutDeailViewController:UITableViewDataSource,UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 0 {
-            return 45
-        }else if indexPath.row == 1 {
+        if indexPath.section == 0 {
+            return 75
+        }else if indexPath.section == 1 {
             return UITableViewAutomaticDimension
-        }else{
+        }else if indexPath.section == 3{
+            return 70
+        } else{
             return UITableViewAutomaticDimension
         }
+    }
+    
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 5
     }
     
    
