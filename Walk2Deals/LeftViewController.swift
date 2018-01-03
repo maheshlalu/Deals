@@ -35,9 +35,12 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
              nameArray = nameArray.filter { $0 != "My Deals" }
             imageArray = imageArray.filter { $0 != "my-deal" }
         }else{
-            nameArray = nameArray.filter { $0 != "Request For Add" }
-            nameArray.append("Redeem")
-            imageArray.append("my-deal")
+            nameArray = nameArray.filter { $0 != "Request For Ad" }
+            nameArray.insert("Redeem", at: nameArray.count-1)
+           // nameArray.append("Redeem")
+           // imageArray.append("my-deal")
+            imageArray.insert("my-deal", at: imageArray.count-1)
+
             imageArray = imageArray.filter { $0 != "" }
         }
         // Do any additional setup after loading the view.

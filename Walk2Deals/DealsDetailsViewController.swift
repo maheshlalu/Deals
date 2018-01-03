@@ -164,7 +164,7 @@ class DealsDetailsViewController: UIViewController {
         if let strdDate = dealDetailDict.value(forKey: "StartDate") as? String , let endDate = dealDetailDict.value(forKey: "EndDate") as? String {
             
             let validStr = "Valid From:\(CXAppConfig.sharedInstance.stringToDate(dateString: strdDate)) - \(CXAppConfig.sharedInstance.stringToDate(dateString: endDate))"
-            self.dealOfferDate.text = validStr
+            //self.dealOfferDate.text = validStr
         
             //self.dealOfferDate.backgroundColor = UIColor(white: 1, alpha: 0.5)
           

@@ -49,6 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,SWRevealViewControllerDele
         }else{
            self.setUpSidePanl()
         }
+    
         CXLog.print("Realm DB path \(Realm.Configuration.defaultConfiguration.fileURL!)")
     
         return true

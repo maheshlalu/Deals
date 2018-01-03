@@ -29,10 +29,11 @@ class TutorialPageController: UIPageViewController ,UIPageViewControllerDelegate
 
         listOfViewControllers.append(self.addNavController(viewCntl: blueView!))
         
-        self.configurePageControl()
         
         //Step 5
         self.setViewControllers([listOfViewControllers.first!], direction: .forward, animated: false) { (value) in
+            self.configurePageControl()
+
             
         }
     }
@@ -52,11 +53,12 @@ class TutorialPageController: UIPageViewController ,UIPageViewControllerDelegate
         self.pageControl.numberOfPages = listOfViewControllers.count
         self.pageControl.currentPage = 0
         self.pageControl.tintColor = UIColor.blue
-        self.pageControl.pageIndicatorTintColor = UIColor.blue
-        self.pageControl.currentPageIndicatorTintColor = UIColor.red
-        self.pageControl.backgroundColor = UIColor.red
+        self.pageControl.pageIndicatorTintColor = UIColor.gray
+        self.pageControl.currentPageIndicatorTintColor = UIColor.green
+       // self.pageControl.backgroundColor = UIColor.red
         self.view.addSubview(pageControl)
-        self.pageControl.bringSubview(toFront: self.view)
+        self.view.bringSubview(toFront: self.pageControl)
+       // self.pageControl.bringSubview(toFront: self.view)
     }
     
     //Step 6: Implement the pager delegate And Datasource

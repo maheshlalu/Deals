@@ -473,14 +473,25 @@ extension CXDataService{
     
    
     func validatePhoneNuber(value: String) -> Bool {
-        let types:NSTextCheckingResult.CheckingType = [.phoneNumber]
+        if value.count == 10 || self.validate(value: value){
+            return true
+        }
+        return false
+       /* let types:NSTextCheckingResult.CheckingType = [.phoneNumber]
         guard let detector = try? NSDataDetector(types: types.rawValue) else { return false }
         
         if let match = detector.matches(in: value, options: [], range: NSMakeRange(0, value.characters.count)).first?.phoneNumber {
             return match == value
         }else{
             return false
-        }
+        }*/
+    }
+    
+    func validate(value: String) -> Bool {
+        let PHONE_REGEX = "^((\\+)|(00))[0-9]{6,14}$"
+        let phoneTest = NSPredicate(format: "SELF MATCHES %@", PHONE_REGEX)
+        let result =  phoneTest.evaluate(with: value)
+        return result
     }
     
     
