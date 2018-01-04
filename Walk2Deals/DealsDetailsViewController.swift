@@ -136,11 +136,11 @@ class DealsDetailsViewController: UIViewController {
         }
         //ShowAddReview
         
-        if  CXAppConfig.resultString(self.dealDetailDict?.value(forKey: "ShowAddReview") as AnyObject) == "1" {
+       /* if  CXAppConfig.resultString(self.dealDetailDict?.value(forKey: "ShowAddReview") as AnyObject) == "1" {
             self.writeReviewBtn.isHidden = true
         }else{
             self.writeReviewBtn.isHidden = false
-        }
+        }*/
         
         
         if  CXAppConfig.resultString(self.dealDetailDict?.value(forKey: "UserFavDeal") as AnyObject) == "1" {

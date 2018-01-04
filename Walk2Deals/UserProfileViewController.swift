@@ -37,12 +37,13 @@ class UserProfileViewController: UIViewController,UITableViewDataSource,UITableV
         self.userImageView.layer.cornerRadius = 50
         self.userImageView.layer.borderWidth = 2
         self.userImageView.layer.masksToBounds = true
-        
+
         self.setUpBackButton()
         
         if let img =  CXDataSaveManager.sharedInstance.getTheUserProfileFromDB().image as? String{
             let url = URL(string: CXDataSaveManager.sharedInstance.getTheUserProfileFromDB().image)
             self.userImageView.setImageWith(url, usingActivityIndicatorStyle: .white)
+
         }
         // Do any additional setup after loading the view.
     }
@@ -132,6 +133,7 @@ class UserProfileViewController: UIViewController,UITableViewDataSource,UITableV
             CXDataService.sharedInstance.showAlert(message: "Please Enter Valid adharNumber", viewController: self)
             
         }else{
+            self.profileImageData = NSData(data: UIImagePNGRepresentation(self.userImageView.image!)!)
             /*
              {"FirstName":"asula","LastName":"ausula","MiddleName":"","EmailAddress":"kushalkanna@gmail.com","AdharNumber":"37485734759373975","UserId":18,"Id":18,"SubscribeNewsletter":true,"CreatedById":18,"ModifiedById":18}
              */
