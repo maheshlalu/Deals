@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol DealDataDelegate {
+    func clickFavButton(delaId:String,indexPath:Int)
+}
+
 class DealsDetailsViewController: UIViewController {
 
     
@@ -31,6 +35,9 @@ class DealsDetailsViewController: UIViewController {
     @IBOutlet weak var rattingLbl: UILabel!
     var navTitle = ""
     var dealDetailDict : NSDictionary!
+    var index : Int!
+    
+    var delegate :DealDataDelegate!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.getDealDataByID()
@@ -41,6 +48,8 @@ class DealsDetailsViewController: UIViewController {
     
     
     func setUpTabPager(){
+        //            //79 112 157
+
         let color =  UIColor(red: 79/255.0, green: 112/255.0, blue: 157/255.0, alpha: 1.0)
         let parameters: [CAPSPageMenuOption] = [
             .selectionIndicatorColor(UIColor.white),
@@ -100,9 +109,14 @@ class DealsDetailsViewController: UIViewController {
         sender.isSelected = !sender.isSelected
         let dataDict = self.dealDetailDict
         if let dealID = (dataDict as AnyObject).value(forKey: "Id") as? Int{
+            CXLog.print(CXDataSaveManager.sharedInstance.isSavedFavourites(postId: "\(dealID)"))
             let parameters = ["DealId":String(dealID),"UserId":CXAppConfig.sharedInstance.getUserID()]
             //{"DealId":"2","UserId":"2"}
             CXDataService.sharedInstance.faveButtonAction(inputDict: parameters)
+            if self.delegate != nil{
+                self.delegate.clickFavButton(delaId: "\(dealID)", indexPath: sender.tag)
+            }
+            
         }
     }
     @IBAction func shareAction(_ sender: UIButton) {
@@ -115,18 +129,20 @@ class DealsDetailsViewController: UIViewController {
     
     func populatedTheData(){
         
-       /* let myString:NSString = CXAppConfig.resultString(self.dealDetailDict.value(forKey: "DealReviewStars") as AnyObject) as NSString
-        if myString.length != 0 {
-            var myMutableString = NSMutableAttributedString()
+        let myString:NSString = CXAppConfig.resultString(self.dealDetailDict.value(forKey: "DealReviewStars") as AnyObject) as NSString
+        let rating = Double(myString as String)
+        self.rattingLbl.text =  "\((rating?.rounded(to: 2))!)/5"  //String((rating?.rounded(to: 2))!)
+       // if myString.length != 0 {
+          /*  var myMutableString = NSMutableAttributedString()
             myMutableString = NSMutableAttributedString(string: myString as String, attributes: [NSFontAttributeName:UIFont(name: "Roboto-Regular", size: 14.0)!])
-            myMutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor.red, range: NSRange(location:2,length:myString.length))
+            myMutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor.red, range: NSRange(location:2,length:myString.length))*/
             // set label Attribute
-            self.rattingLbl.attributedText = myMutableString
-        }*/
+            //self.rattingLbl.attributedText = ""
+       // }
      
         //IsRedeemed
         //reedemBtn
-        //    RedeemCode = W2DEAL011060011029;
+        //RedeemCode = W2DEAL011060011029;
 
         if let RedeemCode = self.dealDetailDict?.value(forKey: "RedeemCode") as? String{
             CXLog.print(RedeemCode)
@@ -264,7 +280,12 @@ extension DealsDetailsViewController: ReviewSubMitDelegate{
     }
 }
 
-
+extension FloatingPoint {
+    func rounded(to n: Int) -> Self {
+        return (self / Self(n)).rounded() * Self(n)
+        
+    }
+}
 
 /*
 extension DealsDetailsViewController: FloatRatingViewDelegate {

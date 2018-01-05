@@ -11,9 +11,11 @@ import UIKit
 class PostAddTableViewCell: UITableViewCell {
 
     @IBOutlet weak var postAddBtn: UIButton!
-    @IBOutlet weak var postAddTextField: UITextField!
+    @IBOutlet weak var postAddTextField: ACFloatingTextfield!
     override func awakeFromNib() {
         super.awakeFromNib()
+        postAddTextField.placeHolderColor = CXAppConfig.sharedInstance.appColor()
+        //8,128,124
         // Initialization code
     }
 

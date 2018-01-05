@@ -116,12 +116,35 @@ extension AboutDeailViewController:UITableViewDataSource,UITableViewDelegate{
             let titleCell = tableView.dequeueReusableCell(withIdentifier: "DealTitleCell") as? DealTitleCell
             titleCell?.dealTitleLbl.text = names
             return titleCell!
-        }else if indexPath.section == 3{
+        }else if indexPath.section == 2{
             let locationCell = tableView.dequeueReusableCell(withIdentifier: "DealLocationCell") as? DealLocationCell
+            var totalAddress = ""
             let dealLocation =  self.dealLocatinDict.lastObject as? NSDictionary
-            locationCell?.locationAddressLbl.setHTML(html: (dealLocation?.value(forKey: "StoreLocationAddress") as? String)!)
+
+            
+            if let storeName = dealLocation?.value(forKey: "StoreLocationName") as? String{
+                totalAddress = storeName + ","
+            }
+            
+            if let phoneNumber = dealLocation?.value(forKey: "ContactPhoneNumber") as? String {
+                 totalAddress = totalAddress + phoneNumber + ","
+            }
+            
+            if let address = dealLocation?.value(forKey: "StoreLocationAddress") as? String{
+                totalAddress = totalAddress + address
+
+            }
+            
+            
+
+            locationCell?.locationAddressLbl.setHTML(html: totalAddress)
               locationCell?.locationBtn.addTarget(self, action:#selector(locationBtnAction(_:)), for: .touchUpInside)
             return locationCell!
+            
+            /*
+             offerCell?.descriptionLbl.backgroundColor = UIColor(red: 254/255, green: 215/255, blue: 167/255, alpha: 1.0)
+
+             */
 
         } else {
             let offerCell = tableView.dequeueReusableCell(withIdentifier: "OfferDetailCell") as? OfferDetailCell
@@ -133,12 +156,14 @@ extension AboutDeailViewController:UITableViewDataSource,UITableViewDelegate{
                 {
                     offerCell?.descriptionLbl.setHTML(html: offerDesription)
                 }
-            }else if indexPath.section == 2{
+            }else if indexPath.section == 3{
                 offerCell?.viewMoreBtn.isHidden = false
                 if let offerDesription = dealDetailDict.value(forKey: "RedeemDescription") as? String
                 {
                     offerCell?.descriptionLbl.setHTML(html: offerDesription)
                 }
+                offerCell?.descriptionLbl.backgroundColor = UIColor(red: 254/255, green: 215/255, blue: 167/255, alpha: 1.0)
+
             }else{
                 //StoreLocationAddress
                 let dealLocation =  self.dealLocatinDict.lastObject as? NSDictionary
@@ -179,7 +204,7 @@ extension AboutDeailViewController:UITableViewDataSource,UITableViewDelegate{
             return 75
         }else if indexPath.section == 1 {
             return UITableViewAutomaticDimension
-        }else if indexPath.section == 3{
+        }else if indexPath.section == 2{
             return 70
         } else{
             return UITableViewAutomaticDimension

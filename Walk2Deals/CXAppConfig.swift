@@ -216,4 +216,11 @@ class CXAppConfig {
 
     }
     
+    func appColor() -> UIColor{
+       
+        return UIColor(red: 8/255, green: 128/255, blue: 124/255, alpha: 1.0)
+    }
+    
 }
+
+

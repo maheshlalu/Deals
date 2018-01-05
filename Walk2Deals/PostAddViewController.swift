@@ -380,7 +380,7 @@ class PostAddViewController: UIViewController,UITableViewDelegate,UITableViewDat
         if itemName == "Upload"{
             return 150
         }
-        return 70
+        return 80
     }
     
     func dateToString(date:Date,isDisplay:Bool) -> String{

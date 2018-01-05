@@ -270,6 +270,7 @@ extension W2DHomeViewController:UITableViewDataSource,UITableViewDelegate{
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         
         let dealDetail = storyBoard.instantiateViewController(withIdentifier: "DealsDetailsViewController") as? DealsDetailsViewController
+        dealDetail?.delegate = self
         
         if let dealID = dataDict?.value(forKey: "Id") as? Int{
             dealDetail?.dealId = String(dealID)
@@ -417,6 +418,12 @@ extension W2DHomeViewController{
         
     }
 
+}
+extension W2DHomeViewController:DealDataDelegate{
+    func clickFavButton(delaId: String, indexPath: Int) {
+        CXLog.print(CXDataSaveManager.sharedInstance.isSavedFavourites(postId: "\(delaId)"))
+        self.homeTbl.reloadRows(at: [IndexPath(row: 0, section: indexPath)], with: .middle)
+    }
 }
 
 

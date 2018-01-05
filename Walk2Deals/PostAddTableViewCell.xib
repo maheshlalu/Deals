@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Verdana.ttf">
+            <string>Verdana</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -18,17 +23,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="56.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jxL-ks-3FR">
-                        <rect key="frame" x="8" y="14" width="304" height="35"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="35" id="rbq-NF-wos"/>
-                        </constraints>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jxL-ks-3FR" customClass="ACFloatingTextfield" customModule="Walk2Deals" customModuleProvider="target">
+                        <rect key="frame" x="3" y="3" width="314" height="50.5"/>
                         <nil key="textColor"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="16"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZR3-Pu-L8c">
-                        <rect key="frame" x="282" y="14" width="30" height="27"/>
+                        <rect key="frame" x="287" y="18.5" width="30" height="27"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="27" id="4HD-Z7-y9V"/>
@@ -36,23 +38,14 @@
                         </constraints>
                         <state key="normal" image="dropDown"/>
                     </button>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yyP-xx-SNl">
-                        <rect key="frame" x="8" y="49" width="304" height="2"/>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="2" id="duV-53-Rdt"/>
-                        </constraints>
-                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="jxL-ks-3FR" secondAttribute="trailing" constant="8" id="H84-wE-Zpe"/>
-                    <constraint firstAttribute="trailing" secondItem="yyP-xx-SNl" secondAttribute="trailing" constant="8" id="T5R-dc-D3o"/>
-                    <constraint firstItem="jxL-ks-3FR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="d4x-SG-dc6"/>
+                    <constraint firstAttribute="trailing" secondItem="jxL-ks-3FR" secondAttribute="trailing" constant="3" id="H84-wE-Zpe"/>
+                    <constraint firstItem="jxL-ks-3FR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="3" id="d4x-SG-dc6"/>
                     <constraint firstItem="ZR3-Pu-L8c" firstAttribute="leading" secondItem="jxL-ks-3FR" secondAttribute="trailing" constant="-30" id="eHj-TZ-Jdb"/>
-                    <constraint firstItem="jxL-ks-3FR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="14" id="f6K-U4-0pM"/>
+                    <constraint firstItem="jxL-ks-3FR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="3" id="f6K-U4-0pM"/>
+                    <constraint firstAttribute="bottom" secondItem="jxL-ks-3FR" secondAttribute="bottom" constant="3" id="t5J-k5-vQd"/>
                     <constraint firstItem="ZR3-Pu-L8c" firstAttribute="top" secondItem="jxL-ks-3FR" secondAttribute="bottom" constant="-35" id="tMD-xk-Isj"/>
-                    <constraint firstItem="yyP-xx-SNl" firstAttribute="top" secondItem="jxL-ks-3FR" secondAttribute="bottom" id="y2N-fB-29W"/>
-                    <constraint firstItem="yyP-xx-SNl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="ymY-bv-qF9"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
