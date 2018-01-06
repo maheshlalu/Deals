@@ -2077,6 +2077,91 @@
             </objects>
             <point key="canvasLocation" x="936" y="500"/>
         </scene>
+        <!--Change Password Vc-->
+        <scene sceneID="Wu7-Ca-fda">
+            <objects>
+                <viewController storyboardIdentifier="ChangePasswordVc" id="SkT-QA-al8" customClass="ChangePasswordVc" customModule="Walk2Deals" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dLi-pG-wMD"/>
+                        <viewControllerLayoutGuide type="bottom" id="VFL-DT-g05"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nvv-Dv-0vP">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nni-tn-28y" customClass="ACFloatingTextfield" customModule="Walk2Deals" customModuleProvider="target">
+                                <rect key="frame" x="35" y="70" width="250" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="K6S-An-mlh"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Old Password"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                        <color key="value" red="0.01176470588" green="0.63137254899999995" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                        <color key="value" red="0.062735356390476227" green="0.062751330435276031" blue="0.062731854617595673" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <textField opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aEe-aQ-fAR" customClass="ACFloatingTextfield" customModule="Walk2Deals" customModuleProvider="target">
+                                <rect key="frame" x="35" y="125" width="250" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="jYP-uE-Nni"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="New Password"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                        <color key="value" red="0.01176470588" green="0.63137254899999995" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                        <color key="value" red="0.062735356390476227" green="0.062751330435276031" blue="0.062731854617595673" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vPe-XF-tKB">
+                                <rect key="frame" x="51" y="185" width="218" height="30"/>
+                                <color key="backgroundColor" red="0.34509803921568627" green="0.63529411764705879" blue="0.77254901960784317" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="WZ0-IM-Vtq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="16"/>
+                                <state key="normal" title="Change Password">
+                                    <color key="titleColor" red="0.99215686270000003" green="0.99607843139999996" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="chnagePwdAction:" destination="SkT-QA-al8" eventType="touchUpInside" id="g0d-Jb-HCJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.96470588235294119" green="0.97254901960784312" blue="0.9882352941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Nni-tn-28y" firstAttribute="top" secondItem="dLi-pG-wMD" secondAttribute="bottom" constant="50" id="2qf-jw-A8n"/>
+                            <constraint firstItem="vPe-XF-tKB" firstAttribute="leading" secondItem="nvv-Dv-0vP" secondAttribute="leadingMargin" constant="35" id="4H4-gC-yU4"/>
+                            <constraint firstItem="aEe-aQ-fAR" firstAttribute="top" secondItem="Nni-tn-28y" secondAttribute="bottom" constant="10" id="C2Q-yc-Obi"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="vPe-XF-tKB" secondAttribute="trailing" constant="35" id="JY6-yL-UEj"/>
+                            <constraint firstItem="aEe-aQ-fAR" firstAttribute="leading" secondItem="nvv-Dv-0vP" secondAttribute="leading" constant="35" id="NR6-co-YYi"/>
+                            <constraint firstAttribute="trailing" secondItem="Nni-tn-28y" secondAttribute="trailing" constant="35" id="O13-Yb-AOx"/>
+                            <constraint firstItem="Nni-tn-28y" firstAttribute="leading" secondItem="nvv-Dv-0vP" secondAttribute="leading" constant="35" id="Omn-fJ-0TD"/>
+                            <constraint firstItem="vPe-XF-tKB" firstAttribute="top" secondItem="aEe-aQ-fAR" secondAttribute="bottom" constant="15" id="VRs-bh-VaO"/>
+                            <constraint firstAttribute="trailing" secondItem="aEe-aQ-fAR" secondAttribute="trailing" constant="35" id="woI-FE-9Ra"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="newPwdTxt" destination="aEe-aQ-fAR" id="7NZ-6k-41p"/>
+                        <outlet property="oldPwdTxt" destination="Nni-tn-28y" id="OnE-0x-qgC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7IR-J4-Ltb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1216.875" y="754.22535211267609"/>
+        </scene>
         <!--My Deals View Controller-->
         <scene sceneID="hgf-FJ-rDh">
             <objects>

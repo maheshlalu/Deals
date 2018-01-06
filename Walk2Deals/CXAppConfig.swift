@@ -126,6 +126,8 @@ class CXAppConfig {
         }
     }
     
+ 
+    
     //getAllLocations
     func getAllLocations() -> String{
         return config!.value(forKey: "getAllLocations") as! String
@@ -219,6 +221,18 @@ class CXAppConfig {
     func appColor() -> UIColor{
        
         return UIColor(red: 8/255, green: 128/255, blue: 124/255, alpha: 1.0)
+    }
+    func savePassword(password:String){
+        UserDefaults.standard.set(password, forKey: "PWD")
+        
+    }
+    
+    func getPassword() -> String{
+        if(UserDefaults.standard.object(forKey: "PWD") == nil){
+            return ""
+        }else{
+            return UserDefaults.standard.value(forKey: "PWD") as! String
+        }
     }
     
 }

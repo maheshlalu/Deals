@@ -264,6 +264,10 @@ extension W2DHomeViewController:UITableViewDataSource,UITableViewDelegate{
         storedOffsets[indexPath.section] = tableViewCell.collectionViewOffset
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if indexPath.section == 0 || indexPath.section == 1 || indexPath.section == 2 {
+            return
+        }
         let dataDict = self.dealsArray[indexPath.section-3] as? NSDictionary
         //Id
         
@@ -372,7 +376,7 @@ extension W2DHomeViewController{
         ///api/Deal/DashboardDeals
         //BaseUrl
         let parameters = ["CurrentDate":CXAppConfig.sharedInstance.dateToString(date: Date(), isDisplay: true),"Latitude":String(self.currentLocation.coordinate.latitude)
-            ,"Longitude":        String(self.currentLocation.coordinate.longitude)
+            ,"Longitude":  String(self.currentLocation.coordinate.longitude)
             ,"UserId":CXAppConfig.sharedInstance.getUserID(),"PageNumber":"\(self.pageNumber)","PageSize":"500"] //PageNumber
         CXDataService.sharedInstance.showLoader(view: self.view, message: "Loading...")
         CXLog.print(parameters)
@@ -388,7 +392,7 @@ extension W2DHomeViewController{
                         return
                     }
                     if self.pageNumber == 1{
-                        self.dealsArray = NSMutableArray(array: deals)
+                        self.dealsArray = NSMutableArray(array: deals.reversed())
                         
                         if let topdeals =  responceDic.value(forKey: "TopDeals") as? NSArray{
                             self.topDealsArray = NSMutableArray(array: topdeals)

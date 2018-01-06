@@ -12,10 +12,10 @@ import AAPopUp
 
 class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     @IBOutlet weak var leftTableview: UITableView!
-    var nameArray = ["Home","Near By Stores","My Deals","Favourites","Invite your friends","Give us Feedback","Request For Ad","Sign Out"]
+    var nameArray = ["Home","Near By Stores","My Deals","Favourites","Invite your friends","Give us Feedback","Request For Ad","Change Password","Sign Out"]
     //"Rewards Points","Settings"
     
-    var imageArray = ["home","nearby","my-deal","fav-menu","invite-fnds","feedBack","","logout"]
+    var imageArray = ["home","nearby","my-deal","fav-menu","invite-fnds","feedBack","","password","logout"]
     //,"rewards-points","settings",
     @IBOutlet weak var userImage: UIImageView!
     var previousSelectedIndex  : IndexPath = IndexPath()
@@ -153,14 +153,16 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
             }
         }else if itemName == "Give us Feedback"{
             //FeedViewController
-            
             popup.present { popup in
                 // MARK:- View Did Appear Here
                 popup.dismissWithTag(9)
-                
-                
             }
-          
+        }else if itemName == "Change Password"{
+            let approveVc : ChangePasswordVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChangePasswordVc") as! ChangePasswordVc
+            let navCntl = UINavigationController(rootViewController: approveVc)
+            navCntl.title = "Change Password"
+            self.present(navCntl, animated: true, completion: {
+            })
         }else{
             let nearByVc = storyBoard.instantiateViewController(withIdentifier: "MyDealsViewController") as! MyDealsViewController
             let navCntl = UINavigationController(rootViewController: nearByVc)

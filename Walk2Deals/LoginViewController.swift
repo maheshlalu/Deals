@@ -103,6 +103,7 @@ class LoginViewController: UIViewController {
                     CXDataSaveManager.sharedInstance.saveTheUserDetailsInDB(userDataDic: JSON(responceDic))
                     let appDelegate = UIApplication.shared.delegate as? AppDelegate
                     appDelegate?.setUpSidePanl()
+                    CXAppConfig.sharedInstance.savePassword(password: self.passwordTxt.text!)
                   //  self.loadLocationView()
                 }else{
                     CXDataService.sharedInstance.showAlert(message: "Something went Wrong!!!", viewController: self)

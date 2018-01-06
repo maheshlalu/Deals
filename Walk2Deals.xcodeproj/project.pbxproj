@@ -96,6 +96,7 @@
 		211BE1FA1FE66242007E17A3 /* DealCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 211BE1F81FE66242007E17A3 /* DealCollectionViewCell.xib */; };
 		211BE1FD1FE681C7007E17A3 /* HomeTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211BE1FB1FE681C7007E17A3 /* HomeTblCell.swift */; };
 		211BE1FE1FE681C7007E17A3 /* HomeTblCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 211BE1FC1FE681C7007E17A3 /* HomeTblCell.xib */; };
+		212DF8781FFFEEA7006A4A25 /* ChangePasswordVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212DF8771FFFEEA7006A4A25 /* ChangePasswordVc.swift */; };
 		2190688A1FEC17A500E1F7AD /* Launch1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219068881FEC17A300E1F7AD /* Launch1ViewController.swift */; };
 		2190688B1FEC17A500E1F7AD /* TutorialPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219068891FEC17A400E1F7AD /* TutorialPageController.swift */; };
 		45FEB2C6DF34E4D5BBC8FF78 /* Pods_Walk2Deals.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C9FA8110221974AAFF3FEE1 /* Pods_Walk2Deals.framework */; };
@@ -236,6 +237,7 @@
 		211BE1F81FE66242007E17A3 /* DealCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DealCollectionViewCell.xib; sourceTree = "<group>"; };
 		211BE1FB1FE681C7007E17A3 /* HomeTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTblCell.swift; sourceTree = "<group>"; };
 		211BE1FC1FE681C7007E17A3 /* HomeTblCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTblCell.xib; sourceTree = "<group>"; };
+		212DF8771FFFEEA7006A4A25 /* ChangePasswordVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordVc.swift; sourceTree = "<group>"; };
 		219068881FEC17A300E1F7AD /* Launch1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Launch1ViewController.swift; sourceTree = "<group>"; };
 		219068891FEC17A400E1F7AD /* TutorialPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialPageController.swift; sourceTree = "<group>"; };
 		21AE54001FE43B6C00CFEE33 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
@@ -549,6 +551,7 @@
 				187D5B1A1F764DE900A5E250 /* Walk2Deals-Bridging-Header.h */,
 				187D5B231F764F2C00A5E250 /* LeftViewController.swift */,
 				18437E5E1F908C90003B9631 /* NearByDealsViewController.swift */,
+				212DF8771FFFEEA7006A4A25 /* ChangePasswordVc.swift */,
 			);
 			name = SidePanel;
 			sourceTree = "<group>";
@@ -1031,6 +1034,7 @@
 				184139751F6FF7EA00B73595 /* ViewController.swift in Sources */,
 				21195E421FF5E595006806DD /* DemoPopUp.swift in Sources */,
 				122549851FA05C4A001D38F2 /* SelectionViewController.swift in Sources */,
+				212DF8781FFFEEA7006A4A25 /* ChangePasswordVc.swift in Sources */,
 				12E8878E1F83EC4E00335823 /* LoginViewController.swift in Sources */,
 				18437E6A1F90B13E003B9631 /* LFLocationService.swift in Sources */,
 				122549901FA08296001D38F2 /* UIImage+SHAdditions.m in Sources */,
