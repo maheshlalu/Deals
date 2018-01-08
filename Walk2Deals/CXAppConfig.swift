@@ -218,10 +218,30 @@ class CXAppConfig {
 
     }
     
+    func stringToDataWithMonthAndDate(dateString:String) -> String{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"/* date_format_you_want_in_string from
+         * http://userguide.icu-project.org/formatparse/datetime
+         */
+        let date = dateFormatter.date(from: dateString)
+        //2017-10-26T00:00:00
+        //let isoDate = "2016-04-14T10:44:00+0000"
+        dateFormatter.dateFormat = "MMM d, yyyy"/* date_format_you_want_in_string from*/
+        return dateFormatter.string(from: date!)
+        
+    }
+    
     func appColor() -> UIColor{
        
         return UIColor(red: 8/255, green: 128/255, blue: 124/255, alpha: 1.0)
     }
+    
+    
+    func offerBgColr() -> UIColor{
+        
+        return UIColor(red: 17/255, green: 80/255, blue: 171/255, alpha: 0.7)
+    }
+    
     func savePassword(password:String){
         UserDefaults.standard.set(password, forKey: "PWD")
         

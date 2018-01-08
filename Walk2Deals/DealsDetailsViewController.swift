@@ -214,6 +214,24 @@ class DealsDetailsViewController: UIViewController {
             self.pagerView.checkWetherToToggleSlideshowTimer()
             self.pagerView.slideshowTimeInterval = 3
             self.pagerView.reloadData()
+            
+            
+            let frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 50)
+            let ecpDateLbl = UILabel(frame: frame)
+            ecpDateLbl.backgroundColor = CXAppConfig.sharedInstance.offerBgColr()
+            ecpDateLbl.textColor = UIColor.white
+            ecpDateLbl.font = UIFont(name: "Verdana", size: 15)
+            
+            
+            if let strdDate = dealDetailDict.value(forKey: "StartDate") as? String , let endDate = dealDetailDict.value(forKey: "EndDate") as? String {
+                let validStr = "Valid From:\(CXAppConfig.sharedInstance.stringToDataWithMonthAndDate(dateString: strdDate)) - \(CXAppConfig.sharedInstance.stringToDataWithMonthAndDate(dateString: endDate))"
+                //self.dealOfferDate.text = validStr
+                ecpDateLbl.text =  validStr
+                //self.dealOfferDate.backgroundColor = UIColor(white: 1, alpha: 0.5)
+                
+            }
+            
+            self.pagerView.scrollView.addSubview(ecpDateLbl)
            // self.pagerView.addSubview(self.dealOfferDate)
         }
     }
