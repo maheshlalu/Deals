@@ -444,7 +444,7 @@ class PostAddViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         let offerTitle = self.getTextFiled(row: 3, section: 0).postAddTextField.text
         let offerDescription = self.getTextFiled(row: 4, section: 0).postAddTextField.text
-    
+        
         if (offerTitle?.isEmpty)! {
             CXDataService.sharedInstance.showAlert(message: "Pleae Enter Offer Title", viewController: self)
             return
@@ -459,21 +459,21 @@ class PostAddViewController: UIViewController,UITableViewDelegate,UITableViewDat
             CXDataService.sharedInstance.showAlert(message: "Pleae Select Start Date", viewController: self)
             return
         }
-
+        
         if self.endDateStr.isEmpty {
             CXDataService.sharedInstance.showAlert(message: "Pleae Select End Date", viewController: self)
             return
         }
         
-
+        
         
         
         if self.uploadImgview.image == nil {
             CXDataService.sharedInstance.showAlert(message: "Pleae Select Post Image", viewController: self)
-return
+            return
         }
         let imageData: Data = UIImagePNGRepresentation(self.uploadImgview.image!) as! Data
-
+        
         
         
         let mainDict = NSMutableDictionary()
@@ -489,7 +489,7 @@ return
             array.add(["DealCategories":dic?.value(forKey: "Id")])
         }
         
-
+        
         //let array = [dict]
         mainDict["DealCategories"] = array
         
@@ -505,16 +505,16 @@ return
         //let inputDic = ["DealCoreEntity":self.constructTheJson(ticketsInput: mainDict),"2":""]
         
         CXDataService.sharedInstance.showLoader(view: self.view, message: "Uploading...")
-        CXDataService.sharedInstance.updateTheProfileAndAddThePostAdd(mainDict: mainDict, jsonKeyName: "DealCoreEntity", imageData: imageData as Data, imageKey: CXAppConfig.resultString(self.selectedStore.value(forKey: "Id") as AnyObject), urlString: "http://api.walk2deals.com/api/Deal/Save") { (responce) in
+        CXDataService.sharedInstance.updateTheProfileAndAddThePostAdd(mainDict: mainDict, jsonKeyName: "DealCoreEntity", imageData: imageData as Data, imageKey: CXAppConfig.resultString(self.selectedStore.value(forKey: "StoreId") as AnyObject), urlString: "http://api.walk2deals.com/api/Deal/Save") { (responce) in
             CXDataService.sharedInstance.hideLoader()
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reloadData"), object: nil)
             self.view.makeToast(message: "Uploaded Successfully")
             self.backAction(sender: UIButton())
             CXLog.print(responce)
         }
- 
+        
         /*
-       yyyy-MM-dd
+         yyyy-MM-dd
          DealCoreEntity =  {
          "OfferTitle": "test",
          "OfferDescription": "test",

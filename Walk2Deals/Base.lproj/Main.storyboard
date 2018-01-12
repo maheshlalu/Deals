@@ -1735,23 +1735,13 @@
                                 <rect key="frame" x="0.0" y="518" width="320" height="50"/>
                                 <subviews>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UQE-Kt-EUS">
-                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="50"/>
+                                        <rect key="frame" x="0.0" y="-518" width="0.0" height="34"/>
                                         <color key="backgroundColor" red="0.34509803921568627" green="0.63529411764705879" blue="0.77254901960784317" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Reedem">
                                             <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="reedemBtnAction:" destination="BsZ-Xv-DO6" eventType="touchUpInside" id="8uw-vU-j3W"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RD9-HP-qm6">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
-                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                        <state key="normal" title="Write Review" image="pen">
-                                            <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="writeReviewBtnAction:" destination="BsZ-Xv-DO6" eventType="touchUpInside" id="Obl-95-0Si"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1800,13 +1790,14 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="leftStackWidth" destination="SmT-C2-Lcz" id="be3-Xi-Se4"/>
                         <outlet property="mapBtn" destination="Kz3-EQ-X33" id="RAm-Ck-Raz"/>
                         <outlet property="pagerHeight" destination="1rf-Zt-Yuj" id="uJb-84-wej"/>
                         <outlet property="pagerView" destination="a2w-TJ-Bf8" id="SxQ-YS-BBV"/>
                         <outlet property="rattingLbl" destination="zwN-nA-2I7" id="Djz-3S-FlB"/>
                         <outlet property="rattingView" destination="kdZ-XW-OHF" id="AJH-d5-QuW"/>
                         <outlet property="reedemBtn" destination="UQE-Kt-EUS" id="XsI-4T-H43"/>
-                        <outlet property="writeReviewBtn" destination="RD9-HP-qm6" id="57b-fL-ili"/>
+                        <outlet property="writeReviewBtn" destination="Syn-he-SB6" id="00c-mo-o0T"/>
                         <outlet property="writeReviewHeight" destination="44G-dx-i6q" id="vwY-Xd-pbG"/>
                     </connections>
                 </viewController>
@@ -2353,7 +2344,6 @@
         <image name="enter-mobile-no" width="150" height="150"/>
         <image name="like" width="35" height="32"/>
         <image name="logo" width="150" height="150"/>
-        <image name="pen" width="25" height="25"/>
         <image name="share" width="50" height="50"/>
         <image name="step1" width="80" height="77"/>
         <image name="step2" width="80" height="77"/>

@@ -28,6 +28,7 @@ class DealsDetailsViewController: UIViewController {
     @IBOutlet weak var pagerHeight: NSLayoutConstraint!
     @IBOutlet weak var writeReviewHeight: NSLayoutConstraint!
     
+    @IBOutlet var leftStackWidth: NSLayoutConstraint!
     @IBOutlet weak var reedemBtn: UIButton!
     
     @IBOutlet weak var dealOfferDate: UILabel!
@@ -91,7 +92,7 @@ class DealsDetailsViewController: UIViewController {
     
     func getDealDataByID(){
         CXDataService.sharedInstance.showLoader(view: self.view, message: "Loading...")
-       // http://api.walk2deals.com/api/Deal/GetById/2
+       // http://api.walk2deals.com/api/Deal/GetById/2/34
         let otpUrlString = CXAppConfig.sharedInstance.getBaseUrl() + CXAppConfig.sharedInstance.getDealByIDUrl() + "\(self.dealId!)" + "/" + "\(CXAppConfig.sharedInstance.getUserID())"
         CXDataService.sharedInstance.getTheDataFromServer(urlString: otpUrlString, completion: { (responceDic) in
             CXLog.print(" deail deatil dic\(responceDic)")
@@ -152,11 +153,11 @@ class DealsDetailsViewController: UIViewController {
         }
         //ShowAddReview
         
-       /* if  CXAppConfig.resultString(self.dealDetailDict?.value(forKey: "ShowAddReview") as AnyObject) == "1" {
-            self.writeReviewBtn.isHidden = true
-        }else{
+        if  CXAppConfig.resultString(self.dealDetailDict?.value(forKey: "ShowAddReview") as AnyObject) == "1" {
             self.writeReviewBtn.isHidden = false
-        }*/
+        }else{
+            self.writeReviewBtn.isHidden = true
+        }
         
         
         if  CXAppConfig.resultString(self.dealDetailDict?.value(forKey: "UserFavDeal") as AnyObject) == "1" {
